@@ -1,7 +1,5 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-// import googleButton from './google_signin_buttons/web/1x/btn_google_signin_dark_disabled_web.png'
-import googleButton from './google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png'
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class LoginForm extends Component {
 	constructor() {
@@ -46,6 +44,8 @@ class LoginForm extends Component {
 							value={this.state.username}
 							onChange={this.handleChange}
 						/>
+						<br/>
+						<br/>
 						<label htmlFor="password">Password: </label>
 						<input
 							type="password"
@@ -53,12 +53,10 @@ class LoginForm extends Component {
 							value={this.state.password}
 							onChange={this.handleChange}
 						/>
+						<br/>
+						<br/>
 						<button onClick={this.handleSubmit}>Login</button>
 					</form>
-					<a href="/auth/google">
-						{/* <GoogleButton /> */}
-						<img src={googleButton} alt="sign into Google Button" />
-					</a>
 				</div>
 			)
 		}

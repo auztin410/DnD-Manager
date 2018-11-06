@@ -1,26 +1,21 @@
 import React from 'react'
-// TODO - add proptypes
 
 const Home = props => {
 	if (props.user) {
 		return (
 			<div className="Home">
-				<p>Current User:</p>
-				<code>
-					{JSON.stringify(props)}
-				</code>
+			<br/>
+				Welcome to DnD Game Manager!
 			</div>
 		)
 	} else {
 		return (
 			<div className="Home">
-				<p>Current User:</p>
-				<code>
-					{JSON.stringify(props)}
-				</code>
+			<br/>
+				Welcome to DnD Game Manager!
 			</div>
 		)
 	}
 }
 
-export default Home
+export default Home;

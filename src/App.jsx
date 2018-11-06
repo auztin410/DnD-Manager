@@ -1,50 +1,50 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
-import './App.css'
-import LoginForm from './components/Login/LoginForm'
-import SignupForm from './components/SignupForm'
-import Header from './components/Header'
-import Home from './components/Home'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
+import './App.css';
+import LoginForm from './components/Login/LoginForm';
+import SignupForm from './components/SignupForm';
+import Header from './components/Header';
+import Home from './components/Home';
+import Main from './components/Main';
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
 			<nav className="navbar">
-				<ul className="nav">
-					<li className="nav-item">
-						<Link to="/" className="nav-link">
+				
+						<Link to="/">
 							Home
 						</Link>
-					</li>
-					<li>
-						<Link to="#" className="nav-link" onClick={props._logout}>
+					{" "}
+					
+						<Link to="/main">
+							Main
+						</Link>
+					{" "}
+						<Link to="#" onClick={props._logout}>
 							Logout
 						</Link>
-					</li>
-				</ul>
+					
+					
 			</nav>
 		)
 	} else {
 		return (
 			<nav className="navbar">
-				<ul className="nav">
-					<li className="nav-item">
+				
 						<Link to="/" className="nav-link">
 							Home
 						</Link>
-					</li>
-					<li className="nav-item">
+					{" "}
 						<Link to="/login" className="nav-link">
 							login
 						</Link>
-					</li>
-					<li className="nav-item">
+					{" "}
 						<Link to="/signup" className="nav-link">
 							sign up
 						</Link>
-					</li>
-				</ul>
+				
 			</nav>
 		)
 	}
@@ -113,7 +113,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>This is the main App component</h1>
+				<h1 className="header">Dungeons and Dragons Game Manager</h1>
 				<Header user={this.state.user} />
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
@@ -130,7 +130,8 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
-				{/* <LoginForm _login={this._login} /> */}
+				
+				<Route exact path="/main" component={Main} />
 			</div>
 		)
 	}
