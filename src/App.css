@@ -22,7 +22,7 @@
 }
 
 .npc {
-  background-color:rgb(187, 179, 137);
+  background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
   width: 25vw;
 }
 
@@ -43,6 +43,6 @@
 }
 
 .bigEvent {
-  background-color:rgb(187, 179, 137);
+  background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
   width: 25vw;
 }
