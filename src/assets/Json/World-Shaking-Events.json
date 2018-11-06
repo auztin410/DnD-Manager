@@ -1,0 +1,47 @@
+{
+    "Event": [
+        "Rise of a leader or an era",
+        "Fall of a leader or an era",
+        "Cataclysmic disaster",
+        "Assault or invasion",
+        "Rebellion, revolution, overthrow",
+        "Extinction or depletion",
+        "New organization",
+        "Discovery, expansion, invention",
+        "Prediction, omen, prophecy",
+        "Myth and legend"
+    ],
+    "Leader": [
+        "Political",
+        "Religious",
+        "Military",
+        "Crime/underworld",
+        "Art/culture",
+        "Philosophy/learning/magic"
+    ],
+    "Disaster": [
+        "Earthquake",
+        "Famine,drought",
+        "Fire",
+        "Flood",
+        "Plague/disease",
+        "Rain of fire (meteoric impact)",
+        "Storm (hurricane, tornado, tsunami)",
+        "Volcanic eruption",
+        "Magic gone awry or planar warp",
+        "Divine judgement"
+    ],
+    "Invasion": [
+        "A criminal enterprise",
+        "Monsters or a unique monster",
+        "A planar threat",
+        "A past adversary reawakened, reborn, or resurgent",
+        "A splinter faction",
+        "A savage tribe",
+        "A secret society",
+        "A traitorous ally"
+    ],
+    "Extinction": [
+        ""
+    ]
+}

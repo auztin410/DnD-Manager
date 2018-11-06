@@ -1,0 +1,229 @@
+[
+    {
+        "Name": "Asmodeus, god of tyranny",
+        "Alignment": [
+            "Lawful",
+            "Evil"
+        ],
+        "Domains": [
+            "Trickery"
+        ],
+        "Symbol": "Three triangles in tight formation"
+    },
+    {
+        "Name": "Avandra, goddess of change and luck",
+        "Alignment": [
+            "Chaotic",
+            "Good"
+        ],
+        "Domains": [
+            "Trickery"
+        ],
+        "Symbol": "Three stacked wavy lines"
+    },
+    {
+        "Name": "Bahamut, god of justice and nobility",
+        "Alignment": [
+            "Lawful",
+            "Good"
+        ],
+        "Domains": [
+            "Life",
+            "War"
+        ],
+        "Symbol": "Dragon's head, in profile, facing left"
+    },
+    {
+        "Name": "Bane, god of war and conquest",
+        "Alignment": [
+            "Lawful",
+            "Evil"
+        ],
+        "Domains": [
+            "War"
+        ],
+        "Symbol": "Claw with three talons pointing down"
+    },
+    {
+        "Name": "Corellon, god of magic and the arts",
+        "Alignment": [
+            "Chaotic",
+            "Good"
+        ],
+        "Domains": [
+            "Light"
+        ],
+        "Symbol": "Eight-pointed star"
+    },
+    {
+        "Name": "Erathis, goddess of civilization and invention",
+        "Alignment": [
+            "Lawful",
+            "Neutral"
+        ],
+        "Domains": [
+            "Knowledge"
+        ],
+        "Symbol": "Upper half of a clockwork gear"
+    },
+    {
+        "Name": "Gruumsh, god of destruction",
+        "Alignment": [
+            "Chaotic",
+            "Evil"
+        ],
+        "Domains": [
+            "Tempest",
+            "War"
+        ],
+        "Symbol": "Triangular eye with bony protrusions"
+    },
+    {
+        "Name": "Ioun, goddess of knowledge",
+        "Alignment": [
+            "Neutral"
+        ],
+        "Domains": [
+            "Knowledge"
+        ],
+        "Symbol": "Crook shaped like a stylized eye."
+    },
+    {
+        "Name": "Kord, god of strength and storms",
+        "Alignment": [
+            "Chaotic",
+            "Neutral"
+        ],
+        "Domains": [
+            "Tempest"
+        ],
+        "Symbol": "Sword with a lightning bolt cross guard"
+    },
+    {
+        "Name": "Lolth, goddess of spiders and lies",
+        "Alignment": [
+            "Chaotic",
+            "Evil"
+        ],
+        "Domains": [
+            "Trickery"
+        ],
+        "Symbol": "Eight-pointed star with a web motif"
+    },
+    {
+        "Name": "Melora, goddess off wilderness and the sea",
+        "Alignment": [
+            "Neutral"
+        ],
+        "Domains": [
+            "Nature",
+            "Tempest"
+        ],
+        "Symbol": "Wavelike swirl"
+    },
+    {
+        "Name": "Moradin, god of creation",
+        "Alignment": [
+            "Lawful",
+            "Good"
+        ],
+        "Domains": [
+            "Knowledge",
+            "War"
+        ],
+        "Symbol": "Flaming anvil"
+    },
+    {
+        "Name": "Pelor, god of the sun and agriculture",
+        "Alignment": [
+            "Neutral",
+            "Good"
+        ],
+        "Domains": [
+            "Life",
+            "Light"
+        ],
+        "Symbol": "Circle with six outwardly radiating points"
+    },
+    {
+        "Name": "Rave Queen, goddess of death",
+        "Alignment": [
+            "Lawful",
+            "Neutral"
+        ],
+        "Domains": [
+            "Life",
+            "Death"
+        ],
+        "Symbol": "Raven's head, in profile, facing left"
+    },
+    {
+        "Name": "Sehanine, goddess of the moon",
+        "Alignment": [
+            "Chaotic",
+            "Good"
+        ],
+        "Domains": [
+            "Trickery"
+        ],
+        "Symbol": "Crescent moon"
+    },
+    {
+        "Name": "Tharizdun, god of madness",
+        "Alignment": [
+            "Chaotic",
+            "Evil"
+        ],
+        "Domains": [
+            "Trickery"
+        ],
+        "Symbol": "Jagged counter-clockwise spiral"
+    },
+    {
+        "Name": "Tiamat, goddess of wealth, greed, and vengeance",
+        "Alignment": [
+            "Lawful",
+            "Evil"
+        ],
+        "Domains": [
+            "Trickery",
+            "War"
+        ],
+        "Symbol": "Five-pointed star with curved points"
+    },
+    {
+        "Name": "Torog, god of the Underdark",
+        "Alignment": [
+            "Neutral",
+            "Evil"
+        ],
+        "Domains": [
+            "Death"
+        ],
+        "Symbol": "T attached to a circular shackle"
+    },
+    {
+        "Name": "Vecna, god of evil secrets",
+        "Alignment": [
+            "Neutral",
+            "Evil"
+        ],
+        "Domains": [
+            "Death",
+            "Knowledge"
+        ],
+        "Symbol": "Partially shattered one-eyed skull"
+    },
+    {
+        "Name": "Zehir, god of darkness and poison",
+        "Alignment": [
+            "Chaotic",
+            "Evil"
+        ],
+        "Domains": [
+            "Trickery",
+            "Death"
+        ],
+        "Symbol": "Snake in the shape of a dagger"
+    }
+]
