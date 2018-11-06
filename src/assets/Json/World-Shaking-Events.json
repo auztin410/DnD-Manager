@@ -42,6 +42,34 @@
         "A traitorous ally"
     ],
     "Extinction": [
-        ""
+        "A kind of animal (insect, bird, fish, livestock",
+        "Habitable land",
+        "Magic or magic-users (all magic, or specific kinds or school of magic)",
+        "A mineral resource (gems, metals, ores)",
+        "A people (family line, clan, culture, race)",
+        "A kind of plant (crop, tree, herb, forest)",
+        "A waterway (river, lake, ocean)"
+    ],
+    "Organization": [
+        "Crime syndicate/bandit confederacy",
+        "Guild (masons, apothecaries, goldsmiths)",
+        "Magical circle/society",
+        "Military/knightly order",
+        "New family dynasty/tribe/clan",
+        "Philosophy/discipline dedicated to a principle or ideal",
+        "Realm (village, town, duchy, kingdom)",
+        "School/university",
+        "Secret society/cult/cabal"
+    ],
+    "Discovery": [
+        "Ancient ruin/lost city of legendary race",
+        "Animal/monster/magical mutation",
+        "Invention/technology/magic (helpful, destructive)",
+        "New (or forgotten) god of planar entity",
+        "New (or rediscovered) artifact or religious relic",
+        "Otherworldly object (planar portal, alien spacecraft",
+        "People (race, tribe, lost civilization, colony)",
+        "Plant (miracle herb, fungal parasite, sentient plant)",
+        "Resource or wealth (gold, gems, mithral)"
     ]
 }

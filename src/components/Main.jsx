@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NpcGenerator from '../assets/Json/NpcGenerator';
 import Npc from './Npc';
+import WorldEventGenerator from '../assets/Json/World-Shaking-Events';
+import WorldShakingEvent from './WorldShakingEvent';
 
 class Main extends Component {
     constructor() {
@@ -11,9 +13,13 @@ class Main extends Component {
             user: null,
             npc: [],
             npcComponent: false,
+            worldShakingEvent: null,
+            worldShakingDetails: null,
+            worldShakingComponent: false,
         }
 
         this.handleNpcGenerator = this.handleNpcGenerator.bind(this);
+        this.handleWorldShakingEvent = this.handleWorldShakingEvent.bind(this);
     }
 
     componentDidMount() {
@@ -50,44 +56,108 @@ class Main extends Component {
             npc: {name, appearance, highAbility, lowAbility, talents, mannerism, trait, ideals, bonds, flawsSecrets},
             npcComponent: true,
         });
+    };
+
+    handleWorldShakingEvent(event) {
+        let bigEvent = WorldEventGenerator.Event[Math.floor(Math.random()*WorldEventGenerator.Event.length)];
+        if(bigEvent === "Rise of a leader or an era" || bigEvent === "Fall of a leader or an era") {
+            let details = WorldEventGenerator.Leader[Math.floor(Math.random()*WorldEventGenerator.Leader.length)];
+            this.setState({
+                worldShakingEvent: bigEvent,
+                worldShakingDetails: details,
+                worldShakingComponent: true,
+            });
+        }
+        else if(bigEvent === "Cataclysmic disaster") {
+            let details = WorldEventGenerator.Disaster[Math.floor(Math.random()*WorldEventGenerator.Disaster.length)];
+            this.setState({
+                worldShakingEvent: bigEvent,
+                worldShakingDetails: details,
+                worldShakingComponent: true,
+            });
+        }
+        else if(bigEvent === "Assault or invasion") {
+            let details = WorldEventGenerator.Invasion[Math.floor(Math.random()*WorldEventGenerator.Invasion.length)];
+            this.setState({
+                worldShakingEvent: bigEvent,
+                worldShakingDetails: details,
+                worldShakingComponent: true,
+            });
+        }
+        else if(bigEvent === "Extinction or depletion") {
+            let details = WorldEventGenerator.Extinction[Math.floor(Math.random()*WorldEventGenerator.Extinction.length)];
+            this.setState({
+                worldShakingEvent: bigEvent,
+                worldShakingDetails: details,
+                worldShakingComponent: true,
+            });
+        }
+        else if(bigEvent === "New organization") {
+            let details = WorldEventGenerator.Organization[Math.floor(Math.random()*WorldEventGenerator.Organization.length)];
+            this.setState({
+                worldShakingEvent: bigEvent,
+                worldShakingDetails: details,
+                worldShakingComponent: true,
+            });
+        }
+        else if(bigEvent === "Discovery, expansion, invention") {
+            let details = WorldEventGenerator.Discovery[Math.floor(Math.random()*WorldEventGenerator.Discovery.length)];
+            this.setState({
+                worldShakingEvent: bigEvent,
+                worldShakingDetails: details,
+                worldShakingComponent: true,
+            });
+        }
+        else {
+            this.setState({
+                worldShakingEvent: bigEvent,
+                worldShakingDetails: null,
+                worldShakingComponent: true,
+            });
+        }
+        
     }
     
     render() {
-        if (this.state.npcComponent === false) {
+        if (this.state.npcComponent === true) {
             return (
-                <div className="main">
-                    <button onClick={this.handleNpcGenerator}>NPC Generator</button>
-                </div>
-            )
-        }
-        else if (this.state.npcComponent === true) {
-            return (
+                <div>
                 <div className="main">
                     <button onClick={this.handleNpcGenerator}>NPC Generator</button>
                     <br/>
                     <br/>
                     <Npc npc={this.state.npc}/>
-                    {/* <div>
-                        Name: {this.state.npc.name}
-                        <br/>
-                        Appearance: {this.state.npc.appearance}
-                        <br/>
-                        High ability: {this.state.npc.highAbility}
-                        <br/>
-                        Low ability: {this.state.npc.lowAbility}
-                        <br/>
-                        Talent: {this.state.npc.talents}
-                        <br/>
-                        Mannerism: {this.state.npc.mannerism}
-                        <br/>
-                        Trait: {this.state.npc.trait}
-                        <br/>
-                        Ideal: {this.state.npc.ideals}
-                        <br/>
-                        Bond: {this.state.npc.bonds}
-                        <br/>
-                        Flaws and secret: {this.state.npc.flawsSecrets}
-                    </div> */}
+                </div>
+                <div>
+                    <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
+                </div>
+                </div>
+            )
+        }
+        else if (this.state.worldShakingComponent === true) {
+            return (
+                <div>
+                <div className="main">
+                    <button onClick={this.handleNpcGenerator}>NPC Generator</button>
+                </div>
+                <div>
+                    <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
+                    <br/>
+                    <br/>
+                    <WorldShakingEvent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails}/>
+                </div>
+                </div>
+            )
+        }
+        else if (this.state.npcComponent === false) {
+            return (
+                <div>
+                <div className="main">
+                    <button onClick={this.handleNpcGenerator}>NPC Generator</button>
+                </div>
+                <div>
+                    <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
+                </div>
                 </div>
             )
         }
