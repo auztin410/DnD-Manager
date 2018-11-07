@@ -16,11 +16,17 @@ class Main extends Component {
             worldShakingEvent: null,
             worldShakingDetails: null,
             worldShakingComponent: false,
+            individualLoot: "Challenge0-4",
+            individualLootCurrency: "",
+            individualLootResult: "",
+            rollResult: 0,
         }
 
+        this.handleChange = this.handleChange.bind(this);
         this.handleNpcGenerator = this.handleNpcGenerator.bind(this);
         this.handleWorldShakingEvent = this.handleWorldShakingEvent.bind(this);
-        this.handleDiceRoll = this.handleDiceRoll.bind(this);
+        this.DiceRoll = this.DiceRoll.bind(this);
+        this.handleRoll = this.handleRoll.bind(this);
     }
 
     componentDidMount() {
@@ -39,6 +45,12 @@ class Main extends Component {
                 })
             }
         })
+    };
+
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     };
 
     handleNpcGenerator(event) {
@@ -119,22 +131,85 @@ class Main extends Component {
 
     };
 
-    handleDiceRoll() {
-        var sides = 6;
-        var times = 5;
-        var array = [];
+    DiceRoll(sides, times) {
+        var allRolls = [];
         var i;
                 for (i = 0; i < times; i++) {
-                    var randomNumber = Math.floor(Math.random() * sides) + 1;
-                    array.push(randomNumber); 
+                    var roll = Math.floor(Math.random() * sides) + 1;
+                    allRolls.push(roll); 
                 }
-        console.log(array);
-        var sum = array.reduce(add, 0);
+        var result = allRolls.reduce(add, 0);
         function add(a, b) {
             return a + b;
         }
-        console.log(sum);
+        this.setState({
+            rollResult: result,
+        });
         };
+
+        handleRoll(event) {
+            event.preventDefault();
+            this.DiceRoll(100, 1);
+            switch(this.state.individualLoot) {
+                case "Challenge0-4":
+                if(this.state.rollResult <= 30) {
+                    this.DiceRoll(5, 6);
+                    let result = this.state.rollResult;
+                    console.log(result);
+                    this.setState({
+                        individualLootCurrency: "CP",
+                        individualLootResult: result,
+                    });
+                }
+                else if(this.state.rollResult <= 60) {
+                    this.DiceRoll(4, 6);
+                    let result = this.state.rollResult;
+                    this.setState({
+                        individualLootCurrency: "SP",
+                        individualLootResult: result,
+                    });
+                }
+                else if(this.state.rollResult <= 70) {
+                    this.DiceRoll(3, 6);
+                    let result = this.state.rollResult;
+                    this.setState({
+                        individualLootCurrency: "EP",
+                        individualLootResult: result,
+                    });
+                }
+                else if(this.state.rollResult <= 95) {
+                    this.DiceRoll(3, 6);
+                    let result = this.state.rollResult;
+                    this.setState({
+                        individualLootCurrency: "GP",
+                        individualLootResult: result,
+                    });
+                }
+                else if(this.state.rollResult >= 96) {
+                    this.DiceRoll(1, 6);
+                    let result = this.state.rollResult;
+                    this.setState({
+                        individualLootCurrency: "PP",
+                        individualLootResult: result,
+                    });
+                }
+                else {
+                    console.log("You broke it!");
+                }
+                break;
+                case "Challenge5-10":
+                console.log("not built yet!");
+                break;
+                case "Challenge11-16":
+                console.log("not built yet!");
+                break;
+                case "Challenge17+":
+                console.log("not built yet!");
+                break;
+                default:
+                console.log("Default was hit!")
+            }
+        }
 
     render() {
         if (this.state.npcComponent === true) {
@@ -177,7 +252,16 @@ class Main extends Component {
                         <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
                     </div>
                     <div>
-                        <button onClick={this.handleDiceRoll}>Dice Roll!</button>
+                        <form>
+                            <select name="individualLoot" onChange={this.handleChange}>
+                                <option value="Challenge0-4">Challenge 0-4</option>
+                                <option value="Challenge5-10">Challenge 5-10</option>
+                                <option value="Challenge11-16">Challenge 11-16</option>
+                                <option value="Challenge17+">Challenge 17+</option>
+                            </select>
+                        <button onClick={this.handleRoll}>Dice Roll!</button>
+                        </form>
+                        Individual Loot: {this.state.individualLootResult} {" "} {this.state.individualLootCurrency}
                     </div>
                 </div>
             )
