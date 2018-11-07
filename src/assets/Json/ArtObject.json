@@ -1,0 +1,204 @@
+{
+    "25Gp": [
+        {
+            "Name": "Silver ewer",
+            "Value": 25
+        },
+        {
+            "Name": "Carved bone statuette",
+            "Value": 25
+        },
+        {
+            "Name": "Small gold bracelet",
+            "Value": 25
+        },
+        {
+            "Name": "Cloth-of-gold vestments",
+            "Value": 25
+        },
+        {
+            "Name": "Black velvet mask stitched with silver thread",
+            "Value": 25
+        },
+        {
+            "Name": "Copper chalice with silver filigree",
+            "Value": 25
+        },
+        {
+            "Name": "Pair of engraved bone dice",
+            "Value": 25
+        },
+        {
+            "Name": "Small mirror set in a painted wooden frame",
+            "Value": 25
+        },
+        {
+            "Name": "Embroidered silk handkerchief",
+            "Value": 25
+        },
+        {
+            "Name": "Gold locket with painted portrait inside",
+            "Value": 25
+        }
+    ],
+    "250Gp": [
+        {
+            "Name": "Gold ring set with bloodstones",
+            "Value": 250
+        },
+        {
+            "Name": "Carved ivory statuette",
+            "Value": 250
+        },
+        {
+            "Name": "Large gold bracelet",
+            "Value": 250
+        },
+        {
+            "Name": "Silver necklace with gemstone pendant",
+            "Value": 250
+        },
+        {
+            "Name": "Bronze crown",
+            "Value": 250
+        },
+        {
+            "Name": "Silk robe with gold embroidery",
+            "Value": 250
+        },
+        {
+            "Name": "Large well-made tapestry",
+            "Value": 250
+        },
+        {
+            "Name": "Brass mug with jade inlay",
+            "Value": 250
+        },
+        {
+            "Name": "Box of turquoise animal figurines",
+            "Value": 250
+        },
+        {
+            "Name": "Gold bird cage with electrum filigree",
+            "Value": 250
+        }
+    ],
+    "750Gp": [
+        {
+            "Name": "Silver chalice set with moonstones",
+            "Value": 750
+        },
+        {
+            "Name": "Silver-plated steel longsword with jet set in hilt",
+            "Value": 750
+        },
+        {
+            "Name": "Carved hard of exotic wood with ivory inlay and zircon gems",
+            "Value": 750
+        },
+        {
+            "Name": "Small gold idol",
+            "Value": 750
+        },
+        {
+            "Name": "Gold dragon comb set with red garnet eyes",
+            "Value": 750
+        },
+        {
+            "Name": "Bottle stopper cork embossed with gold leaf and set with amethysts",
+            "Value": 750
+        },
+        {
+            "Name": "Ceremonial electrum dagger with black pearl in the pommel",
+            "Value": 750
+        },
+        {
+            "Name": "Silver and gold brooch",
+            "Value": 750
+        },
+        {
+            "Name": "Obsidian statuette with gold fittings and inlay",
+            "Value": 750
+        },
+        {
+            "Name": "Painted gold war mask",
+            "Value": 750
+        }
+    ],
+    "2500Gp": [
+        {
+            "Name": "Fine gold chain set with a fire opal",
+            "Value": 2500
+        },
+        {
+            "Name": "Old masterpiece painting",
+            "Value": 2500
+        },
+        {
+            "Name": "Embroidered silk and velvet mantle set with numerous moonstones",
+            "Value": 2500
+        },
+        {
+            "Name": "Platinum bracelet set with a sapphire",
+            "Value": 2500
+        },
+        {
+            "Name": "Embroidered glove set with jewel chips",
+            "Value": 2500
+        },
+        {
+            "Name": "Jeweled anklet",
+            "Value": 2500
+        },
+        {
+            "Name": "Gold music box",
+            "Value": 2500
+        },
+        {
+            "Name": "Gold circlet set with four aquamarines",
+            "Value": 2500
+        },
+        {
+            "Name": "Eye patch with a mock eye set in blue sapphire and moonstone",
+            "Value": 2500
+        },
+        {
+            "Name": "A necklace string of small pink pearls",
+            "Value": 2500
+        }
+    ],
+    "7500Gp": [
+        {
+            "Name": "Jeweled gold crown",
+            "Value": 7500
+        },
+        {
+            "Name": "Jeweled platinum ring",
+            "Value": 7500
+        },
+        {
+            "Name": "Small gold statuette set with rubies",
+            "Value": 7500
+        },
+        {
+            "Name": "Gold cup set with emeralds",
+            "Value": 7500
+        },
+        {
+            "Name": "Gold jewelry box with platinum filigree",
+            "Value": 7500
+        },
+        {
+            "Name": "Painted gold child's sarcophagus",
+            "Value": 7500
+        },
+        {
+            "Name": "Jade game board with solid gold playing pieces",
+            "Value": 7500
+        },
+        {
+            "Name": "Bejeweled ivory drinking horn with gold filigree",
+            "Value": 7500
+        }
+    ]
+}
