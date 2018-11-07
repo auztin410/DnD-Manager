@@ -1,0 +1,222 @@
+{
+    "10Gp": [
+        {
+            "Name": "Azurite",
+            "Value": 10
+        },
+        {
+            "Name": "Banded agate",
+            "Value": 10
+        },
+        {
+            "Name": "Blue quartz",
+            "Value": 10
+        },
+        {
+            "Name": "Eye agate",
+            "Value": 10
+        },
+        {
+            "Name": "Hematite",
+            "Value": 10
+        },
+        {
+            "Name": "Lapis lazuli",
+            "Value": 10
+        },
+        {
+            "Name": "Malachite",
+            "Value": 10
+        },
+        {
+            "Name": "Moss agate",
+            "Value": 10
+        },
+        {
+            "Name": "Obsidian",
+            "Value": 10
+        },
+        {
+            "Name": "Rhodochrosite",
+            "Value": 10
+        },
+        {
+            "Name": "Tiger eye",
+            "Value": 10
+        },
+        {
+            "Name": "Turquoise",
+            "Value": 10
+        }
+    ],
+    "50Gp": [
+        {
+            "Name": "Bloodstone",
+            "Value": 50
+        },
+        {
+            "Name": "Carnelian",
+            "Value": 50
+        },
+        {
+            "Name": "Chalcedony",
+            "Value": 50
+        },
+        {
+            "Name": "Chrysoprase",
+            "Value": 50
+        },
+        {
+            "Name": "Citrine",
+            "Value": 50
+        },
+        {
+            "Name": "Jasper",
+            "Value": 50
+        },
+        {
+            "Name": "Moonstone",
+            "Value": 50
+        },
+        {
+            "Name": "Onyx",
+            "Value": 50
+        },
+        {
+            "Name": "Quartz",
+            "Value": 50
+        },
+        {
+            "Name": "Sardonyx",
+            "Value": 50
+        },
+        {
+            "Name": "Star rose quartz",
+            "Value": 50
+        },
+        {
+            "Name": "Zircon",
+            "Value": 50
+        }
+    ],
+    "100Gp": [
+        {
+            "Name": "Amber",
+            "Value": 100
+        },
+        {
+            "Name": "Amethyst",
+            "Value": 100
+        },
+        {
+            "Name": "Chrysoberyl",
+            "Value": 100
+        },
+        {
+            "Name": "Coral",
+            "Value": 100
+        },
+        {
+            "Name": "Garnet",
+            "Value": 100
+        },
+        {
+            "Name": "Jade",
+            "Value": 100
+        },
+        {
+            "Name": "Jet",
+            "Value": 100
+        },
+        {
+            "Name": "Pearl",
+            "Value": 100
+        },
+        {
+            "Name": "Spinel",
+            "Value": 100
+        },
+        {
+            "Name": "Tourmaline",
+            "Value": 100
+        }
+    ],
+    "500Gp": [
+        {
+            "Name": "Alexandrite",
+            "Value": 500
+        },
+        {
+            "Name": "Aquamarine",
+            "Value": 500
+        },
+        {
+            "Name": "Black pearl",
+            "Value": 500
+        },
+        {
+            "Name": "Blue spinel",
+            "Value": 500
+        },
+        {
+            "Name": "Peridot",
+            "Value": 500
+        },
+        {
+            "Name": "Topaz",
+            "Value": 500
+        }
+    ],
+    "1000Gp": [
+        {
+            "Name": "Black opal",
+            "Value": 1000
+        },
+        {
+            "Name": "Blue sapphire",
+            "Value": 1000
+        },
+        {
+            "Name": "Emerald",
+            "Value": 1000
+        },
+        {
+            "Name": "Fire opal",
+            "Value": 1000
+        },
+        {
+            "Name": "Opal",
+            "Value": 1000
+        },
+        {
+            "Name": "Star ruby",
+            "Value": 1000
+        },
+        {
+            "Name": "Star sapphire",
+            "Value": 1000
+        },
+        {
+            "Name": "Yellow sapphire",
+            "Value": 1000
+        }
+    ],
+    "5000Gp": [
+        {
+            "Name": "Black sapphire",
+            "Value": 5000
+        },
+        {
+            "Name": "Diamond",
+            "Value": 5000
+        },
+        {
+            "Name": "Jacinth",
+            "Value": 5000
+        },
+        {
+            "Name": "Ruby",
+            "Value": 5000
+        }
+    ]
+}
