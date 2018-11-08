@@ -290,6 +290,347 @@
         }
     ],
     "D": [
-        
+        {
+            "Name": "Potion of supreme healing",
+            "d100": 20
+        },
+        {
+            "Name": "Potion of invisibility",
+            "d100": 30
+        },
+        {
+            "Name": "Potion of speed",
+            "d100": 40
+        },
+        {
+            "Name": "Spell scroll (6th level)",
+            "d100": 50
+        },
+        {
+            "Name": "Spell scroll (7th level)",
+            "d100": 57
+        },
+        {
+            "Name": "Ammunition, +3",
+            "d100": 62
+        },
+        {
+            "Name": "Oil of sharpness",
+            "d100": 67
+        },
+        {
+            "Name": "Potion of flying",
+            "d100": 72
+        },
+        {
+            "Name": "Potion of cloud giant strength",
+            "d100": 77
+        },
+        {
+            "Name": "Potion of longevity",
+            "d100": 82
+        },
+        {
+            "Name": "Potion of vitality",
+            "d100": 87
+        },
+        {
+            "Name": "Spell scroll (8th level)",
+            "d100": 92
+        },
+        {
+            "Name": "Horseshoes of zephyr",
+            "d100": 95
+        },
+        {
+            "Name": "Nolzur's marvelous pigments",
+            "d100": 98
+        },
+        {
+            "Name": "Bag of devouring",
+            "d100": 99
+        },
+        {
+            "Name": "Portable hole",
+            "d100": 100
+        }
+    ],
+    "E": [
+        {
+            "Name": "Spell scroll (8th level)",
+            "d100": 30
+        },
+        {
+            "Name": "Potion of storm giant strength",
+            "d100": 55
+        },
+        {
+            "Name": "Potion of supreme healing",
+            "d100": 70
+        },
+        {
+            "Name": "Spell scroll (9th level)",
+            "d100": 85
+        },
+        {
+            "Name": "Universal solvent",
+            "d100": 93
+        },
+        {
+            "Name": "Arrow of slaying",
+            "d100": 98
+        },
+        {
+            "Name": "Sovereign glue",
+            "d100": 99
+        }
+    ],
+    "F": [
+        {
+            "Name": "Weapon, +1",
+            "d100": 15
+        },
+        {
+            "Name": "Shield, +1",
+            "d100": 18
+        },
+        {
+            "Name": "Sentinel shield",
+            "d100": 21
+        },
+        {
+            "Name": "Amulet of proof against detection and location",
+            "d100": 23
+        },
+        {
+            "Name": "Boots of elvenkind",
+            "d100": 25
+        },
+        {
+            "Name": "Boots of striding and springing",
+            "d100": 27
+        },
+        {
+            "Name": "Bracers of archery",
+            "d100": 29
+        },
+        {
+            "Name": "Brooch of shielding",
+            "d100": 31
+        },
+        {
+            "Name": "Broom of flying",
+            "d100": 33
+        },
+        {
+            "Name": "Cloak of elvenkind",
+            "d100": 35
+        },
+        {
+            "Name": "Cloak of protection",
+            "d100": 37
+        },
+        {
+            "Name": "Gauntlets of ogre power",
+            "d100": 39
+        },
+        {
+            "Name": "Hat of disguise",
+            "d100": 41
+        },
+        {
+            "Name": "Javelin of lightning",
+            "d100": 43
+        },
+        {
+            "Name": "Pearl of power",
+            "d100": 45
+        },
+        {
+            "Name": "Rod of the pact keeper, +1",
+            "d100": 47
+        },
+        {
+            "Name": "Slippers of spider climbing",
+            "d100": 49
+        },
+        {
+            "Name": "Staff of the adder",
+            "d100": 51
+        },
+        {
+            "Name": "Staff of the python",
+            "d100": 53
+        },
+        {
+            "Name": "Sword of vengeance",
+            "d100": 55
+        },
+        {
+            "Name": "Trident of fish command",
+            "d100": 57
+        },
+        {
+            "Name": "Wand of magic missiles",
+            "d100": 59
+        },
+        {
+            "Name": "Wand of the war mage, +1",
+            "d100": 61
+        },
+        {
+            "Name": "Wand of web",
+            "d100": 63
+        },
+        {
+            "Name": "Weapon of warning",
+            "d100": 65
+        },
+        {
+            "Name": "Adamantine armor (chain mail)",
+            "d100": 66
+        },
+        {
+            "Name": "Adamantine armor (chain shirt)",
+            "d100": 67
+        },
+        {
+            "Name": "Adamantine armor (scale mail)",
+            "d100": 68
+        },
+        {
+            "Name": "Bag of tricks (gray)",
+            "d100": 69
+        },
+        {
+            "Name": "Bag of tricks (rust)",
+            "d100": 70
+        },
+        {
+            "Name": "Bag of tricks (tan)",
+            "d100": 71
+        },
+        {
+            "Name": "Boots of the winterlands",
+            "d100": 72
+        },
+        {
+            "Name": "Circlet of blasting",
+            "d100": 73
+        },
+        {
+            "Name": "Deck of illusions",
+            "d100": 74
+        },
+        {
+            "Name": "Eversmoking bottle",
+            "d100": 75
+        },
+        {
+            "Name": "Eyes of charming",
+            "d100": 76
+        },
+        {
+            "Name": "Eyes of the eagle",
+            "d100": 77
+        },
+        {
+            "Name": "Figurine of wondrous power (silver raven)",
+            "d100": 78
+        },
+        {
+            "Name": "Gem of brightness",
+            "d100": 79
+        },
+        {
+            "Name": "Gloves of missile snaring",
+            "d100": 80
+        },
+        {
+            "Name": "Gloves of swimming and climbing",
+            "d100": 81
+        },
+        {
+            "Name": "Gloves of thievery",
+            "d100": 82
+        },
+        {
+            "Name": "Headband of intellect",
+            "d100": 83
+        },
+        {
+            "Name": "Helm of telepathy",
+            "d100": 84
+        },
+        {
+            "Name": "Instrument of the bards (Doss lute)",
+            "d100": 85
+        },
+        {
+            "Name": "Instrument of the bards (Fochlucan bandore)",
+            "d100": 86
+        },
+        {
+            "Name": "Instrument of the bards (Mac-Fuimidh cittern)",
+            "d100": 87
+        },
+        {
+            "Name": "Medallion of thoughts",
+            "d100": 88
+        },
+        {
+            "Name": "Necklace of adaptation",
+            "d100": 89
+        },
+        {
+            "Name": "Periapt of wound closure",
+            "d100": 90
+        },
+        {
+            "Name": "Pipes of haunting",
+            "d100": 91
+        },
+        {
+            "Name": "Pipes of the sewers",
+            "d100": 92
+        },
+        {
+            "Name": "Ring of jumping",
+            "d100": 93
+        },
+        {
+            "Name": "Ring of mind shielding",
+            "d100": 94
+        },
+        {
+            "Name": "Ring of warmth",
+            "d100": 95
+        },
+        {
+            "Name": "Ring of water walking",
+            "d100": 96
+        },
+        {
+            "Name": "Quiver of Ehlonna",
+            "d100": 97
+        },
+        {
+            "Name": "Stone of good luck",
+            "d100": 98
+        },
+        {
+            "Name": "Wind fan",
+            "d100": 99
+        },
+        {
+            "Name": "Winged boots",
+            "d100": 100
+        }
+    ],
+    "G": [
+        {
+            "Name": "",
+            "d100": 0
+        },
     ]
 }
