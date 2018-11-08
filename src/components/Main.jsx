@@ -17,9 +17,8 @@ class Main extends Component {
             worldShakingDetails: null,
             worldShakingComponent: false,
             individualLoot: "Challenge0-4",
-            individualLootCurrency: "",
-            individualLootResult: "",
-            rollResult: 0,
+            individualLootCurrency: [],
+            individualLootResult: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -28,6 +27,7 @@ class Main extends Component {
         this.DiceRoll = this.DiceRoll.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
     }
+
 
     componentDidMount() {
         axios.get('/auth/user').then(response => {
@@ -131,85 +131,150 @@ class Main extends Component {
 
     };
 
-    DiceRoll(sides, times) {
+    DiceRoll(times, sides) {
         var allRolls = [];
         var i;
-                for (i = 0; i < times; i++) {
-                    var roll = Math.floor(Math.random() * sides) + 1;
-                    allRolls.push(roll); 
-                }
+        for (i = 0; i < times; i++) {
+            var roll = Math.floor(Math.random() * sides) + 1;
+            allRolls.push(roll);
+        }
         var result = allRolls.reduce(add, 0);
         function add(a, b) {
             return a + b;
         }
-        this.setState({
-            rollResult: result,
-        });
-        };
+        return result;
+    };
 
-        handleRoll(event) {
-            event.preventDefault();
-            this.DiceRoll(100, 1);
-            switch(this.state.individualLoot) {
-                case "Challenge0-4":
-                if(this.state.rollResult <= 30) {
-                    this.DiceRoll(5, 6);
-                    let result = this.state.rollResult;
-                    console.log(result);
+    handleRoll(event) {
+        event.preventDefault();
+        let individualLoot = this.DiceRoll(1, 100);
+        console.log(`Individual loot ${individualLoot}`);
+        switch (this.state.individualLoot) {
+            case "Challenge0-4":
+                if (individualLoot <= 30) {
+                    let roll = this.DiceRoll(5, 6);
                     this.setState({
-                        individualLootCurrency: "CP",
-                        individualLootResult: result,
+                        individualLootResult: [`${roll} CP`],
                     });
                 }
-                else if(this.state.rollResult <= 60) {
-                    this.DiceRoll(4, 6);
-                    let result = this.state.rollResult;
+                else if (individualLoot <= 60) {
+                    let roll = this.DiceRoll(4, 6);
                     this.setState({
-                        individualLootCurrency: "SP",
-                        individualLootResult: result,
+                        individualLootResult: [`${roll} SP`],
                     });
                 }
-                else if(this.state.rollResult <= 70) {
-                    this.DiceRoll(3, 6);
-                    let result = this.state.rollResult;
+                else if (individualLoot <= 70) {
+                    let roll = this.DiceRoll(3, 6);
                     this.setState({
-                        individualLootCurrency: "EP",
-                        individualLootResult: result,
+                        individualLootResult: [`${roll} EP`],
                     });
                 }
-                else if(this.state.rollResult <= 95) {
-                    this.DiceRoll(3, 6);
-                    let result = this.state.rollResult;
+                else if (individualLoot <= 95) {
+                    let roll = this.DiceRoll(3, 6);
                     this.setState({
-                        individualLootCurrency: "GP",
-                        individualLootResult: result,
+                        individualLootResult: [`${roll} GP`],
                     });
                 }
-                else if(this.state.rollResult >= 96) {
-                    this.DiceRoll(1, 6);
-                    let result = this.state.rollResult;
+                else if (individualLoot >= 96) {
+                    let roll = this.DiceRoll(1, 6);
                     this.setState({
-                        individualLootCurrency: "PP",
-                        individualLootResult: result,
+                        individualLootResult: [`${roll} PP`],
                     });
-                }
-                else {
-                    console.log("You broke it!");
                 }
                 break;
-                case "Challenge5-10":
-                console.log("not built yet!");
+            case "Challenge5-10":
+                if(individualLoot <= 30) {
+                    let roll = this.DiceRoll(4, 6);
+                    let roll2 = this.DiceRoll(1, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} CP`, `${roll2} EP`],
+                    });
+                }
+                else if(individualLoot <= 60) {
+                    let roll = this.DiceRoll(6, 6);
+                    let roll2 = this.DiceRoll(2, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} SP`, `${roll2} GP`],
+                    });
+                }
+                else if(individualLoot <= 70) {
+                    let roll = this.DiceRoll(3, 6);
+                    let roll2 = this.DiceRoll(2, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} EP`, `${roll2} GP`],
+                    });
+                }
+                else if(individualLoot <= 95) {
+                    let roll = this.DiceRoll(4, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} GP`],
+                    });
+                }
+                else if(individualLoot >= 96) {
+                    let roll = this.DiceRoll(2, 6);
+                    let roll2 = this.DiceRoll(3, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                    });
+                }
                 break;
-                case "Challenge11-16":
-                console.log("not built yet!");
+            case "Challenge11-16":
+                if(individualLoot >= 20) {
+                    let roll = this.DiceRoll(4, 6);
+                    let roll2 = this.DiceRoll(1, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} SP`, `${roll2} GP`],
+                    });
+                }
+                else if(individualLoot >= 35) {
+                    let roll = this.DiceRoll(1, 6);
+                    let roll2 = this.DiceRoll(1, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} EP`, `${roll2} GP`],
+                    });
+                }
+                else if(individualLoot >= 75) {
+                    let roll = this.DiceRoll(2, 6);
+                    let roll2 = this.DiceRoll(1, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                    });
+                }
+                else if(individualLoot <= 76) {
+                    let roll = this.DiceRoll(2, 6);
+                    let roll2 = this.DiceRoll(2, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                    });
+                }
                 break;
-                case "Challenge17+":
-                console.log("not built yet!");
+            case "Challenge17+":
+                if(individualLoot >= 15) {
+                    let roll = this.DiceRoll(2, 6);
+                    let roll2 = this.DiceRoll(8, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} EP`, `${roll2} GP`],
+                    });
+                }
+                else if(individualLoot >= 55) {
+                    let roll = this.DiceRoll(1, 6);
+                    let roll2 = this.DiceRoll(1, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                    });
+                }
+                else if(individualLoot <= 56) {
+                    let roll = this.DiceRoll(1, 6);
+                    let roll2 = this.DiceRoll(2, 6);
+                    this.setState({
+                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                    });
+                }
                 break;
-                default:
+            default:
                 console.log("Default was hit!")
-            }
         }
+    }
 
     render() {
         if (this.state.npcComponent === true) {
@@ -259,9 +324,12 @@ class Main extends Component {
                                 <option value="Challenge11-16">Challenge 11-16</option>
                                 <option value="Challenge17+">Challenge 17+</option>
                             </select>
-                        <button onClick={this.handleRoll}>Dice Roll!</button>
+                            <button onClick={this.handleRoll}>Dice Roll!</button>
                         </form>
-                        Individual Loot: {this.state.individualLootResult} {" "} {this.state.individualLootCurrency}
+                        Individual Loot:
+                        {this.state.individualLootResult.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
                     </div>
                 </div>
             )
