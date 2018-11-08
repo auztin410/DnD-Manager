@@ -1,0 +1,295 @@
+{
+    "A": [
+        {
+            "Name": "Potion of healing",
+            "d100": 50
+        },
+        {
+            "Name": "Spell scroll (cantrip)",
+            "d100": 60
+        },
+        {
+            "Name": "Potion of climbing",
+            "d100": 70
+        },
+        {
+            "Name": "Spell scroll (1st level)",
+            "d100": 90
+        },
+        {
+            "Name": "Spell scroll (2nd level",
+            "d100": 94
+        },
+        {
+            "Name": "Potion of greater healing",
+            "d100": 98
+        },
+        {
+            "Name": "Bag of holding",
+            "d100": 99
+        },
+        {
+            "Name": "Driftglobe",
+            "d100": 100
+        }
+    ],
+    "B": [
+        {
+            "Name": "Potion of greater healing",
+            "d100": 15
+        },
+        {
+            "Name": "Potion of fire breath",
+            "d100": 22
+        },
+        {
+            "Name": "Potion of resistance",
+            "d100": 29
+        },
+        {
+            "Name": "Ammunition, +1",
+            "d100": 34
+        },
+        {
+            "Name": "Potion of animal friendship",
+            "d100": 39
+        },
+        {
+            "Name": "Potion of hill giant strength",
+            "d100": 44
+        },
+        {
+            "Name": "Potion of growth",
+            "d100": 49
+        },
+        {
+            "Name": "Potion of water breathing",
+            "d100": 54
+        },
+        {
+            "Name": "Spell scroll (2nd level)",
+            "d100": 59
+        },
+        {
+            "Name": "Spell scroll (3rd level)",
+            "d100": 64
+        },
+        {
+            "Name": "Bag of holding",
+            "d100": 67
+        },
+        {
+            "Name": "Keoghtom's ointment",
+            "d100": 70
+        },
+        {
+            "Name": "Oil of slipperiness",
+            "d100": 73
+        },
+        {
+            "Name": "Dust of disappearance",
+            "d100": 75
+        },
+        {
+            "Name": "Dust of dryness",
+            "d100": 77
+        },
+        {
+            "Name": "Dust of sneezing and choking",
+            "d100": 79
+        },
+        {
+            "Name": "Elemental gem",
+            "d100": 81
+        },
+        {
+            "Name": "Philter of love",
+            "d100": 83
+        },
+        {
+            "Name": "Alchemy jug",
+            "d100": 84
+        },
+        {
+            "Name": "Cap of water breathing",
+            "d100": 85
+        },
+        {
+            "Name": "Cloak of the manta ray",
+            "d100": 86
+        },
+        {
+            "Name": "Driftglobe",
+            "d100": 87
+        },
+        {
+            "Name": "Goggles of night",
+            "d100": 88
+        },
+        {
+            "Name": "Helm of comprehending languages",
+            "d100": 89
+        },
+        {
+            "Name": "Immovable rod",
+            "d100": 90
+        },
+        {
+            "Name": "Lantern of revealing",
+            "d100": 91
+        },
+        {
+            "Name": "Mariner's armor",
+            "d100": 92
+        },
+        {
+            "Name": "Mithral armor",
+            "d100": 93
+        },
+        {
+            "Name": "Potion of poison",
+            "d100": 94
+        },
+        {
+            "Name": "Ring of swimming",
+            "d100": 95
+        },
+        {
+            "Name": "Robe of useful items",
+            "d100": 96
+        },
+        {
+            "Name": "Rope of climbing",
+            "d100": 97
+        },
+        {
+            "Name": "Saddle of the cavalier",
+            "d100": 98
+        },
+        {
+            "Name": "Wand of magic detection",
+            "d100": 99
+        },
+        {
+            "Name": "Wand of secrets",
+            "d100": 100
+        }
+    ],
+    "C": [
+        {
+            "Name": "Potion of superior healing",
+            "d100": 15
+        },
+        {
+            "Name": "Spell scroll (4th level)",
+            "d100": 22
+        },
+        {
+            "Name": "Ammunition, +2",
+            "d100": 27
+        },
+        {
+            "Name": "Potion of clairvoyance",
+            "d100": 32
+        },
+        {
+            "Name": "Potion of diminution",
+            "d100": 37
+        },
+        {
+            "Name": "Potion of gaseous form",
+            "d100": 42
+        },
+        {
+            "Name": "Potion of frost giant strength",
+            "d100": 47
+        },
+        {
+            "Name": "Potion of stone giant strength",
+            "d100": 52
+        },
+        {
+            "Name": "Potion of heroism",
+            "d100": 57
+        },
+        {
+            "Name": "Potion of invulnerability",
+            "d100": 62
+        },
+        {
+            "Name": "Potion of mind reading",
+            "d100": 67
+        },
+        {
+            "Name": "Spell scroll (5th level)",
+            "d100": 72
+        },
+        {
+            "Name": "Elixir of health",
+            "d100": 75
+        },
+        {
+            "Name": "Oil of etherealness",
+            "d100": 78
+        },
+        {
+            "Name": "Potion of fire giant strength",
+            "d100": 81
+        },
+        {
+            "Name": "Quaal's feather token",
+            "d100": 84
+        },
+        {
+            "Name": "Scroll of protection",
+            "d100": 87
+        },
+        {
+            "Name": "Bag of beans",
+            "d100": 89
+        },
+        {
+            "Name": "Bead of force",
+            "d100": 91
+        },
+        {
+            "Name": "Chime of opening",
+            "d100": 92
+        },
+        {
+            "Name": "Decanter of endless water",
+            "d100": 93
+        },
+        {
+            "Name": "Eyes of minute seeing",
+            "d100": 94
+        },
+        {
+            "Name": "Folding boat",
+            "d100": 95
+        },
+        {
+            "Name": "Heward's handy haversack",
+            "d100": 96
+        },
+        {
+            "Name": "Horseshoes of speed",
+            "d100": 97
+        },
+        {
+            "Name": "Necklace of fireballs",
+            "d100": 98
+        },
+        {
+            "Name": "Periapt of health",
+            "d100": 99
+        },
+        {
+            "Name": "Sending stones",
+            "d100": 100
+        }
+    ],
+    "D": [
+        
+    ]
+}
