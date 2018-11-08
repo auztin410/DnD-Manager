@@ -154,31 +154,136 @@ class Main extends Component {
                 if (individualLoot <= 30) {
                     let roll = this.DiceRoll(5, 6);
                     this.setState({
-                        individualLootResult: [`${roll} CP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if (individualLoot <= 60) {
                     let roll = this.DiceRoll(4, 6);
                     this.setState({
-                        individualLootResult: [`${roll} SP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if (individualLoot <= 70) {
                     let roll = this.DiceRoll(3, 6);
                     this.setState({
-                        individualLootResult: [`${roll} EP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "GP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if (individualLoot <= 95) {
                     let roll = this.DiceRoll(3, 6);
                     this.setState({
-                        individualLootResult: [`${roll} GP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if (individualLoot >= 96) {
                     let roll = this.DiceRoll(1, 6);
                     this.setState({
-                        individualLootResult: [`${roll} PP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "PP",
+                                Value: roll
+                            }
+                        ]
                     });
                 }
                 break;
@@ -187,34 +292,139 @@ class Main extends Component {
                     let roll = this.DiceRoll(4, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
-                        individualLootResult: [`${roll} CP`, `${roll2} EP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: roll2
+                            },
+                            {
+                                Currency: "GP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot <= 60) {
                     let roll = this.DiceRoll(6, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
-                        individualLootResult: [`${roll} SP`, `${roll2} GP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll2
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot <= 70) {
                     let roll = this.DiceRoll(3, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
-                        individualLootResult: [`${roll} EP`, `${roll2} GP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll2
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot <= 95) {
                     let roll = this.DiceRoll(4, 6);
                     this.setState({
-                        individualLootResult: [`${roll} GP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot >= 96) {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(3, 6);
                     this.setState({
-                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "PP",
+                                Value: roll2
+                            }
+                        ]
                     });
                 }
                 break;
@@ -223,28 +433,112 @@ class Main extends Component {
                     let roll = this.DiceRoll(4, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
-                        individualLootResult: [`${roll} SP`, `${roll2} GP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll2
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot >= 35) {
                     let roll = this.DiceRoll(1, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
-                        individualLootResult: [`${roll} EP`, `${roll2} GP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll2
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot >= 75) {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
-                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "PP",
+                                Value: roll2
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot <= 76) {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
-                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "PP",
+                                Value: roll2
+                            }
+                        ]
                     });
                 }
                 break;
@@ -253,21 +547,84 @@ class Main extends Component {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(8, 6);
                     this.setState({
-                        individualLootResult: [`${roll} EP`, `${roll2} GP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll2
+                            },
+                            {
+                                Currency: "PP",
+                                Value: 0
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot >= 55) {
                     let roll = this.DiceRoll(1, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
-                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "PP",
+                                Value: roll2
+                            }
+                        ]
                     });
                 }
                 else if(individualLoot <= 56) {
                     let roll = this.DiceRoll(1, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
-                        individualLootResult: [`${roll} GP`, `${roll2} PP`],
+                        individualLootResult: [
+                            {
+                                Currency: "CP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "SP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "EP",
+                                Value: 0
+                            },
+                            {
+                                Currency: "GP",
+                                Value: roll
+                            },
+                            {
+                                Currency: "PP",
+                                Value: roll2
+                            }
+                        ]
                     });
                 }
                 break;
@@ -328,7 +685,7 @@ class Main extends Component {
                         </form>
                         Individual Loot:
                         {this.state.individualLootResult.map(item => (
-                            <p key={item}>{item}</p>
+                            <p key={item.Currency}>{item.Value}{" "}{item.Currency}</p>
                         ))}
                     </div>
                 </div>
