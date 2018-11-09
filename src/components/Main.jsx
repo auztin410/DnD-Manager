@@ -4,6 +4,7 @@ import NpcGenerator from '../assets/Json/NpcGenerator';
 import Npc from './Npc';
 import WorldEventGenerator from '../assets/Json/World-Shaking-Events';
 import WorldShakingEvent from './WorldShakingEvent';
+import MagicItemsTables from '../assets/Json/MagicItemTables';
 
 class Main extends Component {
     constructor() {
@@ -19,6 +20,7 @@ class Main extends Component {
             individualLoot: "Challenge0-4",
             individualLootCurrency: [],
             individualLootResult: [],
+            treasureLoot: "Challenge0-4",
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,6 +28,7 @@ class Main extends Component {
         this.handleWorldShakingEvent = this.handleWorldShakingEvent.bind(this);
         this.DiceRoll = this.DiceRoll.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
+        this.handleTreasureLoot = this.handleTreasureLoot.bind(this);
     }
 
 
@@ -288,7 +291,7 @@ class Main extends Component {
                 }
                 break;
             case "Challenge5-10":
-                if(individualLoot <= 30) {
+                if (individualLoot <= 30) {
                     let roll = this.DiceRoll(4, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
@@ -316,7 +319,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot <= 60) {
+                else if (individualLoot <= 60) {
                     let roll = this.DiceRoll(6, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
@@ -344,7 +347,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot <= 70) {
+                else if (individualLoot <= 70) {
                     let roll = this.DiceRoll(3, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
@@ -372,7 +375,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot <= 95) {
+                else if (individualLoot <= 95) {
                     let roll = this.DiceRoll(4, 6);
                     this.setState({
                         individualLootResult: [
@@ -399,7 +402,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot >= 96) {
+                else if (individualLoot >= 96) {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(3, 6);
                     this.setState({
@@ -429,7 +432,7 @@ class Main extends Component {
                 }
                 break;
             case "Challenge11-16":
-                if(individualLoot >= 20) {
+                if (individualLoot >= 20) {
                     let roll = this.DiceRoll(4, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
@@ -457,7 +460,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot >= 35) {
+                else if (individualLoot >= 35) {
                     let roll = this.DiceRoll(1, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
@@ -485,7 +488,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot >= 75) {
+                else if (individualLoot >= 75) {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
@@ -513,7 +516,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot <= 76) {
+                else if (individualLoot <= 76) {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
@@ -543,7 +546,7 @@ class Main extends Component {
                 }
                 break;
             case "Challenge17+":
-                if(individualLoot >= 15) {
+                if (individualLoot >= 15) {
                     let roll = this.DiceRoll(2, 6);
                     let roll2 = this.DiceRoll(8, 6);
                     this.setState({
@@ -571,7 +574,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot >= 55) {
+                else if (individualLoot >= 55) {
                     let roll = this.DiceRoll(1, 6);
                     let roll2 = this.DiceRoll(1, 6);
                     this.setState({
@@ -599,7 +602,7 @@ class Main extends Component {
                         ]
                     });
                 }
-                else if(individualLoot <= 56) {
+                else if (individualLoot <= 56) {
                     let roll = this.DiceRoll(1, 6);
                     let roll2 = this.DiceRoll(2, 6);
                     this.setState({
@@ -631,6 +634,24 @@ class Main extends Component {
             default:
                 console.log("Default was hit!")
         }
+    };
+
+    handleTreasureLoot(event) {
+        event.preventDefault();
+        // var treasureRoll = this.DiceRoll(1, 100);
+        // switch (this.state.treasureLoot) {
+        //     case "Challenge0-4":
+        // Generate currency reward
+
+        // }
+        let roll = this.DiceRoll(1, 100);
+        let result = MagicItemsTables.A.filter(obj => {
+            return obj.d100 >= roll
+        });
+        let magicItem = result[0].Name;
+        console.log("Treasure loot test for magic table A:");
+        console.log(roll);
+        console.log(magicItem);
     }
 
     render() {
@@ -687,6 +708,17 @@ class Main extends Component {
                         {this.state.individualLootResult.map(item => (
                             <p key={item.Currency}>{item.Value}{" "}{item.Currency}</p>
                         ))}
+                    </div>
+                    <div>
+                        <form>
+                            <select name="treasureLoot" onChange={this.handleChange}>
+                                <option value="Challenge0-4">Challenge 0-4</option>
+                                <option value="Challenge5-10">Challenge 5-10</option>
+                                <option value="Challenge11-16">Challenge 11-16</option>
+                                <option value="Challenge17+">Challenge 17+</option>
+                            </select>
+                            <button onClick={this.handleTreasureLoot}>Test Treasure Loot</button>
+                        </form>
                     </div>
                 </div>
             )
