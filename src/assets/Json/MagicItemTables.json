@@ -1017,8 +1017,524 @@
     ],
     "H": [
         {
-            "Name": "",
-            "d100": 0
+            "Name": "Weapon, +3",
+            "d100": 10
+        },
+        {
+            "Name": "Amulet of the planes",
+            "d100": 12
+        },
+        {
+            "Name": "Carpet of flying",
+            "d100": 14
+        },
+        {
+            "Name": "Crystal ball (very rare version)" ,
+            "d100": 16
+        },
+        {
+            "Name": "Ring of regeneration",
+            "d100": 18
+        },
+        {
+            "Name": "Ring of shooting stars",
+            "d100": 20
+        },
+        {
+            "Name": "Ring of telekinesis",
+            "d100": 22
+        },
+        {
+            "Name": "Robe of scintillating colors",
+            "d100": 24
+        },
+        {
+            "Name": "Robe of stars",
+            "d100": 26
+        },
+        {
+            "Name": "Rod of absorption",
+            "d100": 28
+        },
+        {
+            "Name": "Rod of alertness",
+            "d100": 30
+        },
+        {
+            "Name": "Rod of security",
+            "d100": 32
+        },
+        {
+            "Name": "Rod of the pact keeper, +3",
+            "d100": 34
+        },
+        {
+            "Name": "Scimitar of speed",
+            "d100": 36
+        },
+        {
+            "Name": "Shield, +3",
+            "d100": 38
+        },
+        {
+            "Name": "Staff of fire",
+            "d100": 40
+        },
+        {
+            "Name": "Staff of frost",
+            "d100": 42
+        },
+        {
+            "Name": "Staff of power",
+            "d100": 44
+        },
+        {
+            "Name": "Staff of striking",
+            "d100": 46
+        },
+        {
+            "Name": "Staff of thunder and lightning",
+            "d100": 48
+        },
+        {
+            "Name": "Sword of sharpness",
+            "d100": 50
+        },
+        {
+            "Name": "Wand of polymorph",
+            "d100": 52
+        },
+        {
+            "Name": "Wand of the war mage, +3",
+            "d100": 54
+        },
+        {
+            "Name": "Adamantine armor (half plate)",
+            "d100": 55
+        },
+        {
+            "Name": "Adamantine armor (plate)",
+            "d100": 56
+        },
+        {
+            "Name": "Animated shield",
+            "d100": 57
+        },
+        {
+            "Name": "Belt of fire giant strength",
+            "d100": 58
+        },
+        {
+            "Name": "Belt of frost (or stone) giant strength",
+            "d100": 59
+        },
+        {
+            "Name": "Armor, +1 breastplate",
+            "d100": 60
+        },
+        {
+            "Name": "Armor of resistance (breastplate)",
+            "d100": 61
+        },
+        {
+            "Name": "Candle of invocation",
+            "d100": 62
+        },
+        {
+            "Name": "Armor, +2 chain mail",
+            "d100": 63
+        },
+        {
+            "Name": "Armor, +2 chain shirt",
+            "d100": 64
+        },
+        {
+            "Name": "Cloak of arachnida",
+            "d100": 65
+        },
+        {
+            "Name": "Dancing sword",
+            "d100": 66
+        },
+        {
+            "Name": "Demon armor",
+            "d100": 67
+        },
+        {
+            "Name": "Dragon scale mail",
+            "d100": 68
+        },
+        {
+            "Name": "Dwarven plate",
+            "d100": 69
+        },
+        {
+            "Name": "Dwarven thrower",
+            "d100": 70
+        },
+        {
+            "Name": "Efreeti bottle",
+            "d100": 71
+        },
+        {
+            "Name": "Figurine of wondrous power (obsidian steed)",
+            "d100": 72
+        },
+        {
+            "Name": "Frost brand",
+            "d100": 73
+        },
+        {
+            "Name": "Helm of brilliance",
+            "d100": 74
+        },
+        {
+            "Name": "Horn of Valhalla (bronze)",
+            "d100": 75
+        },
+        {
+            "Name": "Instrument of the bards (Anstruth harp)",
+            "d100": 76
+        },
+        {
+            "Name": "Ioun stone (absorption)",
+            "d100": 77
+        },
+        {
+            "Name": "Ioun stone (agility)",
+            "d100": 78
+        },
+        {
+            "Name": "Ioun stone (fortitude)",
+            "d100": 79
+        },
+        {
+            "Name": "Ioun stone (insight)",
+            "d100": 80
+        },
+        {
+            "Name": "Ioun stone (intellect)",
+            "d100": 81
+        },
+        {
+            "Name": "Ioun stone (leadership)",
+            "d100": 82
+        },
+        {
+            "Name": "Ioun stone (strength)",
+            "d100": 83
+        },
+        {
+            "Name": "Armor, +2 leather",
+            "d100": 84
+        },
+        {
+            "Name": "Manual of bodily health",
+            "d100": 85
+        },
+        {
+            "Name": "Manual of gainful exercise",
+            "d100": 86
+        },
+        {
+            "Name": "Manual of golems",
+            "d100": 87
+        },
+        {
+            "Name": "Manual of quickness of action",
+            "d100": 88
+        },
+        {
+            "Name": "Mirror of life trapping",
+            "d100": 89
+        },
+        {
+            "Name": "Nine lives stealer",
+            "d100": 90
+        },
+        {
+            "Name": "Oathbow",
+            "d100": 91
+        },
+        {
+            "Name": "Armor, 2 scale mail",
+            "d100": 92
+        },
+        {
+            "Name": "Spellguard shield",
+            "d100": 93
+        },
+        {
+            "Name": "Armor, +1 splint",
+            "d100": 94
+        },
+        {
+            "Name": "Armor of resistance (splint)",
+            "d100": 95
+        },
+        {
+            "Name": "Armor, +1 studded leather",
+            "d100": 96
+        },
+        {
+            "Name": "Armor of resistance (studded leather)",
+            "d100": 97
+        },
+        {
+            "Name": "Tome of clear thought",
+            "d100": 98
+        },
+        {
+            "Name": "Tome of leadership and influence",
+            "d100": 99
+        },
+        {
+            "Name": "Tome of understanding",
+            "d100": 100
+        }
+    ],
+    "I": [
+        {
+            "Name": "Defender",
+            "d100": 5
+        },
+        {
+            "Name": "Hammer of thunderbolts",
+            "d100": 10
+        },
+        {
+            "Name": "Luck blade",
+            "d100": 15
+        },
+        {
+            "Name": "Sword of answering",
+            "d100": 20
+        },
+        {
+            "Name": "Holy avenger",
+            "d100": 23
+        },
+        {
+            "Name": "Ring of djinni summoning",
+            "d100": 26
+        },
+        {
+            "Name": "Ring of invisibility",
+            "d100": 29
+        },
+        {
+            "Name": "Ring of spell turning",
+            "d100": 32
+        },
+        {
+            "Name": "Rod of lordly might",
+            "d100": 35
+        },
+        {
+            "Name": "Staff of the magi",
+            "d100": 38
+        },
+        {
+            "Name": "Vorpal sword",
+            "d100": 41
+        },
+        {
+            "Name": "Belt of cloud giant strength",
+            "d100": 43
+        },
+        {
+            "Name": "Armor, +2 breastplate",
+            "d100": 45
+        },
+        {
+            "Name": "Armor, +3 chain mail",
+            "d100": 47
+        },
+        {
+            "Name": "Armor, +3 chain shirt",
+            "d100": 49
+        },
+        {
+            "Name": "Cloak of invisibility",
+            "d100": 51
+        },
+        {
+            "Name": "Crystal ball (legendary version)",
+            "d100": 53
+        },
+        {
+            "Name": "Armor, +1 half plate",
+            "d100": 55
+        },
+        {
+            "Name": "Iron flask",
+            "d100": 57
+        },
+        {
+            "Name": "Armor, +3 leather",
+            "d100": 59
+        },
+        {
+            "Name": "Armor, +1 plate",
+            "d100": 61
+        },
+        {
+            "Name": "Robe of the archmagi",
+            "d100": 63
+        },
+        {
+            "Name": "Rod of resurrection",
+            "d100": 65
+        },
+        {
+            "Name": "Armor, +1 scale mail",
+            "d100": 67
+        },
+        {
+            "Name": "Scarab of protection",
+            "d100": 69
+        },
+        {
+            "Name": "Armor, +2 splint",
+            "d100": 71
+        },
+        {
+            "Name": "Armor, +2 studded leather",
+            "d100": 73
+        },
+        {
+            "Name": "Well of many worlds",
+            "d100": 75
+        },
+        {
+            "Name": "Magic armor",
+            "d100": 76,
+            "d12": [
+                {
+                    "Name": "Armor, +2 half plate",
+                    "roll": 2
+                },
+                {
+                    "Name": "Armor, +2 plate",
+                    "roll": 4
+                },
+                {
+                    "Name": "Armor, +3 studded leather",
+                    "roll": 6
+                },
+                {
+                    "Name": "Armor, +3 breastplate",
+                    "roll": 8
+                },
+                {
+                    "Name": "Armor, +3 splint",
+                    "roll": 10
+                },
+                {
+                    "Name": "Armor, +3 half plate",
+                    "roll": 11
+                },
+                {
+                    "Name": "Armor, +3 plate",
+                    "roll": 12
+                }
+            ]
+        },
+        {
+            "Name": "Apparatus of Kwalish",
+            "d100": 77
+        },
+        {
+            "Name": "Armor of invulnerability",
+            "d100": 78
+        },
+        {
+            "Name": "Belt of storm giant strength",
+            "d100": 79
+        },
+        {
+            "Name": "Cubic gate",
+            "d100": 80
+        },
+        {
+            "Name": "Deck of many things",
+            "d100": 81
+        },
+        {
+            "Name": "Efreeti chain",
+            "d100": 82
+        },
+        {
+            "Name": "Armor of resistance (half plate)",
+            "d100": 83
+        },
+        {
+            "Name": "Horn of Valhalla (iron)",
+            "d100": 84
+        },
+        {
+            "Name": "Instrument of the bards (Ollamh harp)",
+            "d100": 85
+        },
+        {
+            "Name": "Ioun stone (greater absorption)",
+            "d100": 86
+        },
+        {
+            "Name": "Ioun stone (mastery)",
+            "d100": 87
+        },
+        {
+            "Name": "Ioun stone (regeneration)",
+            "d100": 88
+        },
+        {
+            "Name": "Plate armor of etherealness",
+            "d100": 89
+        },
+        {
+            "Name": "Plate armor of resistance",
+            "d100": 90
+        },
+        {
+            "Name": "Ring of air elemental command",
+            "d100": 91
+        },
+        {
+            "Name": "Ring of earth elemental command",
+            "d100": 92
+        },
+        {
+            "Name": "Ring of fire elemental command",
+            "d100": 93
+        },
+        {
+            "Name": "Ring of three wishes",
+            "d100": 94
+        },
+        {
+            "Name": "Ring of water elemental command",
+            "d100": 95
+        },
+        {
+            "Name": "Sphere of annihilation",
+            "d100": 96
+        },
+        {
+            "Name": "Talisman of pure good",
+            "d100": 97
+        },
+        {
+            "Name": "Talisman of the sphere",
+            "d100": 98
+        },
+        {
+            "Name": "Talisman of ultimate evil",
+            "d100": 99
+        },
+        {
+            "Name": "Tome of the stilled tongue",
+            "d100": 100
         },
     ]
 }
