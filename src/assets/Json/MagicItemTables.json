@@ -629,6 +629,394 @@
     ],
     "G": [
         {
+            "Name": "Weapon, +2",
+            "d100": 11
+        },
+        {
+            "Name": "Figurine of wondrous power",
+            "d100": 14,
+            "d8": [
+                {
+                    "Name": "Bronze griffon",
+                    "roll": 1
+                },
+                {
+                    "Name": "Ebony fly",
+                    "roll": 2
+                },
+                {
+                    "Name": "Golden lions",
+                    "roll": 3
+                },
+                {
+                    "Name": "Ivory goats",
+                    "roll": 4
+                },
+                {
+                    "Name": "Marble elephant",
+                    "roll": 5
+                },
+                {
+                    "Name": "Onyx dog",
+                    "roll": 6
+                },
+                {
+                    "Name": "Onyx dog",
+                    "roll": 7
+                },
+                {
+                    "Name": "Serpentine owl",
+                    "d100": 8
+                }
+            ]
+        },
+        {
+            "Name": "Adamantine armor (breastplate)",
+            "d100": 15
+        },
+        {
+            "Name": "Adamantine armor (splint)",
+            "d100": 16
+        },
+        {
+            "Name": "Amulet of health",
+            "d100": 17
+        },
+        {
+            "Name": "Armor of vulnerability",
+            "d100": 18
+        },
+        {
+            "Name": "Arrow-catching shield",
+            "d100": 19
+        },
+        {
+            "Name": "Belt of dwarvenkind",
+            "d100": 20
+        },
+        {
+            "Name": "Belt of hill giant strength",
+            "d100": 21
+        },
+        {
+            "Name": "Berserker axe",
+            "d100": 22
+        },
+        {
+            "Name": "Boots of levitation",
+            "d100": 23
+        },
+        {
+            "Name": "Boots of speed",
+            "d100": 24
+        },
+        {
+            "Name": "Bowl of commanding water elementals",
+            "d100": 25
+        },
+        {
+            "Name": "Bracers of defense",
+            "d100": 26
+        },
+        {
+            "Name": "Brazier of commanding fire elementals",
+            "d100": 27
+        },
+        {
+            "Name": "Cape of the mountebank",
+            "d100": 28
+        },
+        {
+            "Name": "Censer of controlling air elementals",
+            "d100": 29
+        },
+        {
+            "Name": "Armor, +1 chain mail",
+            "d100": 30
+        },
+        {
+            "Name": "Armor of resistance (chain mail)",
+            "d100": 31
+        },
+        {
+            "Name": "Armor, +1 chain shirt",
+            "d100": 32
+        },
+        {
+            "Name": "Armor of resistance (chain shirt)",
+            "d100": 33
+        },
+        {
+            "Name": "Cloak of displacement",
+            "d100": 34
+        },
+        {
+            "Name": "Cloak of the bat",
+            "d100": 35
+        },
+        {
+            "Name": "Cube of force",
+            "d100": 36
+        },
+        {
+            "Name": "Daern's instant fortress",
+            "d100": 37
+        },
+        {
+            "Name": "Dagger of venom",
+            "d100": 38
+        },
+        {
+            "Name": "Dimensional shackles",
+            "d100": 39
+        },
+        {
+            "Name": "Dragon slayer",
+            "d100": 40
+        },
+        {
+            "Name": "Elven chain",
+            "d100": 41
+        },
+        {
+            "Name": "Flame tongue",
+            "d100": 42
+        },
+        {
+            "Name": "Gem of seeing",
+            "d100": 43
+        },
+        {
+            "Name": "Giant slayer",
+            "d100": 44
+        },
+        {
+            "Name": "Glamoured studded leather",
+            "d100": 45
+        },
+        {
+            "Name": "Helm of teleportation",
+            "d100": 46
+        },
+        {
+            "Name": "Horn of blasting",
+            "d100": 47
+        },
+        {
+            "Name": "Horn of Valhalla (silver or brass)",
+            "d100": 48
+        },
+        {
+            "Name": "Instrument of the bards (Canaith mandolin)",
+            "d100": 49
+        },
+        {
+            "Name": "Instrument of the bards (Cli lyre)",
+            "d100": 50
+        },
+        {
+            "Name": "Ioun stone (awareness)",
+            "d100": 51
+        },
+        {
+            "Name": "Ioun stone (protection)",
+            "d100": 52
+        },
+        {
+            "Name": "Ioun stone (reserve)",
+            "d100": 53
+        },
+        {
+            "Name": "Ioun stone (sustenance)",
+            "d100": 54
+        },
+        {
+            "Name": "Iron bands of Bilarro",
+            "d100": 55
+        },
+        {
+            "Name": "Armor, +1 leather",
+            "d100": 56
+        },
+        {
+            "Name": "Armor of resistance (leather)",
+            "d100": 57
+        },
+        {
+            "Name": "Mace of disruption",
+            "d100": 58
+        },
+        {
+            "Name": "Mace of smiting",
+            "d100": 59
+        },
+        {
+            "Name": "Mace of terror",
+            "d100": 60
+        },
+        {
+            "Name": "Mantle of spell resistance",
+            "d100": 61
+        },
+        {
+            "Name": "Necklace of prayer beads",
+            "d100": 62
+        },
+        {
+            "Name": "Periapt of proof against poison",
+            "d100": 63
+        },
+        {
+            "Name": "Ring of animal influence",
+            "d100": 64
+        },
+        {
+            "Name": "Ring of evasion",
+            "d100": 65
+        },
+        {
+            "Name": "Ring of feather falling",
+            "d100": 66
+        },
+        {
+            "Name": "Ring of free action",
+            "d100": 67
+        },
+        {
+            "Name": "Ring of protection",
+            "d100": 68
+        },
+        {
+            "Name": "Ring of resistance",
+            "d100": 69
+        },
+        {
+            "Name": "Ring of spell storing",
+            "d100": 70
+        },
+        {
+            "Name": "Ring of the ram",
+            "d100": 71
+        },
+        {
+            "Name": "Ring of X-ray vision",
+            "d100": 72
+        },
+        {
+            "Name": "Robe of eyes",
+            "d100": 73
+        },
+        {
+            "Name": "Rod of rulership",
+            "d100": 74
+        },
+        {
+            "Name": "Rod of the pact keeper, +2",
+            "d100": 75
+        },
+        {
+            "Name": "Rope of entanglement",
+            "d100": 76
+        },
+        {
+            "Name": "Armor, +1 scale mail",
+            "d100": 77
+        },
+        {
+            "Name": "Armor of resistance (scale mail)",
+            "d100": 78
+        },
+        {
+            "Name": "Shield, +2",
+            "d100": 79
+        },
+        {
+            "Name": "Shield of missile attraction",
+            "d100": 80
+        },
+        {
+            "Name": "Staff of charming",
+            "d100": 81
+        },
+        {
+            "Name": "Staff of healing",
+            "d100": 82
+        },
+        {
+            "Name": "Staff of swarming insects",
+            "d100": 83
+        },
+        {
+            "Name": "Staff of the woodlands",
+            "d100": 84
+        },
+        {
+            "Name": "Staff of withering",
+            "d100": 85
+        },
+        {
+            "Name": "Stone of controlling earth elementals",
+            "d100": 86
+        },
+        {
+            "Name": "Sun blade",
+            "d100": 87
+        },
+        {
+            "Name": "Sword of life stealing",
+            "d100": 88
+        },
+        {
+            "Name": "Sword of wounding",
+            "d100": 89
+        },
+        {
+            "Name": "Tentacle rod",
+            "d100": 90
+        },
+        {
+            "Name": "Vicious weapon",
+            "d100": 91
+        },
+        {
+            "Name": "Wand of binding",
+            "d100": 92
+        },
+        {
+            "Name": "Wand of enemy detection",
+            "d100": 93
+        },
+        {
+            "Name": "Wand of fear",
+            "d100": 94
+        },
+        {
+            "Name": "Wand of fireballs",
+            "d100": 95
+        },
+        {
+            "Name": "Wand of lightning bolts",
+            "d100": 96
+        },
+        {
+            "Name": "Wand of paralysis",
+            "d100": 97
+        },
+        {
+            "Name": "Wand of the war mage, +2",
+            "d100": 98
+        },
+        {
+            "Name": "Wand of wonder",
+            "d100": 99
+        },
+        {
+            "Name": "Wings of flying",
+            "d100": 100
+        }
+    ],
+    "H": [
+        {
             "Name": "",
             "d100": 0
         },
