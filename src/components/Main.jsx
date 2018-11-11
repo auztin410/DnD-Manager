@@ -24,7 +24,6 @@ class Main extends Component {
             individualLootResult: [],
             treasureLoot: "Challenge0-4",
             treasureCurrency: [],
-            treasureLootResults: [],
             treasureGemResults: [],
             treasureArtResults: [],
             treasureMagicItemResults: [],
@@ -36,6 +35,7 @@ class Main extends Component {
         this.DiceRoll = this.DiceRoll.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
         this.handleTreasureLoot = this.handleTreasureLoot.bind(this);
+        this.clearTreasureStates = this.clearTreasureStates.bind(this);
     }
 
 
@@ -643,19 +643,64 @@ class Main extends Component {
         }
     };
 
+    setTreasureCurrency(cp, sp, ep, gp, pp) {
+        this.setState({
+            treasureCurrency: [cp, sp, ep, gp ,pp],
+        });
+    };
+
+    setTreasureGem(cp, sp, ep, gp, pp, gemLoot) {
+        this.setState({
+            treasureCurrency: [cp, sp, ep, gp, pp],
+            treasureGemResults: gemLoot,
+        });
+    };
+
+    setTreasureArt(cp, sp, ep, gp, pp, artLoot) {
+        this.setState({
+            treasureCurrency: [cp, sp, ep, gp, pp],
+            treasureArtResults: artLoot,
+        });
+    }
+
+    setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot) {
+        this.setState({
+            treasureCurrency: [cp, sp, ep, gp, pp],
+            treasureGemResults: gemLoot,
+            treasureMagicItemResults: magicItemLoot,
+        });
+    };
+
+    setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot) {
+        this.setState({
+            treasureCurrency: [cp, sp, ep, gp, pp],
+            treasureGemResults: artLoot,
+            treasureMagicItemResults: magicItemLoot,
+        });
+    };
+
+    clearTreasureStates() {
+        this.setState({
+            treasureCurrency: [],
+            treasureGemResults: [],
+            treasureArtResults: [],
+            treasureMagicItemResults: [],
+        });
+    };
+
     handleTreasureLoot(event) {
         event.preventDefault();
         switch (this.state.treasureLoot) {
             case "Challenge0-4":
                 let cp = this.DiceRoll(6, 6);
                 let sp = this.DiceRoll(3, 6);
+                let ep = 0;
                 let gp = this.DiceRoll(2, 6);
+                let pp = 0;
                 let roll = this.DiceRoll(1, 100);
                 var i;
                 if (roll <= 6) {
-                    this.setState({
-                        treasureCurrency: [cp, sp, 0, gp, 0]
-                    });
+                    this.setTreasureCurrency(cp, sp, ep, gp, pp);
                 }
                 else if (roll <= 16) {
                     let gemLoot = [];
@@ -664,10 +709,7 @@ class Main extends Component {
                         let randomGem = GemList.Gp10[Math.floor(Math.random() * GemList.Gp10.length)];
                         gemLoot.push(randomGem);
                     }
-                    this.setState({
-                        treasureCurrency: [cp, sp, 0, gp, 0],
-                        treasureGemResults: gemLoot,
-                    });
+                   this.setTreasureGem(cp, sp, ep, gp, pp, gemLoot);
                 }
                 else if (roll <= 26) {
                     let artLoot = [];
@@ -676,10 +718,7 @@ class Main extends Component {
                         let randomArt = ArtObjectList.Gp25[Math.floor(Math.random() * ArtObjectList.Gp25.length)];
                         artLoot.push(randomArt);
                     }
-                    this.setState({
-                        treasureCurrency: [cp, sp, 0, gp, 0],
-                        treasureArtResults: artLoot,
-                    });
+                    this.setTreasureArt(cp, sp, ep, gp, pp, artLoot);
                 }
                 else if (roll <= 36) {
                     let gemLoot = [];
@@ -688,10 +727,7 @@ class Main extends Component {
                         let randomGem = GemList.Gp50[Math.floor(Math.random() * GemList.Gp50.length)];
                         gemLoot.push(randomGem);
                     }
-                    this.setState({
-                        treasureCurrency: [cp, sp, 0, gp, 0],
-                        treasureGemResults: gemLoot,
-                    });
+                    this.setTreasureGem(cp, sp, ep, gp, pp, gemLoot);
                 }
                 else if (roll <= 44) {
                     let gemLoot = [];
@@ -710,11 +746,7 @@ class Main extends Component {
                         let magicItem = result[0].Name;
                         magicItemLoot.push(magicItem);
                     }
-                    this.setState({
-                        treasureCurrency: [cp, sp, 0, gp, 0],
-                        treasureGemResults: gemLoot,
-                        treasureMagicItemResults: magicItemLoot,
-                    });
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
                 }
                 else if (roll <= 52) {
                     let artLoot = [];
@@ -733,11 +765,7 @@ class Main extends Component {
                         let magicItem = result[0].Name;
                         magicItemLoot.push(magicItem);
                     }
-                    this.setState({
-                        treasureCurrency: [cp, sp, 0, gp, 0],
-                        treasureArtResults: artLoot,
-                        treasureMagicItemResults: magicItemLoot,
-                    });
+                    this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
                 }
                 else if (roll <= 60) {
                     let gemLoot = [];
@@ -756,14 +784,197 @@ class Main extends Component {
                         let magicItem = result[0].Name;
                         magicItemLoot.push(magicItem);
                     }
-                    this.setState({
-                        treasureCurrency: [cp, sp, 0, gp, 0],
-                        treasureGemResults: gemLoot,
-                        treasureMagicItemResults: magicItemLoot,
-                    });
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
                 }
                 else if (roll <= 65) {
-                    
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp10[Math.floor(Math.random() * GemList.Gp10.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.B.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
+                }
+                else if (roll <= 70) {
+                    let artLoot = [];
+                    let artRoll = this.DiceRoll(2, 4);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < artRoll; i++) {
+                        let randomArt = ArtObjectList.Gp25[Math.floor(Math.random() * ArtObjectList.Gp25.length)];
+                        artLoot.push(randomArt);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.B.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
+                }
+                else if (roll <= 75) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp50[Math.floor(Math.random() * GemList.Gp50.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.B.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
+                }
+                else if (roll <= 78) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp10[Math.floor(Math.random() * GemList.Gp10.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.C.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
+                }
+                else if (roll <= 80) {
+                    let artLoot = [];
+                    let artRoll = this.DiceRoll(2, 4);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < artRoll; i++) {
+                        let randomArt = ArtObjectList.Gp25[Math.floor(Math.random() * ArtObjectList.Gp25.length)];
+                        artLoot.push(randomArt);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.C.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
+                }
+                else if (roll <= 85) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp50[Math.floor(Math.random() * GemList.Gp50.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.C.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
+                }
+                else if (roll <= 92) {
+                    let artLoot = [];
+                    let artRoll = this.DiceRoll(2, 4);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < artRoll; i++) {
+                        let randomArt = ArtObjectList.Gp25[Math.floor(Math.random() * ArtObjectList.Gp25.length)];
+                        artLoot.push(randomArt);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.F.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
+                }
+                else if (roll <= 97) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 4);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp50[Math.floor(Math.random() * GemList.Gp50.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.F.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
+                }
+                else if (roll <= 99) {
+                    let artLoot = [];
+                    let artRoll = this.DiceRoll(2, 4);
+                    let magicItemLoot = [];
+                    let magicItemRoll = 1;
+                    for (i = 0; i < artRoll; i++) {
+                        let randomArt = ArtObjectList.Gp25[Math.floor(Math.random() * ArtObjectList.Gp25.length)];
+                        artLoot.push(randomArt);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.G.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
+                }
+                else if (roll === 100) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = 1;
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp50[Math.floor(Math.random() * GemList.Gp50.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.G.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
                 }
                 else {
                     console.log("Didn't hit any if statements");
@@ -845,6 +1056,7 @@ class Main extends Component {
                             </select>
                             <button onClick={this.handleTreasureLoot}>Test Treasure Loot</button>
                         </form>
+                            <button onClick={this.clearTreasureStates}>Clear Treasure States</button>
                     </div>
                 </div>
             )
