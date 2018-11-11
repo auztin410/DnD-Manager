@@ -5,6 +5,8 @@ import Npc from './Npc';
 import WorldEventGenerator from '../assets/Json/World-Shaking-Events';
 import WorldShakingEvent from './WorldShakingEvent';
 import MagicItemsTables from '../assets/Json/MagicItemTables';
+import GemList from '../assets/Json/Gemstones';
+import ArtObjectList from '../assets/Json/ArtObject';
 
 class Main extends Component {
     constructor() {
@@ -21,6 +23,11 @@ class Main extends Component {
             individualLootCurrency: [],
             individualLootResult: [],
             treasureLoot: "Challenge0-4",
+            treasureCurrency: [],
+            treasureLootResults: [],
+            treasureGemResults: [],
+            treasureArtResults: [],
+            treasureMagicItemResults: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -638,12 +645,131 @@ class Main extends Component {
 
     handleTreasureLoot(event) {
         event.preventDefault();
-        // var treasureRoll = this.DiceRoll(1, 100);
-        // switch (this.state.treasureLoot) {
-        //     case "Challenge0-4":
-        // Generate currency reward
+        switch (this.state.treasureLoot) {
+            case "Challenge0-4":
+                let cp = this.DiceRoll(6, 6);
+                let sp = this.DiceRoll(3, 6);
+                let gp = this.DiceRoll(2, 6);
+                let roll = this.DiceRoll(1, 100);
+                var i;
+                if (roll <= 6) {
+                    this.setState({
+                        treasureCurrency: [cp, sp, 0, gp, 0]
+                    });
+                }
+                else if (roll <= 16) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp10[Math.floor(Math.random() * GemList.Gp10.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    this.setState({
+                        treasureCurrency: [cp, sp, 0, gp, 0],
+                        treasureGemResults: gemLoot,
+                    });
+                }
+                else if (roll <= 26) {
+                    let artLoot = [];
+                    let artRoll = this.DiceRoll(2, 4);
+                    for (i = 0; i < artRoll; i++) {
+                        let randomArt = ArtObjectList.Gp25[Math.floor(Math.random() * ArtObjectList.Gp25.length)];
+                        artLoot.push(randomArt);
+                    }
+                    this.setState({
+                        treasureCurrency: [cp, sp, 0, gp, 0],
+                        treasureArtResults: artLoot,
+                    });
+                }
+                else if (roll <= 36) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp50[Math.floor(Math.random() * GemList.Gp50.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    this.setState({
+                        treasureCurrency: [cp, sp, 0, gp, 0],
+                        treasureGemResults: gemLoot,
+                    });
+                }
+                else if (roll <= 44) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 6);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp10[Math.floor(Math.random() * GemList.Gp10.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.A.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setState({
+                        treasureCurrency: [cp, sp, 0, gp, 0],
+                        treasureGemResults: gemLoot,
+                        treasureMagicItemResults: magicItemLoot,
+                    });
+                }
+                else if (roll <= 52) {
+                    let artLoot = [];
+                    let artRoll = this.DiceRoll(2, 4);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 6);
+                    for (i = 0; i < artRoll; i++) {
+                        let randomArt = ArtObjectList.Gp25[Math.floor(Math.random() * ArtObjectList.Gp25.length)];
+                        artLoot.push(randomArt);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.A.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setState({
+                        treasureCurrency: [cp, sp, 0, gp, 0],
+                        treasureArtResults: artLoot,
+                        treasureMagicItemResults: magicItemLoot,
+                    });
+                }
+                else if (roll <= 60) {
+                    let gemLoot = [];
+                    let gemRoll = this.DiceRoll(2, 6);
+                    let magicItemLoot = [];
+                    let magicItemRoll = this.DiceRoll(1, 6);
+                    for (i = 0; i < gemRoll; i++) {
+                        let randomGem = GemList.Gp50[Math.floor(Math.random() * GemList.Gp50.length)];
+                        gemLoot.push(randomGem);
+                    }
+                    for (i = 0; i < magicItemRoll; i++) {
+                        let roll = this.DiceRoll(1, 100);
+                        let result = MagicItemsTables.A.filter(obj => {
+                            return obj.d100 >= roll
+                        });
+                        let magicItem = result[0].Name;
+                        magicItemLoot.push(magicItem);
+                    }
+                    this.setState({
+                        treasureCurrency: [cp, sp, 0, gp, 0],
+                        treasureGemResults: gemLoot,
+                        treasureMagicItemResults: magicItemLoot,
+                    });
+                }
+                else if (roll <= 65) {
+                    
+                }
+                else {
+                    console.log("Didn't hit any if statements");
+                }
+        }
 
-        // }
         let roll = this.DiceRoll(1, 100);
         let result = MagicItemsTables.A.filter(obj => {
             return obj.d100 >= roll

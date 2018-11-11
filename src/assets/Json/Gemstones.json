@@ -1,5 +1,5 @@
 {
-    "10Gp": [
+    "Gp10": [
         {
             "Name": "Azurite",
             "Value": 10
@@ -49,7 +49,7 @@
             "Value": 10
         }
     ],
-    "50Gp": [
+    "Gp50": [
         {
             "Name": "Bloodstone",
             "Value": 50
@@ -99,7 +99,7 @@
             "Value": 50
         }
     ],
-    "100Gp": [
+    "Gp100": [
         {
             "Name": "Amber",
             "Value": 100
@@ -141,7 +141,7 @@
             "Value": 100
         }
     ],
-    "500Gp": [
+    "Gp500": [
         {
             "Name": "Alexandrite",
             "Value": 500
@@ -201,7 +201,7 @@
             "Value": 1000
         }
     ],
-    "5000Gp": [
+    "Gp5000": [
         {
             "Name": "Black sapphire",
             "Value": 5000

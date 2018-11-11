@@ -1,5 +1,5 @@
 {
-    "25Gp": [
+    "Gp25": [
         {
             "Name": "Silver ewer",
             "Value": 25
@@ -41,7 +41,7 @@
             "Value": 25
         }
     ],
-    "250Gp": [
+    "Gp250": [
         {
             "Name": "Gold ring set with bloodstones",
             "Value": 250
@@ -83,7 +83,7 @@
             "Value": 250
         }
     ],
-    "750Gp": [
+    "Gp750": [
         {
             "Name": "Silver chalice set with moonstones",
             "Value": 750
@@ -125,7 +125,7 @@
             "Value": 750
         }
     ],
-    "2500Gp": [
+    "Gp2500": [
         {
             "Name": "Fine gold chain set with a fire opal",
             "Value": 2500
@@ -167,7 +167,7 @@
             "Value": 2500
         }
     ],
-    "7500Gp": [
+    "Gp7500": [
         {
             "Name": "Jeweled gold crown",
             "Value": 7500
