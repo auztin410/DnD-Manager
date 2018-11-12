@@ -1,21 +1,26 @@
 import React from 'react'
 
+
 const Home = props => {
 	if (props.user) {
 		return (
 			<div className="Home">
-			<br/>
-				Welcome to DnD Game Manager!
+				<p>Current User:</p>
+				<code>
+					{JSON.stringify(props)}
+				</code>
 			</div>
 		)
 	} else {
 		return (
 			<div className="Home">
-			<br/>
-				Welcome to DnD Game Manager!
+				<p>Current User:</p>
+				<code>
+					{JSON.stringify(props)}
+				</code>
 			</div>
 		)
 	}
 }
 
-export default Home;
+export default Home
