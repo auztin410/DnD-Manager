@@ -81,6 +81,7 @@ class Main extends Component {
         });
     };
 
+
     handleWorldShakingEvent(event) {
         let bigEvent = WorldEventGenerator.Event[Math.floor(Math.random() * WorldEventGenerator.Event.length)];
         if (bigEvent === "Rise of a leader or an era" || bigEvent === "Fall of a leader or an era") {
@@ -986,7 +987,7 @@ class Main extends Component {
                 ep = 0;
                 gp = this.DiceRoll(6, 6);
                 pp = this.DiceRoll(3, 6);
-                roll= this.DiceRoll(1, 100);
+                roll = this.DiceRoll(1, 100);
                 if (roll <= 4) {
                     this.setTreasureCurrency(cp, sp, ep, gp, pp);
                 }
@@ -1486,13 +1487,13 @@ class Main extends Component {
                     console.log("Didn't match any if condition.");
                 }
                 break;
-                case("Challenge11-16"):
+            case ("Challenge11-16"):
                 cp = 0;
                 sp = 0;
                 ep = 0;
                 gp = this.DiceRoll(4, 6);
                 pp = this.DiceRoll(5, 6);
-                roll= this.DiceRoll(1, 100);
+                roll = this.DiceRoll(1, 100);
                 if (roll <= 3) {
                     this.setTreasureCurrency(cp, sp, ep, gp, pp);
                 }
@@ -2137,13 +2138,13 @@ class Main extends Component {
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
                 }
                 break;
-                case("Challenge17+"):
+            case ("Challenge17+"):
                 cp = 0;
                 sp = 0;
                 ep = 0;
                 gp = this.DiceRoll(12, 6);
                 pp = this.DiceRoll(8, 6);
-                roll= this.DiceRoll(1, 100);
+                roll = this.DiceRoll(1, 100);
                 if (roll <= 2) {
                     this.setTreasureCurrency(cp, sp, ep, gp, pp);
                 }
@@ -2675,6 +2676,29 @@ class Main extends Component {
                             <button onClick={this.handleTreasureLoot}>Test Treasure Loot</button>
                         </form>
                         <button onClick={this.clearTreasureStates}>Clear Treasure States</button>
+                        <br />
+                        <div>
+                            <p>{this.state.treasureCurrency[0]} CP</p>
+                            <p>{this.state.treasureCurrency[1]} SP</p>
+                            <p>{this.state.treasureCurrency[2]} EP</p>
+                            <p>{this.state.treasureCurrency[3]} GP</p>
+                            <p>{this.state.treasureCurrency[4]} PP</p>
+                        </div>
+                        <div>
+                            {this.state.treasureArtResults.map(item => (
+                                <p key={item.Name}>{item.Name} | {item.Value}</p>
+                            ))}
+                        </div>
+                        <div>
+                            {this.state.treasureGemResults.map(item => (
+                                <p key={item.Name}>{item.Name} | {item.Value}</p>
+                            ))}
+                        </div>
+                        <div>
+                            {this.state.treasureMagicItemResults.map(item => (
+                                <p key={item}>{item}</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
             )
