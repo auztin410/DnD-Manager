@@ -46,3 +46,18 @@
   background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
   width: 25vw;
 }
+
+.generated {
+  background-image: url('./assets//u0.jpg');
+  width: 20vw;
+  margin-left: 15px;
+  float: left;
+  border-width: 3px;
+  border-style: ridge;
+  border-color: rgba(65, 36, 13, 0.61);
+}
+
+.items {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bold;
+}

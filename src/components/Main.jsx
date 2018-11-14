@@ -2677,26 +2677,26 @@ class Main extends Component {
                         </form>
                         <button onClick={this.clearTreasureStates}>Clear Treasure States</button>
                         <br />
-                        <div>
-                            <p>{this.state.treasureCurrency[0]} CP</p>
-                            <p>{this.state.treasureCurrency[1]} SP</p>
-                            <p>{this.state.treasureCurrency[2]} EP</p>
-                            <p>{this.state.treasureCurrency[3]} GP</p>
-                            <p>{this.state.treasureCurrency[4]} PP</p>
+                        <div className="generated">
+                            <p className="items">{this.state.treasureCurrency[0]} CP</p>
+                            <p className="items">{this.state.treasureCurrency[1]} SP</p>
+                            <p className="items">{this.state.treasureCurrency[2]} EP</p>
+                            <p className="items">{this.state.treasureCurrency[3]} GP</p>
+                            <p className="items">{this.state.treasureCurrency[4]} PP</p>
                         </div>
-                        <div>
+                        <div className="generated">
                             {this.state.treasureArtResults.map(item => (
-                                <p key={item.Name}>{item.Name} | {item.Value}</p>
+                                <span className="items"><p key={item.Name}>{item.Name} | {item.Value}</p></span>
                             ))}
                         </div>
-                        <div>
+                        <div className="generated">
                             {this.state.treasureGemResults.map(item => (
-                                <p key={item.Name}>{item.Name} | {item.Value}</p>
+                                <span className="items"><p key={item.Name}>{item.Name} | {item.Value}</p></span>
                             ))}
                         </div>
-                        <div>
+                        <div className="generated">
                             {this.state.treasureMagicItemResults.map(item => (
-                                <p key={item}>{item}</p>
+                                <span className="items"><p key={item}>{item}</p></span>
                             ))}
                         </div>
                     </div>
