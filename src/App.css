@@ -61,3 +61,35 @@
   font-family: 'Cinzel Decorative', cursive;
   font-weight: bold;
 }
+
+.displayItem {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-image: url('./assets/u0.jpg');
+  width: 33vw;
+  border-width: 8px;
+  border-style: ridge;
+  border-color: rgba(65, 36, 13, 0.61);
+}
+
+.closeDisplayItem {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: rgba(65, 36, 13, 0.61);
+  border-radius: 50%;
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  padding: auto;
+}
+
+.closeDisplayItem:hover {
+  color: white;
+}

@@ -7,6 +7,7 @@ import WorldShakingEvent from './WorldShakingEvent';
 import MagicItemsTables from '../assets/Json/MagicItemTables';
 import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
+import MagicItemList from '../assets/Json/MagicItemList';
 
 class Main extends Component {
     constructor() {
@@ -27,6 +28,7 @@ class Main extends Component {
             treasureGemResults: [],
             treasureArtResults: [],
             treasureMagicItemResults: [],
+            displayItem: null,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -36,6 +38,7 @@ class Main extends Component {
         this.handleRoll = this.handleRoll.bind(this);
         this.handleTreasureLoot = this.handleTreasureLoot.bind(this);
         this.clearTreasureStates = this.clearTreasureStates.bind(this);
+        this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
     }
 
 
@@ -2640,6 +2643,30 @@ class Main extends Component {
                     console.log("Didn't hit any if conditions,");
                 }
         }
+    };
+
+    handleMagicItemClick(item) {
+        console.log(item);
+        let found = MagicItemList.find(function(el) {
+            return el.Name === item
+        });
+        console.log(found);
+        this.setState({
+            displayItem: {
+                Name: "Healing potion",
+                Description: "The potion's red liquid glimmers when agitated.",
+                Effect: "Regain 2d4+2 hit points.",
+                Weight: .5,
+                Cost: 50,
+                Currency: "GP"
+            }
+        })
+    };
+
+    handleCloseDisplayItem(event) {
+        this.setState({
+            displayItem: null,
+        });
     }
 
     render() {
@@ -2710,42 +2737,52 @@ class Main extends Component {
                         <button onClick={this.clearTreasureStates}>Clear Treasure States</button>
                         <br />
                         {(this.state.treasureCurrency.length >= 1)
-                        ? <div className="generated">
-                        <p className="items">{this.state.treasureCurrency[0]} CP</p>
-                        <p className="items">{this.state.treasureCurrency[1]} SP</p>
-                        <p className="items">{this.state.treasureCurrency[2]} EP</p>
-                        <p className="items">{this.state.treasureCurrency[3]} GP</p>
-                        <p className="items">{this.state.treasureCurrency[4]} PP</p>
-                    </div>
-                    : null
-                    }                        
+                            ? <div className="generated">
+                                <p className="items">{this.state.treasureCurrency[0]} CP</p>
+                                <p className="items">{this.state.treasureCurrency[1]} SP</p>
+                                <p className="items">{this.state.treasureCurrency[2]} EP</p>
+                                <p className="items">{this.state.treasureCurrency[3]} GP</p>
+                                <p className="items">{this.state.treasureCurrency[4]} PP</p>
+                            </div>
+                            : null
+                        }
                         {(this.state.treasureArtResults.length >= 1)
-                        ? <div className="generated">
-                        {this.state.treasureArtResults.map(item => (
-                            <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
-                        ))}
-                    </div>
-                    : null
-                    }                        
+                            ? <div className="generated">
+                                {this.state.treasureArtResults.map(item => (
+                                    <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                ))}
+                            </div>
+                            : null
+                        }
                         {(this.state.treasureGemResults.length >= 1)
-                        ? <div className="generated">
-                        {this.state.treasureGemResults.map(item => (
-                            <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
-                        ))}
-                    </div>
-                    : null
-                    }
-                        
+                            ? <div className="generated">
+                                {this.state.treasureGemResults.map(item => (
+                                    <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                ))}
+                            </div>
+                            : null
+                        }
+
                         {(this.state.treasureMagicItemResults.length >= 1)
-                        ? <div className="generated">
-                        {this.state.treasureMagicItemResults.map(item => (
-                            <span className="items"><p key={item.Name}>{item.Count} x | {item.Name}</p></span>
-                        ))}
-                    </div>
-                    : null
+                            ? <div className="generated">
+                                {this.state.treasureMagicItemResults.map(item => (
+                                    <span className="items"><p onClick={() => this.handleMagicItemClick(item.Name)} value={item.Name} key={item.Name}>{item.Count} x | {item.Name}</p></span>
+                                ))}
+                            </div>
+                            : null
+                        }
+
+                        {(this.state.displayItem)
+                        ? <div className="displayItem">
+                            <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
+                            <h2>{this.state.displayItem.Name}</h2>
+                            <p>Description: {this.state.displayItem.Description}</p>
+                            <p>Weight: {this.state.displayItem.Weight} | Cost: {this.state.displayItem.Cost} {this.state.displayItem.Currency}</p>
+                            <p>Effect: {this.state.displayItem.Effect}</p>
+                            </div>
+                            : null
                     }
-                            
-                        
+
                     </div>
                 </div>
             )
