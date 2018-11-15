@@ -651,32 +651,64 @@ class Main extends Component {
     };
 
     setTreasureGem(cp, sp, ep, gp, pp, gemLoot) {
+        let result = [];
+        gemLoot.forEach(item => {
+            let resObj = result.find(resObj => resObj.Name === item.Name);
+            resObj ? resObj.Count++ : result.push({ 'Name': item.Name, 'Value': item.Value, 'Count': 1 });
+        });
         this.setState({
             treasureCurrency: [cp, sp, ep, gp, pp],
-            treasureGemResults: gemLoot,
+            treasureGemResults: result,
         });
     };
 
     setTreasureArt(cp, sp, ep, gp, pp, artLoot) {
+        let result = [];
+        artLoot.forEach(item => {
+            let resObj = result.find(resObj => resObj.Name === item.Name);
+            resObj ? resObj.Count++ : result.push({ 'Name': item.Name, 'Value': item.Value, 'Count': 1 });
+        });
         this.setState({
             treasureCurrency: [cp, sp, ep, gp, pp],
-            treasureArtResults: artLoot,
+            treasureArtResults: result,
         });
     }
 
     setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot) {
+        let result = [];
+        gemLoot.forEach(item => {
+            let resObj = result.find(resObj => resObj.Name === item.Name);
+            resObj ? resObj.Count++ : result.push({ 'Name': item.Name, 'Value': item.Value, 'Count': 1 });
+        });
+        let resultMagic = [];
+        magicItemLoot.forEach(item => {
+            let resObj = resultMagic.find(resObj => resObj.Name === item.Name);
+            resObj ? resObj.Count++ : resultMagic.push({ 'Name': item.Name, 'Count': 1 });
+        });
         this.setState({
             treasureCurrency: [cp, sp, ep, gp, pp],
-            treasureGemResults: gemLoot,
-            treasureMagicItemResults: magicItemLoot,
+            treasureGemResults: result,
+            treasureMagicItemResults: resultMagic,
         });
     };
 
     setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot) {
+        let result = [];
+        artLoot.forEach(item => {
+            let resObj = result.find(resObj => resObj.Name === item.Name);
+            resObj ? resObj.Count++ : result.push({ 'Name': item.Name, 'Count': 1 });
+        });
+        console.log(magicItemLoot);
+        let resultMagic = [];
+        magicItemLoot.forEach(item => {
+            let resObj = resultMagic.find(resObj => resObj.Name === item.Name);
+            resObj ? resObj.Count++ : resultMagic.push({ 'Name': item.Name, 'Count': 1 });
+        });
+        console.log(resultMagic);
         this.setState({
             treasureCurrency: [cp, sp, ep, gp, pp],
-            treasureGemResults: artLoot,
-            treasureMagicItemResults: magicItemLoot,
+            treasureArtResults: result,
+            treasureMagicItemResults: resultMagic,
         });
     };
 
@@ -744,7 +776,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -763,7 +795,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -782,7 +814,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -801,7 +833,7 @@ class Main extends Component {
                         let result = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -820,7 +852,7 @@ class Main extends Component {
                         let result = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -839,7 +871,7 @@ class Main extends Component {
                         let result = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -858,7 +890,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -877,7 +909,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -896,7 +928,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -915,7 +947,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -934,7 +966,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -953,7 +985,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -972,7 +1004,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1041,7 +1073,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1060,7 +1092,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1079,7 +1111,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1098,7 +1130,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1117,7 +1149,7 @@ class Main extends Component {
                         let result = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1136,7 +1168,7 @@ class Main extends Component {
                         let result = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1155,7 +1187,7 @@ class Main extends Component {
                         let result = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1174,7 +1206,7 @@ class Main extends Component {
                         let result = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1193,7 +1225,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1212,7 +1244,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1231,7 +1263,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1250,7 +1282,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1269,7 +1301,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1288,7 +1320,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1307,7 +1339,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1326,7 +1358,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1345,7 +1377,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1364,7 +1396,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1383,7 +1415,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1402,7 +1434,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1421,7 +1453,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1440,7 +1472,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1459,7 +1491,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1478,7 +1510,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1548,7 +1580,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1556,7 +1588,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1576,7 +1608,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1584,7 +1616,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1604,7 +1636,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1612,7 +1644,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1632,7 +1664,7 @@ class Main extends Component {
                         let result = MagicItemsTables.A.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1640,7 +1672,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.B.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1659,7 +1691,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1678,7 +1710,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1697,7 +1729,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1716,7 +1748,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1735,7 +1767,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1754,7 +1786,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1773,7 +1805,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1792,7 +1824,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1811,7 +1843,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1830,7 +1862,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1849,7 +1881,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1868,7 +1900,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1888,7 +1920,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1896,7 +1928,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1916,7 +1948,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1924,7 +1956,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -1944,7 +1976,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1952,7 +1984,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1972,7 +2004,7 @@ class Main extends Component {
                         let result = MagicItemsTables.F.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     for (i = 0; i < magicItemRoll2; i++) {
@@ -1980,7 +2012,7 @@ class Main extends Component {
                         let result2 = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem2 = result2[0].Name;
+                        let magicItem2 = result2[0];
                         magicItemLoot.push(magicItem2);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -1999,7 +2031,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2018,7 +2050,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2037,7 +2069,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2056,7 +2088,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2075,7 +2107,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2094,7 +2126,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2113,7 +2145,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2132,7 +2164,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2162,7 +2194,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2181,7 +2213,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2200,7 +2232,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2219,7 +2251,7 @@ class Main extends Component {
                         let result = MagicItemsTables.C.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2238,7 +2270,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2257,7 +2289,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2276,7 +2308,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2295,7 +2327,7 @@ class Main extends Component {
                         let result = MagicItemsTables.D.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2314,7 +2346,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2333,7 +2365,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2352,7 +2384,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2371,7 +2403,7 @@ class Main extends Component {
                         let result = MagicItemsTables.E.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2390,7 +2422,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2409,7 +2441,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2428,7 +2460,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2447,7 +2479,7 @@ class Main extends Component {
                         let result = MagicItemsTables.G.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2466,7 +2498,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2485,7 +2517,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2504,7 +2536,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2523,7 +2555,7 @@ class Main extends Component {
                         let result = MagicItemsTables.H.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2542,7 +2574,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2561,7 +2593,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2580,7 +2612,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
@@ -2599,7 +2631,7 @@ class Main extends Component {
                         let result = MagicItemsTables.I.filter(obj => {
                             return obj.d100 >= roll
                         });
-                        let magicItem = result[0].Name;
+                        let magicItem = result[0];
                         magicItemLoot.push(magicItem);
                     }
                     this.setTreasureGemMagic(cp, sp, ep, gp, pp, gemLoot, magicItemLoot);
@@ -2677,28 +2709,43 @@ class Main extends Component {
                         </form>
                         <button onClick={this.clearTreasureStates}>Clear Treasure States</button>
                         <br />
-                        <div className="generated">
-                            <p className="items">{this.state.treasureCurrency[0]} CP</p>
-                            <p className="items">{this.state.treasureCurrency[1]} SP</p>
-                            <p className="items">{this.state.treasureCurrency[2]} EP</p>
-                            <p className="items">{this.state.treasureCurrency[3]} GP</p>
-                            <p className="items">{this.state.treasureCurrency[4]} PP</p>
-                        </div>
-                        <div className="generated">
-                            {this.state.treasureArtResults.map(item => (
-                                <span className="items"><p key={item.Name}>{item.Name} | {item.Value}</p></span>
-                            ))}
-                        </div>
-                        <div className="generated">
-                            {this.state.treasureGemResults.map(item => (
-                                <span className="items"><p key={item.Name}>{item.Name} | {item.Value}</p></span>
-                            ))}
-                        </div>
-                        <div className="generated">
-                            {this.state.treasureMagicItemResults.map(item => (
-                                <span className="items"><p key={item}>{item}</p></span>
-                            ))}
-                        </div>
+                        {(this.state.treasureCurrency.length >= 1)
+                        ? <div className="generated">
+                        <p className="items">{this.state.treasureCurrency[0]} CP</p>
+                        <p className="items">{this.state.treasureCurrency[1]} SP</p>
+                        <p className="items">{this.state.treasureCurrency[2]} EP</p>
+                        <p className="items">{this.state.treasureCurrency[3]} GP</p>
+                        <p className="items">{this.state.treasureCurrency[4]} PP</p>
+                    </div>
+                    : null
+                    }                        
+                        {(this.state.treasureArtResults.length >= 1)
+                        ? <div className="generated">
+                        {this.state.treasureArtResults.map(item => (
+                            <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                        ))}
+                    </div>
+                    : null
+                    }                        
+                        {(this.state.treasureGemResults.length >= 1)
+                        ? <div className="generated">
+                        {this.state.treasureGemResults.map(item => (
+                            <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                        ))}
+                    </div>
+                    : null
+                    }
+                        
+                        {(this.state.treasureMagicItemResults.length >= 1)
+                        ? <div className="generated">
+                        {this.state.treasureMagicItemResults.map(item => (
+                            <span className="items"><p key={item.Name}>{item.Count} x | {item.Name}</p></span>
+                        ))}
+                    </div>
+                    : null
+                    }
+                            
+                        
                     </div>
                 </div>
             )
