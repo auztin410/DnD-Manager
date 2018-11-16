@@ -7,7 +7,6 @@ import WorldShakingEvent from './WorldShakingEvent';
 import MagicItemsTables from '../assets/Json/MagicItemTables';
 import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
-import MagicItemList from '../assets/Json/MagicItemList';
 
 class Main extends Component {
     constructor() {
@@ -2647,10 +2646,10 @@ class Main extends Component {
 
     handleMagicItemClick(item) {
         console.log(item);
-        let found = MagicItemList.find(function(el) {
-            return el.Name === item
-        });
-        console.log(found);
+        // let found = MagicItemList.find(function(el) {
+        //     return el.Name === item
+        // });
+        // console.log(found);
         this.setState({
             displayItem: {
                 Name: "Healing potion",
