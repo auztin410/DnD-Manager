@@ -7,6 +7,7 @@ import WorldShakingEvent from './WorldShakingEvent';
 import MagicItemsTables from '../assets/Json/MagicItemTables';
 import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
+import MagicItemsList from '../assets/Json/MagicItemsList';
 
 class Main extends Component {
     constructor() {
@@ -2646,20 +2647,34 @@ class Main extends Component {
 
     handleMagicItemClick(item) {
         console.log(item);
-        // let found = MagicItemList.find(function(el) {
-        //     return el.Name === item
-        // });
-        // console.log(found);
-        this.setState({
-            displayItem: {
-                Name: "Healing potion",
-                Description: "The potion's red liquid glimmers when agitated.",
-                Effect: "Regain 2d4+2 hit points.",
-                Weight: .5,
-                Cost: 50,
-                Currency: "GP"
-            }
-        })
+        let found = MagicItemsList.find(function(el) {
+            return el.Name === item
+        });
+        console.log(found);
+        if (!found) {
+            this.setState({
+                displayItem: {
+                    Name: "Healing potion",
+                    Description: "The potion's red liquid glimmers when agitated.",
+                    Effect: "Regain 2d4+2 hit points.",
+                    Weight: .5,
+                    Cost: 50,
+                    Currency: "GP"
+                }
+            })
+        }
+        else if (found) {
+            this.setState({
+                displayItem: {
+                    Name: found.Name,
+                    Description: found.Description,
+                    Effect: found.Effects.Passive,
+                    Type: found.Type,
+                    Rarity: found.Rarity
+                }
+            })
+        }
+        
     };
 
     handleCloseDisplayItem(event) {
@@ -2772,7 +2787,8 @@ class Main extends Component {
                         }
 
                         {(this.state.displayItem)
-                        ? <div className="displayItem">
+                        ?
+                        <div className="displayItem">
                             <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
                             <h2>{this.state.displayItem.Name}</h2>
                             <p>Description: {this.state.displayItem.Description}</p>
