@@ -156,6 +156,7 @@ class Main extends Component {
         function add(a, b) {
             return a + b;
         }
+        console.log(`Dice roll ${result}`);
         return result;
     };
 
@@ -2620,7 +2621,7 @@ class Main extends Component {
                     }
                     this.setTreasureArtMagic(cp, sp, ep, gp, pp, artLoot, magicItemLoot);
                 }
-                else if (roll <= 100) {
+                else if (roll >= 96) {
                     let gemLoot = [];
                     let gemRoll = this.DiceRoll(1, 8);
                     let magicItemLoot = [];
@@ -2791,9 +2792,12 @@ class Main extends Component {
                         <div className="displayItem">
                             <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
                             <h2>{this.state.displayItem.Name}</h2>
-                            <p>Description: {this.state.displayItem.Description}</p>
-                            <p>Weight: {this.state.displayItem.Weight} | Cost: {this.state.displayItem.Cost} {this.state.displayItem.Currency}</p>
+                            {this.state.displayItem.Description.map(item => (
+                                <p>{item}</p>
+                            ))}
+                            <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
                             <p>Effect: {this.state.displayItem.Effect}</p>
+                            <p>Use: {this.state.displayItem.Use}</p>
                             </div>
                             : null
                     }
