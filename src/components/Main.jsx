@@ -2666,13 +2666,7 @@ class Main extends Component {
         }
         else if (found) {
             this.setState({
-                displayItem: {
-                    Name: found.Name,
-                    Description: found.Description,
-                    Effect: found.Effects.Passive,
-                    Type: found.Type,
-                    Rarity: found.Rarity
-                }
+                displayItem: found
             })
         }
         
@@ -2687,7 +2681,7 @@ class Main extends Component {
     render() {
         if (this.state.npcComponent === true) {
             return (
-                <div>
+                <div className="treasureHordeContainer">
                     <div className="main">
                         <button onClick={this.handleNpcGenerator}>NPC Generator</button>
                         <br />
@@ -2702,7 +2696,7 @@ class Main extends Component {
         }
         else if (this.state.worldShakingComponent === true) {
             return (
-                <div>
+                <div className="treasureHordeContainer">
                     <div className="main">
                         <button onClick={this.handleNpcGenerator}>NPC Generator</button>
                     </div>
@@ -2717,7 +2711,7 @@ class Main extends Component {
         }
         else if (this.state.npcComponent === false) {
             return (
-                <div>
+                <div className="treasureHordeContainer">
                     <div className="main">
                         <button onClick={this.handleNpcGenerator}>NPC Generator</button>
                     </div>
@@ -2750,6 +2744,7 @@ class Main extends Component {
                             <button onClick={this.handleTreasureLoot}>Test Treasure Loot</button>
                         </form>
                         <button onClick={this.clearTreasureStates}>Clear Treasure States</button>
+                        <br />
                         <br />
                         {(this.state.treasureCurrency.length >= 1)
                             ? <div className="generated">
@@ -2796,8 +2791,28 @@ class Main extends Component {
                                 <p>{item}</p>
                             ))}
                             <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
-                            <p>Effect: {this.state.displayItem.Effect}</p>
-                            <p>Use: {this.state.displayItem.Use}</p>
+                            {(this.state.displayItem.Use === true)
+                            ?
+                            <div>
+                                <p>Use: {this.state.displayItem.Effects.Use}</p>
+                                <p>Cooldown: {this.state.displayItem.CoolDown}</p>
+                            </div>    
+                                : null
+                        }
+                        {(this.state.displayItem.Passive === true)
+                        ?
+                            <p>Passive: {this.state.displayItem.Effects.Passive}</p>
+                            : null
+                    }
+                    {(this.state.displayItem.Table.length > 0)
+                    ?
+                    <div>
+                        {this.state.displayItem.Table.map(item => (
+                            <p>{item.Roll} | {item.Effect}</p>
+                        ))}
+                    </div>
+                    : null
+                }
                             </div>
                             : null
                     }

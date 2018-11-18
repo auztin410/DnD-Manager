@@ -70,8 +70,10 @@
   left: 0;
   right: 0;
   margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
   background-image: url('./assets/u0.jpg');
-  width: 33vw;
+  width: 50vw;
   border-width: 8px;
   border-style: ridge;
   border-color: rgba(65, 36, 13, 0.61);
@@ -94,9 +96,6 @@
   color: white;
 }
 
-.displayItemBackground {
-  z-index: 1;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.699);
+.treasureHordeContainer {
+  margin-top: 15px;
 }
