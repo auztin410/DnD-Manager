@@ -8,6 +8,7 @@ import MagicItemsTables from '../assets/Json/MagicItemTables';
 import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
 import MagicItemsList from '../assets/Json/MagicItemsList';
+import Translation from './Translation';
 
 class Main extends Component {
     constructor() {
@@ -30,6 +31,9 @@ class Main extends Component {
             treasureMagicItemResults: [],
             displayItem: null,
             displayItemArmorDetails: null,
+            textToTranslate: null,
+            language: "Elvish",
+            displayTranslation: false,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -40,6 +44,7 @@ class Main extends Component {
         this.handleTreasureLoot = this.handleTreasureLoot.bind(this);
         this.clearTreasureStates = this.clearTreasureStates.bind(this);
         this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
+        this.handleTranslate = this.handleTranslate.bind(this);
     }
 
 
@@ -2688,7 +2693,13 @@ class Main extends Component {
             displayItem: null,
             displayItemArmorDetails: null,
         });
-    }
+    };
+
+    handleTranslate(event) {
+        this.setState({
+            displayTranslation: true
+        });
+    };
 
     render() {
         if (this.state.npcComponent === true) {
@@ -2847,6 +2858,21 @@ class Main extends Component {
                         }
 
                     </div>
+                    <div>
+                        <input name="textToTranslate" type="text" onChange={this.handleChange} />
+                        <select name="language" onChange={this.handleChange}>
+                            <option value="Elvish">Elvish</option>
+                            <option value="Dwarven">Dwarven</option>
+                            <option value="Draconic">Draconic</option>
+                            <option value="Abyssal">Abyssal</option>
+                        </select>
+                        <button onClick={this.handleTranslate}>Translate</button>
+                    </div>
+                    <br />
+                    {(this.state.displayTranslation === true)
+                        ?
+                        <Translation language={this.state.language} textToTranslate={this.state.textToTranslate}/>
+                        : null}
                 </div>
             )
         }

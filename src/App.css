@@ -1,3 +1,14 @@
+@font-face { font-family: Dungeon; src: url('../src/assets/Fonts/DUNGRG__.TTF');}
+@font-face { font-family: Dungeon; font-weight: bold; src: url('../src/assets/Fonts/DUNGRG__.TTF');}
+@font-face { font-family: Elvish; src: url('../src/assets/Fonts/Rellanic.otf');}
+@font-face { font-family: Elvish; font-weight: bold; src: url('../src/assets/Fonts/Rellanic\ Bold.otf');}
+@font-face { font-family: Dwarven; src: url('../src/assets/Fonts/Davek.otf');}
+@font-face { font-family: Dwarven; font-weight: bold; src: url('../src/assets/Fonts/Davek\ Bold.otf');}
+@font-face { font-family: Draconic; src: url('../src/assets/Fonts/Iokharic.otf');}
+@font-face { font-family: Draconic; font-weight: bold; src: url('../src/assets/Fonts/Iokharic\ Bold.otf');}
+@font-face { font-family: Abyssal; src: url('../src/assets/Fonts/Barazhad.otf');}
+@font-face { font-family: Abyssal; font-weight: bold; src: url('../src/assets/Fonts/Barazhad\ Bold.otf');}
+
 .App {
   text-align: center;
   background-color:rgba(227, 219, 179, 1);
@@ -98,4 +109,70 @@
 
 .treasureHordeContainer {
   margin-top: 15px;
+}
+
+.Elvish {
+  font-size: 80px;
+  font-family: Elvish, sans-serif;
+  font-weight: bold;
+  background-image: url('../src/assets/wood.jpg');
+  border-style: double;
+  width: 30vw;
+  margin: auto;
+  padding: 10px;
+  color: rgba(3, 43, 3, 0.781);
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.Dwarven {
+  font-size: 80px;
+  font-family: Dwarven, sans-serif;
+  background-image: url('../src//assets/stone.jpg');
+  border-style: double;
+  width: 30vw;
+  margin: auto;
+  padding: 10px;
+  text-shadow:0px 2px 3px #555;
+	color:rgba(34, 34, 34, 0.801);
+}
+
+.Draconic {
+  font-size: 80px;
+  font-family: Draconic, sans-serif;
+  font-weight: bold;
+  background-image: url('../src/assets/earth.jpg');
+  border-style: double;
+  width: 30vw;
+  margin: auto;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.486);
+  text-shadow: 2px 2px 3px rgba(73, 29, 3, 0.877);
+}
+
+.Abyssal {
+  font-size: 80px;
+  font-family: Abyssal, sans-serif;
+  font-weight: bold;
+  background-image: url('../src/assets/black-stone.jpg');
+  border-style: double;
+  border-width: 4px;
+  width: 30vw;
+  margin: auto;
+  padding: 10px;
+  text-shadow:
+  0px -2px 4px #fff,
+  0px -2px 10px #FF3,
+  0px -10px 20px #F90,
+  0px -20px 40px #C33;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909, 0 0 60px #0f5f13, 0 0 70px #125017;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #136610, 0 0 40px #19860a, 0 0 50px #0b6b13, 0 0 60px #138018, 0 0 70px #137e05, 0 0 80px #0b9b12;
+  }
 }
