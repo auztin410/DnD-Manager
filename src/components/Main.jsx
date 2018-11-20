@@ -29,6 +29,7 @@ class Main extends Component {
             treasureArtResults: [],
             treasureMagicItemResults: [],
             displayItem: null,
+            displayItemArmorDetails: null,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -2648,7 +2649,7 @@ class Main extends Component {
 
     handleMagicItemClick(item) {
         console.log(item);
-        let found = MagicItemsList.find(function(el) {
+        let found = MagicItemsList.find(function (el) {
             return el.Name === item
         });
         console.log(found);
@@ -2665,11 +2666,21 @@ class Main extends Component {
             })
         }
         else if (found) {
+            if (found.Armor === true) {
+                let armorState = MagicItemsList[0].Data.find(function (el) {
+                    return el.Type === found.ArmorDetails
+                });
+                console.log('Armor details');
+                console.log(armorState);
+                this.setState({
+                    displayItemArmorDetails: armorState
+                });
+            }
             this.setState({
                 displayItem: found
-            })
+            });
         }
-        
+
     };
 
     handleCloseDisplayItem(event) {
@@ -2783,39 +2794,56 @@ class Main extends Component {
                         }
 
                         {(this.state.displayItem)
-                        ?
-                        <div className="displayItem">
-                            <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
-                            <h2>{this.state.displayItem.Name}</h2>
-                            {this.state.displayItem.Description.map(item => (
-                                <p>{item}</p>
-                            ))}
-                            <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
-                            {(this.state.displayItem.Use === true)
                             ?
-                            <div>
-                                <p>Use: {this.state.displayItem.Effects.Use}</p>
-                                <p>Cooldown: {this.state.displayItem.CoolDown}</p>
-                            </div>    
-                                : null
-                        }
-                        {(this.state.displayItem.Passive === true)
-                        ?
-                            <p>Passive: {this.state.displayItem.Effects.Passive}</p>
-                            : null
-                    }
-                    {(this.state.displayItem.Table.length > 0)
-                    ?
-                    <div>
-                        {this.state.displayItem.Table.map(item => (
-                            <p>{item.Roll} | {item.Effect}</p>
-                        ))}
-                    </div>
-                    : null
-                }
+                            <div className="displayItem">
+                                <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
+                                <h2>{this.state.displayItem.Name}</h2>
+                                {this.state.displayItem.Description.map(item => (
+                                    <p>{item}</p>
+                                ))}
+                                <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
+                                {(this.state.displayItem.Use === true)
+                                    ?
+                                    <div>
+                                        <p>Use: {this.state.displayItem.Effects.Use}</p>
+                                        <p>Cooldown: {this.state.displayItem.CoolDown}</p>
+                                    </div>
+                                    : null
+                                }
+                                {(this.state.displayItem.Passive === true)
+                                    ?
+                                    <p>Passive: {this.state.displayItem.Effects.Passive}</p>
+                                    : null
+                                }
+                                {(this.state.displayItem.Table.length > 0)
+                                    ?
+                                    <div>
+                                        {this.state.displayItem.Table.map(item => (
+                                            <p>{item.Roll} | {item.Effect}</p>
+                                        ))}
+                                    </div>
+                                    : null
+                                }
+                                {(this.state.displayItemArmorDetails)
+                                    ?
+                                    <div>
+                                        <p>Armor type: {this.state.displayItemArmorDetails.Type}</p>
+                                        <p>AC: {this.state.displayItemArmorDetails.AC} | Dex Modifier: {(this.state.displayItem.DexModifier === true)
+                                            ?
+                                            "True"
+                                            : "False"}</p>
+                                        <p>Strength requirement: {this.state.displayItemArmorDetails.Strength} | Stealth disadvantage: {(this.state.displayItemArmorDetails.Stealth === true)
+                                            ?
+                                            "True"
+                                            : "False"
+                                        }</p>
+                                        <p>Weight: {this.state.displayItemArmorDetails.Weight}</p>
+                                    </div>
+                                    : null
+                                }
                             </div>
                             : null
-                    }
+                        }
 
                     </div>
                 </div>
