@@ -2686,6 +2686,7 @@ class Main extends Component {
     handleCloseDisplayItem(event) {
         this.setState({
             displayItem: null,
+            displayItemArmorDetails: null,
         });
     }
 

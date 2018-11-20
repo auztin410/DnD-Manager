@@ -383,6 +383,10 @@
         {
             "Name": "Sovereign glue",
             "d100": 99
+        },
+        {
+            "Name": "Sovereign glue",
+            "d100": 100
         }
     ],
     "F": [
