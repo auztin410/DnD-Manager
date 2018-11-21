@@ -9,19 +9,20 @@
 @font-face { font-family: Abyssal; src: url('../src/assets/Fonts/Barazhad.otf');}
 @font-face { font-family: Abyssal; font-weight: bold; src: url('../src/assets/Fonts/Barazhad\ Bold.otf');}
 
+body {
+  background-color:rgba(227, 219, 179, 1);
+}
+
 .App {
   text-align: center;
   background-color:rgba(227, 219, 179, 1);
-  height: 100vh;
-  width: 100vw;
-
 }
 
 .App-header {
   background-color: #222;
   height: 150px;
-  padding: 20px;
   color: white;
+  
 }
 
 .App-intro {
@@ -34,11 +35,32 @@
   background-color: rgb(204, 22, 22);
   border-bottom-style: double;
   border-bottom-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.loot {
+  height: 50px;
+  width: 50px;
+  background-image: url('../src/assets/loot.png');
 }
 
 .npc {
   background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
-  width: 25vw;
+}
+
+#npcButton {
+  padding: 5px;
 }
 
 .container {
@@ -185,6 +207,18 @@
 .customButton:hover {
   border-width: 5px;
   margin: 0;
+}
+
+.visible {
+  float: left;
+  border-color: black;
+  border-style: double;
+  width: 47vw;
+  margin: 10px;
+  padding: 2px;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
 }
 
 @-webkit-keyframes glow {

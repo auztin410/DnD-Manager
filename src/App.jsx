@@ -114,7 +114,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<h1 className="header">Dungeons and Dragons Game Manager</h1>
-				<Header user={this.state.user} />
+				{/* <Header user={this.state.user} /> */}
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
 				{/*  ROUTES */}

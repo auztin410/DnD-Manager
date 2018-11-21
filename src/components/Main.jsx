@@ -34,6 +34,9 @@ class Main extends Component {
             textToTranslate: null,
             language: "Elvish",
             displayTranslation: false,
+            individualLootDiv: false,
+            treasureLootDiv: false,
+            npcDiv: false,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -46,6 +49,7 @@ class Main extends Component {
         this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
         this.handleTranslate = this.handleTranslate.bind(this);
         this.handleTranslateClose = this.handleTranslateClose.bind(this);
+        this.handleOpenClose = this.handleOpenClose.bind(this);
     }
 
 
@@ -86,8 +90,7 @@ class Main extends Component {
         let name = NpcGenerator.name[Math.floor(Math.random() * NpcGenerator.name.length)];
 
         this.setState({
-            npc: { name, appearance, highAbility, lowAbility, talents, mannerism, trait, ideals, bonds, flawsSecrets },
-            npcComponent: true,
+            npc: { name, appearance, highAbility, lowAbility, talents, mannerism, trait, ideals, bonds, flawsSecrets }
         });
     };
 
@@ -2710,15 +2713,54 @@ class Main extends Component {
         })
     }
 
+    handleOpenClose(event) {
+        console.log(event.target.alt);
+        switch (event.target.alt) {
+            case ("loot"):
+                if (this.state.individualLootDiv === false) {
+                    this.setState({
+                        individualLootDiv: true
+                    });
+                }
+                else if (this.state.individualLootDiv === true) {
+                    this.setState({
+                        individualLootDiv: false
+                    });
+                }
+                break;
+            case ("treasure"):
+            if (this.state.treasureLootDiv === false) {
+                this.setState({
+                    treasureLootDiv: true
+                });
+            }
+            else if (this.state.treasureLootDiv === true) {
+                this.setState({
+                    treasureLootDiv: false
+                });
+            }
+            break;
+            case ("npc"):
+            if (this.state.npcDiv === false) {
+                this.setState({
+                    npcDiv: true
+                });
+            }
+            else if (this.state.npcDiv === true) {
+                this.setState({
+                    npcDiv: false
+                });
+            }
+        }
+
+    }
+
     render() {
         if (this.state.npcComponent === true) {
             return (
                 <div className="treasureHordeContainer">
                     <div className="main">
-                        <button onClick={this.handleNpcGenerator}>NPC Generator</button>
-                        <br />
-                        <br />
-                        <Npc npc={this.state.npc} />
+                        
                     </div>
                     <div>
                         <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
@@ -2730,7 +2772,7 @@ class Main extends Component {
             return (
                 <div className="treasureHordeContainer">
                     <div className="main">
-                        <button onClick={this.handleNpcGenerator}>NPC Generator</button>
+                        
                     </div>
                     <div>
                         <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
@@ -2743,9 +2785,18 @@ class Main extends Component {
         }
         else if (this.state.npcComponent === false) {
             return (
-                <div className="treasureHordeContainer">
+                <div>
+                    <div className="buttons">
+                    {/* Buttons for opening up divs */}
+                        <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="loot" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="treasure" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="npc"/>
+                    </div>
+
                     <div className="main">
-                        <span className="customButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
+                        
                     </div>
                     <br />
                     <div>
@@ -2753,21 +2804,43 @@ class Main extends Component {
                     </div>
                     <br />
                     <div>
-                        <form>
-                            <select className="customButton" name="individualLoot" onChange={this.handleChange}>
-                                <option value="Challenge0-4">Challenge 0-4</option>
-                                <option value="Challenge5-10">Challenge 5-10</option>
-                                <option value="Challenge11-16">Challenge 11-16</option>
-                                <option value="Challenge17+">Challenge 17+</option>
-                            </select>
-                            <span className="customButton" onClick={this.handleRoll}>Dice Roll!</span>
-                        </form>
-                        Individual Loot:
-                        {this.state.individualLootResult.map(item => (
-                            <p key={item.Currency}>{item.Value}{" "}{item.Currency}</p>
-                        ))}
+                        <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
+                        <select className="customButton" name="language" onChange={this.handleChange}>
+                            <option value="Elvish">Elvish</option>
+                            <option value="Dwarven">Dwarven</option>
+                            <option value="Draconic">Draconic</option>
+                            <option value="Abyssal">Abyssal</option>
+                        </select>
+                        <span className="customButton" onClick={this.handleTranslate}>Translate</span>
+                        <span className="customButton" onClick={this.handleTranslateClose}>Clear</span>
                     </div>
-                    <div>
+                    <br />
+                    {(this.state.displayTranslation === true)
+                        ?
+                        <Translation language={this.state.language} textToTranslate={this.state.textToTranslate} />
+                        : null}
+                    {(this.state.individualLootDiv === true)
+                        ?
+                        <div className="visible">
+                            <form>
+                                <select className="customButton" name="individualLoot" onChange={this.handleChange}>
+                                    <option value="Challenge0-4">Challenge 0-4</option>
+                                    <option value="Challenge5-10">Challenge 5-10</option>
+                                    <option value="Challenge11-16">Challenge 11-16</option>
+                                    <option value="Challenge17+">Challenge 17+</option>
+                                </select>
+                                <span className="customButton" onClick={this.handleRoll}>Dice Roll!</span>
+                            </form>
+                            Individual Loot:
+                        {this.state.individualLootResult.map(item => (
+                                <p key={item.Currency}>{item.Value}{" "}{item.Currency}</p>
+                            ))}
+                        </div>
+                        : null
+                    }
+                    {(this.state.treasureLootDiv === true)
+                        ?
+                        <div className="visible">
                         <form>
                             <select className="customButton" name="treasureLoot" onChange={this.handleChange}>
                                 <option value="Challenge0-4">Challenge 0-4</option>
@@ -2778,7 +2851,7 @@ class Main extends Component {
                             <span className="customButton" onClick={this.handleTreasureLoot}>Test Treasure Loot</span>
                             <span className="customButton" onClick={this.clearTreasureStates}>Clear Treasure States</span>
                         </form>
-                        
+
                         <br />
                         <br />
                         {(this.state.treasureCurrency.length >= 1)
@@ -2794,7 +2867,7 @@ class Main extends Component {
                         {(this.state.treasureArtResults.length >= 1)
                             ? <div className="generated">
                                 {this.state.treasureArtResults.map(item => (
-                                    <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                    <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
                                 ))}
                             </div>
                             : null
@@ -2802,7 +2875,7 @@ class Main extends Component {
                         {(this.state.treasureGemResults.length >= 1)
                             ? <div className="generated">
                                 {this.state.treasureGemResults.map(item => (
-                                    <span className="items"><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                    <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
                                 ))}
                             </div>
                             : null
@@ -2811,7 +2884,7 @@ class Main extends Component {
                         {(this.state.treasureMagicItemResults.length >= 1)
                             ? <div className="generated">
                                 {this.state.treasureMagicItemResults.map(item => (
-                                    <span className="items"><p onClick={() => this.handleMagicItemClick(item.Name)} value={item.Name} key={item.Name}>{item.Count} x | {item.Name}</p></span>
+                                    <span className="items" key={item.Name}><p onClick={() => this.handleMagicItemClick(item.Name)} value={item.Name} key={item.Name}>{item.Count} x | {item.Name}</p></span>
                                 ))}
                             </div>
                             : null
@@ -2868,24 +2941,21 @@ class Main extends Component {
                             </div>
                             : null
                         }
-
+                        </div>
+                        : null
+                    }
+                    {(this.state.npcDiv === true)
+                    ?
+                    <div className="visible">
+                        <span className="customButton" id="npcButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
+                        {(this.state.npc.length === 0)
+                        ? null                        
+                        :
+                        <Npc npc={this.state.npc} />
+                    }
                     </div>
-                    <div>
-                        <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
-                        <select className="customButton" name="language" onChange={this.handleChange}>
-                            <option value="Elvish">Elvish</option>
-                            <option value="Dwarven">Dwarven</option>
-                            <option value="Draconic">Draconic</option>
-                            <option value="Abyssal">Abyssal</option>
-                        </select>
-                        <span className="customButton" onClick={this.handleTranslate}>Translate</span>
-                        <span className="customButton" onClick={this.handleTranslateClose}>Clear</span>
-                    </div>
-                    <br />
-                    {(this.state.displayTranslation === true)
-                        ?
-                        <Translation language={this.state.language} textToTranslate={this.state.textToTranslate}/>
-                        : null}
+                    : null
+                    }
                 </div>
             )
         }
