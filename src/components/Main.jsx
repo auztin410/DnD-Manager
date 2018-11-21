@@ -45,6 +45,7 @@ class Main extends Component {
         this.clearTreasureStates = this.clearTreasureStates.bind(this);
         this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
         this.handleTranslate = this.handleTranslate.bind(this);
+        this.handleTranslateClose = this.handleTranslateClose.bind(this);
     }
 
 
@@ -722,7 +723,8 @@ class Main extends Component {
         });
     };
 
-    clearTreasureStates() {
+    clearTreasureStates(event) {
+        event.preventDefault();
         this.setState({
             treasureCurrency: [],
             treasureGemResults: [],
@@ -2701,6 +2703,13 @@ class Main extends Component {
         });
     };
 
+    handleTranslateClose(event) {
+        this.setState({
+            displayTranslation: false,
+            textToTranslate: null,
+        })
+    }
+
     render() {
         if (this.state.npcComponent === true) {
             return (
@@ -2736,20 +2745,22 @@ class Main extends Component {
             return (
                 <div className="treasureHordeContainer">
                     <div className="main">
-                        <button onClick={this.handleNpcGenerator}>NPC Generator</button>
+                        <span className="customButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
                     </div>
+                    <br />
                     <div>
-                        <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
+                        <span className="customButton" onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</span>
                     </div>
+                    <br />
                     <div>
                         <form>
-                            <select name="individualLoot" onChange={this.handleChange}>
+                            <select className="customButton" name="individualLoot" onChange={this.handleChange}>
                                 <option value="Challenge0-4">Challenge 0-4</option>
                                 <option value="Challenge5-10">Challenge 5-10</option>
                                 <option value="Challenge11-16">Challenge 11-16</option>
                                 <option value="Challenge17+">Challenge 17+</option>
                             </select>
-                            <button onClick={this.handleRoll}>Dice Roll!</button>
+                            <span className="customButton" onClick={this.handleRoll}>Dice Roll!</span>
                         </form>
                         Individual Loot:
                         {this.state.individualLootResult.map(item => (
@@ -2758,15 +2769,16 @@ class Main extends Component {
                     </div>
                     <div>
                         <form>
-                            <select name="treasureLoot" onChange={this.handleChange}>
+                            <select className="customButton" name="treasureLoot" onChange={this.handleChange}>
                                 <option value="Challenge0-4">Challenge 0-4</option>
                                 <option value="Challenge5-10">Challenge 5-10</option>
                                 <option value="Challenge11-16">Challenge 11-16</option>
                                 <option value="Challenge17+">Challenge 17+</option>
                             </select>
-                            <button onClick={this.handleTreasureLoot}>Test Treasure Loot</button>
+                            <span className="customButton" onClick={this.handleTreasureLoot}>Test Treasure Loot</span>
+                            <span className="customButton" onClick={this.clearTreasureStates}>Clear Treasure States</span>
                         </form>
-                        <button onClick={this.clearTreasureStates}>Clear Treasure States</button>
+                        
                         <br />
                         <br />
                         {(this.state.treasureCurrency.length >= 1)
@@ -2859,14 +2871,15 @@ class Main extends Component {
 
                     </div>
                     <div>
-                        <input name="textToTranslate" type="text" onChange={this.handleChange} />
-                        <select name="language" onChange={this.handleChange}>
+                        <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
+                        <select className="customButton" name="language" onChange={this.handleChange}>
                             <option value="Elvish">Elvish</option>
                             <option value="Dwarven">Dwarven</option>
                             <option value="Draconic">Draconic</option>
                             <option value="Abyssal">Abyssal</option>
                         </select>
-                        <button onClick={this.handleTranslate}>Translate</button>
+                        <span className="customButton" onClick={this.handleTranslate}>Translate</span>
+                        <span className="customButton" onClick={this.handleTranslateClose}>Clear</span>
                     </div>
                     <br />
                     {(this.state.displayTranslation === true)

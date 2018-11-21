@@ -29,7 +29,11 @@
 }
 
 .header {
-  background-color: rgb(196, 46, 46);
+  font-family: Dungeon, sans-serif;
+  font-size: 60px;
+  background-color: rgb(204, 22, 22);
+  border-bottom-style: double;
+  border-bottom-color: black;
 }
 
 .npc {
@@ -166,6 +170,21 @@
   0px -2px 10px #FF3,
   0px -10px 20px #F90,
   0px -20px 40px #C33;
+}
+
+.customButton {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  background-image: url('../src/assets/u0.jpg');
+  border-color: black;
+  border-style: double;
+  margin: 5px;
+  padding: 5px;
+}
+
+.customButton:hover {
+  border-width: 5px;
+  margin: 0;
 }
 
 @-webkit-keyframes glow {
