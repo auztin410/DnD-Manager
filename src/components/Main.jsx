@@ -37,6 +37,7 @@ class Main extends Component {
             individualLootDiv: false,
             treasureLootDiv: false,
             npcDiv: false,
+            bigEventDiv: false,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -102,7 +103,6 @@ class Main extends Component {
             this.setState({
                 worldShakingEvent: bigEvent,
                 worldShakingDetails: details,
-                worldShakingComponent: true,
             });
         }
         else if (bigEvent === "Cataclysmic disaster") {
@@ -110,7 +110,6 @@ class Main extends Component {
             this.setState({
                 worldShakingEvent: bigEvent,
                 worldShakingDetails: details,
-                worldShakingComponent: true,
             });
         }
         else if (bigEvent === "Assault or invasion") {
@@ -118,7 +117,6 @@ class Main extends Component {
             this.setState({
                 worldShakingEvent: bigEvent,
                 worldShakingDetails: details,
-                worldShakingComponent: true,
             });
         }
         else if (bigEvent === "Extinction or depletion") {
@@ -126,7 +124,6 @@ class Main extends Component {
             this.setState({
                 worldShakingEvent: bigEvent,
                 worldShakingDetails: details,
-                worldShakingComponent: true,
             });
         }
         else if (bigEvent === "New organization") {
@@ -134,7 +131,6 @@ class Main extends Component {
             this.setState({
                 worldShakingEvent: bigEvent,
                 worldShakingDetails: details,
-                worldShakingComponent: true,
             });
         }
         else if (bigEvent === "Discovery, expansion, invention") {
@@ -142,14 +138,12 @@ class Main extends Component {
             this.setState({
                 worldShakingEvent: bigEvent,
                 worldShakingDetails: details,
-                worldShakingComponent: true,
             });
         }
         else {
             this.setState({
                 worldShakingEvent: bigEvent,
                 worldShakingDetails: null,
-                worldShakingComponent: true,
             });
         }
 
@@ -2751,6 +2745,19 @@ class Main extends Component {
                     npcDiv: false
                 });
             }
+            break;
+            case ("bigEvent"):
+            if (this.state.bigEventDiv === false) {
+                this.setState({
+                    bigEventDiv: true
+                });
+            }
+            else if (this.state.bigEventDiv === true) {
+                this.setState({
+                    bigEventDiv: false
+                });
+            }
+            break;
         }
 
     }
@@ -2778,7 +2785,7 @@ class Main extends Component {
                         <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
                         <br />
                         <br />
-                        <WorldShakingEvent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails} />
+                        
                     </div>
                 </div>
             )
@@ -2793,16 +2800,9 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="treasure" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="npc"/>
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="bigEvent"/>
                     </div>
-
-                    <div className="main">
-                        
-                    </div>
-                    <br />
-                    <div>
-                        <span className="customButton" onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</span>
-                    </div>
-                    <br />
                     <div>
                         <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
                         <select className="customButton" name="language" onChange={this.handleChange}>
@@ -2947,12 +2947,24 @@ class Main extends Component {
                     {(this.state.npcDiv === true)
                     ?
                     <div className="visible">
-                        <span className="customButton" id="npcButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
+                        <span className="customButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
                         {(this.state.npc.length === 0)
                         ? null                        
                         :
                         <Npc npc={this.state.npc} />
                     }
+                    </div>
+                    : null
+                    }
+                    {(this.state.bigEventDiv === true)
+                    ?
+                    <div className="visible">
+                        <span className="customButton" onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</span>
+                        {(this.state.worldShakingEvent)
+                        ?
+                        <WorldShakingEvent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails} />
+                        : null
+                        }
                     </div>
                     : null
                     }
