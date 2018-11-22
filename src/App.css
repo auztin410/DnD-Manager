@@ -13,6 +13,10 @@ body {
   background-color:rgba(227, 219, 179, 1);
 }
 
+h2 {
+  margin: 0;
+}
+
 .App {
   text-align: center;
   background-color:rgba(227, 219, 179, 1);
@@ -77,17 +81,16 @@ body {
 
 .bigEvent {
   background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
-  width: 25vw;
+  /* width: 25vw; */
 }
 
 .generated {
   background-image: url('./assets//u0.jpg');
   width: 20vw;
-  margin-left: 15px;
+  margin: 10px;
   float: left;
-  border-width: 3px;
-  border-style: ridge;
-  border-color: rgba(65, 36, 13, 0.61);
+  border-color: black;
+  border-style: double;
 }
 
 .items {
@@ -214,6 +217,7 @@ body {
 }
 
 .visible {
+  background-color: rgba(189, 165, 165, 0.486);
   float: left;
   border-color: black;
   border-style: double;
@@ -223,6 +227,26 @@ body {
   visibility: visible;
   opacity: 1;
   transition: opacity 2s linear;
+}
+
+.monsterDetails {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bold;
+}
+
+.plaque {
+  background-image: url('./assets/brass.jpg');
+  font-size: 28px;
+  margin: 10px;
+  border-color: black;
+  border-style: double;
+}
+
+.monsterGrouping {
+  background-image: url('./assets//u0.jpg');
+  border-color: black;
+  border-style: double;
+  margin: 10px;
 }
 
 @-webkit-keyframes glow {
