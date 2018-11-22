@@ -208,6 +208,11 @@ body {
   margin: 0;
 }
 
+.buttonSpacer {
+  height: 35px;
+  margin: 10px;
+}
+
 .visible {
   float: left;
   border-color: black;

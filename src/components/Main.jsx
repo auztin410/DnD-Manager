@@ -9,6 +9,8 @@ import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
 import MagicItemsList from '../assets/Json/MagicItemsList';
 import Translation from './Translation';
+import Monsters from '../assets/Json/5e-SRD-Monsters';
+import MonsterDetails from './MonsterDetails';
 
 class Main extends Component {
     constructor() {
@@ -38,6 +40,8 @@ class Main extends Component {
             treasureLootDiv: false,
             npcDiv: false,
             bigEventDiv: false,
+            monsterDiv: false,
+            enemy: null,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -51,6 +55,7 @@ class Main extends Component {
         this.handleTranslate = this.handleTranslate.bind(this);
         this.handleTranslateClose = this.handleTranslateClose.bind(this);
         this.handleOpenClose = this.handleOpenClose.bind(this);
+        this.handleGenerateMonster = this.handleGenerateMonster.bind(this);
     }
 
 
@@ -2758,8 +2763,27 @@ class Main extends Component {
                 });
             }
             break;
+            case ("enemy"):
+            if (this.state.monsterDiv === false) {
+                this.setState({
+                    monsterDiv: true
+                });
+            }
+            else if (this.state.monsterDiv === true) {
+                this.setState({
+                    monsterDiv: false
+                });
+            }
         }
 
+    };
+
+    handleGenerateMonster(event) {
+        var Enemy = Monsters[Math.floor(Math.random()*Monsters.length)];
+        console.log(Enemy);
+        this.setState({
+            enemy: Enemy,
+        });
     }
 
     render() {
@@ -2802,6 +2826,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="npc"/>
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="bigEvent"/>
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/enemy.png')} alt="enemy"/>
                     </div>
                     <div>
                         <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
@@ -2947,7 +2973,9 @@ class Main extends Component {
                     {(this.state.npcDiv === true)
                     ?
                     <div className="visible">
+                    <div className="buttonSpacer">
                         <span className="customButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
+                    </div>
                         {(this.state.npc.length === 0)
                         ? null                        
                         :
@@ -2959,10 +2987,26 @@ class Main extends Component {
                     {(this.state.bigEventDiv === true)
                     ?
                     <div className="visible">
+                    <div className="buttonSpacer">
                         <span className="customButton" onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</span>
+                    </div>
                         {(this.state.worldShakingEvent)
                         ?
                         <WorldShakingEvent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails} />
+                        : null
+                        }
+                    </div>
+                    : null
+                    }
+                    {(this.state.monsterDiv === true)
+                    ?
+                    <div className="visible">
+                    <div className="buttonSpacer">
+                        <span className="customButton" onClick={this.handleGenerateMonster}>Generate Monster</span>
+                    </div>
+                        {(this.state.enemy)
+                        ?
+                        <MonsterDetails monster={this.state.enemy} />
                         : null
                         }
                     </div>
