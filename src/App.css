@@ -97,6 +97,11 @@ h2 {
   font-weight: bold;
 }
 
+.magicItem:hover {
+  color: whitesmoke;
+  background-color: black;
+}
+
 .displayItem {
   font-family: 'Cinzel Decorative', cursive;
   font-weight: bold;
@@ -259,6 +264,16 @@ h2 {
   margin: 10px;
   border-color: black;
   border-style: double;
+}
+
+.icon {
+  height: 25px;
+  width: 25px;
+}
+
+#attack {
+  position: relative;
+  left: 0;
 }
 
 .monsterGrouping {

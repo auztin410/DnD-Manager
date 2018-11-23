@@ -4,9 +4,10 @@ import { Route, Link } from 'react-router-dom';
 import './App.css';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/SignupForm';
-import Header from './components/Header';
+// import Header from './components/Header';
 import Home from './components/Home';
 import Main from './components/Main';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {

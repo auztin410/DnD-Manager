@@ -11,6 +11,7 @@ import MagicItemsList from '../assets/Json/MagicItemsList';
 import Translation from './Translation';
 import Monsters from '../assets/Json/5e-SRD-Monsters';
 import MonsterDetails from './MonsterDetails';
+import MonsterActions from './MonsterActions';
 
 class Main extends Component {
     constructor() {
@@ -57,6 +58,7 @@ class Main extends Component {
         this.handleTranslateClose = this.handleTranslateClose.bind(this);
         this.handleOpenClose = this.handleOpenClose.bind(this);
         this.handleGenerateMonster = this.handleGenerateMonster.bind(this);
+        this.handleMonsterActions = this.handleMonsterActions.bind(this);
     }
 
 
@@ -2798,6 +2800,13 @@ class Main extends Component {
         this.setState({
             enemy: Enemy,
         });
+    };
+
+    handleMonsterActions(event) {
+        console.log("monster action click");
+        this.setState({
+            monsterAction: true
+        });
     }
 
     render() {
@@ -2935,7 +2944,7 @@ class Main extends Component {
                             {(this.state.treasureMagicItemResults.length >= 1)
                                 ? <div className="generated">
                                     {this.state.treasureMagicItemResults.map(item => (
-                                        <span className="items" key={item.Name}><p onClick={() => this.handleMagicItemClick(item.Name)} value={item.Name} key={item.Name}>{item.Count} x | {item.Name}</p></span>
+                                        <span className="items" key={item.Name}><p className="magicItem" onClick={() => this.handleMagicItemClick(item.Name)} value={item.Name} key={item.Name}>{item.Count} x | {item.Name}</p></span>
                                     ))}
                                 </div>
                                 : null
@@ -2995,6 +3004,12 @@ class Main extends Component {
                         </div>
                         : null
                     }
+                    {/* Display Monster Actions ON Click */}
+                    {(this.state.monsterAction === true)
+                    ?
+                    <MonsterActions monster={this.state.enemy}/>
+                    : null
+                }
                     {/* NPC Div */}
                     {(this.state.npcDiv === true)
                         ?
