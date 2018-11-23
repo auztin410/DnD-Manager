@@ -81,7 +81,6 @@ h2 {
 
 .bigEvent {
   background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
-  /* width: 25vw; */
 }
 
 .generated {
@@ -221,12 +220,32 @@ h2 {
   float: left;
   border-color: black;
   border-style: double;
-  width: 47vw;
   margin: 10px;
   padding: 2px;
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 2s linear;
+}
+
+#individualLoot {
+  width: 21.8vw;
+}
+
+#translation {
+  width: 36vw;
+}
+
+#treasureLoot {
+  width: 43.4vw;
+}
+
+#npc {
+  width: 30vw;
+}
+
+#worldShakingEvent {
+  width: 30vw;
+}
+
+#monster {
+  width: 47vw;
 }
 
 .monsterDetails {

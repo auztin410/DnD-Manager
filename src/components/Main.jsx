@@ -41,6 +41,7 @@ class Main extends Component {
             npcDiv: false,
             bigEventDiv: false,
             monsterDiv: false,
+            translationDiv: false,
             enemy: null,
         }
 
@@ -2728,58 +2729,71 @@ class Main extends Component {
                 }
                 break;
             case ("treasure"):
-            if (this.state.treasureLootDiv === false) {
-                this.setState({
-                    treasureLootDiv: true
-                });
-            }
-            else if (this.state.treasureLootDiv === true) {
-                this.setState({
-                    treasureLootDiv: false
-                });
-            }
-            break;
+                if (this.state.treasureLootDiv === false) {
+                    this.setState({
+                        treasureLootDiv: true
+                    });
+                }
+                else if (this.state.treasureLootDiv === true) {
+                    this.setState({
+                        treasureLootDiv: false
+                    });
+                }
+                break;
             case ("npc"):
-            if (this.state.npcDiv === false) {
-                this.setState({
-                    npcDiv: true
-                });
-            }
-            else if (this.state.npcDiv === true) {
-                this.setState({
-                    npcDiv: false
-                });
-            }
-            break;
+                if (this.state.npcDiv === false) {
+                    this.setState({
+                        npcDiv: true
+                    });
+                }
+                else if (this.state.npcDiv === true) {
+                    this.setState({
+                        npcDiv: false
+                    });
+                }
+                break;
             case ("bigEvent"):
-            if (this.state.bigEventDiv === false) {
+                if (this.state.bigEventDiv === false) {
+                    this.setState({
+                        bigEventDiv: true
+                    });
+                }
+                else if (this.state.bigEventDiv === true) {
+                    this.setState({
+                        bigEventDiv: false
+                    });
+                }
+                break;
+            case ("enemy"):
+                if (this.state.monsterDiv === false) {
+                    this.setState({
+                        monsterDiv: true
+                    });
+                }
+                else if (this.state.monsterDiv === true) {
+                    this.setState({
+                        monsterDiv: false
+                    });
+                }
+                break;
+            case ("translation"):
+            if (this.state.translationDiv === false) {
                 this.setState({
-                    bigEventDiv: true
+                    translationDiv: true
                 });
             }
-            else if (this.state.bigEventDiv === true) {
+            else if (this.state.translationDiv === true) {
                 this.setState({
-                    bigEventDiv: false
+                    translationDiv: false
                 });
             }
             break;
-            case ("enemy"):
-            if (this.state.monsterDiv === false) {
-                this.setState({
-                    monsterDiv: true
-                });
-            }
-            else if (this.state.monsterDiv === true) {
-                this.setState({
-                    monsterDiv: false
-                });
-            }
         }
 
     };
 
     handleGenerateMonster(event) {
-        var Enemy = Monsters[Math.floor(Math.random()*Monsters.length)];
+        var Enemy = Monsters[Math.floor(Math.random() * Monsters.length)];
         console.log(Enemy);
         this.setState({
             enemy: Enemy,
@@ -2791,7 +2805,7 @@ class Main extends Component {
             return (
                 <div className="treasureHordeContainer">
                     <div className="main">
-                        
+
                     </div>
                     <div>
                         <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
@@ -2803,13 +2817,13 @@ class Main extends Component {
             return (
                 <div className="treasureHordeContainer">
                     <div className="main">
-                        
+
                     </div>
                     <div>
                         <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
                         <br />
                         <br />
-                        
+
                     </div>
                 </div>
             )
@@ -2818,36 +2832,44 @@ class Main extends Component {
             return (
                 <div>
                     <div className="buttons">
-                    {/* Buttons for opening up divs */}
+                        {/* Buttons for opening up divs */}
                         <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="loot" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="treasure" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="npc"/>
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="npc" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="bigEvent"/>
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="bigEvent" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/enemy.png')} alt="enemy"/>
+                        <img onClick={this.handleOpenClose} src={require('../assets/enemy.png')} alt="enemy" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="translation"/>
                     </div>
-                    <div>
-                        <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
-                        <select className="customButton" name="language" onChange={this.handleChange}>
-                            <option value="Elvish">Elvish</option>
-                            <option value="Dwarven">Dwarven</option>
-                            <option value="Draconic">Draconic</option>
-                            <option value="Abyssal">Abyssal</option>
-                        </select>
-                        <span className="customButton" onClick={this.handleTranslate}>Translate</span>
-                        <span className="customButton" onClick={this.handleTranslateClose}>Clear</span>
-                    </div>
-                    <br />
-                    {(this.state.displayTranslation === true)
+                    {/* Translation Div  */}
+                    {(this.state.translationDiv === true)
                         ?
-                        <Translation language={this.state.language} textToTranslate={this.state.textToTranslate} />
-                        : null}
+                        <div className="visible" id="translation">
+                            <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
+                            <select className="customButton" name="language" onChange={this.handleChange}>
+                                <option value="Elvish">Elvish</option>
+                                <option value="Dwarven">Dwarven</option>
+                                <option value="Draconic">Draconic</option>
+                                <option value="Abyssal">Abyssal</option>
+                            </select>
+                            <span className="customButton" onClick={this.handleTranslate}>Translate</span>
+                            <span className="customButton" onClick={this.handleTranslateClose}>Clear</span>
+                            <br />
+                            {(this.state.displayTranslation === true)
+                                ?
+                                <Translation language={this.state.language} textToTranslate={this.state.textToTranslate} />
+                                : null}
+                        </div>
+                        : null
+                    }
+                    {/* Individual Loot Div */}
                     {(this.state.individualLootDiv === true)
                         ?
-                        <div className="visible">
+                        <div className="visible" id="individualLoot">
                             <form>
                                 <select className="customButton" name="individualLoot" onChange={this.handleChange}>
                                     <option value="Challenge0-4">Challenge 0-4</option>
@@ -2857,160 +2879,166 @@ class Main extends Component {
                                 </select>
                                 <span className="customButton" onClick={this.handleRoll}>Dice Roll!</span>
                             </form>
-                            Individual Loot:
+                            <div className="generated">
+                            <h4>Individual Loot:</h4>
                         {this.state.individualLootResult.map(item => (
                                 <p key={item.Currency}>{item.Value}{" "}{item.Currency}</p>
                             ))}
+                            </div>
                         </div>
                         : null
                     }
+                    {/* Treasure Loot Div */}
                     {(this.state.treasureLootDiv === true)
                         ?
-                        <div className="visible">
-                        <form>
-                            <select className="customButton" name="treasureLoot" onChange={this.handleChange}>
-                                <option value="Challenge0-4">Challenge 0-4</option>
-                                <option value="Challenge5-10">Challenge 5-10</option>
-                                <option value="Challenge11-16">Challenge 11-16</option>
-                                <option value="Challenge17+">Challenge 17+</option>
-                            </select>
-                            <span className="customButton" onClick={this.handleTreasureLoot}>Test Treasure Loot</span>
-                            <span className="customButton" onClick={this.clearTreasureStates}>Clear Treasure States</span>
-                        </form>
+                        <div className="visible" id="treasureLoot">
+                            <form>
+                                <select className="customButton" name="treasureLoot" onChange={this.handleChange}>
+                                    <option value="Challenge0-4">Challenge 0-4</option>
+                                    <option value="Challenge5-10">Challenge 5-10</option>
+                                    <option value="Challenge11-16">Challenge 11-16</option>
+                                    <option value="Challenge17+">Challenge 17+</option>
+                                </select>
+                                <span className="customButton" onClick={this.handleTreasureLoot}>Test Treasure Loot</span>
+                                <span className="customButton" onClick={this.clearTreasureStates}>Clear Treasure States</span>
+                            </form>
 
-                        <br />
-                        <br />
-                        {(this.state.treasureCurrency.length >= 1)
-                            ? <div className="generated">
-                                <p className="items">{this.state.treasureCurrency[0]} CP</p>
-                                <p className="items">{this.state.treasureCurrency[1]} SP</p>
-                                <p className="items">{this.state.treasureCurrency[2]} EP</p>
-                                <p className="items">{this.state.treasureCurrency[3]} GP</p>
-                                <p className="items">{this.state.treasureCurrency[4]} PP</p>
-                            </div>
-                            : null
-                        }
-                        {(this.state.treasureArtResults.length >= 1)
-                            ? <div className="generated">
-                                {this.state.treasureArtResults.map(item => (
-                                    <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
-                                ))}
-                            </div>
-                            : null
-                        }
-                        {(this.state.treasureGemResults.length >= 1)
-                            ? <div className="generated">
-                                {this.state.treasureGemResults.map(item => (
-                                    <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
-                                ))}
-                            </div>
-                            : null
-                        }
+                            <br />
+                            <br />
+                            {(this.state.treasureCurrency.length >= 1)
+                                ? <div className="generated">
+                                    <p className="items">{this.state.treasureCurrency[0]} CP</p>
+                                    <p className="items">{this.state.treasureCurrency[1]} SP</p>
+                                    <p className="items">{this.state.treasureCurrency[2]} EP</p>
+                                    <p className="items">{this.state.treasureCurrency[3]} GP</p>
+                                    <p className="items">{this.state.treasureCurrency[4]} PP</p>
+                                </div>
+                                : null
+                            }
+                            {(this.state.treasureArtResults.length >= 1)
+                                ? <div className="generated">
+                                    {this.state.treasureArtResults.map(item => (
+                                        <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                    ))}
+                                </div>
+                                : null
+                            }
+                            {(this.state.treasureGemResults.length >= 1)
+                                ? <div className="generated">
+                                    {this.state.treasureGemResults.map(item => (
+                                        <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                    ))}
+                                </div>
+                                : null
+                            }
 
-                        {(this.state.treasureMagicItemResults.length >= 1)
-                            ? <div className="generated">
-                                {this.state.treasureMagicItemResults.map(item => (
-                                    <span className="items" key={item.Name}><p onClick={() => this.handleMagicItemClick(item.Name)} value={item.Name} key={item.Name}>{item.Count} x | {item.Name}</p></span>
-                                ))}
-                            </div>
-                            : null
-                        }
-
-                        {(this.state.displayItem)
-                            ?
-                            <div className="displayItem">
-                                <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
-                                <h2>{this.state.displayItem.Name}</h2>
-                                {this.state.displayItem.Description.map(item => (
-                                    <p>{item}</p>
-                                ))}
-                                <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
-                                {(this.state.displayItem.Use === true)
-                                    ?
-                                    <div>
-                                        <p>Use: {this.state.displayItem.Effects.Use}</p>
-                                        <p>Cooldown: {this.state.displayItem.CoolDown}</p>
-                                    </div>
-                                    : null
-                                }
-                                {(this.state.displayItem.Passive === true)
-                                    ?
-                                    <p>Passive: {this.state.displayItem.Effects.Passive}</p>
-                                    : null
-                                }
-                                {(this.state.displayItem.Table.length > 0)
-                                    ?
-                                    <div>
-                                        {this.state.displayItem.Table.map(item => (
-                                            <p>{item.Roll} | {item.Effect}</p>
-                                        ))}
-                                    </div>
-                                    : null
-                                }
-                                {(this.state.displayItemArmorDetails)
-                                    ?
-                                    <div>
-                                        <p>Armor type: {this.state.displayItemArmorDetails.Type}</p>
-                                        <p>AC: {this.state.displayItemArmorDetails.AC} | Dex Modifier: {(this.state.displayItem.DexModifier === true)
-                                            ?
-                                            "True"
-                                            : "False"}</p>
-                                        <p>Strength requirement: {this.state.displayItemArmorDetails.Strength} | Stealth disadvantage: {(this.state.displayItemArmorDetails.Stealth === true)
-                                            ?
-                                            "True"
-                                            : "False"
-                                        }</p>
-                                        <p>Weight: {this.state.displayItemArmorDetails.Weight}</p>
-                                    </div>
-                                    : null
-                                }
-                            </div>
-                            : null
-                        }
+                            {(this.state.treasureMagicItemResults.length >= 1)
+                                ? <div className="generated">
+                                    {this.state.treasureMagicItemResults.map(item => (
+                                        <span className="items" key={item.Name}><p onClick={() => this.handleMagicItemClick(item.Name)} value={item.Name} key={item.Name}>{item.Count} x | {item.Name}</p></span>
+                                    ))}
+                                </div>
+                                : null
+                            }
+                            {/* Display Item ON Click Div Modal */}
+                            {(this.state.displayItem)
+                                ?
+                                <div className="displayItem">
+                                    <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
+                                    <h2>{this.state.displayItem.Name}</h2>
+                                    {this.state.displayItem.Description.map(item => (
+                                        <p>{item}</p>
+                                    ))}
+                                    <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
+                                    {(this.state.displayItem.Use === true)
+                                        ?
+                                        <div>
+                                            <p>Use: {this.state.displayItem.Effects.Use}</p>
+                                            <p>Cool down: {this.state.displayItem.CoolDown}</p>
+                                        </div>
+                                        : null
+                                    }
+                                    {(this.state.displayItem.Passive === true)
+                                        ?
+                                        <p>Passive: {this.state.displayItem.Effects.Passive}</p>
+                                        : null
+                                    }
+                                    {(this.state.displayItem.Table.length > 0)
+                                        ?
+                                        <div>
+                                            {this.state.displayItem.Table.map(item => (
+                                                <p>{item.Roll} | {item.Effect}</p>
+                                            ))}
+                                        </div>
+                                        : null
+                                    }
+                                    {(this.state.displayItemArmorDetails)
+                                        ?
+                                        <div>
+                                            <p>Armor type: {this.state.displayItemArmorDetails.Type}</p>
+                                            <p>AC: {this.state.displayItemArmorDetails.AC} | Dex Modifier: {(this.state.displayItem.DexModifier === true)
+                                                ?
+                                                "True"
+                                                : "False"}</p>
+                                            <p>Strength requirement: {this.state.displayItemArmorDetails.Strength} | Stealth disadvantage: {(this.state.displayItemArmorDetails.Stealth === true)
+                                                ?
+                                                "True"
+                                                : "False"
+                                            }</p>
+                                            <p>Weight: {this.state.displayItemArmorDetails.Weight}</p>
+                                        </div>
+                                        : null
+                                    }
+                                </div>
+                                : null
+                            }
                         </div>
                         : null
                     }
+                    {/* NPC Div */}
                     {(this.state.npcDiv === true)
-                    ?
-                    <div className="visible">
-                    <div className="buttonSpacer">
-                        <span className="customButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
-                    </div>
-                        {(this.state.npc.length === 0)
-                        ? null                        
-                        :
-                        <Npc npc={this.state.npc} />
+                        ?
+                        <div className="visible" id="npc">
+                            <div className="buttonSpacer">
+                                <span className="customButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
+                            </div>
+                            {(this.state.npc.length === 0)
+                                ? null
+                                :
+                                <Npc npc={this.state.npc} />
+                            }
+                        </div>
+                        : null
                     }
-                    </div>
-                    : null
-                    }
+                    {/* World Shaking Event Div */}
                     {(this.state.bigEventDiv === true)
-                    ?
-                    <div className="visible">
-                    <div className="buttonSpacer">
-                        <span className="customButton" onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</span>
-                    </div>
-                        {(this.state.worldShakingEvent)
                         ?
-                        <WorldShakingEvent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails} />
+                        <div className="visible" id="worldShakingEvent">
+                            <div className="buttonSpacer">
+                                <span className="customButton" onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</span>
+                            </div>
+                            {(this.state.worldShakingEvent)
+                                ?
+                                <WorldShakingEvent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails} />
+                                : null
+                            }
+                        </div>
                         : null
-                        }
-                    </div>
-                    : null
                     }
+                    {/* Monster Generator Div */}
                     {(this.state.monsterDiv === true)
-                    ?
-                    <div className="visible">
-                    <div className="buttonSpacer">
-                        <span className="customButton" onClick={this.handleGenerateMonster}>Generate Monster</span>
-                    </div>
-                        {(this.state.enemy)
                         ?
-                        <MonsterDetails monster={this.state.enemy} />
+                        <div className="visible" id="monster">
+                            <div className="buttonSpacer">
+                                <span className="customButton" onClick={this.handleGenerateMonster}>Generate Monster</span>
+                            </div>
+                            {(this.state.enemy)
+                                ?
+                                <MonsterDetails monster={this.state.enemy} />
+                                : null
+                            }
+                        </div>
                         : null
-                        }
-                    </div>
-                    : null
                     }
                 </div>
             )
