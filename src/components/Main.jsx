@@ -711,7 +711,7 @@ class Main extends Component {
         let result = [];
         artLoot.forEach(item => {
             let resObj = result.find(resObj => resObj.Name === item.Name);
-            resObj ? resObj.Count++ : result.push({ 'Name': item.Name, 'Count': 1 });
+            resObj ? resObj.Count++ : result.push({ 'Name': item.Name, 'Value': item.Value, 'Count': 1 });
         });
         console.log(magicItemLoot);
         let resultMagic = [];
@@ -2906,7 +2906,7 @@ class Main extends Component {
                             {(this.state.treasureArtResults.length >= 1)
                                 ? <div className="generated">
                                     {this.state.treasureArtResults.map(item => (
-                                        <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                        <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value} GP</p></span>
                                     ))}
                                 </div>
                                 : null
@@ -2914,7 +2914,7 @@ class Main extends Component {
                             {(this.state.treasureGemResults.length >= 1)
                                 ? <div className="generated">
                                     {this.state.treasureGemResults.map(item => (
-                                        <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value}</p></span>
+                                        <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value} GP</p></span>
                                     ))}
                                 </div>
                                 : null
@@ -2934,9 +2934,6 @@ class Main extends Component {
                                 <div className="displayItem">
                                     <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
                                     <h2>{this.state.displayItem.Name}</h2>
-                                    {this.state.displayItem.Description.map(item => (
-                                        <p>{item}</p>
-                                    ))}
                                     <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
                                     {(this.state.displayItem.Use === true)
                                         ?
@@ -2951,6 +2948,9 @@ class Main extends Component {
                                         <p>Passive: {this.state.displayItem.Effects.Passive}</p>
                                         : null
                                     }
+                                    {this.state.displayItem.Description.map(item => (
+                                        <p>{item}</p>
+                                    ))}
                                     {(this.state.displayItem.Table.length > 0)
                                         ?
                                         <div>
