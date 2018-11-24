@@ -11,7 +11,6 @@ import MagicItemsList from '../assets/Json/MagicItemsList';
 import Translation from './Translation';
 import Monsters from '../assets/Json/5e-SRD-Monsters';
 import MonsterDetails from './MonsterDetails';
-import MonsterActions from './MonsterActions';
 
 class Main extends Component {
     constructor() {
@@ -2854,27 +2853,7 @@ class Main extends Component {
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="translation"/>
                     </div>
-                    {/* Translation Div  */}
-                    {(this.state.translationDiv === true)
-                        ?
-                        <div className="visible" id="translation">
-                            <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
-                            <select className="customButton" name="language" onChange={this.handleChange}>
-                                <option value="Elvish">Elvish</option>
-                                <option value="Dwarven">Dwarven</option>
-                                <option value="Draconic">Draconic</option>
-                                <option value="Abyssal">Abyssal</option>
-                            </select>
-                            <span className="customButton" onClick={this.handleTranslate}>Translate</span>
-                            <span className="customButton" onClick={this.handleTranslateClose}>Clear</span>
-                            <br />
-                            {(this.state.displayTranslation === true)
-                                ?
-                                <Translation language={this.state.language} textToTranslate={this.state.textToTranslate} />
-                                : null}
-                        </div>
-                        : null
-                    }
+                   
                     {/* Individual Loot Div */}
                     {(this.state.individualLootDiv === true)
                         ?
@@ -3004,12 +2983,6 @@ class Main extends Component {
                         </div>
                         : null
                     }
-                    {/* Display Monster Actions ON Click */}
-                    {(this.state.monsterAction === true)
-                    ?
-                    <MonsterActions monster={this.state.enemy}/>
-                    : null
-                }
                     {/* NPC Div */}
                     {(this.state.npcDiv === true)
                         ?
@@ -3052,6 +3025,27 @@ class Main extends Component {
                                 <MonsterDetails monster={this.state.enemy} />
                                 : null
                             }
+                        </div>
+                        : null
+                    }
+                     {/* Translation Div  */}
+                     {(this.state.translationDiv === true)
+                        ?
+                        <div className="visible" id="translation">
+                            <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
+                            <select className="customButton" name="language" onChange={this.handleChange}>
+                                <option value="Elvish">Elvish</option>
+                                <option value="Dwarven">Dwarven</option>
+                                <option value="Draconic">Draconic</option>
+                                <option value="Abyssal">Abyssal</option>
+                            </select>
+                            <span className="customButton" onClick={this.handleTranslate}>Translate</span>
+                            <span className="customButton" onClick={this.handleTranslateClose}>Clear</span>
+                            <br />
+                            {(this.state.displayTranslation === true)
+                                ?
+                                <Translation language={this.state.language} textToTranslate={this.state.textToTranslate} />
+                                : null}
                         </div>
                         : null
                     }

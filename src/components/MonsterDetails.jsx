@@ -1,13 +1,16 @@
 import React from 'react';
 import '../App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MonsterActions from './MonsterActions';
+import MonsterSpecialAbilities from './MonsterSpecialAbilities';
+import MonsterLegendary from './MonsterLegendary';
 
 const MonsterDetails = props => (
 
     <div className="monsterDetails">
         <div className="plaque">
-                <h2>{props.monster.name}</h2>
-                {/* <span onClick={props.action}><FontAwesomeIcon icon="dice"/></span> */}
+            <h2>{props.monster.name}</h2>
+            {/* <span onClick={props.action}><FontAwesomeIcon icon="dice"/></span> */}
         </div>
         <div className="monsterGrouping">
             <p>Size: {props.monster.size} | Type: {props.monster.type} | Subtype: {props.monster.subtype}</p>
@@ -29,25 +32,30 @@ const MonsterDetails = props => (
             <p>Hit points: {props.monster.hit_points} | Hit dice: {props.monster.hit_dice}</p>
             <p>Speed: {props.monster.speed}</p>
         </div>
-        <div className="monsterGrouping">
-            <h4>Resistances and Weaknesses</h4>
-            {(props.monster.damage_vulnerabilities)
-                ?
-                <p>Vulnerabilities: {props.monster.damage_vulnerabilities}</p>
-                : null}
-            {(props.monster.damage_resistances)
-                ?
-                <p>Resistances: {props.monster.damage_resistances}</p>
-                : null}
-            {(props.monster.damage_immunities)
-                ?
-                <p>Immunities: {props.monster.damage_immunities}</p>
-                : null}
-            {(props.monster.condition_immunities)
-                ?
-                <p>Condition Immunities: {props.monster.condition_immunities}</p>
-                : null}
-        </div>
+        {(props.monster.damage_vulnerabilities === "" && props.monster.damage_resistances === "" && props.monster.damage_immunities === "" && props.monster.condition_immunities === "")
+            ? null
+            :
+            <div className="monsterGrouping">
+                <h4>Resistances and Weaknesses</h4>
+                {(props.monster.damage_vulnerabilities)
+                    ?
+                    <p>Vulnerabilities: {props.monster.damage_vulnerabilities}</p>
+                    : null}
+                {(props.monster.damage_resistances)
+                    ?
+                    <p>Resistances: {props.monster.damage_resistances}</p>
+                    : null}
+                {(props.monster.damage_immunities)
+                    ?
+                    <p>Immunities: {props.monster.damage_immunities}</p>
+                    : null}
+                {(props.monster.condition_immunities)
+                    ?
+                    <p>Condition Immunities: {props.monster.condition_immunities}</p>
+                    : null}
+            </div>
+        }
+
         {(props.monster.strength_save | props.monster.dexterity_save | props.monster.constitution_save | props.monster.intelligence_save | props.monster.wisdom_save | props.monster.charisma_save)
             ?
             <div className="monsterGrouping">
@@ -170,6 +178,17 @@ const MonsterDetails = props => (
                     : null
                 }
             </div>
+            : null
+        }
+        <MonsterActions monster={props.monster} />
+        {(props.monster.special_abilities)
+            ?
+            <MonsterSpecialAbilities monster={props.monster} />
+            : null
+        }
+        {(props.monster.legendary_actions)
+            ?
+            <MonsterLegendary monster={props.monster} />
             : null
         }
 

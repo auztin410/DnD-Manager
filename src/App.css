@@ -17,6 +17,10 @@ h2 {
   margin: 0;
 }
 
+h4 {
+  margin: 0;
+}
+
 .App {
   text-align: center;
   background-color:rgba(227, 219, 179, 1);
@@ -274,6 +278,10 @@ h2 {
   border-style: double;
 }
 
+#action {
+  /* height: 40px; */
+}
+
 .icon {
   height: 25px;
   width: 25px;
@@ -285,10 +293,19 @@ h2 {
 }
 
 .monsterGrouping {
-  background-image: url('./assets//u0.jpg');
+  background-image: url('./assets/u0.jpg');
   border-color: black;
   border-style: double;
   margin: 10px;
+}
+
+.scrollDiv {
+  padding: 5px;
+  border-color: black;
+  border-style: double;
+  margin: 10px;
+  overflow-y: auto;
+  height: 255px;
 }
 
 @-webkit-keyframes glow {
