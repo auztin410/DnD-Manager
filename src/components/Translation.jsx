@@ -5,25 +5,25 @@ import '../App.css';
 const Translation = props => {
     if (props.language === "Elvish") {
         return (<div className="Elvish">
-            {props.textToTranslate}
+            <p>{props.textToTranslate}</p>
         </div>
         )
     }
     else if (props.language === "Dwarven") {
         return (<div className="Dwarven">
-            {props.textToTranslate}
+            <p>{props.textToTranslate}</p>
         </div>
         )
     }
     else if (props.language === "Draconic") {
         return (<div className="Draconic">
-            {props.textToTranslate}
+            <p>{props.textToTranslate}</p>
         </div>
         )
     }
     else if (props.language === "Abyssal") {
         return (<div className="Abyssal">
-            {props.textToTranslate}
+            <p>{props.textToTranslate}</p>
         </div>
         )
     }
