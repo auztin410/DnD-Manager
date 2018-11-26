@@ -275,6 +275,32 @@ h4 {
   width: 1100px
 }
 
+#gridMap {
+  height: 1080px;
+  width: 1080px;
+}
+
+.squareModal {
+  height: 55px;
+  width: 250px;
+  background-image: url('./assets/u0.jpg');
+  border-style: ridge;
+  border-width: 8px;
+  border-color: rgba(65, 36, 13, 0.61);
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 450px;
+}
+
+.square {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+}
+
 .monsterDetails {
   font-family: 'Cinzel Decorative', cursive;
   font-weight: bold;

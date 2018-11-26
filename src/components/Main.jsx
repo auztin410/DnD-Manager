@@ -43,9 +43,14 @@ class Main extends Component {
             monsterDiv: false,
             translationDiv: false,
             worldMapDiv: false,
+            gridDiv: false,
             enemy: null,
             worldMap: null,
             showWorldMap: false,
+            squares: [],
+            selectedSquare: null,
+            gridName: null,
+            squareModal: false,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -62,22 +67,30 @@ class Main extends Component {
         this.handleGenerateMonster = this.handleGenerateMonster.bind(this);
         this.handleMonsterActions = this.handleMonsterActions.bind(this);
         this.handleLoadWorldMap = this.handleLoadWorldMap.bind(this);
+        this.handleSquare = this.handleSquare.bind(this);
+        this.handleSetSquare = this.handleSetSquare.bind(this);
     }
 
-
     componentDidMount() {
+        let list = [];
+                    for (let i = 1; i <= 400; i++) {
+                        list.push({id: i, Player: ""});
+                    }
+                    
         axios.get('/auth/user').then(response => {
             console.log(response.data)
             if (!!response.data.user) {
                 console.log('THERE IS A USER')
                 this.setState({
                     loggedIn: true,
-                    user: response.data.user
+                    user: response.data.user,
+                    squares: list,
                 })
             } else {
                 this.setState({
                     loggedIn: false,
-                    user: null
+                    user: null,
+                    squares: list,
                 })
             }
         })
@@ -2782,29 +2795,41 @@ class Main extends Component {
                 }
                 break;
             case ("translation"):
-            if (this.state.translationDiv === false) {
-                this.setState({
-                    translationDiv: true
-                });
-            }
-            else if (this.state.translationDiv === true) {
-                this.setState({
-                    translationDiv: false
-                });
-            }
-            break;
+                if (this.state.translationDiv === false) {
+                    this.setState({
+                        translationDiv: true
+                    });
+                }
+                else if (this.state.translationDiv === true) {
+                    this.setState({
+                        translationDiv: false
+                    });
+                }
+                break;
             case ("worldMap"):
-            if (this.state.worldMapDiv === false) {
-                this.setState({
-                    worldMapDiv: true
-                });
-            }
-            else if (this.state.worldMapDiv === true) {
-                this.setState({
-                    worldMapDiv: false
-                });
-            }
-            break;
+                if (this.state.worldMapDiv === false) {
+                    this.setState({
+                        worldMapDiv: true
+                    });
+                }
+                else if (this.state.worldMapDiv === true) {
+                    this.setState({
+                        worldMapDiv: false
+                    });
+                }
+                break;
+            case ("gridMap"):
+                if (this.state.gridDiv === false) {
+                    this.setState({
+                        gridDiv: true,
+                    });
+                }
+                else if (this.state.gridDiv === true) {
+                    this.setState({
+                        gridDiv: false
+                    });
+                }
+                break;
         }
 
     };
@@ -2822,13 +2847,36 @@ class Main extends Component {
         this.setState({
             monsterAction: true
         });
-    }
+    };
 
     handleLoadWorldMap(event) {
         this.setState({
             showWorldMap: true,
         });
-    }
+    };
+
+    handleSquare(event) {
+        let selected = event.target.id;
+        let grid = this.state.squares;
+        let selectedSquare = grid.find(element => element.id == event.target.id);
+        console.log(selectedSquare);
+        this.setState({
+            squareModal: true,
+            selectedSquare: selected,
+        });
+    };
+
+    handleSetSquare() {
+        let grid = this.state.squares;
+        let selectedSquare = grid.findIndex(element => element.id == this.state.selected);
+        console.log(selectedSquare);
+        grid[selectedSquare] = {Number: this.state.selected, Player: this.state.gridName};
+        this.setState({
+            square: grid,
+            squareModal: false,
+        });
+        
+    };
 
     render() {
         if (this.state.npcComponent === true) {
@@ -2873,11 +2921,13 @@ class Main extends Component {
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/enemy.png')} alt="enemy" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="translation"/>
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="translation" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="worldMap" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="gridMap" />
                     </div>
-                   
+
                     {/* Individual Loot Div */}
                     {(this.state.individualLootDiv === true)
                         ?
@@ -2892,10 +2942,10 @@ class Main extends Component {
                                 <span className="customButton" onClick={this.handleRoll}>Dice Roll!</span>
                             </form>
                             <div className="generated">
-                            <h4>Individual Loot:</h4>
-                        {this.state.individualLootResult.map(item => (
-                                <p key={item.Currency}>{item.Value}{" "}{item.Currency}</p>
-                            ))}
+                                <h4>Individual Loot:</h4>
+                                {this.state.individualLootResult.map(item => (
+                                    <p key={item.Currency}>{item.Value}{" "}{item.Currency}</p>
+                                ))}
                             </div>
                         </div>
                         : null
@@ -3052,8 +3102,8 @@ class Main extends Component {
                         </div>
                         : null
                     }
-                     {/* Translation Div  */}
-                     {(this.state.translationDiv === true)
+                    {/* Translation Div  */}
+                    {(this.state.translationDiv === true)
                         ?
                         <div className="visible" id="translation">
                             <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
@@ -3075,26 +3125,47 @@ class Main extends Component {
                     }
                     {/* World Map Div */}
                     {(this.state.worldMapDiv === true)
-                    ?
-                    <div className="visible" id="worldMap">
-                        
-                        {(this.state.showWorldMap === true)
                         ?
-                        <div>
-                            <br />
-                            <img className="mapImage" src={this.state.worldMap} alt="map"/>
+                        <div className="visible" id="worldMap">
+
+                            {(this.state.showWorldMap === true)
+                                ?
+                                <div>
+                                    <br />
+                                    <img className="mapImage" src={this.state.worldMap} alt="map" />
+                                </div>
+                                :
+                                <div>
+                                    <form>
+                                        <input className="customButton" name="worldMap" type="text" onChange={this.handleChange} />
+                                        <br />
+                                        <span className="customButton" onClick={this.handleLoadWorldMap}>Submit</span>
+                                    </form>
+                                </div>
+                            }
                         </div>
-                        :
-                        <div>
-                        <form>
-                            <input className="customButton" name="worldMap" type="text" onChange={this.handleChange}/>
-                            <br />
-                            <span className="customButton" onClick={this.handleLoadWorldMap}>Submit</span>
-                        </form>
+                        : null}
+                    {/* Grid Div */}
+                    {(this.state.gridDiv === true)
+                        ?
+                        <div className="visible" id="gridMap">
+                            {this.state.squares.map(item => (
+                                <div className="square" key={item.id} onClick={this.handleSquare} id={item.id}>{item.Player}</div>
+                            ))}
+                            {(this.state.squareModal === true)
+                            ?
+                            <div className="squareModal">
+                                <form>
+                                    <br />
+                                    <input type="text" name="gridName" onChange={this.handleChange} />
+                                    <span className="customButton" onClick={this.handleSetSquare}>Set</span>
+                                </form>
+                            </div>
+                            : null
+                        }
                         </div>
+                        : null
                     }
-                    </div>
-                    : null}
                 </div>
             )
         }
