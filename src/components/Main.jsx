@@ -42,7 +42,10 @@ class Main extends Component {
             bigEventDiv: false,
             monsterDiv: false,
             translationDiv: false,
+            worldMapDiv: false,
             enemy: null,
+            worldMap: null,
+            showWorldMap: false,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -58,6 +61,7 @@ class Main extends Component {
         this.handleOpenClose = this.handleOpenClose.bind(this);
         this.handleGenerateMonster = this.handleGenerateMonster.bind(this);
         this.handleMonsterActions = this.handleMonsterActions.bind(this);
+        this.handleLoadWorldMap = this.handleLoadWorldMap.bind(this);
     }
 
 
@@ -2789,6 +2793,18 @@ class Main extends Component {
                 });
             }
             break;
+            case ("worldMap"):
+            if (this.state.worldMapDiv === false) {
+                this.setState({
+                    worldMapDiv: true
+                });
+            }
+            else if (this.state.worldMapDiv === true) {
+                this.setState({
+                    worldMapDiv: false
+                });
+            }
+            break;
         }
 
     };
@@ -2805,6 +2821,12 @@ class Main extends Component {
         console.log("monster action click");
         this.setState({
             monsterAction: true
+        });
+    }
+
+    handleLoadWorldMap(event) {
+        this.setState({
+            showWorldMap: true,
         });
     }
 
@@ -2852,6 +2874,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/enemy.png')} alt="enemy" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="translation"/>
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="worldMap" />
                     </div>
                    
                     {/* Individual Loot Div */}
@@ -3049,6 +3073,28 @@ class Main extends Component {
                         </div>
                         : null
                     }
+                    {/* World Map Div */}
+                    {(this.state.worldMapDiv === true)
+                    ?
+                    <div className="visible" id="worldMap">
+                        
+                        {(this.state.showWorldMap === true)
+                        ?
+                        <div>
+                            <br />
+                            <img className="mapImage" src={this.state.worldMap} alt="map"/>
+                        </div>
+                        :
+                        <div>
+                        <form>
+                            <input className="customButton" name="worldMap" type="text" onChange={this.handleChange}/>
+                            <br />
+                            <span className="customButton" onClick={this.handleLoadWorldMap}>Submit</span>
+                        </form>
+                        </div>
+                    }
+                    </div>
+                    : null}
                 </div>
             )
         }
