@@ -8110,5 +8110,1428 @@
             "Use": "Use to cover a creature, which takes 10 minutes the creature gains the effect of a freedom of moment spell for 8 hours. The oil can instead be used on the ground to cover 10-foot square and cause the grease spell effect for 8 hours."
         },
         "Table": []
+    },
+    {
+        "Name": "Pearl of power",
+        "Type": "Wondrous item",
+        "Rarity": "Uncommon",
+        "Description": [
+            "Attunement required by spellcaster.",
+            "While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you use the pearl, it can’t be used again until the next dawn."
+        ],
+        "Attunement": true,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": true,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "Until next dawn.",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Use an action to speak the command word and regain one expended spell slot, if the spell slot was 4th or higher it is now 3rd level."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Periapt of health",
+        "Type": "wondrous item",
+        "Rarity": "Uncommon",
+        "Description": [
+            "You are immune to contracting any disease while you wear this pendant. If you are already infected with a disease, the effects of the disease are suppressed you while you wear the pendant."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": true,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "",
+        "Passive": true,
+        "Use": false,
+        "Effects": {
+            "Passive": "While worn you are immune to diseased and any diseases you already have are surpresse while it is worn.",
+            "Use": ""
+        },
+        "Table": []
+    },
+    {
+        "Name": "Periapt of proof against poison",
+        "Type": "Wondrous item",
+        "Rarity": "Rare",
+        "Description": [
+            "This delicate silver chain has a brilliant-cut black gem pendant. While you wear it, poisons have no effect on you. You are immune to the poisoned condition and have immunity to poison damage."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": true,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "",
+        "Passive": true,
+        "Use": false,
+        "Effects": {
+            "Passive": "While worn poisons have no effect on you. You have immunity to poison damage and poison conditions.",
+            "Use": ""
+        },
+        "Table": []
+    },
+    {
+        "Name": "Periapt of wound closure",
+        "Type": "Wondrous item",
+        "Rarity": "Uncommon",
+        "Description": [
+            "While you wear this pendant, you stabilize whenever you are dying at the start of your turn. In addition, whenever you roll a Hit Die to regain hit points, double the number of hit points it restores."
+        ],
+        "Attunement": true,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "",
+        "Passive": true,
+        "Use": false,
+        "Effects": {
+            "Passive": "While worn you stabalize when dying at the start of the next turn. In addition whenever you roll a Hit Die to regain hit points, double the hit points restored.",
+            "Use": ""
+        },
+        "Table": []
+    },
+    {
+        "Name": "Philter of love",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "The next time you see a creature within 10 minutes after drinking this philter, you become charmed by that creature for 1 hour. If the creature is of a species and gender you are normally attracted to, you regard it as your true love while you are charmed. This potion’s rose-hued, effervescent liquid contains one easy-to-miss bubble shaped like a heart."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink and if you see a creature within 10 minutes you will become charmed by it for 1 hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Pipes of haunting",
+        "Type": "Wondrous item",
+        "Rarity": "Uncommon",
+        "Description": [
+            "You must be proficient with wind instruments to use these pipes. They have 3 charges. You can use an action to play them and expend 1 charge to create an eerie, spellbinding tune. Each creature within 30 feet of you that hears you play must succeed on a DC 15 Wisdom saving throw or become frightened of you for 1 minute. If you wish, all creatures in the area that aren’t hostile toward you automatically succeed on the saving throw. A creature that fails the saving throw can repeat it at the end of each of its turns, ending the effect on itself on a success. A creature that succeeds on its saving throw is immune to the effect of these pipes for 24 hours. The pipes regain 1d3 expended charges daily at dawn."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "Regain 1d3 charges at dawn",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Use an action to play the pipe and expend 1 charge, each creature within 30 feet of you must succeed a DC 15 Wisdom saving throw or become frightened of you for 1 minute."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Pipes of the sewers",
+        "Type": "Wondrous item",
+        "Rarity": "Uncommon",
+        "Description": [
+            "You must be proficient with wind instruments to use these pipes. While you are attuned to the pipes, ordinary rats and giant rats are indifferent toward you and will not attack you unless you threaten or harm them.",
+            "The pipes have 3 charges. If you play the pipes as an action, you can use a bonus action to expend 1 to 3 charges, calling forth one swarm of rats with each expended charge, provided that enough rats are within half a mile of you to be called in this fashion (as determined by the GM). If there aren’t enough rats to form a swarm, the charge is wasted. Called swarms move toward the music by the shortest available route but aren’t under your control otherwise. The pipes regain 1d3 expended charges daily at dawn.",
+            "Whenever a swarm of rats that isn’t under another creature’s control comes within 30 feet of you while you are playing the pipes, you can make a Charisma check contested by the swarm’s Wisdom check. If you lose the contest, the swarm behaves as it normally would and can’t be swayed by the pipes’ music for the next 24 hours. If you win the contest, the swarm is swayed by the pipes’ music and becomes friendly to you and your companions for as long as you continue to play the pipes each round as an action. A friendly swarm obeys your commands. If you issue no commands to a friendly swarm, it defends itself but otherwise takes no actions. If a friendly swarm starts its turn and can’t hear the pipes’ music, your control over that swarm ends, and the swarm behaves as it normally would and can’t be swayed by the pipes’ music for the next 24 hours."
+        ],
+        "Attunement": true,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "Regain 1d3 charges at dawn",
+        "Passive": true,
+        "Use": true,
+        "Effects": {
+            "Passive": "While attuned to this item ordinary rats and giant rats are indifferent you to and will not attack, unless you threaten or harm them.",
+            "Use": "Use an action to play the pipes, you can use a bonus action to  expend 1 charge and call forth one swarm of rats."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Plate armor of etherealness",
+        "Type": "Armor (plate)",
+        "Rarity": "Legendary",
+        "Description": [
+            "While you’re wearing this armor, you can speak its command word as an action to gain the effect of the *etherealness* spell, which last for 10 minutes or until you remove the armor or use an action to speak the command word again. This property of the armor can’t be used again until the next dawn."
+        ],
+        "Attunement": true,
+        "Weapon": false,
+        "Armor": true,
+        "ArmorDetails": "Plate",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "Until next dawn",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Use an action to speak the command word and gaint the effect of the etherealness spell for 10 minutes."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Plate armor of resistance",
+        "Type": "Armor (plate)",
+        "Rarity": "Rare",
+        "Description": [
+            "You have resistance to one type of damage while you wear this armor. The GM chooses the type or determines it randomly from the options below."
+        ],
+        "Attunement": true,
+        "Weapon": false,
+        "Armor": true,
+        "ArmorDetails": "Plate",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "",
+        "Passive": true,
+        "Use": false,
+        "Effects": {
+            "Passive": "You have resistance to the specified damage type.",
+            "Use": ""
+        },
+        "Table": [
+            {
+                "Roll": 1,
+                "Effect": "Acid"
+            },
+            {
+                "Roll": 2,
+                "Effect": "Cold"
+            },
+            {
+                "Roll": 3,
+                "Effect": "Fire"
+            },
+            {
+                "Roll": 4,
+                "Effect": "Force"
+            },
+            {
+                "Roll": 5,
+                "Effect": "Lightning"
+            },
+            {
+                "Roll": 6,
+                "Effect": "Necrotic"
+            },
+            {
+                "Roll": 7,
+                "Effect": "Poison"
+            },
+            {
+                "Roll": 8,
+                "Effect": "Psychic"
+            },
+            {
+                "Roll": 9,
+                "Effect": "Radiant"
+            },
+            {
+                "Roll": 10,
+                "Effect": "Thunder"
+            }
+        ]
+    },
+    {
+        "Name": "Portable hole",
+        "Type": "Wondrous item",
+        "Rarity": "Rare",
+        "Description": [
+            "This fine black cloth, soft as silk, is folded up to the dimensions of a handkerchief. It unfolds into a circular sheet 6 feet in diameter.",
+            "You can use an action to unfold a *portable hole* and place it on or against a solid surface, whereupon the *portable hole* creates an extradimensional hole 10 feet deep. The cylindrical space within the hole exists on a different plane, so it can’t be used to create open passages. Any creature inside an open *portable hole* can exit the hole by climbing out of it.",
+            "You can use an action to close a *portable hole* by taking hold of the edges of the cloth and folding it up. Folding the cloth closes the hole, and any creatures or objects within remain in the extradimensional space. No matter what’s in it, the hole weighs next to nothing.",
+            "If the hole is folded up, a creature within the hole’s extradimensional space can use an action to make a DC 10 Strength check. On a successful check, the creature forces its way out and appears within 5 feet of the *portable hole* or the creature carrying it. A breathing creature within a closed *portable hole* can survive for up to 10 minutes, after which time it begins to suffocate.",
+            "Placing a *portable hole* inside an extradimensional space created by a *bag of holding*, *handy haversack*, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it and deposited in a random location on the Astral Plane. The gate then closes. The gate is one-way only and can’t be reopened."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": true,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": false,
+        "CoolDown": "",
+        "Passive": false,
+        "Use": false,
+        "Effects": {
+            "Passive": "",
+            "Use": ""
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of animal friendship",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "When you drink this potion, you can cast the *animal friendship* spell (save DC 13) for 1 hour at will. Agitating this muddy liquid brings little bits into view: a fish scale, a hummingbird tongue, a cat claw, or a squirrel hair."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you can cast animal friendship spell (save DC 13) for 1 hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of clairvoyance",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, you gain the effect of the *clairvoyance* spell. An eyeball bobs in this yellowish liquid but vanishes when the potion is opened."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain the effect of te clairvoyance spell."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of climbing",
+        "Type": "Potion",
+        "Rarity": "Common",
+        "Description": [
+            "When you drink this potion, you gain a climbing speed equal to your walking speed for 1 hour. During this time, you have advantage on Strength (Athletics) checks you make to climb. The potion is separated into brown, silver, and gray layers resembling bands of stone. Shaking the bottle fails to mix the colors."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain a climbing speed equal to your walking speed for 1 hour. In addition you have advantage on Strength (Athletics) checks you make to climb."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of cloud giant strength",
+        "Type": "Potion",
+        "Rarity": "Very rare",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 27 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of fire giant strength",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 25 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of frost giant strength",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 23 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of frost giant strength",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 23 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of hill giant strength",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 21 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of hill giant strength",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 21 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of stone giant strength",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 23 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of storm giant strength",
+        "Type": "Potion",
+        "Rarity": "Legendary",
+        "Description": [
+            "When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.",
+            "This potion’s transparent liquid has floating in it a sliver of fingernail from a giant of the appropriate type. The *potion of frost giant strength* and the *potion of stone giant strength* have the same effect."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, your strength becomes 29 for an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of diminution",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, you gain the “reduce” effect of the *enlarge/reduce* spell for 1d4 hours (no concentration required). The red in the potion’s liquid continuously contracts to a tiny bead and then expands to color the clear liquid around it. Shaking the bottle fails to interrupt this process."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain the reduce effect of the enlarge/reduce for for 1d4 hours."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of fire breath",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "After drinking this potion, you can use a bonus action to exhale fire at a target within 30 feet of you. The target must make a DC 13 Dexterity saving throw, taking 4d6 fire damage on a failed save, or half as much damage on a successful one.",
+            "The effect ends after you exhalte the fire three times or when 1 hour has passed.",
+            "The potion's orange liquid flickers, and smoke fills the top of the containere and wafts out whenever it is opened."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you can exhale fire as a bonus action at a target within 30 feet of you. The target must succeed on a DC 13 Dexterity saving throw, taking 4d6 fire damage on failure or half as much on success. You can use this effect up to 3 times within an hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of flying",
+        "Type": "Potion",
+        "Rarity": "Very rare",
+        "Description": [
+            "When you drink this potion, you gain a flying speed equal to your walking speed for 1 hour and can hover. If you’re in the air when the potion wears off, you fall unless you have some other means of staying aloft. This potion’s clear liquid floats at the top of its container and has cloudy white impurities drifting in it."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain a flying speed equal to your walking speed for 1 hour and can hover in the air."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of gaseous form",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, you gain the effect of the *gaseous form* spell for 1 hour (no concentration required) or until you end the effect as a bonus action. This potion’s container seems to hold fog that moves and pours like water."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain the effect of the gaseouss form spell for 1 hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of greater healing",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "You regain hit points when you drink this potion. The number of hit points depends on the potion’s rarity, as shown in the Potions of Healing table. Whatever its potency, the potion’s red liquid glimmers when agitated."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you regain 4d4 +4 hit points."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of healing",
+        "Type": "Potion",
+        "Rarity": "Common",
+        "Description": [
+            "You regain hit points when you drink this potion. The number of hit points depends on the potion’s rarity, as shown in the Potions of Healing table. Whatever its potency, the potion’s red liquid glimmers when agitated."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you regain 2d4 +2 hit points."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of superior healing",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "You regain hit points when you drink this potion. The number of hit points depends on the potion’s rarity, as shown in the Potions of Healing table. Whatever its potency, the potion’s red liquid glimmers when agitated."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you regain 8d4 +8 hit points."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of supreme healing",
+        "Type": "Potion",
+        "Rarity": "Very rare",
+        "Description": [
+            "You regain hit points when you drink this potion. The number of hit points depends on the potion’s rarity, as shown in the Potions of Healing table. Whatever its potency, the potion’s red liquid glimmers when agitated."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you regain 10d4 +20 hit points."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of growth",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "When you drink this potion, you gain the “enlarge” effect of the *enlarge/reduce* spell for 1d4 hours (no concentration required). The red in the potion’s liquid continuously expands from a tiny bead to color the clear liquid around it and then contracts. Shaking the bottle fails to interrupt this process."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain the enlarge effect of the enlarge/reduce spell for 1d4 hours."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of heroism",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "For 1 hour after drinking it, you gain 10 temporary hit points that last for 1 hour. For the same duration, you are under the effect of the *bless* spell (no concentration required). This blue potion bubbles and steams as if boiling."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain 10 temporary hit points and under the effect of the bless spell for 1 hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of invisibility",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "This potion’s container looks empty but feels as though it holds liquid. When you drink it, you become invisible for 1 hour. Anything you wear or carry is invisible with you. The effect ends early if you attack or cast a spell."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you become invisible for 1 hour."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of invulnerability",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "For 1 minute after you drink this potion, you have resistance to all damage. The poriont's syrupy liquid looks like liquified iron."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain resistance to all damage for 1 minute."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of longevity",
+        "Type": "Potion",
+        "Rarity": "Very rare",
+        "Description": [
+            "When you drink this potion, you physical age is reduce by 1d6 +6 years, to a minimum of 13 years.",
+            "Each time you subsequently drink a potion of longevity, there is a 10 percent cumulative chance that you instead age by 1d6 +6 years.",
+            "Suspended in this amber liquid are a scorpion's tail, and adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you reduce your age by 1d6 +6 year to a minimum of 13 years."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of mind reading",
+        "Type": "Potion",
+        "Rarity": "Rare",
+        "Description": [
+            "When you drink this potion, you gain the effect of the *detect thoughts* spell (save DC 13). The potion’s dense, purple liquid has an ovoid cloud of pink floating in it."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain the effect of detect thoughts spell (save DC 13)."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of poison",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "This concoction looks, smells, and tastes like a *potion of healing* or other beneficial potion. However, it is actually poison masked by illusion magic. An *identify* spell reveals its true nature.",
+            "If you drink it, you take 3d6 poison damage, and you must succeed on a DC 13 Constitution saving throw or be poisoned. At the start of each of your turns while you are poisoned in this way, you take 3d6 poison damage. At the end of each of your turns, you can repeat the saving throw. On a successful save, the poison damage you take on your subsequent turns decreases by 1d6. The poison ends when the damage decreases to 0."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you take 3d6 poison damage and must succeed on a DC 13 Constituion saving throw or be poisoned taking 3d6 poison damage at the end of each turn on a success the damage is reduce on your next turn by 1d6 and continue until the poison damage is reduce to 0."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of resistance",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "When you drink this potion, you gain resistance to one type of damage for 1 hour. The GM chooses the type or determines it randomly from the options below."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain resistance to one type of damage for 1 hour."
+        },
+        "Table": [
+            {
+                "Roll": 1,
+                "Effect": "Acid"
+            },
+            {
+                "Roll": 2,
+                "Effect": "Cold"
+            },
+            {
+                "Roll": 3,
+                "Effect": "Fire"
+            },
+            {
+                "Roll": 4,
+                "Effect": "Force"
+            },
+            {
+                "Roll": 5,
+                "Effect": "Lightning"
+            },
+            {
+                "Roll": 6,
+                "Effect": "Necrotic"
+            },
+            {
+                "Roll": 7,
+                "Effect": "Poison"
+            },
+            {
+                "Roll": 8,
+                "Effect": "Psychic"
+            },
+            {
+                "Roll": 9,
+                "Effect": "Radiant"
+            },
+            {
+                "Roll": 10,
+                "Effect": "Thunder"
+            }
+        ]
+    },
+    {
+        "Name": "Potion of speed",
+        "Type": "Potion",
+        "Rarity": "Very rare",
+        "Description": [
+            "When you drink this potion, you gain the effect of the *haste* spell for 1 minute (no concentration required). The potion’s yellow fluid is streaked with black and swirls on its own."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you gain the effect of the haste spell for 1 minute."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of vitality",
+        "Type": "Potion",
+        "Rarity": "Very rare",
+        "Description": [
+            "When you drink this potion, it removes any exhaustion you are suffering and cures and disease or poison affecting you. For the next 24 hours, you regain the maximum number of hit points for any Hit Die you spend.",
+            "The potion's crimso liquid regularly pulses with dull light, calling to mind a heartbeat."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you are cured of exhausted, diseased, and poison. In addition you regain the maximum number of hit points on and Hit Die you roll in the next 24 hours."
+        },
+        "Table": []
+    },
+    {
+        "Name": "Potion of water breathing",
+        "Type": "Potion",
+        "Rarity": "Uncommon",
+        "Description": [
+            "You can breathe underwater for 1 hour after drinking this potion. Its cloudy green fluid smells of the sea and has a jellyfish-like bubble floating in it."
+        ],
+        "Attunement": false,
+        "Weapon": false,
+        "Armor": false,
+        "ArmorDetails": "",
+        "Shield": false,
+        "Bag": false,
+        "Necklace": false,
+        "Belt": false,
+        "Boots": false,
+        "Cloak": false,
+        "Bracers": false,
+        "Gloves": false,
+        "Rings": false,
+        "Helmet": false,
+        "Equippable": false,
+        "Weight": 0,
+        "OneUse": true,
+        "CoolDown": "None",
+        "Passive": false,
+        "Use": true,
+        "Effects": {
+            "Passive": "",
+            "Use": "Drink this potion, you can breathe underwater for 1 hour."
+        },
+        "Table": []
     }
 ]
