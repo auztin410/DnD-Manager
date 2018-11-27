@@ -292,6 +292,22 @@ h4 {
   margin-left: 450px;
 }
 
+.draggable {
+  height: 42px;
+  width: 42px;
+  border-style: solid;
+  background-color: black;
+  border-top-color: grey;
+  border-width: 4px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#gridIcons {
+  height: 200px;
+  width: 400px;
+}
+
 .square {
   height: 50px;
   width: 50px;

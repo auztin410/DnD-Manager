@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Draggable, {DraggableCore} from 'react-draggable';
 import NpcGenerator from '../assets/Json/NpcGenerator';
 import Npc from './Npc';
 import WorldEventGenerator from '../assets/Json/World-Shaking-Events';
@@ -2878,6 +2879,7 @@ class Main extends Component {
         
     };
 
+
     render() {
         if (this.state.npcComponent === true) {
             return (
@@ -3139,6 +3141,7 @@ class Main extends Component {
                                     <form>
                                         <input className="customButton" name="worldMap" type="text" onChange={this.handleChange} />
                                         <br />
+                                        <br />
                                         <span className="customButton" onClick={this.handleLoadWorldMap}>Submit</span>
                                     </form>
                                 </div>
@@ -3152,19 +3155,17 @@ class Main extends Component {
                             {this.state.squares.map(item => (
                                 <div className="square" key={item.id} onClick={this.handleSquare} id={item.id}>{item.Player}</div>
                             ))}
-                            {(this.state.squareModal === true)
-                            ?
-                            <div className="squareModal">
-                                <form>
-                                    <br />
-                                    <input type="text" name="gridName" onChange={this.handleChange} />
-                                    <span className="customButton" onClick={this.handleSetSquare}>Set</span>
-                                </form>
-                            </div>
-                            : null
-                        }
                         </div>
                         : null
+                    }
+                    {(this.state.gridDiv === true)
+                    ?
+                    <div className="visible" id="gridIcons">
+                        <Draggable>
+                            <span className="draggable"> </span>
+                            </Draggable>
+                    </div>
+                    : null
                     }
                 </div>
             )
