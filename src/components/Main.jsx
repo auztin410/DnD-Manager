@@ -53,6 +53,16 @@ class Main extends Component {
             gridName: null,
             squareModal: false,
             rotation: 0,
+            player1Rotation: 0,
+            player2Rotation: 0,
+            player3Rotation: 0,
+            player4Rotation: 0,
+            tinyRotation: 0,
+            smallRotation: 0,
+            mediumRotation: 0,
+            largeRotation: 0,
+            hugeRotation: 0,
+            gargantuanRotation: 0,
             torch: "off",
             gridIcons: "player1",
             gridIconPlayer1: false,
@@ -3017,15 +3027,100 @@ class Main extends Component {
 
     };
 
-    handleRotate() {
-        console.log("double click works");
-        let newRotation = this.state.rotation + 45;
-        if (newRotation >= 360) {
-            newRotation = - 360;
+    handleRotate(event) {
+        console.log(event.target.id);
+        switch(event.target.id) {
+            case ("player1"):
+            let newRotation1 = this.state.player1Rotation + 45;
+        if (newRotation1 >= 360) {
+            newRotation1 = - 360;
         }
         this.setState({
-            rotation: newRotation,
-        })
+            player1Rotation: newRotation1,
+        });
+        break;
+        case ("player2"):
+        let newRotation2 = this.state.player2Rotation + 45;
+        if (newRotation2 >= 360) {
+            newRotation2 = - 360;
+        }
+        this.setState({
+            player2Rotation: newRotation2,
+        });
+        break;
+        case ("player3"):
+        let newRotation3 = this.state.player3Rotation + 45;
+        if (newRotation3 >= 360) {
+            newRotation3 = - 360;
+        }
+        this.setState({
+            player3Rotation: newRotation3,
+        });
+        break;
+        case ("player4"):
+        let newRotation4 = this.state.player4Rotation + 45;
+        if (newRotation4 >= 360) {
+            newRotation4 = - 360;
+        }
+        this.setState({
+            player4Rotation: newRotation4,
+        });
+        break;
+        case ("tiny"):
+        let newRotation5 = this.state.tinyRotation + 45;
+        if (newRotation5 >= 360) {
+            newRotation5 = - 360;
+        }
+        this.setState({
+            tinyRotation: newRotation5,
+        });
+        break;
+        case ("small"):
+        let newRotation6 = this.state.smallRotation + 45;
+        if (newRotation6 >= 360) {
+            newRotation6 = - 360;
+        }
+        this.setState({
+            smallRotation: newRotation6,
+        });
+        break;
+        case ("medium"):
+        let newRotation7 = this.state.mediumRotation + 45;
+        if (newRotation7 >= 360) {
+            newRotation7 = - 360;
+        }
+        this.setState({
+            mediumRotation: newRotation7,
+        });
+        break;
+        case ("large"):
+        let newRotation8 = this.state.largeRotation + 45;
+        if (newRotation8 >= 360) {
+            newRotation8 = - 360;
+        }
+        this.setState({
+            largeRotation: newRotation8,
+        });
+        break;
+        case ("huge"):
+        let newRotation9 = this.state.hugeRotation + 45;
+        if (newRotation9 >= 360) {
+            newRotation9 = - 360;
+        }
+        this.setState({
+            hugeRotation: newRotation9,
+        });
+        break;
+        case ("gargantuan"):
+        let newRotation10 = this.state.gargantuanRotation + 45;
+        if (newRotation10 >= 360) {
+            newRotation10 = - 360;
+        }
+        this.setState({
+            gargantuanRotation: newRotation10,
+        });
+        break;
+        }
     };
 
     handleTorch() {
@@ -3043,7 +3138,6 @@ class Main extends Component {
 
 
     render() {
-        const { rotation } =  this.state;
 
         if (this.state.npcComponent === true) {
             return (
@@ -3348,7 +3442,7 @@ class Main extends Component {
                             <div className="iconInfo">
                             <Draggable>
                                 <div>
-                                <div className="draggable" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>1</div>
+                                <div className="draggable" id="player1" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player1Rotation}deg)`}}>1</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="player1" onClick={this.handleRemoveIcon}>Remove Player 1</button>
@@ -3360,7 +3454,7 @@ class Main extends Component {
                         <div className="iconInfo">
                             <Draggable>
                                 <div>
-                                <div className="draggable" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>2</div>
+                                <div className="draggable" id="player2" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player2Rotation}deg)`}}>2</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="player2" onClick={this.handleRemoveIcon}>Remove Player 2</button>
@@ -3372,7 +3466,7 @@ class Main extends Component {
                         <div className="iconInfo">
                             <Draggable>
                                 <div>
-                                <div className="draggable" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>3</div>
+                                <div className="draggable" id="player3" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player3Rotation}deg)`}}>3</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="player3" onClick={this.handleRemoveIcon}>Remove Player 3</button>
@@ -3384,7 +3478,7 @@ class Main extends Component {
                         <div className="iconInfo">
                             <Draggable>
                                 <div>
-                                <div className="draggable" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>4</div>
+                                <div className="draggable" id="player4" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player4Rotation}deg)`}}>4</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="player4" onClick={this.handleRemoveIcon}>Remove Player 4</button>
@@ -3410,7 +3504,7 @@ class Main extends Component {
                         <div className="iconInfo">
                             <Draggable>
                                 <div>
-                                <div className="draggable" id="tiny" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>T</div>
+                                <div className="draggable" id="tiny" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.tinyRotation}deg)`}}>T</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="tiny1" onClick={this.handleRemoveIcon}>Remove Tiny Creature</button>
@@ -3422,7 +3516,7 @@ class Main extends Component {
                         <div className="iconInfo">
                             <Draggable>
                                 <div>
-                                <div className="draggable" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>S</div>
+                                <div className="draggable" id="small" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.smallRotation}deg)`}}>S</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="small1" onClick={this.handleRemoveIcon}>Remove Small Creature</button>
@@ -3434,7 +3528,7 @@ class Main extends Component {
                         <div className="iconInfo">
                             <Draggable>
                                 <div>
-                                <div className="draggable" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>M</div>
+                                <div className="draggable" id="medium" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.mediumRotation}deg)`}}>M</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="medium1" onClick={this.handleRemoveIcon}>Remove Medium Creature</button>
@@ -3446,7 +3540,7 @@ class Main extends Component {
                         <div className="iconInfo" id="iconInfoLarge">
                             <Draggable>
                                 <div>
-                                <div className="draggable" id="large" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>L</div>
+                                <div className="draggable" id="large" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.largeRotation}deg)`}}>L</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="large1" onClick={this.handleRemoveIcon}>Remove Large Creature</button>
@@ -3458,7 +3552,7 @@ class Main extends Component {
                         <div className="iconInfo" id="iconInfoHuge">
                             <Draggable>
                                 <div>
-                                <div className="draggable" id="huge" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>H</div>
+                                <div className="draggable" id="huge" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.hugeRotation}deg)`}}>H</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="huge1" onClick={this.handleRemoveIcon}>Remove Huge Creature</button>
@@ -3470,7 +3564,7 @@ class Main extends Component {
                         <div className="iconInfo" id="iconInfoGargantuan">
                             <Draggable>
                                 <div>
-                                <div className="draggable" id="gargantuan" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}>G</div>
+                                <div className="draggable" id="gargantuan" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.gargantuanRotation}deg)`}}>G</div>
                                 </div>
                             </Draggable>
                             <button className="removeIcon" id="gargantuan1" onClick={this.handleRemoveIcon}>Remove Gargantuan Creature</button>
