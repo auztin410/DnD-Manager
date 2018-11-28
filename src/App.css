@@ -297,14 +297,40 @@ h4 {
   width: 42px;
   border-style: solid;
   background-color: black;
+  border-color: black;
   border-top-color: grey;
   border-width: 4px;
   border-radius: 50%;
   position: absolute;
+  font-size: 32px;
+  color: white;
+}
+
+#tiny {
+  height: 25px;
+  width: 25px;
+  font-size: 24px;
+}
+
+#large {
+  height: 100px;
+  width: 100px;
+  font-size: 78px;
+}
+
+#huge {
+  height: 150px;
+  width: 150px;
+  font-size: 130px;
+}
+
+#gargantuan {
+  height: 200px;
+  width: 200px;
+  font-size: 180px;
 }
 
 #gridIcons {
-  height: 200px;
   width: 400px;
 }
 
@@ -318,18 +344,19 @@ h4 {
 }
 
 .off {
-  height: 500px;
-  width: 500px;
-  background-image: radial-gradient(rgb(255, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 166, 0, 0), rgba(255, 255, 0, 0));
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: red;
   border-radius: 50%;
 }
 
 .on {
+  position: absolute;
   height: 500px;
   width: 500px;
   background-image: radial-gradient(rgba(255, 0, 0, 0.562), rgba(255, 166, 0, 0.534), rgba(255, 255, 0, 0.534));
   border-radius: 50%;
-  box-shadow: 
 }
 
 .monsterDetails {
@@ -348,6 +375,29 @@ h4 {
 .icon {
   height: 25px;
   width: 25px;
+}
+
+.iconInfo {
+  border-style: double;
+  border-color: black;
+  margin: 10px;
+  height: 50px;
+}
+
+#iconInfoLarge {
+  height: 108px;
+}
+
+#iconInfoHuge {
+  height: 158px;
+}
+
+#iconInfoGargantuan {
+  height: 208px;
+}
+
+.removeIcon {
+  margin-top: 14px;
 }
 
 #attack {
