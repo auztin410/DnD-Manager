@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Draggable, {DraggableCore} from 'react-draggable';
+import Draggable, { DraggableCore } from 'react-draggable';
 import NpcGenerator from '../assets/Json/NpcGenerator';
 import Npc from './Npc';
 import WorldEventGenerator from '../assets/Json/World-Shaking-Events';
@@ -52,6 +52,8 @@ class Main extends Component {
             selectedSquare: null,
             gridName: null,
             squareModal: false,
+            rotation: 0,
+            torch: "off",
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -70,14 +72,16 @@ class Main extends Component {
         this.handleLoadWorldMap = this.handleLoadWorldMap.bind(this);
         this.handleSquare = this.handleSquare.bind(this);
         this.handleSetSquare = this.handleSetSquare.bind(this);
+        this.handleRotate = this.handleRotate.bind(this);
+        this.handleTorch = this.handleTorch.bind(this);
     }
 
     componentDidMount() {
         let list = [];
-                    for (let i = 1; i <= 400; i++) {
-                        list.push({id: i, Player: ""});
-                    }
-                    
+        for (let i = 1; i <= 400; i++) {
+            list.push({ id: i, Player: "" });
+        }
+
         axios.get('/auth/user').then(response => {
             console.log(response.data)
             if (!!response.data.user) {
@@ -2871,16 +2875,42 @@ class Main extends Component {
         let grid = this.state.squares;
         let selectedSquare = grid.findIndex(element => element.id == this.state.selected);
         console.log(selectedSquare);
-        grid[selectedSquare] = {Number: this.state.selected, Player: this.state.gridName};
+        grid[selectedSquare] = { Number: this.state.selected, Player: this.state.gridName };
         this.setState({
             square: grid,
             squareModal: false,
         });
-        
+
+    };
+
+    handleRotate() {
+        console.log("double click works");
+        let newRotation = this.state.rotation + 45;
+        if (newRotation >= 360) {
+            newRotation = - 360;
+        }
+        this.setState({
+            rotation: newRotation,
+        })
+    };
+
+    handleTorch() {
+        if (this.state.torch === "off") {
+            this.setState({
+                torch: "on"
+            });
+        }
+        else if (this.state.torch === "on") {
+            this.setState({
+                torch: "off"
+            });
+        }
     };
 
 
     render() {
+        const { rotation } =  this.state;
+
         if (this.state.npcComponent === true) {
             return (
                 <div className="treasureHordeContainer">
@@ -3159,13 +3189,22 @@ class Main extends Component {
                         : null
                     }
                     {(this.state.gridDiv === true)
-                    ?
-                    <div className="visible" id="gridIcons">
-                        <Draggable>
-                            <span className="draggable"> </span>
+                        ?
+                        <div className="visible" id="gridIcons">
+                            <Draggable>
+                                <div>
+                                <div className="draggable" onDoubleClick={this.handleRotate} style={{transform: `rotate(${rotation}deg)`}}> </div>
+                                </div>
                             </Draggable>
-                    </div>
-                    : null
+                            <Draggable>
+                                <div>
+                                    <div className={this.state.torch} onDoubleClick={this.handleTorch}>
+                                    
+                                    </div>
+                                </div>
+                            </Draggable>
+                        </div>
+                        : null
                     }
                 </div>
             )
