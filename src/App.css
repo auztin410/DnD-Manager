@@ -126,6 +126,17 @@ h4 {
   border-color: rgba(65, 36, 13, 0.61);
 }
 
+.itemSection {
+  width: 80%;
+  margin-left: 9%;
+  margin-right: 9%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border-color: black;
+  border-style: double;
+}
+
 .closeDisplayItem {
   position: absolute;
   right: 0;

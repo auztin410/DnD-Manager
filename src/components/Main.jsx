@@ -3267,11 +3267,13 @@ class Main extends Component {
                                 ?
                                 <div className="displayItem">
                                     <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
+                                    <div className="itemSection">
                                     <h2>{this.state.displayItem.Name}</h2>
                                     <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
+                                    </div>
                                     {(this.state.displayItem.Use === true)
                                         ?
-                                        <div>
+                                        <div className="itemSection">
                                             <p>Use: {this.state.displayItem.Effects.Use}</p>
                                             <p>Cool down: {this.state.displayItem.CoolDown}</p>
                                         </div>
@@ -3279,15 +3281,19 @@ class Main extends Component {
                                     }
                                     {(this.state.displayItem.Passive === true)
                                         ?
+                                        <div className="itemSection">
                                         <p>Passive: {this.state.displayItem.Effects.Passive}</p>
+                                        </div>
                                         : null
                                     }
                                     {this.state.displayItem.Description.map(item => (
+                                       <div className="itemSection">
                                         <p>{item}</p>
+                                        </div>
                                     ))}
                                     {(this.state.displayItem.Table.length > 0)
                                         ?
-                                        <div>
+                                        <div className="itemSection">
                                             {this.state.displayItem.Table.map(item => (
                                                 <p>{item.Roll} | {item.Effect}</p>
                                             ))}
@@ -3296,7 +3302,7 @@ class Main extends Component {
                                     }
                                     {(this.state.displayItemArmorDetails)
                                         ?
-                                        <div>
+                                        <div className="itemSection">
                                             <p>Armor type: {this.state.displayItemArmorDetails.Type}</p>
                                             <p>AC: {this.state.displayItemArmorDetails.AC} | Dex Modifier: {(this.state.displayItem.DexModifier === true)
                                                 ?
