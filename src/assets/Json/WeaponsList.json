@@ -1,0 +1,501 @@
+[
+    {
+        "Name": "",
+        "Type": "",
+        "Cost": 0,
+        "Currency": "",
+        "Damage": "",
+        "Damage_Type": "",
+        "Weight": 0,
+        "Properties": []
+    },
+    {
+        "Name": "Club",
+        "Type": "Simple Melee",
+        "Cost": 1,
+        "Currency": "SP",
+        "Damage": "1d4",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 2,
+        "Properties": [
+            "Light"
+        ]
+    },
+    {
+        "Name": "Dagger",
+        "Type": "Simple Melee",
+        "Cost": 2,
+        "Currency": "GP",
+        "Damage": "1d4",
+        "Damage_Type": "Piercing",
+        "Weight": 1,
+        "Properties": [
+            "Finesse",
+            "Light",
+            "Thrown",
+            "Range 20/60"
+        ]
+    },
+    {
+        "Name": "Greatclub",
+        "Type": "Simple Melee",
+        "Cost": 2,
+        "Currency": "SP",
+        "Damage": "1d8",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 10,
+        "Properties": [
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Handaxe",
+        "Type": "Simple Melee",
+        "Cost": 5,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Slashing",
+        "Weight": 2,
+        "Properties": [
+            "Light",
+            "Thrown",
+            "Range 20/60"
+        ]
+    },
+    {
+        "Name": "Javelin",
+        "Type": "Simple Melee",
+        "Cost": 5,
+        "Currency": "SP",
+        "Damage": "1d6",
+        "Damage_Type": "Piercing",
+        "Weight": 2,
+        "Properties": [
+            "Thrown",
+            "Range 30/120"
+        ]
+    },
+    {
+        "Name": "Light hammer",
+        "Type": "Simple Melee",
+        "Cost": 2,
+        "Currency": "GP",
+        "Damage": "1d4",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 2,
+        "Properties": [
+            "Light",
+            "Thrown",
+            "Range 20/60"
+        ]
+    },
+    {
+        "Name": "Mace",
+        "Type": "Simple Melee",
+        "Cost": 5,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 4,
+        "Properties": []
+    },
+    {
+        "Name": "Quarterstaff",
+        "Type": "Simple Melee",
+        "Cost": 2,
+        "Currency": "SP",
+        "Damage": "1d6",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 4,
+        "Properties": [
+            "Versatile",
+            "1d8"
+        ]
+    },
+    {
+        "Name": "Sickle",
+        "Type": "Simple Melee",
+        "Cost": 1,
+        "Currency": "GP",
+        "Damage": "1d4",
+        "Damage_Type": "Slashing",
+        "Weight": 2,
+        "Properties": [
+            "Light"
+        ]
+    },
+    {
+        "Name": "Spear",
+        "Type": "Simple Melee",
+        "Cost": 1,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Piercing",
+        "Weight": 3,
+        "Properties": [
+            "Thrown",
+            "Range 20/60",
+            "Versatile",
+            "1d8"
+        ]
+    },
+    {
+        "Name": "Crossbow, light",
+        "Type": "Simple Ranged",
+        "Cost": 25,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Piercing",
+        "Weight": 5,
+        "Properties": [
+            "Ammunition",
+            "Range 80/320",
+            "Loading",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Dart",
+        "Type": "Simple Ranged",
+        "Cost": 5,
+        "Currency": "CP",
+        "Damage": "1d4",
+        "Damage_Type": "Piercing",
+        "Weight": 0.25,
+        "Properties": [
+            "Finesse",
+            "Thrown",
+            "Range 20/60"
+        ]
+    },
+    {
+        "Name": "Shortbow",
+        "Type": "Simple Ranged",
+        "Cost": 25,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Piercing",
+        "Weight": 2,
+        "Properties": [
+            "Ammunition",
+            "Range 80/320",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Sling",
+        "Type": "Simple Ranged",
+        "Cost": 1,
+        "Currency": "SP",
+        "Damage": "1d4",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 0,
+        "Properties": [
+            "Ammunition",
+            "Range 30/120"
+        ]
+    },
+    {
+        "Name": "Battleaxe",
+        "Type": "Martial Melee",
+        "Cost": 10,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Slashing",
+        "Weight": 4,
+        "Properties": [
+            "Versatile",
+            "1d10"
+        ]
+    },
+    {
+        "Name": "Flail",
+        "Type": "Martial Melee",
+        "Cost": 10,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 2,
+        "Properties": []
+    },
+    {
+        "Name": "Glaive",
+        "Type": "Martial Melee",
+        "Cost": 20,
+        "Currency": "GP",
+        "Damage": "1d10",
+        "Damage_Type": "Slashing",
+        "Weight": 6,
+        "Properties": [
+            "Heavy",
+            "Reach",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Greataxe",
+        "Type": "Martial Melee",
+        "Cost": 30,
+        "Currency": "GP",
+        "Damage": "1d12",
+        "Damage_Type": "Slashing",
+        "Weight": 7,
+        "Properties": [
+            "Heavy",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Greatsword",
+        "Type": "Martial Melee",
+        "Cost": 50,
+        "Currency": "GP",
+        "Damage": "2d6",
+        "Damage_Type": "Slashing",
+        "Weight": 6,
+        "Properties": [
+            "Heavy",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Halberd",
+        "Type": "Martial Melee",
+        "Cost": 20,
+        "Currency": "GP",
+        "Damage": "1d10",
+        "Damage_Type": "Slashing",
+        "Weight": 6,
+        "Properties": [
+            "Heavy",
+            "Reach",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Lance",
+        "Type": "Martial Melee",
+        "Cost": 10,
+        "Currency": "GP",
+        "Damage": "1d12",
+        "Damage_Type": "Piercing",
+        "Weight": 6,
+        "Properties": [
+            "Reach",
+            "Special"
+        ]
+    },
+    {
+        "Name": "Longsword",
+        "Type": "Martial Melee",
+        "Cost": 15,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Slashing",
+        "Weight": 3,
+        "Properties": [
+            "Versatile",
+            "1d10"
+        ]
+    },
+    {
+        "Name": "Maul",
+        "Type": "Martial Melee",
+        "Cost": 10,
+        "Currency": "GP",
+        "Damage": "2d6",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 10,
+        "Properties": [
+            "Heavy",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Morningstar",
+        "Type": "Martial Melee",
+        "Cost": 15,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Piercing",
+        "Weight": 4,
+        "Properties": []
+    },
+    {
+        "Name": "Pike",
+        "Type": "Martial Melee",
+        "Cost": 5,
+        "Currency": "GP",
+        "Damage": "1d10",
+        "Damage_Type": "Piercing",
+        "Weight": 18,
+        "Properties": [
+            "Heavy",
+            "Reach",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Rapier",
+        "Type": "Martial Melee",
+        "Cost": 25,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Piercing",
+        "Weight": 2,
+        "Properties": [
+            "Finesse"
+        ]
+    },
+    {
+        "Name": "Scimitar",
+        "Type": "Martial Melee",
+        "Cost": 25,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Slashing",
+        "Weight": 3,
+        "Properties": [
+            "Finesse",
+            "Light"
+        ]
+    },
+    {
+        "Name": "Shortsword",
+        "Type": "Martial Melee",
+        "Cost": 10,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Piercing",
+        "Weight": 2,
+        "Properties": [
+            "Finesse",
+            "Light"
+        ]
+    },
+    {
+        "Name": "Trident",
+        "Type": "Martial Melee",
+        "Cost": 5,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Piercing",
+        "Weight": 4,
+        "Properties": [
+            "Thrown",
+            "Range 20/60",
+            "Versatile",
+            "1d8"
+        ]
+    },
+    {
+        "Name": "War pick",
+        "Type": "Martial Melee",
+        "Cost": 5,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Piercing",
+        "Weight": 2,
+        "Properties": []
+    },
+    {
+        "Name": "Warhammer",
+        "Type": "Martial Melee",
+        "Cost": 15,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Bludgeoning",
+        "Weight": 2,
+        "Properties": [
+            "Versatile",
+            "1d10"
+        ]
+    },
+    {
+        "Name": "Whip",
+        "Type": "Martial Melee",
+        "Cost": 2,
+        "Currency": "GP",
+        "Damage": "1d4",
+        "Damage_Type": "Slashing",
+        "Weight": 3,
+        "Properties": [
+            "Finesse",
+            "Reach"
+        ]
+    },
+    {
+        "Name": "Blowgun",
+        "Type": "Martial Ranged",
+        "Cost": 10,
+        "Currency": "GP",
+        "Damage": "1",
+        "Damage_Type": "Piercing",
+        "Weight": 1,
+        "Properties": [
+            "Ammunition",
+            "Range 25/100",
+            "Loading"
+        ]
+    },
+    {
+        "Name": "Crossbow, hand",
+        "Type": "Martial Ranged",
+        "Cost": 75,
+        "Currency": "GP",
+        "Damage": "1d6",
+        "Damage_Type": "Piercing",
+        "Weight": 3,
+        "Properties": [
+            "Ammunition",
+            "Range 30/120",
+            "Light",
+            "Loading"
+        ]
+    },
+    {
+        "Name": "Crossbow, heavy",
+        "Type": "Martial Ranged",
+        "Cost": 50,
+        "Currency": "GP",
+        "Damage": "1d10",
+        "Damage_Type": "Piercing",
+        "Weight": 18,
+        "Properties": [
+            "Ammunition",
+            "Range 100/400",
+            "Heavy",
+            "Loading",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Longbow",
+        "Type": "Martial Ranged",
+        "Cost": 50,
+        "Currency": "GP",
+        "Damage": "1d8",
+        "Damage_Type": "Piercing",
+        "Weight": 2,
+        "Properties": [
+            "Ammunition",
+            "Range 150/600",
+            "Heavy",
+            "Two-handed"
+        ]
+    },
+    {
+        "Name": "Net",
+        "Type": "Martial Ranged",
+        "Cost": 1,
+        "Currency": "GP",
+        "Damage": "0",
+        "Damage_Type": "None",
+        "Weight": 3,
+        "Properties": [
+            "Special",
+            "Thrown",
+            "Range 5/15"
+        ]
+    },
+]
