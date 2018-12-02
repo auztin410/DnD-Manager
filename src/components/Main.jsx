@@ -9,6 +9,7 @@ import MagicItemsTables from '../assets/Json/MagicItemTables';
 import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
 import MagicItemsList from '../assets/Json/MagicItemsList';
+import WeaponsList from '../assets/Json/WeaponsList';
 import Translation from './Translation';
 import Monsters from '../assets/Json/5e-SRD-Monsters';
 import MonsterDetails from './MonsterDetails';
@@ -34,6 +35,9 @@ class Main extends Component {
             treasureMagicItemResults: [],
             displayItem: null,
             displayItemArmorDetails: null,
+            displayItemWeaponChoices: [],
+            displayItemWeaponTypeSelected: null,
+            displayItemWeaponTypeDetails: null,
             textToTranslate: null,
             language: "Elvish",
             displayTranslation: false,
@@ -98,6 +102,7 @@ class Main extends Component {
         this.handleTorch = this.handleTorch.bind(this);
         this.handleCreateIcon = this.handleCreateIcon.bind(this);
         this.handleRemoveIcon = this.handleRemoveIcon.bind(this);
+        this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
     }
 
     componentDidMount() {
@@ -2733,12 +2738,38 @@ class Main extends Component {
                     displayItemArmorDetails: armorState
                 });
             }
+            else if (found.Weapon === true) {
+                let weaponState = found.Type.substring(found.Type.indexOf("(") + 1);
+                weaponState = weaponState.slice(0, -1);
+                console.log(found.Type);
+                console.log(`Test for weapon type: ${weaponState}`);
+                let any = ["Club", "Dagger", "Greatclub", "Handaxe", "Javelin", "Light hammer", "Mace", "Quarterstaff", "Sickle", "Spear", "Crossbow, light", "Dart", "Shortbow", "Sling", "Battleaxe", "Flail", "Glaive", "Greataxe", "Greatsword", "Halberd", "Lance", "Longsword", "Maul", "Morningstar", "Pike", "Rapier", "Scimitar", "Shortsword", "Trident", "War pick", "Warhammer", "Whip", "Blowgun", "Crossbow, hand", "Crossbow, heavy", "Longbow", "Net"];
+                // IF statement for if any weapon list of weapons state is any, and so on and so forth.
+                if (weaponState === "any") {
+                    this.setState({
+                        displayItemWeaponChoices: any
+                    });
+                }
+            }
             this.setState({
                 displayItem: found
             });
+
         }
 
     };
+
+    handleSelectWeaponType() {
+        let selected = this.state.displayItemWeaponTypeSelected;
+        let weaponType = WeaponsList.find(function (el) {
+         return el.Name === selected
+        });
+        console.log("Weapon type found!");
+        console.log(weaponType);
+        this.setState({
+            displayItemWeaponTypeDetails: weaponType
+        });
+    }
 
     handleCloseDisplayItem(event) {
         this.setState({
@@ -2864,122 +2895,122 @@ class Main extends Component {
     };
 
     handleCreateIcon() {
-        switch(this.state.gridIcons) {
+        switch (this.state.gridIcons) {
             case ("player1"):
-            this.setState({
-                gridIconPlayer1: true
-            });
-            break;
+                this.setState({
+                    gridIconPlayer1: true
+                });
+                break;
             case ("player2"):
-            this.setState({
-                gridIconPlayer2: true
-            });
-            break;
+                this.setState({
+                    gridIconPlayer2: true
+                });
+                break;
             case ("player3"):
-            this.setState({
-                gridIconPlayer3: true
-            });
-            break;
+                this.setState({
+                    gridIconPlayer3: true
+                });
+                break;
             case ("player4"):
-            this.setState({
-                gridIconPlayer4: true
-            });
-            break;
+                this.setState({
+                    gridIconPlayer4: true
+                });
+                break;
             case ("torch"):
-            this.setState({
-                gridIconTorch: true
-            });
-            break;
+                this.setState({
+                    gridIconTorch: true
+                });
+                break;
             case ("tiny1"):
-            this.setState({
-                gridIconTinyCreature1: true
-            });
-            break;
+                this.setState({
+                    gridIconTinyCreature1: true
+                });
+                break;
             case ("small1"):
-            this.setState({
-                gridIconSmallCreature1: true
-            });
-            break;
+                this.setState({
+                    gridIconSmallCreature1: true
+                });
+                break;
             case ("medium1"):
-            this.setState({
-                gridIconMediumCreature1: true
-            });
-            break;
+                this.setState({
+                    gridIconMediumCreature1: true
+                });
+                break;
             case ("large1"):
-            this.setState({
-                gridIconLargeCreature1: true
-            });
-            break;
+                this.setState({
+                    gridIconLargeCreature1: true
+                });
+                break;
             case ("huge1"):
-            this.setState({
-                gridIconHugeCreature1: true
-            });
-            break;
+                this.setState({
+                    gridIconHugeCreature1: true
+                });
+                break;
             case ("gargantuan1"):
-            this.setState({
-                gridIconGargantuanCreature1: true
-            });
-            break;
+                this.setState({
+                    gridIconGargantuanCreature1: true
+                });
+                break;
         }
     };
 
     handleRemoveIcon(event) {
-        switch(event.target.id) {
+        switch (event.target.id) {
             case ("player1"):
-            this.setState({
-                gridIconPlayer1: false
-            });
-            break;
+                this.setState({
+                    gridIconPlayer1: false
+                });
+                break;
             case ("player2"):
-            this.setState({
-                gridIconPlayer2: false
-            });
-            break;
+                this.setState({
+                    gridIconPlayer2: false
+                });
+                break;
             case ("player3"):
-            this.setState({
-                gridIconPlayer3: false
-            });
-            break;
+                this.setState({
+                    gridIconPlayer3: false
+                });
+                break;
             case ("player4"):
-            this.setState({
-                gridIconPlayer4: false
-            });
-            break;
+                this.setState({
+                    gridIconPlayer4: false
+                });
+                break;
             case ("torch"):
-            this.setState({
-                gridIconTorch: false
-            });
-            break;
+                this.setState({
+                    gridIconTorch: false
+                });
+                break;
             case ("tiny1"):
-            this.setState({
-                gridIconTinyCreature1: false
-            });
-            break;
+                this.setState({
+                    gridIconTinyCreature1: false
+                });
+                break;
             case ("small1"):
-            this.setState({
-                gridIconSmallCreature1: false
-            });
-            break;
+                this.setState({
+                    gridIconSmallCreature1: false
+                });
+                break;
             case ("medium1"):
-            this.setState({
-                gridIconMediumCreature1: false
-            });
-            break;
+                this.setState({
+                    gridIconMediumCreature1: false
+                });
+                break;
             case ("large1"):
-            this.setState({
-                gridIconLargeCreature1: false
-            });
-            break;
+                this.setState({
+                    gridIconLargeCreature1: false
+                });
+                break;
             case ("huge1"):
-            this.setState({
-                gridIconHugeCreature1: false
-            });
-            break;
+                this.setState({
+                    gridIconHugeCreature1: false
+                });
+                break;
             case ("gargantuan1"):
-            this.setState({
-                gridIconGargantuanCreature1: false
-            });
-            break;
+                this.setState({
+                    gridIconGargantuanCreature1: false
+                });
+                break;
         }
     }
 
@@ -3029,97 +3060,97 @@ class Main extends Component {
 
     handleRotate(event) {
         console.log(event.target.id);
-        switch(event.target.id) {
+        switch (event.target.id) {
             case ("player1"):
-            let newRotation1 = this.state.player1Rotation + 45;
-        if (newRotation1 >= 360) {
-            newRotation1 = - 360;
-        }
-        this.setState({
-            player1Rotation: newRotation1,
-        });
-        break;
-        case ("player2"):
-        let newRotation2 = this.state.player2Rotation + 45;
-        if (newRotation2 >= 360) {
-            newRotation2 = - 360;
-        }
-        this.setState({
-            player2Rotation: newRotation2,
-        });
-        break;
-        case ("player3"):
-        let newRotation3 = this.state.player3Rotation + 45;
-        if (newRotation3 >= 360) {
-            newRotation3 = - 360;
-        }
-        this.setState({
-            player3Rotation: newRotation3,
-        });
-        break;
-        case ("player4"):
-        let newRotation4 = this.state.player4Rotation + 45;
-        if (newRotation4 >= 360) {
-            newRotation4 = - 360;
-        }
-        this.setState({
-            player4Rotation: newRotation4,
-        });
-        break;
-        case ("tiny"):
-        let newRotation5 = this.state.tinyRotation + 45;
-        if (newRotation5 >= 360) {
-            newRotation5 = - 360;
-        }
-        this.setState({
-            tinyRotation: newRotation5,
-        });
-        break;
-        case ("small"):
-        let newRotation6 = this.state.smallRotation + 45;
-        if (newRotation6 >= 360) {
-            newRotation6 = - 360;
-        }
-        this.setState({
-            smallRotation: newRotation6,
-        });
-        break;
-        case ("medium"):
-        let newRotation7 = this.state.mediumRotation + 45;
-        if (newRotation7 >= 360) {
-            newRotation7 = - 360;
-        }
-        this.setState({
-            mediumRotation: newRotation7,
-        });
-        break;
-        case ("large"):
-        let newRotation8 = this.state.largeRotation + 45;
-        if (newRotation8 >= 360) {
-            newRotation8 = - 360;
-        }
-        this.setState({
-            largeRotation: newRotation8,
-        });
-        break;
-        case ("huge"):
-        let newRotation9 = this.state.hugeRotation + 45;
-        if (newRotation9 >= 360) {
-            newRotation9 = - 360;
-        }
-        this.setState({
-            hugeRotation: newRotation9,
-        });
-        break;
-        case ("gargantuan"):
-        let newRotation10 = this.state.gargantuanRotation + 45;
-        if (newRotation10 >= 360) {
-            newRotation10 = - 360;
-        }
-        this.setState({
-            gargantuanRotation: newRotation10,
-        });
-        break;
+                let newRotation1 = this.state.player1Rotation + 45;
+                if (newRotation1 >= 360) {
+                    newRotation1 = - 360;
+                }
+                this.setState({
+                    player1Rotation: newRotation1,
+                });
+                break;
+            case ("player2"):
+                let newRotation2 = this.state.player2Rotation + 45;
+                if (newRotation2 >= 360) {
+                    newRotation2 = - 360;
+                }
+                this.setState({
+                    player2Rotation: newRotation2,
+                });
+                break;
+            case ("player3"):
+                let newRotation3 = this.state.player3Rotation + 45;
+                if (newRotation3 >= 360) {
+                    newRotation3 = - 360;
+                }
+                this.setState({
+                    player3Rotation: newRotation3,
+                });
+                break;
+            case ("player4"):
+                let newRotation4 = this.state.player4Rotation + 45;
+                if (newRotation4 >= 360) {
+                    newRotation4 = - 360;
+                }
+                this.setState({
+                    player4Rotation: newRotation4,
+                });
+                break;
+            case ("tiny"):
+                let newRotation5 = this.state.tinyRotation + 45;
+                if (newRotation5 >= 360) {
+                    newRotation5 = - 360;
+                }
+                this.setState({
+                    tinyRotation: newRotation5,
+                });
+                break;
+            case ("small"):
+                let newRotation6 = this.state.smallRotation + 45;
+                if (newRotation6 >= 360) {
+                    newRotation6 = - 360;
+                }
+                this.setState({
+                    smallRotation: newRotation6,
+                });
+                break;
+            case ("medium"):
+                let newRotation7 = this.state.mediumRotation + 45;
+                if (newRotation7 >= 360) {
+                    newRotation7 = - 360;
+                }
+                this.setState({
+                    mediumRotation: newRotation7,
+                });
+                break;
+            case ("large"):
+                let newRotation8 = this.state.largeRotation + 45;
+                if (newRotation8 >= 360) {
+                    newRotation8 = - 360;
+                }
+                this.setState({
+                    largeRotation: newRotation8,
+                });
+                break;
+            case ("huge"):
+                let newRotation9 = this.state.hugeRotation + 45;
+                if (newRotation9 >= 360) {
+                    newRotation9 = - 360;
+                }
+                this.setState({
+                    hugeRotation: newRotation9,
+                });
+                break;
+            case ("gargantuan"):
+                let newRotation10 = this.state.gargantuanRotation + 45;
+                if (newRotation10 >= 360) {
+                    newRotation10 = - 360;
+                }
+                this.setState({
+                    gargantuanRotation: newRotation10,
+                });
+                break;
         }
     };
 
@@ -3268,8 +3299,21 @@ class Main extends Component {
                                 <div className="displayItem">
                                     <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
                                     <div className="itemSection">
-                                    <h2>{this.state.displayItem.Name}</h2>
-                                    <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
+                                        <h2>{this.state.displayItem.Name}</h2>
+                                        <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
+                                        {/* Insert select options for type of weapon. */}
+                                        {(this.state.displayItemWeaponChoices.length > 0)
+                                            ?
+                                            <div>
+                                                <select name="displayItemWeaponTypeSelected" onChange={this.handleChange}>
+                                            {this.state.displayItemWeaponChoices.map(item => (
+                                                <option value={item}>{item}</option>
+                                            ))}
+                                                </select>
+                                                <span className="customButton" onClick={this.handleSelectWeaponType}>Select Type</span>
+                                            </div>
+                                            : null
+                                        }
                                     </div>
                                     {(this.state.displayItem.Use === true)
                                         ?
@@ -3282,13 +3326,13 @@ class Main extends Component {
                                     {(this.state.displayItem.Passive === true)
                                         ?
                                         <div className="itemSection">
-                                        <p>Passive: {this.state.displayItem.Effects.Passive}</p>
+                                            <p>Passive: {this.state.displayItem.Effects.Passive}</p>
                                         </div>
                                         : null
                                     }
                                     {this.state.displayItem.Description.map(item => (
-                                       <div className="itemSection">
-                                        <p>{item}</p>
+                                        <div className="itemSection">
+                                            <p>{item}</p>
                                         </div>
                                     ))}
                                     {(this.state.displayItem.Table.length > 0)
@@ -3316,6 +3360,19 @@ class Main extends Component {
                                             <p>Weight: {this.state.displayItemArmorDetails.Weight}</p>
                                         </div>
                                         : null
+                                    }
+                                    {(this.state.displayItemWeaponTypeDetails)
+                                    ?
+                                    <div>
+                                        <p>Weapon type: {this.state.displayItemWeaponTypeDetails.Name}</p>
+                                        <p>Style: {this.state.displayItemWeaponTypeDetails.Type}</p>
+                                        <p>Damage: {this.state.displayItemWeaponTypeDetails.Damage} | Damage Type: {this.state.displayItemWeaponTypeDetails.Damage_Type}</p>
+                                        <p>Weight: {this.state.displayItemWeaponTypeDetails.Weight}</p>
+                                        {this.state.displayItemWeaponTypeDetails.Properties.map(item => (
+                                            <p>{item}</p>
+                                        ))}
+                                    </div>
+                                    : null
                                     }
                                 </div>
                                 : null
@@ -3427,156 +3484,156 @@ class Main extends Component {
                         <div className="visible" id="gridIcons">
                             <form>
                                 <select name="gridIcons" onChange={this.handleChange}>
-                                <option value="player1">Player 1</option>
-                                <option value="player2">Player 2</option>
-                                <option value="player3">Player 3</option>
-                                <option value="player4">Player 4</option>
-                                <option value="torch">Torch</option>
-                                <option value="tiny1">Tiny Creature</option>
-                                <option value="small1">Small Creature</option>
-                                <option value="medium1">Medium Creature</option>
-                                <option value="large1">Large Creature</option>
-                                <option value="huge1">Huge Creature</option>
-                                <option value="gargantuan1">Gargantuan Creature</option>
+                                    <option value="player1">Player 1</option>
+                                    <option value="player2">Player 2</option>
+                                    <option value="player3">Player 3</option>
+                                    <option value="player4">Player 4</option>
+                                    <option value="torch">Torch</option>
+                                    <option value="tiny1">Tiny Creature</option>
+                                    <option value="small1">Small Creature</option>
+                                    <option value="medium1">Medium Creature</option>
+                                    <option value="large1">Large Creature</option>
+                                    <option value="huge1">Huge Creature</option>
+                                    <option value="gargantuan1">Gargantuan Creature</option>
                                 </select>
                                 <br />
                                 <br />
                                 <span className="customButton" onClick={this.handleCreateIcon}>Create</span>
                             </form>
                             {(this.state.gridIconPlayer1 === true)
-                            ?
-                            <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="player1" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player1Rotation}deg)`}}>1</div>
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="player1" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.player1Rotation}deg)` }}>1</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="player1" onClick={this.handleRemoveIcon}>Remove Player 1</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="player1" onClick={this.handleRemoveIcon}>Remove Player 1</button>
-                            </div>
-                            : null    
-                        }
-                        {(this.state.gridIconPlayer2 === true)
-                        ?
-                        <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="player2" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player2Rotation}deg)`}}>2</div>
+                                : null
+                            }
+                            {(this.state.gridIconPlayer2 === true)
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="player2" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.player2Rotation}deg)` }}>2</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="player2" onClick={this.handleRemoveIcon}>Remove Player 2</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="player2" onClick={this.handleRemoveIcon}>Remove Player 2</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconPlayer3 === true)
-                        ?
-                        <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="player3" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player3Rotation}deg)`}}>3</div>
+                                : null
+                            }
+                            {(this.state.gridIconPlayer3 === true)
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="player3" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.player3Rotation}deg)` }}>3</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="player3" onClick={this.handleRemoveIcon}>Remove Player 3</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="player3" onClick={this.handleRemoveIcon}>Remove Player 3</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconPlayer4 === true)
-                        ?
-                        <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="player4" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.player4Rotation}deg)`}}>4</div>
+                                : null
+                            }
+                            {(this.state.gridIconPlayer4 === true)
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="player4" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.player4Rotation}deg)` }}>4</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="player4" onClick={this.handleRemoveIcon}>Remove Player 4</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="player4" onClick={this.handleRemoveIcon}>Remove Player 4</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconTorch === true)
-                        ?
-                        <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                    <div className={this.state.torch} onDoubleClick={this.handleTorch}>
-                                    
-                                    </div>
+                                : null
+                            }
+                            {(this.state.gridIconTorch === true)
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className={this.state.torch} onDoubleClick={this.handleTorch}>
+
+                                            </div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="torch" onClick={this.handleRemoveIcon}>Remove Torch</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="torch" onClick={this.handleRemoveIcon}>Remove Torch</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconTinyCreature1 === true)
-                        ?
-                        <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="tiny" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.tinyRotation}deg)`}}>T</div>
+                                : null
+                            }
+                            {(this.state.gridIconTinyCreature1 === true)
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="tiny" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.tinyRotation}deg)` }}>T</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="tiny1" onClick={this.handleRemoveIcon}>Remove Tiny Creature</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="tiny1" onClick={this.handleRemoveIcon}>Remove Tiny Creature</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconSmallCreature1 === true)
-                        ?
-                        <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="small" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.smallRotation}deg)`}}>S</div>
+                                : null
+                            }
+                            {(this.state.gridIconSmallCreature1 === true)
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="small" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.smallRotation}deg)` }}>S</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="small1" onClick={this.handleRemoveIcon}>Remove Small Creature</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="small1" onClick={this.handleRemoveIcon}>Remove Small Creature</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconMediumCreature1 === true)
-                        ?
-                        <div className="iconInfo">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="medium" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.mediumRotation}deg)`}}>M</div>
+                                : null
+                            }
+                            {(this.state.gridIconMediumCreature1 === true)
+                                ?
+                                <div className="iconInfo">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="medium" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.mediumRotation}deg)` }}>M</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="medium1" onClick={this.handleRemoveIcon}>Remove Medium Creature</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="medium1" onClick={this.handleRemoveIcon}>Remove Medium Creature</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconLargeCreature1 === true)
-                        ?
-                        <div className="iconInfo" id="iconInfoLarge">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="large" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.largeRotation}deg)`}}>L</div>
+                                : null
+                            }
+                            {(this.state.gridIconLargeCreature1 === true)
+                                ?
+                                <div className="iconInfo" id="iconInfoLarge">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="large" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.largeRotation}deg)` }}>L</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="large1" onClick={this.handleRemoveIcon}>Remove Large Creature</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="large1" onClick={this.handleRemoveIcon}>Remove Large Creature</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconHugeCreature1 === true)
-                        ?
-                        <div className="iconInfo" id="iconInfoHuge">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="huge" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.hugeRotation}deg)`}}>H</div>
+                                : null
+                            }
+                            {(this.state.gridIconHugeCreature1 === true)
+                                ?
+                                <div className="iconInfo" id="iconInfoHuge">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="huge" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.hugeRotation}deg)` }}>H</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="huge1" onClick={this.handleRemoveIcon}>Remove Huge Creature</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="huge1" onClick={this.handleRemoveIcon}>Remove Huge Creature</button>
-                            </div>
-                            : null
-                        }
-                        {(this.state.gridIconGargantuanCreature1 === true)
-                        ?
-                        <div className="iconInfo" id="iconInfoGargantuan">
-                            <Draggable>
-                                <div>
-                                <div className="draggable" id="gargantuan" onDoubleClick={this.handleRotate} style={{transform: `rotate(${this.state.gargantuanRotation}deg)`}}>G</div>
+                                : null
+                            }
+                            {(this.state.gridIconGargantuanCreature1 === true)
+                                ?
+                                <div className="iconInfo" id="iconInfoGargantuan">
+                                    <Draggable>
+                                        <div>
+                                            <div className="draggable" id="gargantuan" onDoubleClick={this.handleRotate} style={{ transform: `rotate(${this.state.gargantuanRotation}deg)` }}>G</div>
+                                        </div>
+                                    </Draggable>
+                                    <button className="removeIcon" id="gargantuan1" onClick={this.handleRemoveIcon}>Remove Gargantuan Creature</button>
                                 </div>
-                            </Draggable>
-                            <button className="removeIcon" id="gargantuan1" onClick={this.handleRemoveIcon}>Remove Gargantuan Creature</button>
-                            </div>
-                            : null
-                        }
+                                : null
+                            }
                         </div>
                         : null
                     }

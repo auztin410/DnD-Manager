@@ -13143,7 +13143,7 @@
             "Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties."
         ],
         "Attunement": true,
-        "Weapon": false,
+        "Weapon": true,
         "Armor": false,
         "ArmorDetails": "",
         "Shield": false,

@@ -1,15 +1,5 @@
 [
     {
-        "Name": "",
-        "Type": "",
-        "Cost": 0,
-        "Currency": "",
-        "Damage": "",
-        "Damage_Type": "",
-        "Weight": 0,
-        "Properties": []
-    },
-    {
         "Name": "Club",
         "Type": "Simple Melee",
         "Cost": 1,
@@ -497,5 +487,5 @@
             "Thrown",
             "Range 5/15"
         ]
-    },
+    }
 ]
