@@ -103,6 +103,8 @@ class Main extends Component {
         this.handleCreateIcon = this.handleCreateIcon.bind(this);
         this.handleRemoveIcon = this.handleRemoveIcon.bind(this);
         this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
+
+        this.handleTestWeapons = this.handleTestWeapons.bind(this);
     }
 
     componentDidMount() {
@@ -2743,12 +2745,41 @@ class Main extends Component {
                 weaponState = weaponState.slice(0, -1);
                 console.log(found.Type);
                 console.log(`Test for weapon type: ${weaponState}`);
-                let any = ["Club", "Dagger", "Greatclub", "Handaxe", "Javelin", "Light hammer", "Mace", "Quarterstaff", "Sickle", "Spear", "Crossbow, light", "Dart", "Shortbow", "Sling", "Battleaxe", "Flail", "Glaive", "Greataxe", "Greatsword", "Halberd", "Lance", "Longsword", "Maul", "Morningstar", "Pike", "Rapier", "Scimitar", "Shortsword", "Trident", "War pick", "Warhammer", "Whip", "Blowgun", "Crossbow, hand", "Crossbow, heavy", "Longbow", "Net"];
+                let any = ["Any Weapon", "Club", "Dagger", "Greatclub", "Handaxe", "Javelin", "Light hammer", "Mace", "Quarterstaff", "Sickle", "Spear", "Crossbow, light", "Dart", "Shortbow", "Sling", "Battleaxe", "Flail", "Glaive", "Greataxe", "Greatsword", "Halberd", "Lance", "Longsword", "Maul", "Morningstar", "Pike", "Rapier", "Scimitar", "Shortsword", "Trident", "War pick", "Warhammer", "Whip", "Blowgun", "Crossbow, hand", "Crossbow, heavy", "Longbow", "Net"];
+                let swords = ["Any Sword", "Greatsword", "Longsword", "Scimitar", "Shortsword", "Rapier"];
+                let axes = ["Any Axe", "Handaxe", "Battleaxe", "Greataxe"];
+                let axeOrSword = ["Any Axe or Sword", "Greatsword", "Longsword", "Scimitar", "Shortsword", "Rapier", "Handaxe", "Battleaxe", "Greataxe"];
+                let swordSlashing = ["Any Slashing Sword", "Greatsword", "Longsword", "Scimitar"];
                 // IF statement for if any weapon list of weapons state is any, and so on and so forth.
                 if (weaponState === "any") {
                     this.setState({
                         displayItemWeaponChoices: any
                     });
+                }
+                else if (weaponState === "any sword") {
+                    this.setState({
+                        displayItemWeaponChoices: swords
+                    })
+                }
+                else if (weaponState === "any axe"){
+                    this.setState({
+                        displayItemWeaponChoices: axes
+                    });
+                }
+                else if (weaponState === "any axe or sword") {
+                    this.setState({
+                        displayItemWeaponChoices: axeOrSword
+                    });
+                }
+                else if (weaponState === "any sword that deals slashing damage") {
+                    this.setState({
+                        displayItemWeaponChoices: swordSlashing
+                    });
+                }
+                else {
+                   this.setState({
+                       displayItemWeaponChoices: []
+                   });
                 }
             }
             this.setState({
@@ -2769,7 +2800,32 @@ class Main extends Component {
         this.setState({
             displayItemWeaponTypeDetails: weaponType
         });
-    }
+    };
+
+    // For testing weapon types
+    handleTestWeapons() {
+        let test = [
+            {
+                Count: 1,
+                Name: "Weapon, +3"
+            },
+            {
+                Count: 1,
+                Name: "Vorpal sword"
+            },
+            {
+                Count: 1,
+                Name: "Berserker axe"
+            },
+            {
+                Count: 1,
+                Name: "Giant slayer"
+            }
+        ];
+        this.setState({
+            treasureMagicItemResults: test
+        })
+    };
 
     handleCloseDisplayItem(event) {
         this.setState({
@@ -3254,6 +3310,7 @@ class Main extends Component {
                                 </select>
                                 <span className="customButton" onClick={this.handleTreasureLoot}>Test Treasure Loot</span>
                                 <span className="customButton" onClick={this.clearTreasureStates}>Clear Treasure States</span>
+                                <span className="customButton" onClick={this.handleTestWeapons}>Test</span>
                             </form>
 
                             <br />
@@ -3298,23 +3355,26 @@ class Main extends Component {
                                 ?
                                 <div className="displayItem">
                                     <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
-                                    <div className="itemSection">
-                                        <h2>{this.state.displayItem.Name}</h2>
-                                        <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
-                                        {/* Insert select options for type of weapon. */}
+                                        {/* Weapon type select options */}
                                         {(this.state.displayItemWeaponChoices.length > 0)
                                             ?
-                                            <div>
-                                                <select name="displayItemWeaponTypeSelected" onChange={this.handleChange}>
+                                            <div className="itemSection">
+                                                <h2>{this.state.displayItem.Name}</h2>
+                                                <p>Type:  <select name="displayItemWeaponTypeSelected" onChange={this.handleChange}>
                                             {this.state.displayItemWeaponChoices.map(item => (
                                                 <option value={item}>{item}</option>
                                             ))}
-                                                </select>
-                                                <span className="customButton" onClick={this.handleSelectWeaponType}>Select Type</span>
+                                                </select> | Rarity: {this.state.displayItem.Rarity} <span className="customButton" onClick={this.handleSelectWeaponType}>Select Type</span></p>
+                                            
+                                               
+                                                
                                             </div>
-                                            : null
+                                            :
+                                            <div className="itemSection">
+                                                <h2>{this.state.displayItem.Name}</h2>
+                                                <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
+                                            </div>
                                         }
-                                    </div>
                                     {(this.state.displayItem.Use === true)
                                         ?
                                         <div className="itemSection">
@@ -3363,9 +3423,8 @@ class Main extends Component {
                                     }
                                     {(this.state.displayItemWeaponTypeDetails)
                                     ?
-                                    <div>
-                                        <p>Weapon type: {this.state.displayItemWeaponTypeDetails.Name}</p>
-                                        <p>Style: {this.state.displayItemWeaponTypeDetails.Type}</p>
+                                    <div className="itemSection">
+                                        <p>Weapon type: {this.state.displayItemWeaponTypeDetails.Name} | Style: {this.state.displayItemWeaponTypeDetails.Type}</p>
                                         <p>Damage: {this.state.displayItemWeaponTypeDetails.Damage} | Damage Type: {this.state.displayItemWeaponTypeDetails.Damage_Type}</p>
                                         <p>Weight: {this.state.displayItemWeaponTypeDetails.Weight}</p>
                                         {this.state.displayItemWeaponTypeDetails.Properties.map(item => (
