@@ -104,6 +104,7 @@ class Main extends Component {
         this.handleRemoveIcon = this.handleRemoveIcon.bind(this);
         this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
 
+        // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
     }
 
@@ -3273,6 +3274,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="worldMap" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="gridMap" />
+                        {" "}
+                        <span className="customButton" onClick={this.handleEquipmentTest}>Equipment Test</span>
                     </div>
 
                     {/* Individual Loot Div */}

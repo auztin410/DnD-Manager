@@ -27,7 +27,6 @@ const DisplayLinks = props => {
 							Logout
 						</Link>
 					
-					
 			</nav>
 		)
 	} else {
