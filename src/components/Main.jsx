@@ -85,6 +85,7 @@ class Main extends Component {
             gridIconGargantuanCreature1: false,
             equipmentPack: "Burglar's Pack",
             itemsInPack: [],
+            itemsInPackTotalWeight: 0,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -3247,13 +3248,24 @@ class Main extends Component {
         console.log(pack);
         let items = pack.Items;
         let allItems = [];
-        items.map(item => (
-            allItems.push(Equipment.find(element => element.Name === item.Name))
-        ));
-        this.setState({
-            itemsInPack: allItems
+        let allWeight = [];
+        items.forEach(item => {
+            let found = Equipment.find(element => element.Name === item.Name)
+            found.Quantity = found.Count*item.Count;
+            allItems.push(found);
+            let weight = item.Count*found.Weight;
+            allWeight.push(weight);
         });
-    }
+        let totalWeight = allWeight.reduce(this.getSum);
+        this.setState({
+            itemsInPack: allItems,
+            itemsInPackTotalWeight: totalWeight
+        });
+    };
+
+    getSum(total, num) {
+        return total + num;
+    };
 
 
     render() {
@@ -3748,10 +3760,12 @@ class Main extends Component {
                                 <div>
                                     {this.state.itemsInPack.map(item => (
                                         <div className="monsterGrouping">
-                                        <p>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight} | Quantity: {item.Count}</p>
-                                        {/* <p>{item.Description}</p> */}
+                                        <p>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight} lbs. | Quantity: {item.Quantity}</p>
                                         </div>
                                     ))}
+                                    <div className="monsterGrouping">
+                                    <p>Total weight: {this.state.itemsInPackTotalWeight} lbs.</p>
+                                    </div>
                                 </div>
                                 : null
                             }
