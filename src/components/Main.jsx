@@ -48,6 +48,11 @@ class Main extends Component {
             npcDiv: false,
             bigEventDiv: false,
             monsterDiv: false,
+            searchCreature: null,
+            creatureChallengeRatings: ["","10","1/4","14","17","16","13","15","5","21","23","20","22","24","1","2","1/2","12","8","0","19","1/8","3","11","4","6","9","7","30"],
+            creatureTypes: ["","aberration","humanoid","dragon","undead","elemental","monstrosity","construct","beast","plant","fiend","ooze","fey","giant","celestial","swarm of Tiny beasts"],
+            searchByChallengeRating: "",
+            searchByType: "",
             translationDiv: false,
             worldMapDiv: false,
             gridDiv: false,
@@ -110,6 +115,8 @@ class Main extends Component {
         this.handleRemoveIcon = this.handleRemoveIcon.bind(this);
         this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
         this.handleEquipmentPack = this.handleEquipmentPack.bind(this);
+        this.handleSearchCreature = this.handleSearchCreature.bind(this);
+        this.handleSelectCreature = this.handleSelectCreature.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -3089,7 +3096,7 @@ class Main extends Component {
         }
     }
 
-    handleGenerateMonster(event) {
+    handleGenerateMonster() {
         var Enemy = Monsters[Math.floor(Math.random() * Monsters.length)];
         console.log(Enemy);
         this.setState({
@@ -3097,14 +3104,43 @@ class Main extends Component {
         });
     };
 
-    handleMonsterActions(event) {
+    handleSearchCreature() {
+       let found = Monsters.find(resObj => resObj.name === this.state.searchCreature);
+       console.log(found);
+       this.setState({
+           enemy: found,
+       });
+    };
+
+    handleSelectCreature() {
+        let arr = [];
+        let randomCreature;
+        if (this.state.searchByChallengeRating === "") {
+            arr = Monsters.filter(resObj => resObj.type === this.state.searchByType);
+        }
+        else if (this.state.searchByType === "") {
+            arr = Monsters.filter(resObj => resObj.challenge_rating === this.state.searchByChallengeRating);
+        }
+        else {
+            arr = Monsters.filter(resObj => resObj.challenge_rating === this.state.searchByChallengeRating && resObj.type === this.state.searchByType);
+            
+        }
+        
+        randomCreature = arr[Math.floor(Math.random()*arr.length)];
+        console.log(randomCreature);
+        this.setState({
+            enemy: randomCreature,
+        });
+    };
+
+    handleMonsterActions() {
         console.log("monster action click");
         this.setState({
             monsterAction: true
         });
     };
 
-    handleLoadWorldMap(event) {
+    handleLoadWorldMap() {
         this.setState({
             showWorldMap: true,
         });
@@ -3520,13 +3556,17 @@ class Main extends Component {
                         ?
                         <div className="visible" id="monster">
                             <div className="buttonSpacer">
-                                <span className="customButton" onClick={this.handleGenerateMonster}>Generate Monster</span>
+                                <input type="text" name="searchCreature" onChange={this.handleChange}/> {" "} <span className="customButton" onClick={this.handleSearchCreature}>Search</span> {" "} <span className="customButton" onClick={this.handleGenerateMonster}>Random</span> <select name="searchByChallengeRating" onChange={this.handleChange} className="customButton">{this.state.creatureChallengeRatings.map(item => (<option value={item} key={item}>{item}</option>))}</select> {" "} <select name="searchByType" onChange={this.handleChange} className="customButton">{this.state.creatureTypes.map(item => (<option value={item} key={item}>{item}</option>))}</select> {" "} <span onClick={this.handleSelectCreature} className="customButton">Find</span>
                             </div>
                             {(this.state.enemy)
                                 ?
                                 <MonsterDetails monster={this.state.enemy} />
-                                : null
+                                :
+                                <div>
+                                    <h2>No Creature Found</h2>
+                                </div>
                             }
+
                         </div>
                         : null
                     }

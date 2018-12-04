@@ -8,7 +8,7 @@ const MonsterActions = props => (
             <h4>Actions</h4>
         </div>
             {props.monster.actions.map(({name, desc, attack_bonus, damage_dice, damage_bonus}) => (
-                <div className="monsterGrouping">
+                <div key={name} className="monsterGrouping">
                 <p>Action: {name}</p>
                 <p>Description: {desc}</p>
                 <p>Attack Bonus: {attack_bonus}</p>

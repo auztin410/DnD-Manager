@@ -8,7 +8,7 @@ const MonsterLegendary = props => (
             <h4>Legendary Actions</h4>
         </div>
         {props.monster.legendary_actions.map(({name, desc, attack_bonus, damage_dice, damage_bonus}) => (
-                <div className="monsterGrouping">
+                <div className="monsterGrouping" key={name}>
                 <p>Action: {name}</p>
                 <p>Description: {desc}</p>
                 <p>Attack Bonus: {attack_bonus}</p>
