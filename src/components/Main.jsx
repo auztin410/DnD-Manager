@@ -83,6 +83,8 @@ class Main extends Component {
             gridIconLargeCreature1: false,
             gridIconHugeCreature1: false,
             gridIconGargantuanCreature1: false,
+            equipmentPack: "Burglar's Pack",
+            itemsInPack: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -106,6 +108,7 @@ class Main extends Component {
         this.handleCreateIcon = this.handleCreateIcon.bind(this);
         this.handleRemoveIcon = this.handleRemoveIcon.bind(this);
         this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
+        this.handleEquipmentPack = this.handleEquipmentPack.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -2765,7 +2768,7 @@ class Main extends Component {
                         displayItemWeaponChoices: swords
                     })
                 }
-                else if (weaponState === "any axe"){
+                else if (weaponState === "any axe") {
                     this.setState({
                         displayItemWeaponChoices: axes
                     });
@@ -2781,9 +2784,9 @@ class Main extends Component {
                     });
                 }
                 else {
-                   this.setState({
-                       displayItemWeaponChoices: []
-                   });
+                    this.setState({
+                        displayItemWeaponChoices: []
+                    });
                 }
             }
             this.setState({
@@ -2797,7 +2800,7 @@ class Main extends Component {
     handleSelectWeaponType() {
         let selected = this.state.displayItemWeaponTypeSelected;
         let weaponType = WeaponsList.find(function (el) {
-         return el.Name === selected
+            return el.Name === selected
         });
         console.log("Weapon type found!");
         console.log(weaponType);
@@ -2951,16 +2954,16 @@ class Main extends Component {
                 }
                 break;
             case ("equipment"):
-            if (this.state.equipmentDiv === false) {
-                this.setState({
-                   equipmentDiv : true,
-                });
-            }
-            else if (this.state.equipmentDiv === true) {
-                this.setState({
-                   equipmentDiv : false
-                });
-            }
+                if (this.state.equipmentDiv === false) {
+                    this.setState({
+                        equipmentDiv: true,
+                    });
+                }
+                else if (this.state.equipmentDiv === true) {
+                    this.setState({
+                        equipmentDiv: false
+                    });
+                }
         }
 
     };
@@ -3238,6 +3241,20 @@ class Main extends Component {
         }
     };
 
+    handleEquipmentPack() {
+        console.log(`Equipment pack: ${this.state.equipmentPack}`);
+        let pack = EquipmentPacks.find(element => element.Name == this.state.equipmentPack);
+        console.log(pack);
+        let items = pack.Items;
+        let allItems = [];
+        items.map(item => (
+            allItems.push(Equipment.find(element => element.Name === item.Name))
+        ));
+        this.setState({
+            itemsInPack: allItems
+        });
+    }
+
 
     render() {
 
@@ -3289,7 +3306,7 @@ class Main extends Component {
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="gridMap" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment"/>
+                        <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment" />
                     </div>
 
                     {/* Individual Loot Div */}
@@ -3372,26 +3389,26 @@ class Main extends Component {
                                 ?
                                 <div className="displayItem">
                                     <span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>X</span>
-                                        {/* Weapon type select options */}
-                                        {(this.state.displayItemWeaponChoices.length > 0)
-                                            ?
-                                            <div className="itemSection">
-                                                <h2>{this.state.displayItem.Name}</h2>
-                                                <p>Type:  <select name="displayItemWeaponTypeSelected" onChange={this.handleChange}>
-                                            {this.state.displayItemWeaponChoices.map(item => (
-                                                <option value={item}>{item}</option>
-                                            ))}
-                                                </select> | Rarity: {this.state.displayItem.Rarity} <span className="customButton" onClick={this.handleSelectWeaponType}>Select Type</span></p>
-                                            
-                                               
-                                                
-                                            </div>
-                                            :
-                                            <div className="itemSection">
-                                                <h2>{this.state.displayItem.Name}</h2>
-                                                <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
-                                            </div>
-                                        }
+                                    {/* Weapon type select options */}
+                                    {(this.state.displayItemWeaponChoices.length > 0)
+                                        ?
+                                        <div className="itemSection">
+                                            <h2>{this.state.displayItem.Name}</h2>
+                                            <p>Type:  <select name="displayItemWeaponTypeSelected" onChange={this.handleChange}>
+                                                {this.state.displayItemWeaponChoices.map(item => (
+                                                    <option value={item}>{item}</option>
+                                                ))}
+                                            </select> | Rarity: {this.state.displayItem.Rarity} <span className="customButton" onClick={this.handleSelectWeaponType}>Select Type</span></p>
+
+
+
+                                        </div>
+                                        :
+                                        <div className="itemSection">
+                                            <h2>{this.state.displayItem.Name}</h2>
+                                            <p>Type: {this.state.displayItem.Type} | Rarity: {this.state.displayItem.Rarity}</p>
+                                        </div>
+                                    }
                                     {(this.state.displayItem.Use === true)
                                         ?
                                         <div className="itemSection">
@@ -3439,16 +3456,16 @@ class Main extends Component {
                                         : null
                                     }
                                     {(this.state.displayItemWeaponTypeDetails)
-                                    ?
-                                    <div className="itemSection">
-                                        <p>Weapon type: {this.state.displayItemWeaponTypeDetails.Name} | Style: {this.state.displayItemWeaponTypeDetails.Type}</p>
-                                        <p>Damage: {this.state.displayItemWeaponTypeDetails.Damage} | Damage Type: {this.state.displayItemWeaponTypeDetails.Damage_Type}</p>
-                                        <p>Weight: {this.state.displayItemWeaponTypeDetails.Weight}</p>
-                                        {this.state.displayItemWeaponTypeDetails.Properties.map(item => (
-                                            <p>{item}</p>
-                                        ))}
-                                    </div>
-                                    : null
+                                        ?
+                                        <div className="itemSection">
+                                            <p>Weapon type: {this.state.displayItemWeaponTypeDetails.Name} | Style: {this.state.displayItemWeaponTypeDetails.Type}</p>
+                                            <p>Damage: {this.state.displayItemWeaponTypeDetails.Damage} | Damage Type: {this.state.displayItemWeaponTypeDetails.Damage_Type}</p>
+                                            <p>Weight: {this.state.displayItemWeaponTypeDetails.Weight}</p>
+                                            {this.state.displayItemWeaponTypeDetails.Properties.map(item => (
+                                                <p>{item}</p>
+                                            ))}
+                                        </div>
+                                        : null
                                     }
                                 </div>
                                 : null
@@ -3714,19 +3731,32 @@ class Main extends Component {
                         : null
                     }
                     {(this.state.equipmentDiv === true)
-                    ?
-                    <div className="visible">
-                        <form>
-                            <select name="" id="">
-                            {EquipmentPacks.map(item => (
-                                <option value={item.Name} key={item.Name}>{item.Name} | {item.Cost} {item.Currency}</option>
-                            ))}
-                            </select>
-                            <br />
-                            <span className="customButton">Select</span>
-                        </form>
-                    </div>
-                    : null
+                        ?
+                        <div className="visible" id="equipmentDiv">
+                            <form>
+                                <select name="equipmentPack" onChange={this.handleChange} className="customButton">
+                                    {EquipmentPacks.map(item => (
+                                        <option value={item.Name} key={item.Name}>{item.Name} | {item.Cost} {item.Currency}</option>
+                                    ))}
+                                </select>
+                                <br />
+                                <br />
+                                <span className="customButton" onClick={this.handleEquipmentPack}>Select</span>
+                            </form>
+                            {(this.state.itemsInPack.length > 0)
+                                ?
+                                <div>
+                                    {this.state.itemsInPack.map(item => (
+                                        <div className="monsterGrouping">
+                                        <p>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight} | Quantity: {item.Count}</p>
+                                        {/* <p>{item.Description}</p> */}
+                                        </div>
+                                    ))}
+                                </div>
+                                : null
+                            }
+                        </div>
+                        : null
                     }
                 </div>
             )
