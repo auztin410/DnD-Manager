@@ -13,6 +13,8 @@ import WeaponsList from '../assets/Json/WeaponsList';
 import Translation from './Translation';
 import Monsters from '../assets/Json/5e-SRD-Monsters';
 import MonsterDetails from './MonsterDetails';
+import Equipment from '../assets/Json/Equipment';
+import EquipmentPacks from '../assets/Json/EquipmentPacks';
 
 class Main extends Component {
     constructor() {
@@ -49,6 +51,7 @@ class Main extends Component {
             translationDiv: false,
             worldMapDiv: false,
             gridDiv: false,
+            equipmentDiv: false,
             enemy: null,
             worldMap: null,
             showWorldMap: false,
@@ -2947,6 +2950,17 @@ class Main extends Component {
                     });
                 }
                 break;
+            case ("equipment"):
+            if (this.state.equipmentDiv === false) {
+                this.setState({
+                   equipmentDiv : true,
+                });
+            }
+            else if (this.state.equipmentDiv === true) {
+                this.setState({
+                   equipmentDiv : false
+                });
+            }
         }
 
     };
@@ -3275,7 +3289,7 @@ class Main extends Component {
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="gridMap" />
                         {" "}
-                        <span className="customButton" onClick={this.handleEquipmentTest}>Equipment Test</span>
+                        <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment"/>
                     </div>
 
                     {/* Individual Loot Div */}
@@ -3698,6 +3712,21 @@ class Main extends Component {
                             }
                         </div>
                         : null
+                    }
+                    {(this.state.equipmentDiv === true)
+                    ?
+                    <div className="visible">
+                        <form>
+                            <select name="" id="">
+                            {EquipmentPacks.map(item => (
+                                <option value={item.Name} key={item.Name}>{item.Name} | {item.Cost} {item.Currency}</option>
+                            ))}
+                            </select>
+                            <br />
+                            <span className="customButton">Select</span>
+                        </form>
+                    </div>
+                    : null
                     }
                 </div>
             )
