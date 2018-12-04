@@ -795,5 +795,338 @@
         "Currency": "CP",
         "Description": "",
         "Count": 1
+    },
+    {
+        "Name": "Alchemist's supplies",
+        "Keyword": "Artisan",
+        "Weight": 8,
+        "Cost": 50,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Brewer's supplies",
+        "Keyword": "Artisan",
+        "Weight": 9,
+        "Cost": 20,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Calligrapher's supplies",
+        "Keyword": "Artisan",
+        "Weight": 5,
+        "Cost": 10,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Carpenter's tools",
+        "Keyword": "Artisan",
+        "Weight": 6,
+        "Cost": 8,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Cartographer's tools",
+        "Keyword": "Artisan",
+        "Weight": 6,
+        "Cost": 15,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Cobbler's tools",
+        "Keyword": "Artisan",
+        "Weight": 5,
+        "Cost": 5,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Cook's utensils",
+        "Keyword": "Artisan",
+        "Weight": 8,
+        "Cost": 1,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Glassblower's tools",
+        "Keyword": "Artisan",
+        "Weight": 5,
+        "Cost": 30,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Jeweler's tools",
+        "Keyword": "Artisan",
+        "Weight": 2,
+        "Cost": 25,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Leatherworker's tools",
+        "Keyword": "Artisan",
+        "Weight": 5,
+        "Cost": 5,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Mason's tools",
+        "Keyword": "Artisan",
+        "Weight": 8,
+        "Cost": 10,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Painter's supplies",
+        "Keyword": "Artisan",
+        "Weight": 5,
+        "Cost": 10,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Potter's tools",
+        "Keyword": "Artisan",
+        "Weight": 3,
+        "Cost": 10,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Smith's tools",
+        "Keyword": "Artisan",
+        "Weight": 8,
+        "Cost": 20,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Tinker's tools",
+        "Keyword": "Artisan",
+        "Weight": 10,
+        "Cost": 50,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Weaver's tools",
+        "Keyword": "Artisan",
+        "Weight": 5,
+        "Cost": 1,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Woodcarver's tools",
+        "Keyword": "Artisan",
+        "Weight": 5,
+        "Cost": 1,
+        "Currency": "GP",
+        "Description": "Artisan’s Tools- These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Disguise kit",
+        "Keyword": "",
+        "Weight": 3,
+        "Cost": 25,
+        "Currency": "GP",
+        "Description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise.",
+        "Count": 1
+    },
+    {
+        "Name": "Forgery kit",
+        "Keyword": "",
+        "Weight": 5,
+        "Cost": 15,
+        "Currency": "GP",
+        "Description": "This small box contains a variety of papers and parchments, pens and inks, seals and sealing wax, gold and silver leaf, and other supplies necessary to create convincing forgeries of physical documents. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a physical forgery of a document.",
+        "Count": 1
+    },
+    {
+        "Name": "Dice set",
+        "Keyword": "Gaming",
+        "Weight": 0,
+        "Cost": 1,
+        "Currency": "SP",
+        "Description": "Gaming Set- This item encompasses a wide range of game pieces, including dice and decks of cards (for games such as Three-Dragon Ante). A few common examples appear on the Tools table, but other kinds of gaming sets exist. If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set. Each type of gaming set requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Dragonchess set",
+        "Keyword": "Gaming",
+        "Weight": 0.5,
+        "Cost": 1,
+        "Currency": "GP",
+        "Description": "Gaming Set- This item encompasses a wide range of game pieces, including dice and decks of cards (for games such as Three-Dragon Ante). A few common examples appear on the Tools table, but other kinds of gaming sets exist. If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set. Each type of gaming set requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Playing card set",
+        "Keyword": "Gaming",
+        "Weight": 0,
+        "Cost": 5,
+        "Currency": "SP",
+        "Description": "Gaming Set- This item encompasses a wide range of game pieces, including dice and decks of cards (for games such as Three-Dragon Ante). A few common examples appear on the Tools table, but other kinds of gaming sets exist. If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set. Each type of gaming set requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Three-Dragon Ante set",
+        "Keyword": "Gaming",
+        "Weight": 0,
+        "Cost": 1,
+        "Currency": "GP",
+        "Description": "Gaming Set- This item encompasses a wide range of game pieces, including dice and decks of cards (for games such as Three-Dragon Ante). A few common examples appear on the Tools table, but other kinds of gaming sets exist. If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set. Each type of gaming set requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Herbalism kit",
+        "Keyword": "",
+        "Weight": 3,
+        "Cost": 5,
+        "Currency": "GP",
+        "Description": "This kit contains a variety of instruments such as clippers, mortar and pestle, and pouches and vials used by herbalists to create remedies and potions. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to identify or apply herbs. Also, proficiency with this kit is required to create antitoxin and potions of healing.",
+        "Count": 1
+    },
+    {
+        "Name": "Bagpipes",
+        "Keyword": "Musical",
+        "Weight": 6,
+        "Cost": 30,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Drum",
+        "Keyword": "Musical",
+        "Weight": 3,
+        "Cost": 6,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Dulcimer",
+        "Keyword": "Musical",
+        "Weight": 10,
+        "Cost": 25,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Flute",
+        "Keyword": "Musical",
+        "Weight": 1,
+        "Cost": 2,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Lute",
+        "Keyword": "Musical",
+        "Weight": 2,
+        "Cost": 35,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Lyre",
+        "Keyword": "Musical",
+        "Weight": 2,
+        "Cost": 30,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Horn",
+        "Keyword": "Musical",
+        "Weight": 2,
+        "Cost": 3,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Pan flute",
+        "Keyword": "Musical",
+        "Weight": 2,
+        "Cost": 12,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Shawm",
+        "Keyword": "Musical",
+        "Weight": 1,
+        "Cost": 2,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Viol",
+        "Keyword": "Musical",
+        "Weight": 1,
+        "Cost": 30,
+        "Currency": "GP",
+        "Description": "Musical Instrument- Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+        "Count": 1
+    },
+    {
+        "Name": "Navigator's tools",
+        "Keyword": "",
+        "Weight": 2,
+        "Cost": 25,
+        "Currency": "GP",
+        "Description": "This set of instruments is used for navigation at sea. Proficiency with navigator's tools lets you chart a ship&#39;s course and follow navigation charts. In addition, these tools allow you to add your proficiency bonus to any ability check you make to avoid getting lost at sea.",
+        "Count": 1
+    },
+    {
+        "Name": "Poisoner's kit",
+        "Keyword": "",
+        "Weight": 2,
+        "Cost": 50,
+        "Currency": "GP",
+        "Description": "A poisoner’s kit includes the vials, chemicals, and other equipment necessary for the creation of poisons. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to craft or use poisons.",
+        "Count": 1
+    },
+    {
+        "Name": "Thieves' tools",
+        "Keyword": "",
+        "Weight": 1,
+        "Cost": 25,
+        "Currency": "GP",
+        "Description": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks.",
+        "Count": 1
     }
 ]

@@ -1,0 +1,287 @@
+[
+    {
+        "Name": "Burglar's Pack",
+        "Cost": 16,
+        "Currency": "GP",
+        "Items": [
+            {
+                "Name": "Backpack",
+                "Count": 1
+            },
+            {
+                "Name": "Ball bearings (bag)",
+                "Count": 1
+            },
+            {
+                "Name": "Bell",
+                "Count": 1
+            },
+            {
+                "Name": "Candle",
+                "Count": 5
+            },
+            {
+                "Name": "Crowbar",
+                "Count": 1
+            },
+            {
+                "Name": "Hammer",
+                "Count": 1
+            },
+            {
+                "Name": "Piton",
+                "Count": 10
+            },
+            {
+                "Name": "Lantern, hooded",
+                "Count": 1
+            },
+            {
+                "Name": "Oil (flask)",
+                "Count": 2
+            },
+            {
+                "Name": "Rations (1 day)",
+                "Count": 5
+            },
+            {
+                "Name": "Tinderbox",
+                "Count": 1
+            },
+            {
+                "Name": "Waterskin",
+                "Count": 1
+            },
+            {
+                "Name": "Rope, hempen (50 feet)",
+                "Count": 1
+            }
+        ]
+    },
+    {
+        "Name": "Diplomat's Pack",
+        "Cost": 39,
+        "Currency": "GP",
+        "Items": [
+            {
+                "Name": "Chest",
+                "Count": 1
+            },
+            {
+                "Name": "Case, map or scroll",
+                "Count": 2
+            },
+            {
+                "Name": "Clothes, fine",
+                "Count": 1
+            },
+            {
+                "Name": "Ink (1 ounce bottle)",
+                "Count": 1
+            },
+            {
+                "Name": "Ink pen",
+                "Count": 1
+            },
+            {
+                "Name": "Lamp",
+                "Count": 1
+            },
+            {
+                "Name": "Oil (flask)",
+                "Count": 2
+            },
+            {
+                "Name": "Paper (one sheet)",
+                "Count": 5
+            },
+            {
+                "Name": "Perfume (vial)",
+                "Count": 1
+            },
+            {
+                "Name": "Sealing wax",
+                "Count": 1
+            },
+            {
+                "Name": "Soap",
+                "Count": 1
+            }
+        ]
+    },
+    {
+        "Name": "Dungeoneer's Pack",
+        "Cost": 12,
+        "Currency": "GP",
+        "Items": [
+            {
+                "Name": "Backpack",
+                "Count": 1
+            },
+            {
+                "Name": "Crowbar",
+                "Count": 1
+            },
+            {
+                "Name": "Hammer",
+                "Count": 1
+            },
+            {
+                "Name": "Piton",
+                "Count": 10
+            },
+            {
+                "Name": "Torch",
+                "Count": 10
+            },
+            {
+                "Name": "Tinderbox",
+                "Count": 1
+            },
+            {
+                "Name": "Rations (1 day)",
+                "Count": 10
+            },
+            {
+                "Name": "Waterskin",
+                "Count": 1
+            },
+            {
+                "Name": "Rope, hempen (50 feet)",
+                "Count": 1
+            }
+        ]
+    },
+    {
+        "Name": "Entertainer's Pack",
+        "Cost": 40,
+        "Currency": "GP",
+        "Items": [
+            {
+                "Name": "Backpack",
+                "Count": 1
+            },
+            {
+                "Name": "Bedroll",
+                "Count": 1
+            },
+            {
+                "Name": "Clothes, costume",
+                "Count": 2
+            },
+            {
+                "Name": "Candle",
+                "Count": 5
+            },
+            {
+                "Name": "Rations (1 day)",
+                "Count": 5
+            },
+            {
+                "Name": "Waterskin",
+                "Count": 1
+            },
+            {
+                "Name": "Disguise kit",
+                "Count": 1
+            }
+        ]
+    },
+    {
+        "Name": "Explorer's Pack",
+        "Cost": 10,
+        "Currency": "GP",
+        "Items": [
+            {
+                "Name": "Backpack",
+                "Count": 1
+            },
+            {
+                "Name": "Bedroll",
+                "Count": 1
+            },
+            {
+                "Name": "Mess kit",
+                "Count": 1
+            },
+            {
+                "Name": "Tinderbox",
+                "Count": 1
+            },
+            {
+                "Name": "Torch",
+                "Count": 10
+            },
+            {
+                "Name": "Rations (1 day)",
+                "Count": 10
+            },
+            {
+                "Name": "Waterskin",
+                "Count": 1
+            },
+            {
+                "Name": "Rope, hempen (50 feet)",
+                "Count": 1
+            }
+        ] 
+    },
+    {
+        "Name": "Priest's Pack",
+        "Cost": 19,
+        "Currency": "GP",
+        "Items": [
+            {
+                "Name": "Backpack",
+                "Count": 1
+            },
+            {
+                "Name": "Blanket",
+                "Count": 1
+            },
+            {
+                "Name": "Candle",
+                "Count": 10
+            },
+            {
+                "Name": "Tinderbox",
+                "Count": 1
+            },
+            {
+                "Name": "Rations (1 day)",
+                "Count": 1
+            },
+            {
+                "Name": "Waterskin",
+                "Count": 1
+            }
+        ]
+    },
+    {
+        "Name": "Scholar's Pack",
+        "Cost": 40,
+        "Currency": "GP",
+        "Items": [
+            {
+                "Name": "Backpack",
+                "Count": 1
+            },
+            {
+                "Name": "Book",
+                "Count": 1
+            },
+            {
+                "Name": "Ink (1 ounce bottle)",
+                "Count": 1
+            },
+            {
+                "Name": "Ink pen",
+                "Count": 1
+            },
+            {
+                "Name": "Parchment (sheet)",
+                "Count": 10
+            }
+        ]
+    }
+]
