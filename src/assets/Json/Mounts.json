@@ -1,15 +1,5 @@
 [
     {
-        "Name": "",
-        "Keyword": "",
-        "Cost": 1,
-        "Currency": "GP",
-        "Description": "",
-        "Count": 1,
-        "CarryingCapacity": 0,
-        "Speed": 0
-    },
-    {
         "Name": "Camel",
         "Keyword": "",
         "Cost": 50,

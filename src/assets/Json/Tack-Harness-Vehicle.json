@@ -1,14 +1,5 @@
 [
     {
-        "Name": "",
-        "Keyword": "",
-        "Weight": 2,
-        "Cost": 4,
-        "Currency": "GP",
-        "Description": "",
-        "Count": 1
-    },
-    {
         "Name": "Barding (padded)",
         "Keyword": "Barding",
         "Weight": 16,

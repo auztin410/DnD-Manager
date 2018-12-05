@@ -13,11 +13,16 @@ import WeaponsList from '../assets/Json/WeaponsList';
 import Translation from './Translation';
 import Monsters from '../assets/Json/5e-SRD-Monsters';
 import MonsterDetails from './MonsterDetails';
-import Equipment from '../assets/Json/Equipment';
-import EquipmentPacks from '../assets/Json/EquipmentPacks';
 import Autocomplete from 'react-autocomplete';
 import CreatureNames from '../assets/Json/CreatureNames';
 import CreatureTypes from '../assets/Json/CreatureTypes';
+import Equipment from '../assets/Json/Equipment';
+import EquipmentPacks from '../assets/Json/EquipmentPacks';
+import TradeGoods from '../assets/Json/TradeGoods';
+import Mounts from '../assets/Json/Mounts';
+import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
+import Ships from '../assets/Json/Ships';
+
 
 
 
@@ -55,7 +60,7 @@ class Main extends Component {
             npcDiv: false,
             bigEventDiv: false,
             monsterDiv: false,
-            creatureChallengeRatings: ["","0","1/2","1/4","1/8","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","19","20","21","22","23","24","30"],
+            creatureChallengeRatings: ["", "0", "1/2", "1/4", "1/8", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "19", "20", "21", "22", "23", "24", "30"],
             creatureTypes: ["", "aberration", "humanoid", "dragon", "undead", "elemental", "monstrosity", "construct", "beast", "plant", "fiend", "ooze", "fey", "giant", "celestial", "swarm of Tiny beasts"],
             searchByChallengeRating: "",
             searchByType: "",
@@ -63,6 +68,7 @@ class Main extends Component {
             worldMapDiv: false,
             gridDiv: false,
             equipmentDiv: false,
+            merchantDiv: false,
             enemy: null,
             worldMap: null,
             showWorldMap: false,
@@ -2978,6 +2984,19 @@ class Main extends Component {
                         equipmentDiv: false
                     });
                 }
+                break;
+            case ("merchant"):
+                if (this.state.merchantDiv === false) {
+                    this.setState({
+                        merchantDiv: true,
+                    });
+                }
+                else if (this.state.merchantDiv === true) {
+                    this.setState({
+                        merchantDiv: false
+                    });
+                }
+                break;
         }
 
     };
@@ -3361,6 +3380,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Grid.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Grid_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Grid.png'))} alt="gridMap" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="merchant" />
                     </div>
 
                     {/* Individual Loot Div */}
@@ -3832,6 +3853,42 @@ class Main extends Component {
                                 </div>
                                 : null
                             }
+                        </div>
+                        : null
+                    }
+                    {(this.state.merchantDiv === true)
+                        ?
+                        <div class="visible" id="merchantDiv">
+                            <div className="generated">
+                                <h2>Items</h2>
+                                {Equipment.map(item => (
+                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                ))}
+                            </div>
+                            <div className="generated">
+                                <h2>Trade Goods</h2>
+                                {TradeGoods.map(item => (
+                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                ))}
+                            </div>
+                            <div className="generated">
+                                <h2>Mounts</h2>
+                                {Mounts.map(item => (
+                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
+                                ))}
+                            </div>
+                            <div className="generated">
+                                <h2>Tack, Hardness, and Vehicles</h2>
+                                {TackHarnessVehicle.map(item => (
+                                   <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div> 
+                                ))}
+                            </div>
+                            <div className="generated">
+                                <h2>Ships</h2>
+                                {Ships.map(item => (
+                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
+                                ))}
+                            </div>
                         </div>
                         : null
                     }

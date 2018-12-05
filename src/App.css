@@ -233,15 +233,6 @@ h4 {
   padding: 5px;
 }
 
-#customButton {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 18px;
-  background-image: url('../src/assets/u0.jpg');
-  border-color: black;
-  border-style: double;
-  margin: 5px;
-  padding: 5px;
-}
 
 .customButton:hover {
   border-width: 5px;
@@ -303,6 +294,10 @@ h4 {
 
 #equipmentDiv {
   width: 550px;
+}
+
+#merchantDiv {
+  width: 1080px;
 }
 
 .squareModal {
@@ -444,6 +439,14 @@ h4 {
   margin: 10px;
   overflow-y: auto;
   height: 255px;
+}
+
+.merchantItem {
+  background-image: url('./assets//u0.jpg');
+  /* width: 350px; */
+  margin-top: 2px;  
+  border-color: black;
+  border-style: double;
 }
 
 @-webkit-keyframes glow {
