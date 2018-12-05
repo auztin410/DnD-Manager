@@ -1,0 +1,186 @@
+[
+    {
+        "Name": "Wheat",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 1,
+        "Currency": "CP",
+        "Keyword": "Farm"
+    },
+    {
+        "Name": "Flour",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 2,
+        "Currency": "CP",
+        "Keyword": "Farm"
+    },
+    {
+        "Name": "Chicken",
+        "Weight": 0,
+        "Count": 1,
+        "Cost": 2,
+        "Currency": "CP",
+        "Keyword": "Livestock"
+    },
+    {
+        "Name": "Salt",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 5,
+        "Currency": "CP",
+        "Keyword": "Spice"
+    },
+    {
+        "Name": "Iron",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 1,
+        "Currency": "SP",
+        "Keyword": "Ore"
+    },
+    {
+        "Name": "Canvas (1 sq. yard)",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 1,
+        "Currency": "SP",
+        "Keyword": "Cloth"
+    },
+    {
+        "Name": "Copper",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 5,
+        "Currency": "SP",
+        "Keyword": "Ore"
+    },
+    {
+        "Name": "Cotton cloth (1 sq. yard)",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 5,
+        "Currency": "SP",
+        "Keyword": "Cloth"
+    },
+    {
+        "Name": "Ginger",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 1,
+        "Currency": "GP",
+        "Keyword": "Spice"
+    },
+    {
+        "Name": "Goat",
+        "Weight": 0,
+        "Count": 1,
+        "Cost": 1,
+        "Currency": "GP",
+        "Keyword": "Livestock"
+    },
+    {
+        "Name": "Cinnamon",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 2,
+        "Currency": "GP",
+        "Keyword": "Spice"
+    },
+    {
+        "Name": "Pepper",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 2,
+        "Currency": "GP",
+        "Keyword": "Spice"
+    },
+    {
+        "Name": "Sheep",
+        "Weight": 0,
+        "Count": 1,
+        "Cost": 2,
+        "Currency": "GP",
+        "Keyword": "Livestock"
+    },
+    {
+        "Name": "Cloves",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 3,
+        "Currency": "GP",
+        "Keyword": "Spice"
+    },
+    {
+        "Name": "Pig",
+        "Weight": 0,
+        "Count": 1,
+        "Cost": 3,
+        "Currency": "GP",
+        "Keyword": "Livestock"
+    },
+    {
+        "Name": "Silver",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 5,
+        "Currency": "GP",
+        "Keyword": "Ore"
+    },
+    {
+        "Name": "Linen (1 sq. yard)",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 5,
+        "Currency": "GP",
+        "Keyword": "Cloth"
+    },
+    {
+        "Name": "Silk (1 sq. yard)",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 10,
+        "Currency": "GP",
+        "Keyword": "Cloth"
+    },
+    {
+        "Name": "Cow",
+        "Weight": 0,
+        "Count": 1,
+        "Cost": 10,
+        "Currency": "GP",
+        "Keyword": "Livestock"
+    },
+    {
+        "Name": "Saffron",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 15,
+        "Currency": "GP",
+        "Keyword": "Spice"
+    },
+    {
+        "Name": "Ox",
+        "Weight": 0,
+        "Count": 1,
+        "Cost": 15,
+        "Currency": "GP",
+        "Keyword": "Livestock"
+    },
+    {
+        "Name": "Gold",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 50,
+        "Currency": "GP",
+        "Keyword": "Ore"
+    },
+    {
+        "Name": "Platinum",
+        "Weight": 1,
+        "Count": 1,
+        "Cost": 500,
+        "Currency": "GP",
+        "Keyword": "Ore"
+    }
+]

@@ -1,0 +1,56 @@
+[
+    {
+        "Name": "Galley",
+        "Keyword": "",
+        "Cost": 30000,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "Speed": 4
+    },
+    {
+        "Name": "Keelboat",
+        "Keyword": "",
+        "Cost": 3000,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "Speed": 1
+    },
+    {
+        "Name": "Longship",
+        "Keyword": "",
+        "Cost": 10000,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "Speed": 3
+    },
+    {
+        "Name": "Rowboat",
+        "Keyword": "",
+        "Cost": 50,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "Speed": 1.5
+    },
+    {
+        "Name": "Sailing ship",
+        "Keyword": "",
+        "Cost": 10000,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "Speed": 2
+    },
+    {
+        "Name": "Warship",
+        "Keyword": "",
+        "Cost": 25000,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "Speed": 2.5
+    }
+]

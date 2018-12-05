@@ -1,0 +1,102 @@
+[
+    {
+        "Name": "",
+        "Keyword": "",
+        "Cost": 1,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 0,
+        "Speed": 0
+    },
+    {
+        "Name": "Camel",
+        "Keyword": "",
+        "Cost": 50,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 480,
+        "Speed": 50
+    },
+    {
+        "Name": "Donkey",
+        "Keyword": "",
+        "Cost": 8,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 420,
+        "Speed": 40
+    },
+    {
+        "Name": "Mule",
+        "Keyword": "",
+        "Cost": 8,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 420,
+        "Speed": 40
+    },
+    {
+        "Name": "Elephant",
+        "Keyword": "",
+        "Cost": 200,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 1320,
+        "Speed": 40
+    },
+    {
+        "Name": "Horse, draft",
+        "Keyword": "",
+        "Cost": 50,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 540,
+        "Speed": 40
+    },
+    {
+        "Name": "Horse, riding",
+        "Keyword": "",
+        "Cost": 75,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 480,
+        "Speed": 60
+    },
+    {
+        "Name": "Mastiff",
+        "Keyword": "",
+        "Cost": 25,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 195,
+        "Speed": 40
+    },
+    {
+        "Name": "Pony",
+        "Keyword": "",
+        "Cost": 30,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 225,
+        "Speed": 40
+    },
+    {
+        "Name": "Warhorse",
+        "Keyword": "",
+        "Cost": 400,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1,
+        "CarryingCapacity": 540,
+        "Speed": 60
+    }
+]

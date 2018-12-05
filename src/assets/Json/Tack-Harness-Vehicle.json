@@ -1,0 +1,236 @@
+[
+    {
+        "Name": "",
+        "Keyword": "",
+        "Weight": 2,
+        "Cost": 4,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (padded)",
+        "Keyword": "Barding",
+        "Weight": 16,
+        "Cost": 20,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 11 + Dex modifier.",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (leather)",
+        "Keyword": "Barding",
+        "Weight": 20,
+        "Cost": 40,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 11 + Dex modifier.",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (studded leather)",
+        "Keyword": "Barding",
+        "Weight": 26,
+        "Cost": 180,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 12 + Dex modifier.",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (hide)",
+        "Keyword": "Barding",
+        "Weight": 24,
+        "Cost": 40,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 12 + Dex modifier (max 2).",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (chain shirt)",
+        "Keyword": "Barding",
+        "Weight": 40,
+        "Cost": 200,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 13 + Dex modifier (max 2).",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (scale mail)",
+        "Keyword": "Barding",
+        "Weight": 90,
+        "Cost": 200,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 14 + Dex modifier (max 2).",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (breastplate)",
+        "Keyword": "Barding",
+        "Weight": 40,
+        "Cost": 1600,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 14 + Dex modifier (max 2).",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (half plate)",
+        "Keyword": "Barding",
+        "Weight": 80,
+        "Cost": 3000,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 15 + Dex modifier (max 2).",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (ring mail)",
+        "Keyword": "Barding",
+        "Weight": 80,
+        "Cost": 120,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 14.",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (chain mail)",
+        "Keyword": "Barding",
+        "Weight": 110,
+        "Cost": 300,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 16. Strength required 13.",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (splint)",
+        "Keyword": "Barding",
+        "Weight": 120,
+        "Cost": 800,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 17. Strength required 15.",
+        "Count": 1
+    },
+    {
+        "Name": "Barding (plate)",
+        "Keyword": "Barding",
+        "Weight": 130,
+        "Cost": 6000,
+        "Currency": "GP",
+        "Description": "Barding is armor designed to protect an animal's head, neck, chest, and body. AC 18. Strength required 15.",
+        "Count": 1
+    },
+    {
+        "Name": "Bit and bridle",
+        "Keyword": "",
+        "Weight": 1,
+        "Cost": 2,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Carriage",
+        "Keyword": "",
+        "Weight": 600,
+        "Cost": 100,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Cart",
+        "Keyword": "",
+        "Weight": 200,
+        "Cost": 15,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Chariot",
+        "Keyword": "",
+        "Weight": 100,
+        "Cost": 250,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Feed (per day)",
+        "Keyword": "",
+        "Weight": 10,
+        "Cost": 5,
+        "Currency": "CP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Exotic saddle",
+        "Keyword": "",
+        "Weight": 40,
+        "Cost": 60,
+        "Currency": "GP",
+        "Description": "An exotic saddle is required for aquatic and flying mounts.",
+        "Count": 1
+    },
+    {
+        "Name": "Military saddle",
+        "Keyword": "",
+        "Weight": 30,
+        "Cost": 20,
+        "Currency": "GP",
+        "Description": "A military saddle braces the ride, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted.",
+        "Count": 1
+    },
+    {
+        "Name": "Pack saddle",
+        "Keyword": "",
+        "Weight": 15,
+        "Cost": 5,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Riding saddle",
+        "Keyword": "",
+        "Weight": 25,
+        "Cost": 10,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Saddlebags",
+        "Keyword": "",
+        "Weight": 8,
+        "Cost": 4,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Sled",
+        "Keyword": "",
+        "Weight": 300,
+        "Cost": 20,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Stabling (per day)",
+        "Keyword": "Service",
+        "Weight": 0,
+        "Cost": 5,
+        "Currency": "SP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Wagon",
+        "Keyword": "",
+        "Weight": 400,
+        "Cost": 35,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    }
+]
