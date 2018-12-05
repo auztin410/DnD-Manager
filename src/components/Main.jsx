@@ -16,6 +16,8 @@ import MonsterDetails from './MonsterDetails';
 import Equipment from '../assets/Json/Equipment';
 import EquipmentPacks from '../assets/Json/EquipmentPacks';
 
+
+
 class Main extends Component {
     constructor() {
         super()
@@ -49,8 +51,8 @@ class Main extends Component {
             bigEventDiv: false,
             monsterDiv: false,
             searchCreature: null,
-            creatureChallengeRatings: ["","10","1/4","14","17","16","13","15","5","21","23","20","22","24","1","2","1/2","12","8","0","19","1/8","3","11","4","6","9","7","30"],
-            creatureTypes: ["","aberration","humanoid","dragon","undead","elemental","monstrosity","construct","beast","plant","fiend","ooze","fey","giant","celestial","swarm of Tiny beasts"],
+            creatureChallengeRatings: ["", "10", "1/4", "14", "17", "16", "13", "15", "5", "21", "23", "20", "22", "24", "1", "2", "1/2", "12", "8", "0", "19", "1/8", "3", "11", "4", "6", "9", "7", "30"],
+            creatureTypes: ["", "aberration", "humanoid", "dragon", "undead", "elemental", "monstrosity", "construct", "beast", "plant", "fiend", "ooze", "fey", "giant", "celestial", "swarm of Tiny beasts"],
             searchByChallengeRating: "",
             searchByType: "",
             translationDiv: false,
@@ -3105,11 +3107,11 @@ class Main extends Component {
     };
 
     handleSearchCreature() {
-       let found = Monsters.find(resObj => resObj.name === this.state.searchCreature);
-       console.log(found);
-       this.setState({
-           enemy: found,
-       });
+        let found = Monsters.find(resObj => resObj.name === this.state.searchCreature);
+        console.log(found);
+        this.setState({
+            enemy: found,
+        });
     };
 
     handleSelectCreature() {
@@ -3123,10 +3125,10 @@ class Main extends Component {
         }
         else {
             arr = Monsters.filter(resObj => resObj.challenge_rating === this.state.searchByChallengeRating && resObj.type === this.state.searchByType);
-            
+
         }
-        
-        randomCreature = arr[Math.floor(Math.random()*arr.length)];
+
+        randomCreature = arr[Math.floor(Math.random() * arr.length)];
         console.log(randomCreature);
         this.setState({
             enemy: randomCreature,
@@ -3287,9 +3289,9 @@ class Main extends Component {
         let allWeight = [];
         items.forEach(item => {
             let found = Equipment.find(element => element.Name === item.Name)
-            found.Quantity = found.Count*item.Count;
+            found.Quantity = found.Count * item.Count;
             allItems.push(found);
-            let weight = item.Count*found.Weight;
+            let weight = item.Count * found.Weight;
             allWeight.push(weight);
         });
         let totalWeight = allWeight.reduce(this.getSum);
@@ -3338,21 +3340,21 @@ class Main extends Component {
                 <div>
                     <div className="buttons">
                         {/* Buttons for opening up divs */}
-                        <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="loot" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Loot.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Loot_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Loot.png'))} alt="loot" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="treasure" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Treasure.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Treasure_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Treasure.png'))} alt="treasure" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="npc" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/NPC.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/NPC_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/NPC.png'))} alt="npc" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="bigEvent" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Event.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Event_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Event.png'))} alt="bigEvent" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/enemy.png')} alt="enemy" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Enemy.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Enemy_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Enemy.png'))} alt="enemy" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="translation" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Translate.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Translate_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Translate.png'))} alt="translation" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="worldMap" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/World_Map.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/World_Map_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/World_Map.png'))} alt="worldMap" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="gridMap" />
+                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Grid.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Grid_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Grid.png'))} alt="gridMap" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment" />
                     </div>
@@ -3556,7 +3558,8 @@ class Main extends Component {
                         ?
                         <div className="visible" id="monster">
                             <div className="buttonSpacer">
-                                <input type="text" name="searchCreature" onChange={this.handleChange}/> {" "} <span className="customButton" onClick={this.handleSearchCreature}>Search</span> {" "} <span className="customButton" onClick={this.handleGenerateMonster}>Random</span> <select name="searchByChallengeRating" onChange={this.handleChange} className="customButton">{this.state.creatureChallengeRatings.map(item => (<option value={item} key={item}>{item}</option>))}</select> {" "} <select name="searchByType" onChange={this.handleChange} className="customButton">{this.state.creatureTypes.map(item => (<option value={item} key={item}>{item}</option>))}</select> {" "} <span onClick={this.handleSelectCreature} className="customButton">Find</span>
+                                
+                            <input type="text" name="searchCreature" onChange={this.handleChange} /> {" "} <span className="customButton" onClick={this.handleSearchCreature}>Search</span> {" "} <span className="customButton" onClick={this.handleGenerateMonster}>Random</span> <select name="searchByChallengeRating" onChange={this.handleChange} className="customButton">{this.state.creatureChallengeRatings.map(item => (<option value={item} key={item}>{item}</option>))}</select> {" "} <select name="searchByType" onChange={this.handleChange} className="customButton">{this.state.creatureTypes.map(item => (<option value={item} key={item}>{item}</option>))}</select> {" "} <span onClick={this.handleSelectCreature} className="customButton">Find</span>
                             </div>
                             {(this.state.enemy)
                                 ?
@@ -3800,11 +3803,11 @@ class Main extends Component {
                                 <div>
                                     {this.state.itemsInPack.map(item => (
                                         <div className="monsterGrouping">
-                                        <p>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight} lbs. | Quantity: {item.Quantity}</p>
+                                            <p>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight} lbs. | Quantity: {item.Quantity}</p>
                                         </div>
                                     ))}
                                     <div className="monsterGrouping">
-                                    <p>Total weight: {this.state.itemsInPackTotalWeight} lbs.</p>
+                                        <p>Total weight: {this.state.itemsInPackTotalWeight} lbs.</p>
                                     </div>
                                 </div>
                                 : null
