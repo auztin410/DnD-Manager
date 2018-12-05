@@ -1,0 +1,66 @@
+[
+    {
+        "Name": "",
+        "Title": "None"
+    },
+    {
+        "Name": "aberration",
+        "Title": "Aberration"
+    },
+    {
+        "Name": "beast",
+        "Title": "Beast"
+    },
+    {
+        "Name": "celestial",
+        "Title": "Celestial"
+    },
+    {
+        "Name": "construct",
+        "Title": "Construct"
+    },
+    {
+        "Name": "dragon",
+        "Title": "Dragon"
+    },
+    {
+        "Name": "elemental",
+        "Title": "Elemental"
+    },
+    {
+        "Name": "fey",
+        "Title": "Fey"
+    },
+    {
+        "Name": "fiend",
+        "Title": "Fiend"
+    },
+    {
+        "Name": "giant",
+        "Title": "Giant"
+    },
+    {
+        "Name": "humanoid",
+        "Title": "Humanoid"
+    },
+    {
+        "Name": "monstrosity",
+        "Title": "Monstrosity"
+    },
+    {
+        "Name": "ooze",
+        "Title": "Ooze"
+    },
+    {
+        "Name": "plant",
+        "Title": "Plant"
+    },
+    {
+        "Name": "swarm of Tiny beasts",
+        "Title": "Swarm of Tiny Beasts"
+    },
+    {
+        "Name": "undead",
+        "Title": "Undead"
+    }
+]
