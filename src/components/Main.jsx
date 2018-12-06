@@ -3859,32 +3859,24 @@ class Main extends Component {
                     {(this.state.merchantDiv === true)
                         ?
                         <div class="visible" id="merchantDiv">
-                            <div className="generated">
-                                <h2>Items</h2>
+                            <div className="merchantOptions">
+                                <h2 className="woodSign">Items</h2>
                                 {Equipment.map(item => (
                                     <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                 ))}
-                            </div>
-                            <div className="generated">
-                                <h2>Trade Goods</h2>
+                                <h2 className="woodSign">Trade Goods</h2>
                                 {TradeGoods.map(item => (
                                     <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                 ))}
-                            </div>
-                            <div className="generated">
-                                <h2>Mounts</h2>
+                                <h2 className="woodSign">Mounts</h2>
                                 {Mounts.map(item => (
                                     <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
                                 ))}
-                            </div>
-                            <div className="generated">
-                                <h2>Tack, Hardness, and Vehicles</h2>
+                                <h2 className="woodSign">Tack, Hardness, and Vehicles</h2>
                                 {TackHarnessVehicle.map(item => (
                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div> 
                                 ))}
-                            </div>
-                            <div className="generated">
-                                <h2>Ships</h2>
+                                <h2 className="woodSign">Ships</h2>
                                 {Ships.map(item => (
                                     <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
                                 ))}

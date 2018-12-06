@@ -441,12 +441,24 @@ h4 {
   height: 255px;
 }
 
+.merchantOptions {
+  width: 550px;
+  border-style: double;
+  border-color: black;
+}
+
 .merchantItem {
   background-image: url('./assets//u0.jpg');
-  /* width: 350px; */
-  margin-top: 2px;  
-  border-color: black;
-  border-style: double;
+  margin-top: 2px;
+  border-style: outset;
+}
+
+.merchantItem:hover {
+  border-style: inset;
+}
+
+.woodSign {
+  background-image: url('./assets/sign.jpg');
 }
 
 @-webkit-keyframes glow {
