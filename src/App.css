@@ -442,7 +442,15 @@ h4 {
 }
 
 .merchantOptions {
+  float: left;
   width: 550px;
+  border-style: double;
+  border-color: black;
+}
+
+.merchantPending {
+  float: left;
+  width: 450px;
   border-style: double;
   border-color: black;
 }

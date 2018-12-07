@@ -27,8 +27,8 @@ import Ships from '../assets/Json/Ships';
 
 
 class Main extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             loggedIn: false,
             user: null,
@@ -60,6 +60,7 @@ class Main extends Component {
             npcDiv: false,
             bigEventDiv: false,
             monsterDiv: false,
+            soundDiv: false,
             creatureChallengeRatings: ["", "0", "1/2", "1/4", "1/8", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "19", "20", "21", "22", "23", "24", "30"],
             creatureTypes: ["", "aberration", "humanoid", "dragon", "undead", "elemental", "monstrosity", "construct", "beast", "plant", "fiend", "ooze", "fey", "giant", "celestial", "swarm of Tiny beasts"],
             searchByChallengeRating: "",
@@ -103,6 +104,11 @@ class Main extends Component {
             equipmentPack: "Burglar's Pack",
             itemsInPack: [],
             itemsInPackTotalWeight: 0,
+            merchantPending: [],
+            pendingCP: 0,
+            pendingSP: 0,
+            pendingGP: 0,
+            pendingPP: 0,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -129,6 +135,8 @@ class Main extends Component {
         this.handleEquipmentPack = this.handleEquipmentPack.bind(this);
         this.handleSearchCreature = this.handleSearchCreature.bind(this);
         this.handleSelectCreature = this.handleSelectCreature.bind(this);
+        this.handlePlay = this.handlePlay.bind(this);
+        this.handleMerchantEquipment = this.handleMerchantEquipment.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -2997,6 +3005,17 @@ class Main extends Component {
                     });
                 }
                 break;
+            case ("sound"):
+                if (this.state.soundDiv === false) {
+                    this.setState({
+                        soundDiv: true,
+                    });
+                }
+                else if (this.state.soundDiv === true) {
+                    this.setState({
+                        soundDiv: false
+                    });
+                }
         }
 
     };
@@ -3328,6 +3347,66 @@ class Main extends Component {
         return total + num;
     };
 
+    handlePlay(event) {
+        console.log(event.target.value);
+    };
+
+    handleMerchantEquipment(item) {
+        let pending = this.state.merchantPending;
+        console.log(pending);
+        let found = Equipment.find(el => item === el.Name);
+        console.log(item);
+        console.log(found);
+        let check = pending.find(el => el.Name === found.Name)
+        console.log(check);
+        if (!check) {
+            found.Quantity = 1;
+            pending.push(found);
+        }
+        else {
+            var foundIndex = pending.findIndex(el => el.Name === check.Name);
+            check.Quantity = check.Quantity +1;
+            pending[foundIndex] = check;
+            
+        }
+        let CP = [0];
+        let SP = [0];
+        let GP = [0];
+        let PP = [0];
+        pending.map(item => {
+            let cost = item.Cost*item.Quantity;
+            if (item.Currency === "CP") {
+                CP.push(cost);
+            }
+            else if (item.Currency === "SP") {
+                SP.push(cost);
+            }
+            else if (item.Currency === "GP") {
+                GP.push(cost);
+            }
+            else if (item.Currency === "PP") {
+                PP.push(cost);
+            }
+        });
+        let totalCP = CP.reduce(this.getSum);
+        let totalSP = SP.reduce(this.getSum);
+        let totalGP = GP.reduce(this.getSum);
+        let totalPP = PP.reduce(this.getSum);
+
+        console.log(`Total CP ${totalCP}`);
+        console.log(`Total SP ${totalSP}`);
+        console.log(`Total GP ${totalGP}`);
+        console.log(`Total PP ${totalPP}`);
+
+        this.setState({
+            merchantPending: pending,
+            pendingCP: totalCP,
+            pendingSP: totalSP,
+            pendingGP: totalGP,
+            pendingPP: totalPP,
+        });
+    };
+
 
     render() {
 
@@ -3382,6 +3461,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="merchant" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="sound" />
                     </div>
 
                     {/* Individual Loot Div */}
@@ -3858,29 +3939,48 @@ class Main extends Component {
                     }
                     {(this.state.merchantDiv === true)
                         ?
-                        <div class="visible" id="merchantDiv">
+                        <div className="visible" id="merchantDiv">
                             <div className="merchantOptions">
                                 <h2 className="woodSign">Items</h2>
                                 {Equipment.map(item => (
-                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    <div onClick={() => this.handleMerchantEquipment(item.Name)} className="merchantItem" key={item.Name} value={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                 ))}
                                 <h2 className="woodSign">Trade Goods</h2>
                                 {TradeGoods.map(item => (
-                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                 ))}
                                 <h2 className="woodSign">Mounts</h2>
                                 {Mounts.map(item => (
-                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
+                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
                                 ))}
                                 <h2 className="woodSign">Tack, Hardness, and Vehicles</h2>
                                 {TackHarnessVehicle.map(item => (
-                                   <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div> 
+                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
                                 ))}
                                 <h2 className="woodSign">Ships</h2>
                                 {Ships.map(item => (
-                                    <div className="merchantItem">{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
+                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
                                 ))}
                             </div>
+                            {(this.state.merchantPending.length > 0)
+                                ?
+                                <div className="merchantPending">
+                                    <h2 className="woodSign">Pending</h2>
+                                    {this.state.merchantPending.map(item => (
+                                        <div className="merchantItem" key={item.Name}>{item.Name} | Quantity: {item.Quantity}</div>
+                                    ))}
+                                    <h2 className="woodSign">Total: CP: {this.state.pendingCP} | SP: {this.state.pendingSP} | GP: {this.state.pendingGP} | PP: {this.state.pendingPP}</h2>
+                                </div>
+                                : null
+                            }
+                        </div>
+                        : null
+                    }
+                    {(this.state.soundDiv === true)
+                        ?
+                        <div className="visible">
+                            <span className="customButton" onClick={this.handlePlay}>Play</span>
+
                         </div>
                         : null
                     }
