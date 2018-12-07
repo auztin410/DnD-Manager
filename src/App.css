@@ -13,7 +13,7 @@ body {
   background-color:rgba(227, 219, 179, 1);
 }
 
-h2 {
+h2, h3, h4 {
   margin: 0;
 }
 
@@ -297,7 +297,7 @@ h4 {
 }
 
 #merchantDiv {
-  width: 1468px;
+  width: 1520px;
 }
 
 .squareModal {
@@ -450,7 +450,7 @@ h4 {
 
 .merchantPending {
   float: left;
-  width: 450px;
+  width: 475px;
   border-style: double;
   border-color: black;
 }
