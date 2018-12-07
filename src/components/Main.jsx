@@ -23,6 +23,8 @@ import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
 
+import SoundFile from '../assets/Music/night2.mp3';
+
 
 
 
@@ -115,7 +117,9 @@ class Main extends Component {
             yourEP: 2,
             yourGP: 50,
             yourPP: 1,
-            merchantPurchased: [],
+            purchased: [],
+            play: false,
+            pause: true,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -142,9 +146,12 @@ class Main extends Component {
         this.handleEquipmentPack = this.handleEquipmentPack.bind(this);
         this.handleSearchCreature = this.handleSearchCreature.bind(this);
         this.handleSelectCreature = this.handleSelectCreature.bind(this);
-        this.handlePlay = this.handlePlay.bind(this);
         this.handleMerchantEquipment = this.handleMerchantEquipment.bind(this);
         this.handleMerchantPurchase = this.handleMerchantPurchase.bind(this);
+
+        this.onPlay = this.onPlay.bind(this);
+        this.onPause = this.onPause.bind(this);
+        this.sound = new Audio(SoundFile);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -3355,21 +3362,24 @@ class Main extends Component {
         return total + num;
     };
 
-    handlePlay(event) {
-        console.log(event.target.value);
-    };
-
     handleMerchantEquipment(item) {
+        console.log("ON CLICK");
+        console.log(this.state.purchased)
         let pending = this.state.merchantPending;
         let found = Equipment.find(el => item === el.Name);
         let check = pending.find(el => el.Name === found.Name);
         if (!check) {
+            console.log("Check State IF");
+            console.log(this.state.purchased);
             found.Quantity = 1;
             pending.push(found);
         }
         else {
+            console.log("Check State ELSE");
+            console.log(this.state.purchased)
+
             var foundIndex = pending.findIndex(el => el.Name === check.Name);
-            check.Quantity = check.Quantity + 1;
+            check.Quantity += 1;
             pending[foundIndex] = check;
 
         }
@@ -3652,18 +3662,22 @@ class Main extends Component {
             let totalEP = yourEP - costEP;
             let totalGP = yourGP - costGP;
             let totalPP = yourPP - costPP;
-            let purchased = this.state.merchantPurchased;
+            let purchased = [];
             this.state.merchantPending.map(item => {
-                let check = purchased.find(el => el.Name === item.Name && el.Quantity > 1);
-                if (!check) {
-                    purchased.push(item);
-                }
-                else {
-                    var foundIndex = purchased.findIndex(el => el.Name === check.Name);
-                    item.Quantity = item.Quantity +1;
-                    purchased[foundIndex] = item;
-                }
-            })
+                purchased.push(item)
+            });
+
+            // this.state.merchantPending.forEach(item => {
+            //     let check = purchased.find(el => el.Name === item.Name && el.Quantity > 1);
+            //     if (!check) {
+            //         purchased.push(item);
+            //     }
+            //     else {;
+            //         var foundIndex = purchased.findIndex(el => el.Name === check.Name);
+            //         item.Quantity +=1;
+            //         purchased[foundIndex] = item;
+            //     }
+            // })
 
             this.setState({
                 yourCP: totalCP,
@@ -3671,8 +3685,9 @@ class Main extends Component {
                 yourEP: totalEP,
                 yourGP: totalGP,
                 yourPP: totalPP,
+                purchased: purchased,
                 merchantPending: [],
-                merchantPurchased: purchased,
+
             });
         }
         else if (yourCP <= costCP && yourSP > costSP && yourEP > costEP && yourGP >= costGP && yourPP >= costPP) {
@@ -3703,6 +3718,13 @@ class Main extends Component {
         }
     };
 
+    onPlay(){
+        this.sound.play();
+      }
+
+    onPause(){
+        this.sound.pause();
+    }
 
     render() {
 
@@ -4273,7 +4295,7 @@ class Main extends Component {
                             <div className="merchantPending">
                                 <h2 className="woodSign">Purchased</h2>
                                 <h3 className="woodSign">Your: CP: {this.state.yourCP} | SP: {this.state.yourSP} | EP: {this.state.yourEP} | GP: {this.state.yourGP} | PP: {this.state.yourPP}</h3>
-                                {this.state.merchantPurchased.map(item => (
+                                {this.state.purchased.map(item => (
                                     <div className="merchantItem" key={item.Name}>{item.Name} | Quantity: {item.Quantity}</div>
                                 ))}
                             </div>
@@ -4283,7 +4305,7 @@ class Main extends Component {
                     {(this.state.soundDiv === true)
                         ?
                         <div className="visible">
-                            <span className="customButton" onClick={this.handlePlay}>Play</span>
+                            <span className="customButton" onClick={this.onPlay}>Play</span> {" "} <span className="customButton" onClick={this.onPause}>Pause</span>
 
                         </div>
                         : null
