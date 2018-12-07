@@ -109,6 +109,10 @@ class Main extends Component {
             pendingSP: 0,
             pendingGP: 0,
             pendingPP: 0,
+            yourCP: 5,
+            yourSP: 20,
+            yourGP: 50,
+            yourPP: 1,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -137,6 +141,7 @@ class Main extends Component {
         this.handleSelectCreature = this.handleSelectCreature.bind(this);
         this.handlePlay = this.handlePlay.bind(this);
         this.handleMerchantEquipment = this.handleMerchantEquipment.bind(this);
+        this.handleMerchantPurchase = this.handleMerchantPurchase.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -3353,28 +3358,24 @@ class Main extends Component {
 
     handleMerchantEquipment(item) {
         let pending = this.state.merchantPending;
-        console.log(pending);
         let found = Equipment.find(el => item === el.Name);
-        console.log(item);
-        console.log(found);
-        let check = pending.find(el => el.Name === found.Name)
-        console.log(check);
+        let check = pending.find(el => el.Name === found.Name);
         if (!check) {
             found.Quantity = 1;
             pending.push(found);
         }
         else {
             var foundIndex = pending.findIndex(el => el.Name === check.Name);
-            check.Quantity = check.Quantity +1;
+            check.Quantity = check.Quantity + 1;
             pending[foundIndex] = check;
-            
+
         }
         let CP = [0];
         let SP = [0];
         let GP = [0];
         let PP = [0];
         pending.map(item => {
-            let cost = item.Cost*item.Quantity;
+            let cost = item.Cost * item.Quantity;
             if (item.Currency === "CP") {
                 CP.push(cost);
             }
@@ -3392,12 +3393,6 @@ class Main extends Component {
         let totalSP = SP.reduce(this.getSum);
         let totalGP = GP.reduce(this.getSum);
         let totalPP = PP.reduce(this.getSum);
-
-        console.log(`Total CP ${totalCP}`);
-        console.log(`Total SP ${totalSP}`);
-        console.log(`Total GP ${totalGP}`);
-        console.log(`Total PP ${totalPP}`);
-
         this.setState({
             merchantPending: pending,
             pendingCP: totalCP,
@@ -3405,6 +3400,263 @@ class Main extends Component {
             pendingGP: totalGP,
             pendingPP: totalPP,
         });
+    };
+
+    handleMerchantTradeGoods(item) {
+        let pending = this.state.merchantPending;
+        let found = TradeGoods.find(el => item === el.Name);
+        let check = pending.find(el => el.Name === found.Name);
+        if (!check) {
+            found.Quantity = 1;
+            pending.push(found);
+        }
+        else {
+            var foundIndex = pending.findIndex(el => el.Name === check.Name);
+            check.Quantity = check.Quantity + 1;
+            pending[foundIndex] = check;
+
+        }
+        let CP = [0];
+        let SP = [0];
+        let GP = [0];
+        let PP = [0];
+        pending.map(item => {
+            let cost = item.Cost * item.Quantity;
+            if (item.Currency === "CP") {
+                CP.push(cost);
+            }
+            else if (item.Currency === "SP") {
+                SP.push(cost);
+            }
+            else if (item.Currency === "GP") {
+                GP.push(cost);
+            }
+            else if (item.Currency === "PP") {
+                PP.push(cost);
+            }
+        });
+        let totalCP = CP.reduce(this.getSum);
+        let totalSP = SP.reduce(this.getSum);
+        let totalGP = GP.reduce(this.getSum);
+        let totalPP = PP.reduce(this.getSum);
+        this.setState({
+            merchantPending: pending,
+            pendingCP: totalCP,
+            pendingSP: totalSP,
+            pendingGP: totalGP,
+            pendingPP: totalPP,
+        });
+    };
+
+    handleMerchantMounts(item) {
+        let pending = this.state.merchantPending;
+        let found = Mounts.find(el => item === el.Name);
+        let check = pending.find(el => el.Name === found.Name);
+        if (!check) {
+            found.Quantity = 1;
+            pending.push(found);
+        }
+        else {
+            var foundIndex = pending.findIndex(el => el.Name === check.Name);
+            check.Quantity = check.Quantity + 1;
+            pending[foundIndex] = check;
+
+        }
+        let CP = [0];
+        let SP = [0];
+        let GP = [0];
+        let PP = [0];
+        pending.map(item => {
+            let cost = item.Cost * item.Quantity;
+            if (item.Currency === "CP") {
+                CP.push(cost);
+            }
+            else if (item.Currency === "SP") {
+                SP.push(cost);
+            }
+            else if (item.Currency === "GP") {
+                GP.push(cost);
+            }
+            else if (item.Currency === "PP") {
+                PP.push(cost);
+            }
+        });
+        let totalCP = CP.reduce(this.getSum);
+        let totalSP = SP.reduce(this.getSum);
+        let totalGP = GP.reduce(this.getSum);
+        let totalPP = PP.reduce(this.getSum);
+        this.setState({
+            merchantPending: pending,
+            pendingCP: totalCP,
+            pendingSP: totalSP,
+            pendingGP: totalGP,
+            pendingPP: totalPP,
+        });
+    };
+
+    handleMerchantTackHarnessVehicles(item) {
+        let pending = this.state.merchantPending;
+        let found = TackHarnessVehicle.find(el => item === el.Name);
+        let check = pending.find(el => el.Name === found.Name);
+        if (!check) {
+            found.Quantity = 1;
+            pending.push(found);
+        }
+        else {
+            var foundIndex = pending.findIndex(el => el.Name === check.Name);
+            check.Quantity = check.Quantity + 1;
+            pending[foundIndex] = check;
+
+        }
+        let CP = [0];
+        let SP = [0];
+        let GP = [0];
+        let PP = [0];
+        pending.map(item => {
+            let cost = item.Cost * item.Quantity;
+            if (item.Currency === "CP") {
+                CP.push(cost);
+            }
+            else if (item.Currency === "SP") {
+                SP.push(cost);
+            }
+            else if (item.Currency === "GP") {
+                GP.push(cost);
+            }
+            else if (item.Currency === "PP") {
+                PP.push(cost);
+            }
+        });
+        let totalCP = CP.reduce(this.getSum);
+        let totalSP = SP.reduce(this.getSum);
+        let totalGP = GP.reduce(this.getSum);
+        let totalPP = PP.reduce(this.getSum);
+        this.setState({
+            merchantPending: pending,
+            pendingCP: totalCP,
+            pendingSP: totalSP,
+            pendingGP: totalGP,
+            pendingPP: totalPP,
+        });
+    };
+
+    handleMerchantShips(item) {
+        let pending = this.state.merchantPending;
+        let found = Ships.find(el => item === el.Name);
+        let check = pending.find(el => el.Name === found.Name);
+        if (!check) {
+            found.Quantity = 1;
+            pending.push(found);
+        }
+        else {
+            var foundIndex = pending.findIndex(el => el.Name === check.Name);
+            check.Quantity = check.Quantity + 1;
+            pending[foundIndex] = check;
+
+        }
+        let CP = [0];
+        let SP = [0];
+        let GP = [0];
+        let PP = [0];
+        pending.map(item => {
+            let cost = item.Cost * item.Quantity;
+            if (item.Currency === "CP") {
+                CP.push(cost);
+            }
+            else if (item.Currency === "SP") {
+                SP.push(cost);
+            }
+            else if (item.Currency === "GP") {
+                GP.push(cost);
+            }
+            else if (item.Currency === "PP") {
+                PP.push(cost);
+            }
+        });
+        let totalCP = CP.reduce(this.getSum);
+        let totalSP = SP.reduce(this.getSum);
+        let totalGP = GP.reduce(this.getSum);
+        let totalPP = PP.reduce(this.getSum);
+        this.setState({
+            merchantPending: pending,
+            pendingCP: totalCP,
+            pendingSP: totalSP,
+            pendingGP: totalGP,
+            pendingPP: totalPP,
+        });
+    };
+
+    handleRemoveFromPending(item) {
+        let pending = this.state.merchantPending;
+
+        let check = pending.find(el => el.Name === item && el.Quantity > 1);
+        if (!check) {
+            let foundIndex = pending.findIndex(el => el.Name === item)
+            pending.splice(foundIndex, 1);
+        }
+        else {
+            var foundIndex = pending.findIndex(el => el.Name === check.Name);
+            check.Quantity = check.Quantity - 1;
+            pending[foundIndex] = check;
+
+        }
+        let CP = [0];
+        let SP = [0];
+        let GP = [0];
+        let PP = [0];
+        pending.map(item => {
+            let cost = item.Cost * item.Quantity;
+            if (item.Currency === "CP") {
+                CP.push(cost);
+            }
+            else if (item.Currency === "SP") {
+                SP.push(cost);
+            }
+            else if (item.Currency === "GP") {
+                GP.push(cost);
+            }
+            else if (item.Currency === "PP") {
+                PP.push(cost);
+            }
+        });
+        let totalCP = CP.reduce(this.getSum);
+        let totalSP = SP.reduce(this.getSum);
+        let totalGP = GP.reduce(this.getSum);
+        let totalPP = PP.reduce(this.getSum);
+        this.setState({
+            merchantPending: pending,
+            pendingCP: totalCP,
+            pendingSP: totalSP,
+            pendingGP: totalGP,
+            pendingPP: totalPP,
+        });
+    };
+
+    handleMerchantPurchase() {
+        let yourCP = this.state.yourCP;
+        let yourSP = this.state.yourSP;
+        let yourGP = this.state.yourGP;
+        let yourPP = this.state.yourPP;
+        let costCP = this.state.pendingCP;
+        let costSP = this.state.pendingSP;
+        let costGP = this.state.pendingGP;
+        let costPP = this.state.pendingPP;
+        if (yourCP >= costCP && yourSP >= costSP && yourGP >= costGP && yourPP >= costPP) {
+            let totalCP = yourCP - costCP;
+            let totalSP = yourSP - costSP;
+            let totalGP = yourGP - costGP;
+            let totalPP = yourPP - costPP;
+            this.setState({
+                yourCP: totalCP,
+                yourSP: totalSP,
+                yourGP: totalGP,
+                yourPP: totalPP,
+                merchantPending: [],
+            });
+        }
+        else if (yourCP <= costCP && yourSP > costSP && yourGP >= costGP && yourPP >= costPP) {
+            
+        }
     };
 
 
@@ -3947,32 +4199,32 @@ class Main extends Component {
                                 ))}
                                 <h2 className="woodSign">Trade Goods</h2>
                                 {TradeGoods.map(item => (
-                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    <div onClick={() => this.handleMerchantTradeGoods(item.Name)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                 ))}
                                 <h2 className="woodSign">Mounts</h2>
                                 {Mounts.map(item => (
-                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
+                                    <div onClick={() => this.handleMerchantMounts(item.Name)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
                                 ))}
                                 <h2 className="woodSign">Tack, Hardness, and Vehicles</h2>
                                 {TackHarnessVehicle.map(item => (
-                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
+                                    <div onClick={() => this.handleMerchantTackHarnessVehicles(item.Name)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
                                 ))}
                                 <h2 className="woodSign">Ships</h2>
                                 {Ships.map(item => (
-                                    <div className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
+                                    <div onClick={() => this.handleMerchantShips(item.Name)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
                                 ))}
                             </div>
-                            {(this.state.merchantPending.length > 0)
-                                ?
-                                <div className="merchantPending">
-                                    <h2 className="woodSign">Pending</h2>
-                                    {this.state.merchantPending.map(item => (
-                                        <div className="merchantItem" key={item.Name}>{item.Name} | Quantity: {item.Quantity}</div>
-                                    ))}
-                                    <h2 className="woodSign">Total: CP: {this.state.pendingCP} | SP: {this.state.pendingSP} | GP: {this.state.pendingGP} | PP: {this.state.pendingPP}</h2>
-                                </div>
-                                : null
-                            }
+                            <div className="merchantPending">
+                                <h2 className="woodSign">Pending</h2>
+                                {this.state.merchantPending.map(item => (
+                                    <div onClick={() => this.handleRemoveFromPending(item.Name)} className="merchantItem" key={item.Name}>{item.Name} | Quantity: {item.Quantity}</div>
+                                ))}
+                                <h2 className="woodSign">Total: CP: {this.state.pendingCP} | SP: {this.state.pendingSP} | GP: {this.state.pendingGP} | PP: {this.state.pendingPP}</h2>
+                                <span onClick={this.handleMerchantPurchase} className="merchantItem">Buy</span>
+                            </div>
+                            <div className="merchantPending">
+                                <h2 className="woodSign">Your: CP: {this.state.yourCP} | SP: {this.state.yourSP} | GP: {this.state.yourGP} | PP: {this.state.yourPP}</h2>
+                            </div>
                         </div>
                         : null
                     }
