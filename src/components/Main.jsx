@@ -22,7 +22,7 @@ import TradeGoods from '../assets/Json/TradeGoods';
 import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
-
+import ReactHowler from 'react-howler'
 import SoundFile from '../assets/Music/night2.mp3';
 
 
@@ -120,6 +120,7 @@ class Main extends Component {
             purchased: [],
             play: false,
             pause: true,
+            sounds: [false]
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -148,10 +149,8 @@ class Main extends Component {
         this.handleSelectCreature = this.handleSelectCreature.bind(this);
         this.handleMerchantEquipment = this.handleMerchantEquipment.bind(this);
         this.handleMerchantPurchase = this.handleMerchantPurchase.bind(this);
-
-        this.onPlay = this.onPlay.bind(this);
-        this.onPause = this.onPause.bind(this);
-        this.sound = new Audio(SoundFile);
+        this.handlePlay = this.handlePlay.bind(this);
+        this.handleStop = this.handleStop.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -3364,16 +3363,16 @@ class Main extends Component {
 
     handleMerchantEquipment(item) {
         console.log(item);
-        let pending = [...this.state.merchantPending.map(obj => ({...obj}))];
+        let pending = [...this.state.merchantPending.map(obj => ({ ...obj }))];
         let thing = item;
         let check = pending.find(el => el.Name === thing.Name);
         if (!check) {
-            thing.Count =1;
+            thing.Count = 1;
             pending.push(thing);
         }
         else {
             var foundIndex = pending.findIndex(el => el.Name === check.Name);
-            item.Count +=1;
+            item.Count += 1;
             pending[foundIndex] = item;
 
         }
@@ -3422,7 +3421,7 @@ class Main extends Component {
         }
         else {
             var foundIndex = pending.findIndex(el => el.Name === check.Name);
-            check.Count -=1;
+            check.Count -= 1;
             pending[foundIndex] = check;
 
         }
@@ -3439,7 +3438,7 @@ class Main extends Component {
             else if (item.Currency === "SP") {
                 SP.push(cost);
             }
-            else if(item.Currency === "EP") {
+            else if (item.Currency === "EP") {
                 EP.push(cost);
             }
             else if (item.Currency === "GP") {
@@ -3486,7 +3485,7 @@ class Main extends Component {
 
             pending.forEach(item => {
                 let resObj = purchased.find(resObj => resObj.Name === item.Name);
-                resObj ? resObj.Count= resObj.Count + item.Count : purchased.push({ 'Name': item.Name, 'Cost': item.Cost, 'Count': item.Count, 'Description': item.Description, 'Weight': item.Weight, 'Currency': item.Currency});
+                resObj ? resObj.Count = resObj.Count + item.Count : purchased.push({ 'Name': item.Name, 'Cost': item.Cost, 'Count': item.Count, 'Description': item.Description, 'Weight': item.Weight, 'Currency': item.Currency });
             });
             console.log(purchased);
             this.setState({
@@ -3522,12 +3521,20 @@ class Main extends Component {
         }
     };
 
-    onPlay() {
-        this.sound.play();
-    }
+    handlePlay() {
+        let sounds = [...this.state.sounds];
+        sounds[0] = true;
+        this.setState({
+            sounds,
+        });
+    };
 
-    onPause() {
-        this.sound.pause();
+    handleStop() {
+        let sounds = [...this.state.sounds];
+        sounds[0] = false;
+        this.setState({
+            sounds,
+        });
     }
 
     render() {
@@ -4089,36 +4096,36 @@ class Main extends Component {
                                 {this.state.merchantPending.map(item => (
                                     <div onClick={() => this.handleRemoveFromPending(item.Name)} className="merchantItem" key={item.Name}>{item.Name} | Quantity: {item.Count}</div>
                                 ))}
-                                <h3 className="woodSign">Total: 
+                                <h3 className="woodSign">Total:
                                 {(this.state.pendingCP > this.state.yourCP)
-                                ?
-                                <span className="red">CP: {this.state.pendingCP} </span>
-                                : <span>CP: {this.state.pendingCP} </span>
-                                }
-                                |
+                                        ?
+                                        <span className="red">CP: {this.state.pendingCP} </span>
+                                        : <span>CP: {this.state.pendingCP} </span>
+                                    }
+                                    |
                                 {(this.state.pendingSP > this.state.yourSP)
-                                ?
-                                <span className="red"> SP: {this.state.pendingSP} </span>
-                                : <span> SP: {this.state.pendingSP} </span>
-                                }
-                                |
+                                        ?
+                                        <span className="red"> SP: {this.state.pendingSP} </span>
+                                        : <span> SP: {this.state.pendingSP} </span>
+                                    }
+                                    |
                                 {(this.state.pendingEP > this.state.yourEP)
-                                ?
-                                <span className="red"> EP: {this.state.pendingEP} </span>
-                                : <span> EP: {this.state.pendingEP} </span>
-                                }
-                                |
+                                        ?
+                                        <span className="red"> EP: {this.state.pendingEP} </span>
+                                        : <span> EP: {this.state.pendingEP} </span>
+                                    }
+                                    |
                                 {(this.state.pendingGP > this.state.yourGP)
-                                ?
-                                <span className="red"> GP: {this.state.pendingGP} </span>
-                                : <span> GP: {this.state.pendingGP} </span>
-                                }
-                                |
+                                        ?
+                                        <span className="red"> GP: {this.state.pendingGP} </span>
+                                        : <span> GP: {this.state.pendingGP} </span>
+                                    }
+                                    |
                                 {(this.state.pendingPP > this.state.yourPP)
-                                ?
-                                <span className="red"> PP: {this.state.pendingPP}</span>
-                                : <span> PP: {this.state.pendingPP}</span>
-                                }
+                                        ?
+                                        <span className="red"> PP: {this.state.pendingPP}</span>
+                                        : <span> PP: {this.state.pendingPP}</span>
+                                    }
                                 </h3>
                                 {(this.state.merchantPending.length > 0 && this.state.pendingCP <= this.state.yourCP && this.state.pendingSP <= this.state.yourSP && this.state.pendingEP <= this.state.yourEP && this.state.pendingGP <= this.state.yourGP && this.state.pendingPP <= this.state.yourPP)
                                     ?
@@ -4139,7 +4146,20 @@ class Main extends Component {
                     {(this.state.soundDiv === true)
                         ?
                         <div className="visible">
-                            <span className="customButton" onClick={this.onPlay}>Play</span> {" "} <span className="customButton" onClick={this.onPause}>Pause</span>
+                            {(this.state.sounds[0] === true)
+                                ?
+                                <div>
+                                    <span onClick={this.handleStop}>Stop</span>
+                                    <ReactHowler
+                                        src={SoundFile}
+                                        playing={true}
+                                        loop={true}
+                                        ref={(ref) => (this.player = ref)}
+                                    />
+                                </div>
+                                :
+                                <div><span onClick={this.handlePlay}>Play</span></div>
+                            }
 
                         </div>
                         : null
