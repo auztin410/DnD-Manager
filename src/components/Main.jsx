@@ -23,7 +23,7 @@ import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
 import ReactHowler from 'react-howler'
-import SoundFile from '../assets/Music/night2.mp3';
+import {blackLotus, nightSounds, darkWinds} from '../assets/Music';
 
 
 
@@ -4151,7 +4151,7 @@ class Main extends Component {
                                 <div>
                                     <span onClick={this.handleStop}>Stop</span>
                                     <ReactHowler
-                                        src={SoundFile}
+                                        src= {darkWinds}
                                         playing={true}
                                         loop={true}
                                         ref={(ref) => (this.player = ref)}
@@ -4160,10 +4160,11 @@ class Main extends Component {
                                 :
                                 <div><span onClick={this.handlePlay}>Play</span></div>
                             }
-
+                            
                         </div>
                         : null
                     }
+                    
                 </div>
             )
         }
