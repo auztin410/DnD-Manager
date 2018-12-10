@@ -164,6 +164,8 @@ class Main extends Component {
         this.handlePlay = this.handlePlay.bind(this);
         this.handleStop = this.handleStop.bind(this);
         this.handleVendorSections = this.handleVendorSections.bind(this);
+        this.handleGenerateSettlement = this.handleGenerateSettlement.bind(this);
+        this.shuffle = this.shuffle.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -3686,7 +3688,62 @@ class Main extends Component {
         this.setState({
             sounds,
         });
-    }
+    };
+
+    handleGenerateSettlement() {
+        let generalItems = Equipment;
+        let weapons = WeaponsList;
+        let tradeGoods = TradeGoods;
+        let mounts = Mounts;
+        let mountEquipment = TackHarnessVehicle;
+        let ships = Ships;
+        let farm = tradeGoods.filter(item => item.Keyword === "Farm");
+        let livestock = tradeGoods.filter(item => item.Keyword === "Livestock");
+        let spice = tradeGoods.filter(item => item.Keyword === "Spice");
+        let ore = tradeGoods.filter(item => item.Keyword === "Ore");
+        let cloth = tradeGoods.filter(item => item.Keyword === "Cloth");
+        console.log(farm);
+        console.log(livestock);
+        console.log(spice);
+        console.log(ore);
+        console.log(cloth);
+        console.log(`General Items: ${generalItems.length}`);
+        console.log(`Weapons: ${weapons.length}`);
+        console.log(`Mounts: ${mounts.length}`);
+        console.log(`Tack, Harness, Vehicles: ${mountEquipment.length}`);
+        console.log(`Ships: ${ships.length}`);
+
+        switch (this.state.sizeSettlement) {
+            case ("settlement"):
+            let general = Math.floor(Math.random() * 25);
+            console.log(general);
+            let shuffled = this.shuffle(generalItems);
+            let vendor = shuffled.slice(0,general);
+            console.log("results for general items");
+            console.log(vendor);
+
+
+        }
+    };
+
+    shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+      
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+      
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+      
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+      
+        return array;
+      };
 
     render() {
 
@@ -4378,7 +4435,7 @@ class Main extends Component {
                             </select>
                             <br />
                             <br />
-                            <button>Generate Settlement!</button>
+                            <button onClick={this.handleGenerateSettlement}>Generate Settlement!</button>
                             <br/>
                             <br/>
                         </div>
