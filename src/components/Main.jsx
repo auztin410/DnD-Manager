@@ -107,6 +107,7 @@ class Main extends Component {
             itemsInPack: [],
             itemsInPackTotalWeight: 0,
             merchantPending: [],
+            vendorSections: [false,false,false,false, false],
             pendingCP: 0,
             pendingSP: 0,
             pendingEP: 0,
@@ -151,6 +152,7 @@ class Main extends Component {
         this.handleMerchantPurchase = this.handleMerchantPurchase.bind(this);
         this.handlePlay = this.handlePlay.bind(this);
         this.handleStop = this.handleStop.bind(this);
+        this.handleVendorSections = this.handleVendorSections.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -3521,6 +3523,92 @@ class Main extends Component {
         }
     };
 
+    handleVendorSections(event) {
+        console.log(event.target.innerHTML);
+        let array0True = [...this.state.vendorSections];
+        let array0False = [...this.state.vendorSections];
+        let array1True = [...this.state.vendorSections];
+        let array1False = [...this.state.vendorSections];
+        let array2True = [...this.state.vendorSections];
+        let array2False = [...this.state.vendorSections];
+        let array3True = [...this.state.vendorSections];
+        let array3False = [...this.state.vendorSections];
+        let array4True = [...this.state.vendorSections];
+        let array4False = [...this.state.vendorSections];
+        array0True[0] = true;
+        array0False[0] = false;
+        array1True[1] = true;
+        array1False[1] = false;
+        array2True[2] = true;
+        array2False[2] = false;
+        array3True[3] = true;
+        array3False[3] = false;
+        array4True[4] = true;
+        array4False[4] = false;
+        switch (event.target.innerHTML) {
+            case("Items"):
+            if (this.state.vendorSections[0] === false) {
+                this.setState({
+                    vendorSections: array0True,
+                });
+            }
+            else if (this.state.vendorSections[0] === true) {
+                this.setState({
+                    vendorSections: array0False,
+                });
+            }
+            break;
+            case("Trade Goods"):
+            if (this.state.vendorSections[1] === false) {
+                this.setState({
+                    vendorSections: array1True,
+                });
+            }
+            else if (this.state.vendorSections[1] === true) {
+                this.setState({
+                    vendorSections: array1False,
+                });
+            }
+            break;
+            case("Mounts"):
+            if (this.state.vendorSections[2] === false) {
+                this.setState({
+                    vendorSections: array2True,
+                });
+            }
+            else if (this.state.vendorSections[2] === true) {
+                this.setState({
+                    vendorSections: array2False,
+                });
+            }
+            break;
+            case("Tack, Hardness, and Vehicles"):
+            if (this.state.vendorSections[3] === false) {
+                this.setState({
+                    vendorSections: array3True,
+                });
+            }
+            else if (this.state.vendorSections[3] === true) {
+                this.setState({
+                    vendorSections: array3False,
+                });
+            }
+            break;
+            case("Ships"):
+            if (this.state.vendorSections[4] === false) {
+                this.setState({
+                    vendorSections: array4True,
+                });
+            }
+            else if (this.state.vendorSections[4] === true) {
+                this.setState({
+                    vendorSections: array4False,
+                });
+            }
+            break;
+        }
+    };
+
     handlePlay() {
         let sounds = [...this.state.sounds];
         sounds[0] = true;
@@ -4070,26 +4158,56 @@ class Main extends Component {
                         ?
                         <div className="visible" id="merchantDiv">
                             <div className="merchantOptions">
-                                <h2 className="woodSign">Items</h2>
+                            {(this.state.vendorSections[0] === true)
+                            ?
+                            <div>
+                            <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
                                 {Equipment.map(item => (
                                     <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                 ))}
-                                <h2 className="woodSign">Trade Goods</h2>
+                            </div>
+                            : <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
+                            }
+                            {(this.state.vendorSections[1] === true)
+                            ?
+                            <div>
+                                <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
                                 {TradeGoods.map(item => (
                                     <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                 ))}
-                                <h2 className="woodSign">Mounts</h2>
+                            </div>
+                            : <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
+                            }    
+                            {(this.state.vendorSections[2] === true)
+                            ?
+                            <div>
+                                <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
                                 {Mounts.map(item => (
                                     <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
                                 ))}
-                                <h2 className="woodSign">Tack, Hardness, and Vehicles</h2>
+                            </div>
+                            : <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
+                            }   
+                            {(this.state.vendorSections[3] === true)
+                            ?
+                            <div>
+                                <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
                                 {TackHarnessVehicle.map(item => (
                                     <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
                                 ))}
-                                <h2 className="woodSign">Ships</h2>
+                            </div>
+                            : <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
+                            } 
+                            {(this.state.vendorSections[4] === true)
+                            ?
+                            <div>
+                                <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
                                 {Ships.map(item => (
                                     <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
                                 ))}
+                            </div>
+                            : <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
+                            }   
                             </div>
                             <div className="merchantPending">
                                 <h2 className="woodSign">Pending</h2>
