@@ -23,7 +23,7 @@ import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
 import ReactHowler from 'react-howler'
-import {blackLotus, nightSounds, darkWinds} from '../assets/Music';
+import { blackLotus, nightSounds, darkWinds } from '../assets/Music';
 
 
 
@@ -108,7 +108,7 @@ class Main extends Component {
             itemsInPack: [],
             itemsInPackTotalWeight: 0,
             merchantPending: [],
-            vendorSections: [false,false,false,false, false],
+            vendorSections: [false, false, false, false, false],
             pendingCP: 0,
             pendingSP: 0,
             pendingEP: 0,
@@ -122,10 +122,20 @@ class Main extends Component {
             purchased: [],
             play: false,
             pause: true,
-            sounds: [false]
+            sounds: [false],
+            farmCheckbox: false,
+            mineCheckbox: false,
+            clothCheckbox: false,
+            spiceCheckbox: false,
+            harborCheckbox: false,
+            livestockCheckbox: false,
+            tradeCheckbox: false,
+            sizeSettlement: "settlement",
+            economySettlement: "thriving",
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleCheckBox = this.handleCheckBox.bind(this);
         this.handleNpcGenerator = this.handleNpcGenerator.bind(this);
         this.handleWorldShakingEvent = this.handleWorldShakingEvent.bind(this);
         this.DiceRoll = this.DiceRoll.bind(this);
@@ -188,6 +198,46 @@ class Main extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
+    };
+
+    handleCheckBox(event) {
+        console.log(event.target.value);
+        console.log(event.target.checked);
+        switch (event.target.value) {
+            case ("farm"):
+                this.setState({
+                    farmCheckbox: event.target.checked,
+                });
+                break;
+            case ("mine"):
+                this.setState({
+                    mineCheckbox: event.target.checked,
+                });
+                break;
+            case ("cloth"):
+                this.setState({
+                    clothCheckbox: event.target.checked,
+                });
+                break;
+            case ("spice"):
+                this.setState({
+                    spiceCheckbox: event.target.checked,
+                });
+                break;
+            case ("harbor"):
+                this.setState({
+                    harborCheckbox: event.target.checked,
+                });
+            case ("livestock"):
+                this.setState({
+                    livestockCheckbox: event.target.checked,
+                });
+                break;
+            case ("trade"):
+                this.setState({
+                    tradeCheckbox: event.target.checked,
+                });
+        }
     };
 
     handleNpcGenerator(event) {
@@ -3035,16 +3085,16 @@ class Main extends Component {
                 }
                 break;
             case ("settlement"):
-            if (this.state.settlementDiv === false) {
-                this.setState({
-                    settlementDiv: true,
-                });
-            }
-            else if (this.state.settlementDiv === true) {
-                this.setState({
-                    settlementDiv: false
-                });
-            }
+                if (this.state.settlementDiv === false) {
+                    this.setState({
+                        settlementDiv: true,
+                    });
+                }
+                else if (this.state.settlementDiv === true) {
+                    this.setState({
+                        settlementDiv: false
+                    });
+                }
         }
 
     };
@@ -3559,66 +3609,66 @@ class Main extends Component {
         array4True[4] = true;
         array4False[4] = false;
         switch (event.target.innerHTML) {
-            case("Items"):
-            if (this.state.vendorSections[0] === false) {
-                this.setState({
-                    vendorSections: array0True,
-                });
-            }
-            else if (this.state.vendorSections[0] === true) {
-                this.setState({
-                    vendorSections: array0False,
-                });
-            }
-            break;
-            case("Trade Goods"):
-            if (this.state.vendorSections[1] === false) {
-                this.setState({
-                    vendorSections: array1True,
-                });
-            }
-            else if (this.state.vendorSections[1] === true) {
-                this.setState({
-                    vendorSections: array1False,
-                });
-            }
-            break;
-            case("Mounts"):
-            if (this.state.vendorSections[2] === false) {
-                this.setState({
-                    vendorSections: array2True,
-                });
-            }
-            else if (this.state.vendorSections[2] === true) {
-                this.setState({
-                    vendorSections: array2False,
-                });
-            }
-            break;
-            case("Tack, Hardness, and Vehicles"):
-            if (this.state.vendorSections[3] === false) {
-                this.setState({
-                    vendorSections: array3True,
-                });
-            }
-            else if (this.state.vendorSections[3] === true) {
-                this.setState({
-                    vendorSections: array3False,
-                });
-            }
-            break;
-            case("Ships"):
-            if (this.state.vendorSections[4] === false) {
-                this.setState({
-                    vendorSections: array4True,
-                });
-            }
-            else if (this.state.vendorSections[4] === true) {
-                this.setState({
-                    vendorSections: array4False,
-                });
-            }
-            break;
+            case ("Items"):
+                if (this.state.vendorSections[0] === false) {
+                    this.setState({
+                        vendorSections: array0True,
+                    });
+                }
+                else if (this.state.vendorSections[0] === true) {
+                    this.setState({
+                        vendorSections: array0False,
+                    });
+                }
+                break;
+            case ("Trade Goods"):
+                if (this.state.vendorSections[1] === false) {
+                    this.setState({
+                        vendorSections: array1True,
+                    });
+                }
+                else if (this.state.vendorSections[1] === true) {
+                    this.setState({
+                        vendorSections: array1False,
+                    });
+                }
+                break;
+            case ("Mounts"):
+                if (this.state.vendorSections[2] === false) {
+                    this.setState({
+                        vendorSections: array2True,
+                    });
+                }
+                else if (this.state.vendorSections[2] === true) {
+                    this.setState({
+                        vendorSections: array2False,
+                    });
+                }
+                break;
+            case ("Tack, Hardness, and Vehicles"):
+                if (this.state.vendorSections[3] === false) {
+                    this.setState({
+                        vendorSections: array3True,
+                    });
+                }
+                else if (this.state.vendorSections[3] === true) {
+                    this.setState({
+                        vendorSections: array3False,
+                    });
+                }
+                break;
+            case ("Ships"):
+                if (this.state.vendorSections[4] === false) {
+                    this.setState({
+                        vendorSections: array4True,
+                    });
+                }
+                else if (this.state.vendorSections[4] === true) {
+                    this.setState({
+                        vendorSections: array4False,
+                    });
+                }
+                break;
         }
     };
 
@@ -3694,7 +3744,7 @@ class Main extends Component {
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="sound" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement"/>
+                        <img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement" />
                     </div>
 
                     {/* Individual Loot Div */}
@@ -4173,56 +4223,56 @@ class Main extends Component {
                         ?
                         <div className="visible" id="merchantDiv">
                             <div className="merchantOptions">
-                            {(this.state.vendorSections[0] === true)
-                            ?
-                            <div>
-                            <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
-                                {Equipment.map(item => (
-                                    <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
-                                ))}
-                            </div>
-                            : <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
-                            }
-                            {(this.state.vendorSections[1] === true)
-                            ?
-                            <div>
-                                <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
-                                {TradeGoods.map(item => (
-                                    <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
-                                ))}
-                            </div>
-                            : <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
-                            }    
-                            {(this.state.vendorSections[2] === true)
-                            ?
-                            <div>
-                                <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
-                                {Mounts.map(item => (
-                                    <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
-                                ))}
-                            </div>
-                            : <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
-                            }   
-                            {(this.state.vendorSections[3] === true)
-                            ?
-                            <div>
-                                <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
-                                {TackHarnessVehicle.map(item => (
-                                    <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
-                                ))}
-                            </div>
-                            : <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
-                            } 
-                            {(this.state.vendorSections[4] === true)
-                            ?
-                            <div>
-                                <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
-                                {Ships.map(item => (
-                                    <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
-                                ))}
-                            </div>
-                            : <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
-                            }   
+                                {(this.state.vendorSections[0] === true)
+                                    ?
+                                    <div>
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
+                                        {Equipment.map(item => (
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                        ))}
+                                    </div>
+                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
+                                }
+                                {(this.state.vendorSections[1] === true)
+                                    ?
+                                    <div>
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
+                                        {TradeGoods.map(item => (
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                        ))}
+                                    </div>
+                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
+                                }
+                                {(this.state.vendorSections[2] === true)
+                                    ?
+                                    <div>
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
+                                        {Mounts.map(item => (
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
+                                        ))}
+                                    </div>
+                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
+                                }
+                                {(this.state.vendorSections[3] === true)
+                                    ?
+                                    <div>
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
+                                        {TackHarnessVehicle.map(item => (
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
+                                        ))}
+                                    </div>
+                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
+                                }
+                                {(this.state.vendorSections[4] === true)
+                                    ?
+                                    <div>
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
+                                        {Ships.map(item => (
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
+                                        ))}
+                                    </div>
+                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
+                                }
                             </div>
                             <div className="merchantPending">
                                 <h2 className="woodSign">Pending</h2>
@@ -4284,7 +4334,7 @@ class Main extends Component {
                                 <div>
                                     <span onClick={this.handleStop}>Stop</span>
                                     <ReactHowler
-                                        src= {darkWinds}
+                                        src={darkWinds}
                                         playing={true}
                                         loop={true}
                                         ref={(ref) => (this.player = ref)}
@@ -4293,39 +4343,48 @@ class Main extends Component {
                                 :
                                 <div><span onClick={this.handlePlay}>Play</span></div>
                             }
-                            
+
                         </div>
                         : null
                     }
                     {(this.state.settlementDiv === true)
-                    ?
-                    <div className="visible">
-                        <select name="size">
-                        <option value="settlement">Settlement</option>
-                        <option value="town">Town</option>
-                        <option value="city">City</option>
-                        </select>
-                        <br />
-                            <input type="checkbox" name="Farm" value="farm"/> Farm <br />
-                            <input type="checkbox" name="Mine" value="mine"/> Mine <br />
-                            <input type="checkbox" name="Cloth" value="cloth"/> Cloth <br />
-                            <input type="checkbox" name="Spice" value="spice"/> Spice <br />
-                            <input type="checkbox" name="Harbor" value="harbor"/> Harbor <br />
-                            <input type="checkbox" name="Livestock" value="livestock"/> Livestock <br />
-                             <input type="checkbox" name="Trade Caravans" value="trade"/> Trade Caravans <br />
-                             <br />
-                        <select name="economy">
-                        <option value="thriving">Thriving</option>
-                        <option value="good">Good</option>
-                        <option value="fair">Fair</option>
-                        <option value="poor">Poor</option>
-                        <option value="failing">Failing</option>
-                        </select>
-
-                    </div>
-                    : null
+                        ?
+                        <div className="visible">
+                            <h2>Select the size of the settlement</h2>
+                            <select onChange={this.handleChange} name="sizeSettlement">
+                                <option value="settlement">Settlement</option>
+                                <option value="town">Town</option>
+                                <option value="city">City</option>
+                            </select>
+                            <br />
+                            <br />
+                            <h2>Select the resources available at this settlement</h2>
+                            <input onChange={this.handleCheckBox} type="checkbox" name="farmCheckbox" value="farm" /> Farm <br />
+                            <input onChange={this.handleCheckBox} type="checkbox" value="mine" /> Mine <br />
+                            <input onChange={this.handleCheckBox} type="checkbox" value="cloth" /> Cloth <br />
+                            <input onChange={this.handleCheckBox} type="checkbox" value="spice" /> Spice <br />
+                            <input onChange={this.handleCheckBox} type="checkbox" value="harbor" /> Harbor <br />
+                            <input onChange={this.handleCheckBox} type="checkbox" value="livestock" /> Livestock <br />
+                            <input onChange={this.handleCheckBox} type="checkbox" value="trade" /> Trade Caravans
+                            <br />
+                            <br />
+                            <h2>Select the economic status of the settlement</h2>
+                            <select onChange={this.handleChange} name="economySettlement">
+                                <option value="thriving">Thriving</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                                <option value="poor">Poor</option>
+                                <option value="failing">Failing</option>
+                            </select>
+                            <br />
+                            <br />
+                            <button>Generate Settlement!</button>
+                            <br/>
+                            <br/>
+                        </div>
+                        : null
                     }
-                    
+
                 </div>
             )
         }
