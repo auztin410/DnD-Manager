@@ -63,6 +63,7 @@ class Main extends Component {
             bigEventDiv: false,
             monsterDiv: false,
             soundDiv: false,
+            settlementDiv: false,
             creatureChallengeRatings: ["", "0", "1/2", "1/4", "1/8", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "19", "20", "21", "22", "23", "24", "30"],
             creatureTypes: ["", "aberration", "humanoid", "dragon", "undead", "elemental", "monstrosity", "construct", "beast", "plant", "fiend", "ooze", "fey", "giant", "celestial", "swarm of Tiny beasts"],
             searchByChallengeRating: "",
@@ -3032,6 +3033,18 @@ class Main extends Component {
                         soundDiv: false
                     });
                 }
+                break;
+            case ("settlement"):
+            if (this.state.settlementDiv === false) {
+                this.setState({
+                    settlementDiv: true,
+                });
+            }
+            else if (this.state.settlementDiv === true) {
+                this.setState({
+                    settlementDiv: false
+                });
+            }
         }
 
     };
@@ -3680,6 +3693,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="merchant" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="sound" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement"/>
                     </div>
 
                     {/* Individual Loot Div */}
@@ -4281,6 +4296,34 @@ class Main extends Component {
                             
                         </div>
                         : null
+                    }
+                    {(this.state.settlementDiv === true)
+                    ?
+                    <div className="visible">
+                        <select name="size">
+                        <option value="settlement">Settlement</option>
+                        <option value="town">Town</option>
+                        <option value="city">City</option>
+                        </select>
+                        <br />
+                            <input type="checkbox" name="Farm" value="farm"/> Farm <br />
+                            <input type="checkbox" name="Mine" value="mine"/> Mine <br />
+                            <input type="checkbox" name="Cloth" value="cloth"/> Cloth <br />
+                            <input type="checkbox" name="Spice" value="spice"/> Spice <br />
+                            <input type="checkbox" name="Harbor" value="harbor"/> Harbor <br />
+                            <input type="checkbox" name="Livestock" value="livestock"/> Livestock <br />
+                             <input type="checkbox" name="Trade Caravans" value="trade"/> Trade Caravans <br />
+                             <br />
+                        <select name="economy">
+                        <option value="thriving">Thriving</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="poor">Poor</option>
+                        <option value="failing">Failing</option>
+                        </select>
+
+                    </div>
+                    : null
                     }
                     
                 </div>
