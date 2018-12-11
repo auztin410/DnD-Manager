@@ -132,6 +132,7 @@ class Main extends Component {
             tradeCheckbox: false,
             sizeSettlement: "settlement",
             economySettlement: "thriving",
+            vendorEquipment: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -3721,6 +3722,10 @@ class Main extends Component {
             let vendor = shuffled.slice(0,general);
             console.log("results for general items");
             console.log(vendor);
+            this.setState({
+                vendorEquipment: vendor,
+            });
+
 
 
         }
@@ -4284,11 +4289,18 @@ class Main extends Component {
                                     ?
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
-                                        {Equipment.map(item => (
+                                        {this.state.vendorEquipment.map(item => (
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                         ))}
                                     </div>
-                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
+                                    : 
+                                    <div>
+                                    {(this.state.vendorEquipment.length > 0)
+                                    ?
+                                    <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
+                                    : null
+                                    }
+                                    </div>
                                 }
                                 {(this.state.vendorSections[1] === true)
                                     ?
