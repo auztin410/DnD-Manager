@@ -108,7 +108,7 @@ class Main extends Component {
             itemsInPack: [],
             itemsInPackTotalWeight: 0,
             merchantPending: [],
-            vendorSections: [false, false, false, false, false],
+            vendorSections: [false, false, false, false, false, false],
             pendingCP: 0,
             pendingSP: 0,
             pendingEP: 0,
@@ -124,6 +124,7 @@ class Main extends Component {
             pause: true,
             sounds: [false],
             farmCheckbox: false,
+            blacksmithCheckbox: false,
             mineCheckbox: false,
             clothCheckbox: false,
             spiceCheckbox: false,
@@ -135,6 +136,7 @@ class Main extends Component {
             singleResource: "farm",
             resourceCheckboxMax: false,
             vendorEquipment: [],
+            vendorWeapons: [],
             vendorTradeGoods: [],
             vendorMounts: [],
             vendorTackHarnessVehicle: [],
@@ -216,6 +218,13 @@ class Main extends Component {
             case ("farm"):
                 this.setState({
                     farmCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
+                });
+                break;
+            case ("blacksmith"):
+                this.setState({
+                    blacksmithCheckbox: event.target.checked,
                 }, function () {
                     this.checkBoxCounter();
                 });
@@ -3638,6 +3647,8 @@ class Main extends Component {
         let array3False = [...this.state.vendorSections];
         let array4True = [...this.state.vendorSections];
         let array4False = [...this.state.vendorSections];
+        let array5True = [...this.state.vendorSections];
+        let array5False = [...this.state.vendorSections];
         array0True[0] = true;
         array0False[0] = false;
         array1True[1] = true;
@@ -3648,6 +3659,8 @@ class Main extends Component {
         array3False[3] = false;
         array4True[4] = true;
         array4False[4] = false;
+        array5True[5] = true;
+        array5False[5] = false;
         switch (event.target.innerHTML) {
             case ("Items"):
                 if (this.state.vendorSections[0] === false) {
@@ -3709,6 +3722,18 @@ class Main extends Component {
                     });
                 }
                 break;
+            case ("Weapons"):
+                if (this.state.vendorSections[5] === false) {
+                    this.setState({
+                        vendorSections: array5True,
+                    });
+                }
+                else if (this.state.vendorSections[5] === true) {
+                    this.setState({
+                        vendorSections: array5False,
+                    });
+                }
+                break;
         }
     };
 
@@ -3729,6 +3754,14 @@ class Main extends Component {
     };
 
     handleGenerateSettlement() {
+        this.setState({
+            vendorTradeGoods: [],
+            vendorWeapons: [],
+            vendorMounts: [],
+            vendorTackHarnessVehicle: [],
+            vendorShips: [],
+        });
+        console.log(`Trade good length ${TradeGoods.length}`);
         let generalItems = Equipment;
         let weapons = WeaponsList;
         let tradeGoods = TradeGoods;
@@ -3740,37 +3773,220 @@ class Main extends Component {
         let spice = tradeGoods.filter(item => item.Keyword === "Spice");
         let ore = tradeGoods.filter(item => item.Keyword === "Ore");
         let cloth = tradeGoods.filter(item => item.Keyword === "Cloth");
-        console.log(farm);
-        console.log(livestock);
-        console.log(spice);
-        console.log(ore);
-        console.log(cloth);
-        console.log(`General Items: ${generalItems.length}`);
-        console.log(`Weapons: ${weapons.length}`);
-        console.log(`Mounts: ${mounts.length}`);
-        console.log(`Tack, Harness, Vehicles: ${mountEquipment.length}`);
-        console.log(`Ships: ${ships.length}`);
-        let thriving = Math.floor(Math.random() * 120);
-        let good = Math.floor(Math.random() * 90);
-        let fair = Math.floor(Math.random() * 60);
-        let poor = Math.floor(Math.random() * 25);
-        let failing = Math.floor(Math.random() * 10);
+        let tradeRoute = this.shuffle(TradeGoods);
+        let tradeSettlement = tradeRoute.slice(0, 8);
+        let tradeTown = tradeRoute.slice(0, 15);
+        let tradeCity = tradeRoute.slice(0, 20);
+        let thriving = (Math.floor(Math.random() * 120) + 10);
+        let good = (Math.floor(Math.random() * 90) + 8);
+        let fair = (Math.floor(Math.random() * 60) + 4);
+        let poor = (Math.floor(Math.random() * 25) + 2);
+        let failing = (Math.floor(Math.random() * 10) + 1);
         let shuffled = this.shuffle(generalItems);
         let vendor;
+        let combinedTradeGoods = [];
 
+        switch (this.state.economySettlement) {
+            case ("thriving"):
+                vendor = shuffled.slice(0, thriving);
+                this.setState({
+                    vendorEquipment: vendor,
+                });
+                break;
+            case ("good"):
+                vendor = shuffled.slice(0, good);
+                this.setState({
+                    vendorEquipment: vendor,
+                });
+                break;
+            case ("fair"):
+                vendor = shuffled.slice(0, fair);
+                this.setState({
+                    vendorEquipment: vendor,
+                });
+                break;
+            case ("poor"):
+                vendor = shuffled.slice(0, poor);
+                this.setState({
+                    vendorEquipment: vendor,
+                });
+                break;
+            case ("failing"):
+                vendor = shuffled.slice(0, failing);
+                this.setState({
+                    vendorEquipment: vendor,
+                });
+                break;
+        }
         switch (this.state.sizeSettlement) {
             case ("settlement"):
-                switch (this.state.economySettlement) {
-                    case ("thriving"):
-                        switch (this.state.singleResource) {
-                            case ("farm"):
-                                vendor = shuffled.slice(0, thriving);
-                                this.setState({
-                                    vendorTradeGoods: farm,
-                                    vendorEquipment: vendor,
-                                });
-                        }
+                switch (this.state.singleResource) {
+                    case ("farm"):
+                        this.setState({
+                            vendorTradeGoods: farm,
+                        });
+                        break;
+                    case ("blacksmith"):
+                        this.setState({
+                            vendorWeapons: weapons,
+                        })
+                        break;
+                    case ("mine"):
+                        this.setState({
+                            vendorTradeGoods: ore,
+                        });
+                        break;
+                    case ("cloth"):
+                        this.setState({
+                            vendorTradeGoods: cloth,
+                        });
+                        break;
+                    case ("spice"):
+                        this.setState({
+                            vendorTradeGoods: spice,
+                        });
+                        break;
+                    case ("harbor"):
+                        this.setState({
+                            vendorShips: ships,
+                        });
+                        break;
+                    case ("livestock"):
+                        this.setState({
+                            vendorTradeGoods: livestock,
+                            vendorMounts: mounts,
+                            vendorTackHarnessVehicle: mountEquipment,
+                        });
+                        break;
+                    case ("trade"):
+                        this.setState({
+                            vendorTradeGoods: tradeSettlement,
+                        });
+                        break;
                 }
+                break;
+            case ("town"):
+                if (this.state.farmCheckbox === true) {
+                    farm.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.blacksmithCheckbox === true) {
+                    this.setState({
+                        vendorWeapons: weapons,
+                    });
+                }
+                if (this.state.mineCheckbox === true) {
+                    ore.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.clothCheckbox === true) {
+                    cloth.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.spiceCheckbox === true) {
+                    spice.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.harborCheckbox === true) {
+                    this.setState({
+                        vendorShips: ships,
+                    });
+                }
+                if (this.state.livestockCheckbox === true) {
+                    livestock.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                        vendorMounts: mounts,
+                        vendorTackHarnessVehicle: mountEquipment,
+                    });
+                }
+                if (this.state.tradeCheckbox === true) {
+                    this.setState({
+                        vendorTradeGoods: tradeTown,
+                    });
+                }
+                break;
+            case ("city"):
+            if (this.state.farmCheckbox === true) {
+                farm.forEach(item => (
+                    combinedTradeGoods.push(item)
+                ));
+                this.setState({
+                    vendorTradeGoods: combinedTradeGoods,
+                });
+                console.log(combinedTradeGoods);
+            }
+            if (this.state.blacksmithCheckbox === true) {
+                this.setState({
+                    vendorWeapons: weapons,
+                });
+            }
+            if (this.state.mineCheckbox === true) {
+                ore.forEach(item => (
+                    combinedTradeGoods.push(item)
+                ));
+                this.setState({
+                    vendorTradeGoods: combinedTradeGoods,
+                });
+                console.log(combinedTradeGoods);
+            }
+            if (this.state.clothCheckbox === true) {
+                cloth.forEach(item => (
+                    combinedTradeGoods.push(item)
+                ));
+                this.setState({
+                    vendorTradeGoods: combinedTradeGoods,
+                });
+            }
+            if (this.state.spiceCheckbox === true) {
+                spice.forEach(item => (
+                    combinedTradeGoods.push(item)
+                ));
+                this.setState({
+                    vendorTradeGoods: combinedTradeGoods,
+                });
+            }
+            if (this.state.harborCheckbox === true) {
+                this.setState({
+                    vendorShips: ships,
+                });
+            }
+            if (this.state.livestockCheckbox === true) {
+                livestock.forEach(item => (
+                    combinedTradeGoods.push(item)
+                ));
+                this.setState({
+                    vendorTradeGoods: combinedTradeGoods,
+                    vendorMounts: mounts,
+                    vendorTackHarnessVehicle: mountEquipment,
+                });
+            }
+            if (this.state.tradeCheckbox === true) {
+                this.setState({
+                    vendorTradeGoods: tradeCity,
+                });
+            }
+                break;
         }
     };
 
@@ -4353,12 +4569,12 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                         ))}
                                     </div>
-                                    : 
+                                    :
                                     <div>
                                         {(this.state.vendorTradeGoods.length > 0)
-                                        ?
-                                        <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
-                                        : null
+                                            ?
+                                            <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
+                                            : null
                                         }
                                     </div>
                                 }
@@ -4370,12 +4586,12 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
                                         ))}
                                     </div>
-                                    : 
+                                    :
                                     <div>
                                         {(this.state.vendorMounts.length > 0)
-                                        ?
-                                        <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
-                                        : null
+                                            ?
+                                            <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
+                                            : null
                                         }
                                     </div>
                                 }
@@ -4387,12 +4603,12 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
                                         ))}
                                     </div>
-                                    : 
+                                    :
                                     <div>
                                         {(this.state.vendorTackHarnessVehicle.length > 0)
-                                        ?
-                                        <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
-                                        : null
+                                            ?
+                                            <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
+                                            : null
                                         }
                                     </div>
                                 }
@@ -4404,12 +4620,29 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
                                         ))}
                                     </div>
-                                    : 
+                                    :
                                     <div>
                                         {(this.state.vendorShips.length > 0)
-                                        ?
-                                        <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
-                                        : null
+                                            ?
+                                            <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
+                                            : null
+                                        }
+                                    </div>
+                                }
+                                {(this.state.vendorSections[5] === true)
+                                    ?
+                                    <div>
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Weapons</h2>
+                                        {this.state.vendorWeapons.map(item => (
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
+                                        ))}
+                                    </div>
+                                    :
+                                    <div>
+                                        {(this.state.vendorWeapons.length > 0)
+                                            ?
+                                            <h2 onClick={this.handleVendorSections} className="woodSign">Weapons</h2>
+                                            : null
                                         }
                                     </div>
                                 }
@@ -4504,6 +4737,7 @@ class Main extends Component {
                                 <div>
                                     <select onChange={this.handleChange} name="singleResource">
                                         <option value="farm">Farm</option>
+                                        <option value="blacksmith">Blacksmith</option>
                                         <option value="mine">Mine</option>
                                         <option value="cloth">Cloth</option>
                                         <option value="spice">Spice</option>
@@ -4515,6 +4749,7 @@ class Main extends Component {
                                 :
                                 <div>
                                     <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.farmCheckbox === false} type="checkbox" name="farmCheckbox" value="farm" /> Farm <br />
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.blacksmithCheckbox === false} type="checkbox" value="blacksmith" /> Blacksmith <br />
                                     <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.mineCheckbox === false} type="checkbox" value="mine" /> Mine <br />
                                     <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.clothCheckbox === false} type="checkbox" value="cloth" /> Cloth <br />
                                     <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.spiceCheckbox === false} type="checkbox" value="spice" /> Spice <br />
