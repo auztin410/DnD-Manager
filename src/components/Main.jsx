@@ -132,7 +132,13 @@ class Main extends Component {
             tradeCheckbox: false,
             sizeSettlement: "settlement",
             economySettlement: "thriving",
+            singleResource: "farm",
+            resourceCheckboxMax: false,
             vendorEquipment: [],
+            vendorTradeGoods: [],
+            vendorMounts: [],
+            vendorTackHarnessVehicle: [],
+            vendorShips: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -210,38 +216,69 @@ class Main extends Component {
             case ("farm"):
                 this.setState({
                     farmCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
                 });
                 break;
             case ("mine"):
                 this.setState({
                     mineCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
                 });
                 break;
             case ("cloth"):
                 this.setState({
                     clothCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
                 });
                 break;
             case ("spice"):
                 this.setState({
                     spiceCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
                 });
                 break;
             case ("harbor"):
                 this.setState({
                     harborCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
                 });
             case ("livestock"):
                 this.setState({
                     livestockCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
                 });
                 break;
             case ("trade"):
                 this.setState({
                     tradeCheckbox: event.target.checked,
+                }, function () {
+                    this.checkBoxCounter();
                 });
+                break;
         }
     };
+
+    checkBoxCounter() {
+        let checkBoxes = [this.state.farmCheckbox, this.state.mineCheckbox, this.state.clothCheckbox, this.state.spiceCheckbox, this.state.harborCheckbox, this.state.livestockCheckbox, this.state.tradeCheckbox];
+        let count = 0;
+        checkBoxes.forEach(v => v ? count++ : v);
+        if (count >= 3) {
+            this.setState({
+                resourceCheckboxMax: true,
+            })
+        }
+        else if (count <= 3) {
+            this.setState({
+                resourceCheckboxMax: false,
+            });
+        }
+    }
 
     handleNpcGenerator(event) {
         let appearance = NpcGenerator.appearance[Math.floor(Math.random() * NpcGenerator.appearance.length)];
@@ -3713,42 +3750,48 @@ class Main extends Component {
         console.log(`Mounts: ${mounts.length}`);
         console.log(`Tack, Harness, Vehicles: ${mountEquipment.length}`);
         console.log(`Ships: ${ships.length}`);
+        let thriving = Math.floor(Math.random() * 120);
+        let good = Math.floor(Math.random() * 90);
+        let fair = Math.floor(Math.random() * 60);
+        let poor = Math.floor(Math.random() * 25);
+        let failing = Math.floor(Math.random() * 10);
+        let shuffled = this.shuffle(generalItems);
+        let vendor;
 
         switch (this.state.sizeSettlement) {
             case ("settlement"):
-            let general = Math.floor(Math.random() * 25);
-            console.log(general);
-            let shuffled = this.shuffle(generalItems);
-            let vendor = shuffled.slice(0,general);
-            console.log("results for general items");
-            console.log(vendor);
-            this.setState({
-                vendorEquipment: vendor,
-            });
-
-
-
+                switch (this.state.economySettlement) {
+                    case ("thriving"):
+                        switch (this.state.singleResource) {
+                            case ("farm"):
+                                vendor = shuffled.slice(0, thriving);
+                                this.setState({
+                                    vendorTradeGoods: farm,
+                                    vendorEquipment: vendor,
+                                });
+                        }
+                }
         }
     };
 
     shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
-      
+
         // While there remain elements to shuffle...
         while (0 !== currentIndex) {
-      
-          // Pick a remaining element...
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex -= 1;
-      
-          // And swap it with the current element.
-          temporaryValue = array[currentIndex];
-          array[currentIndex] = array[randomIndex];
-          array[randomIndex] = temporaryValue;
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
         }
-      
+
         return array;
-      };
+    };
 
     render() {
 
@@ -4293,24 +4336,31 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                         ))}
                                     </div>
-                                    : 
+                                    :
                                     <div>
-                                    {(this.state.vendorEquipment.length > 0)
-                                    ?
-                                    <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
-                                    : null
-                                    }
+                                        {(this.state.vendorEquipment.length > 0)
+                                            ?
+                                            <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
+                                            : null
+                                        }
                                     </div>
                                 }
                                 {(this.state.vendorSections[1] === true)
                                     ?
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
-                                        {TradeGoods.map(item => (
+                                        {this.state.vendorTradeGoods.map(item => (
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                         ))}
                                     </div>
-                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
+                                    : 
+                                    <div>
+                                        {(this.state.vendorTradeGoods.length > 0)
+                                        ?
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
+                                        : null
+                                        }
+                                    </div>
                                 }
                                 {(this.state.vendorSections[2] === true)
                                     ?
@@ -4320,7 +4370,14 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
                                         ))}
                                     </div>
-                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
+                                    : 
+                                    <div>
+                                        {(this.state.vendorMounts.length > 0)
+                                        ?
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
+                                        : null
+                                        }
+                                    </div>
                                 }
                                 {(this.state.vendorSections[3] === true)
                                     ?
@@ -4330,7 +4387,14 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
                                         ))}
                                     </div>
-                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
+                                    : 
+                                    <div>
+                                        {(this.state.vendorTackHarnessVehicle.length > 0)
+                                        ?
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
+                                        : null
+                                        }
+                                    </div>
                                 }
                                 {(this.state.vendorSections[4] === true)
                                     ?
@@ -4340,7 +4404,14 @@ class Main extends Component {
                                             <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
                                         ))}
                                     </div>
-                                    : <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
+                                    : 
+                                    <div>
+                                        {(this.state.vendorShips.length > 0)
+                                        ?
+                                        <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
+                                        : null
+                                        }
+                                    </div>
                                 }
                             </div>
                             <div className="merchantPending">
@@ -4428,15 +4499,33 @@ class Main extends Component {
                             <br />
                             <br />
                             <h2>Select the resources available at this settlement</h2>
-                            <input onChange={this.handleCheckBox} type="checkbox" name="farmCheckbox" value="farm" /> Farm <br />
-                            <input onChange={this.handleCheckBox} type="checkbox" value="mine" /> Mine <br />
-                            <input onChange={this.handleCheckBox} type="checkbox" value="cloth" /> Cloth <br />
-                            <input onChange={this.handleCheckBox} type="checkbox" value="spice" /> Spice <br />
-                            <input onChange={this.handleCheckBox} type="checkbox" value="harbor" /> Harbor <br />
-                            <input onChange={this.handleCheckBox} type="checkbox" value="livestock" /> Livestock <br />
-                            <input onChange={this.handleCheckBox} type="checkbox" value="trade" /> Trade Caravans
-                            <br />
-                            <br />
+                            {(this.state.sizeSettlement === "settlement")
+                                ?
+                                <div>
+                                    <select onChange={this.handleChange} name="singleResource">
+                                        <option value="farm">Farm</option>
+                                        <option value="mine">Mine</option>
+                                        <option value="cloth">Cloth</option>
+                                        <option value="spice">Spice</option>
+                                        <option value="harbor">Harbor</option>
+                                        <option value="livestock">Livestock</option>
+                                        <option value="trade">Trade Caravans</option>
+                                    </select>
+                                </div>
+                                :
+                                <div>
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.farmCheckbox === false} type="checkbox" name="farmCheckbox" value="farm" /> Farm <br />
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.mineCheckbox === false} type="checkbox" value="mine" /> Mine <br />
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.clothCheckbox === false} type="checkbox" value="cloth" /> Cloth <br />
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.spiceCheckbox === false} type="checkbox" value="spice" /> Spice <br />
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.harborCheckbox === false} type="checkbox" value="harbor" /> Harbor <br />
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.livestockCheckbox === false} type="checkbox" value="livestock" /> Livestock <br />
+                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.tradeCheckbox === false} type="checkbox" value="trade" /> Trade Caravans
+                                    <br />
+                                    <br />
+                                </div>
+                            }
+
                             <h2>Select the economic status of the settlement</h2>
                             <select onChange={this.handleChange} name="economySettlement">
                                 <option value="thriving">Thriving</option>
@@ -4448,8 +4537,8 @@ class Main extends Component {
                             <br />
                             <br />
                             <button onClick={this.handleGenerateSettlement}>Generate Settlement!</button>
-                            <br/>
-                            <br/>
+                            <br />
+                            <br />
                         </div>
                         : null
                     }
