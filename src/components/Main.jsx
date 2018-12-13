@@ -3737,7 +3737,8 @@ class Main extends Component {
         }
     };
 
-    handlePlay() {
+    handlePlay(event) {
+        console.log(`Sound ${event.target.id}`);
         let sounds = [...this.state.sounds];
         sounds[0] = true;
         this.setState({
@@ -3745,7 +3746,7 @@ class Main extends Component {
         });
     };
 
-    handleStop() {
+    handleStop(event) {
         let sounds = [...this.state.sounds];
         sounds[0] = false;
         this.setState({
@@ -4705,7 +4706,7 @@ class Main extends Component {
                             {(this.state.sounds[0] === true)
                                 ?
                                 <div>
-                                    <span onClick={this.handleStop}>Stop</span>
+                                    <span onClick={this.handleStop} id="darkWinds">Stop</span>
                                     <ReactHowler
                                         src={darkWinds}
                                         playing={true}
@@ -4714,7 +4715,7 @@ class Main extends Component {
                                     />
                                 </div>
                                 :
-                                <div><span onClick={this.handlePlay}>Play</span></div>
+                                <div><span onClick={this.handlePlay} id="darkWinds">Play</span></div>
                             }
 
                         </div>
