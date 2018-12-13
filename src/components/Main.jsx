@@ -4733,35 +4733,18 @@ class Main extends Component {
                             <br />
                             <br />
                             <h2>Select the resources available at this settlement</h2>
-                            {(this.state.sizeSettlement === "settlement")
-                                ?
                                 <div>
-                                    <select onChange={this.handleChange} name="singleResource">
-                                        <option value="farm">Farm</option>
-                                        <option value="blacksmith">Blacksmith</option>
-                                        <option value="mine">Mine</option>
-                                        <option value="cloth">Cloth</option>
-                                        <option value="spice">Spice</option>
-                                        <option value="harbor">Harbor</option>
-                                        <option value="livestock">Livestock</option>
-                                        <option value="trade">Trade Caravans</option>
-                                    </select>
-                                </div>
-                                :
-                                <div>
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.farmCheckbox === false} type="checkbox" name="farmCheckbox" value="farm" /> Farm <br />
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.blacksmithCheckbox === false} type="checkbox" value="blacksmith" /> Blacksmith <br />
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.mineCheckbox === false} type="checkbox" value="mine" /> Mine <br />
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.clothCheckbox === false} type="checkbox" value="cloth" /> Cloth <br />
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.spiceCheckbox === false} type="checkbox" value="spice" /> Spice <br />
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.harborCheckbox === false} type="checkbox" value="harbor" /> Harbor <br />
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.livestockCheckbox === false} type="checkbox" value="livestock" /> Livestock <br />
-                                    <input onChange={this.handleCheckBox} disabled={this.state.sizeSettlement === "town" && this.state.resourceCheckboxMax === true && this.state.tradeCheckbox === false} type="checkbox" value="trade" /> Trade Caravans
+                                    <input onChange={this.handleCheckBox} type="checkbox" name="farmCheckbox" value="farm" /> Farm <br />
+                                    <input onChange={this.handleCheckBox} type="checkbox" value="blacksmith" /> Blacksmith <br />
+                                    <input onChange={this.handleCheckBox} type="checkbox" value="mine" /> Mine <br />
+                                    <input onChange={this.handleCheckBox} type="checkbox" value="cloth" /> Cloth <br />
+                                    <input onChange={this.handleCheckBox} type="checkbox" value="spice" /> Spice <br />
+                                    <input onChange={this.handleCheckBox} type="checkbox" value="harbor" /> Harbor <br />
+                                    <input onChange={this.handleCheckBox} type="checkbox" value="livestock" /> Livestock <br />
+                                    <input onChange={this.handleCheckBox} type="checkbox" value="trade" /> Trade Caravans
                                     <br />
                                     <br />
                                 </div>
-                            }
-
                             <h2>Select the economic status of the settlement</h2>
                             <select onChange={this.handleChange} name="economySettlement">
                                 <option value="thriving">Thriving</option>
