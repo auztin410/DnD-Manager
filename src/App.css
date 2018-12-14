@@ -301,6 +301,15 @@ h4 {
   width: 1520px;
 }
 
+#soundDiv {
+  width: 800px;
+}
+
+#settlementGeneratorDiv {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .squareModal {
   height: 55px;
   width: 250px;
@@ -474,7 +483,30 @@ h4 {
   color: red;
 }
 
+.soundSection {
+  border-style: double;
+  border-color: black;
+  margin: 2px;
+  padding: 8px;
+}
 
+.soundTitle {
+  margin-bottom: 8px;
+}
+
+.soundButton {
+  border-style: outset;
+  padding: 2px;
+}
+
+.soundButton:hover {
+  border-style: inset;
+}
+
+.checkboxDiv {
+  text-align: left;
+  margin-left: 42%;
+}
 
 @-webkit-keyframes glow {
   from {
