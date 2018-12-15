@@ -24,6 +24,7 @@ import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
 import ReactHowler from 'react-howler'
 import { blackLotus,nightSounds,darkWinds,rumination,beach,bigStorm,carnivalRide,dryLava,earthquake,fire,firePlace,forestFire,forest,heartbeat,hurricane,jungle,noMoreMagic,ocean,rain,rainThunder,song18,storm,swamp,loomingBattle,wind,windHowl} from '../assets/Music';
+import Spells from '../assets/Json/Spells';
 
 
 
@@ -73,6 +74,7 @@ class Main extends Component {
             gridDiv: false,
             equipmentDiv: false,
             merchantDiv: false,
+            characterDiv: false,
             enemy: null,
             worldMap: null,
             showWorldMap: false,
@@ -178,6 +180,7 @@ class Main extends Component {
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
+        this.handleSpellClick = this.handleSpellClick.bind(this);
     }
 
     componentDidMount() {
@@ -3108,6 +3111,19 @@ class Main extends Component {
                         settlementDiv: false
                     });
                 }
+                break;
+                case ("character"):
+                if (this.state.characterDiv === false) {
+                    this.setState({
+                        characterDiv: true,
+                    });
+                }
+                else if (this.state.characterDiv === true) {
+                    this.setState({
+                        characterDiv: false
+                    });
+                }
+                break;
         }
 
     };
@@ -4308,6 +4324,12 @@ class Main extends Component {
         return array;
     };
 
+    handleSpellClick() {
+        let randomSpell = Spells[Math.floor(Math.random()*Spells.length)];
+        console.log(Spells.length);
+        console.log(randomSpell);
+    };
+
     render() {
 
         if (this.state.npcComponent === true) {
@@ -4365,6 +4387,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="sound" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="character"/>
                     </div>
 
                     {/* Individual Loot Div */}
@@ -5487,7 +5511,13 @@ class Main extends Component {
                         </div>
                         : null
                     }
-
+                    {(this.state.characterDiv === true)
+                    ?
+                    <div className="visible">
+                        <button onClick={this.handleSpellClick}>Test</button>
+                    </div>
+                    : null
+                    }
                 </div>
             )
         }
