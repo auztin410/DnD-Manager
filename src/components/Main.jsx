@@ -25,6 +25,7 @@ import Ships from '../assets/Json/Ships';
 import ReactHowler from 'react-howler'
 import { blackLotus,nightSounds,darkWinds,rumination,beach,bigStorm,carnivalRide,dryLava,earthquake,fire,firePlace,forestFire,forest,heartbeat,hurricane,jungle,noMoreMagic,ocean,rain,rainThunder,song18,storm,swamp,loomingBattle,wind,windHowl} from '../assets/Music';
 import Spells from '../assets/Json/Spells';
+import ClassList from '../assets/Json/ClassList';
 
 
 
@@ -142,6 +143,11 @@ class Main extends Component {
             vendorMounts: [],
             vendorTackHarnessVehicle: [],
             vendorShips: [],
+            characterName: "",
+            characterRace: "",
+            characterSubRace: "",
+            characterClass: "",
+            characterSubRaceOptions: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -212,6 +218,48 @@ class Main extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
+        let name = event.target.name;
+        let value = event.target.value;
+        let options;
+        if (name === "characterRace") {
+            switch (value) {
+                default: 
+                this.setState({
+                    characterSubRaceOptions: [],
+                });
+                break;
+                case ("dragonborn"):
+                options = ClassList.filter(obj => obj.Race === value);
+                this.setState({
+                    characterSubRaceOptions: options,
+                });
+                break;
+                case ("dwarf"):
+                options = ClassList.filter(obj => obj.Race === value);
+                this.setState({
+                    characterSubRaceOptions: options,
+                });
+                break;
+                case ("elf"):
+                options = ClassList.filter(obj => obj.Race === value);
+                this.setState({
+                    characterSubRaceOptions: options,
+                });
+                break;
+                case ("gnome"):
+                options = ClassList.filter(obj => obj.Race === value);
+                this.setState({
+                    characterSubRaceOptions: options,
+                });
+                break;
+                case ("halfling"):
+                options = ClassList.filter(obj => obj.Race === value);
+                this.setState({
+                    characterSubRaceOptions: options,
+                });
+                break;
+            }
+        }
     };
 
     handleCheckBox(event) {
@@ -5515,6 +5563,50 @@ class Main extends Component {
                     ?
                     <div className="visible">
                         <button onClick={this.handleSpellClick}>Test</button>
+                        
+                        <h2>Character's Name</h2><input onChange={this.handleChange} type="text" name="characterName"/>
+                        <h4>Race</h4>
+                        <select onChange={this.handleChange} name="characterRace">
+                        <option value="">None Selected</option>
+                        <option value="dragonborn">Dragonborn</option>
+                        <option value="dwarf">Dwarf</option>
+                        <option value="elf">Elf</option>
+                        <option value="gnome">Gnome</option>
+                        <option value="half elf">Half Elf</option>
+                        <option value="half orc">Half Orc</option>
+                        <option value="halfling">Halfling</option>
+                        <option value="human">Human</option>
+                        <option value="tiefling">Tiefling</option>
+                        </select>
+                        {(this.state.characterSubRaceOptions.length > 0)
+                        ?
+                        <div>
+                            <h4>Sub Race</h4>
+                        <select onChange={this.handleChange} name="characterSubRace">
+                        {this.state.characterSubRaceOptions.map(item => (
+                            <option key={item.SubRaceValue} value={item.SubRaceValue}>{item.SubRaceName}</option>
+                        ))}
+                        </select>
+                        </div>
+                        : null
+                        }
+                        
+                        <h4>Class</h4>
+                        <select onChange={this.handleChange} name="characterClass">
+                        <option value="">None Selected</option>
+                        <option value="barbarian">Barbarian</option>
+                        <option value="bard">Bard</option>
+                        <option value="cleric">Cleric</option>
+                        <option value="druid">Druid</option>
+                        <option value="fighter">Fighter</option>
+                        <option value="monk">Monk</option>
+                        <option value="paladin">Paladin</option>
+                        <option value="ranger">Ranger</option>
+                        <option value="rogue">Rogue</option>
+                        <option value="sorcerer">Sorcerer</option>
+                        <option value="warlock">Warlock</option>
+                        <option value="wizard">Wizard</option>
+                        </select>
                     </div>
                     : null
                     }

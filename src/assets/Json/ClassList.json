@@ -1,0 +1,102 @@
+[
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Black",
+        "SubRaceValue": "black"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Blue",
+        "SubRaceValue": "blue"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Brass",
+        "SubRaceValue": "brass"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Bronze",
+        "SubRaceValue": "bronze"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Copper",
+        "SubRaceValue": "copper"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Gold",
+        "SubRaceValue": "gold"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Green",
+        "SubRaceValue": "green"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Red",
+        "SubRaceValue": "red"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "Silver",
+        "SubRaceValue": "silver"
+    },
+    {
+        "Race": "dragonborn",
+        "SubRaceName": "White",
+        "SubRaceValue": "white"
+    },
+    {
+        "Race": "dwarf",
+        "SubRaceName": "Hill Dwarf",
+        "SubRaceValue": "hill dwarf"
+    },
+    {
+        "Race": "dwarf",
+        "SubRaceName": "Mountain Dwarf",
+        "SubRaceValue": "mountain dwarf"
+    },
+    {
+        "Race": "dwarf",
+        "SubRaceName": "Duergar",
+        "SubRaceValue": "duergar"
+    },
+    {
+        "Race": "elf",
+        "SubRaceName": "High Elf",
+        "SubRaceValue": "high elf"
+    },
+    {
+        "Race": "elf",
+        "SubRaceName": "Wood Elf",
+        "SubRaceValue": "wood elf"
+    },
+    {
+        "Race": "elf",
+        "SubRaceName": "Dark Elf (Drow)",
+        "SubRaceValue": "dark elf"
+    },
+    {
+        "Race": "gnome",
+        "SubRaceName": "Forest Gnome",
+        "SubRaceValue": "forest gnome"
+    },
+    {
+        "Race": "gnome",
+        "SubRaceName": "Rock Gnome",
+        "SubRaceValue": "rock gnome"
+    },
+    {
+        "Race": "halfling",
+        "SubRaceName": "Lightfoot",
+        "SubRaceValue": "lightfoot"
+    },
+    {
+        "Race": "halfling",
+        "SubRaceName": "Stout",
+        "SubRaceValue": "stout"
+    }
+]
