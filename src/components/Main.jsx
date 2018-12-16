@@ -23,7 +23,7 @@ import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
 import ReactHowler from 'react-howler'
-import { blackLotus,nightSounds,darkWinds,rumination,beach,bigStorm,carnivalRide,dryLava,earthquake,fire,firePlace,forestFire,forest,heartbeat,hurricane,jungle,noMoreMagic,ocean,rain,rainThunder,song18,storm,swamp,loomingBattle,wind,windHowl} from '../assets/Music';
+import { blackLotus, nightSounds, darkWinds, rumination, beach, bigStorm, carnivalRide, dryLava, earthquake, fire, firePlace, forestFire, forest, heartbeat, hurricane, jungle, noMoreMagic, ocean, rain, rainThunder, song18, storm, swamp, loomingBattle, wind, windHowl } from '../assets/Music';
 import Spells from '../assets/Json/Spells';
 import ClassList from '../assets/Json/ClassList';
 
@@ -125,7 +125,7 @@ class Main extends Component {
             purchased: [],
             play: false,
             pause: true,
-            sounds: [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+            sounds: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
             checkboxFarm: false,
             checkboxBlacksmith: false,
             checkboxMine: false,
@@ -147,7 +147,11 @@ class Main extends Component {
             characterRace: "",
             characterSubRace: "",
             characterClass: "",
+            characterBackground: "",
+            characterAlignment: "",
             characterSubRaceOptions: [],
+            statRollsRandom: [],
+            statRollsStandard: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -183,6 +187,8 @@ class Main extends Component {
         this.handleGenerateSettlement = this.handleGenerateSettlement.bind(this);
         this.shuffle = this.shuffle.bind(this);
         this.economicStatus = this.economicStatus.bind(this);
+        this.handleGenerateStatRolls = this.handleGenerateStatRolls.bind(this);
+        this.handleStandardSetStats = this.handleStandardSetStats.bind(this);
 
         // Delete these after testing is complete.
         this.handleTestWeapons = this.handleTestWeapons.bind(this);
@@ -223,41 +229,41 @@ class Main extends Component {
         let options;
         if (name === "characterRace") {
             switch (value) {
-                default: 
-                this.setState({
-                    characterSubRaceOptions: [],
-                });
-                break;
+                default:
+                    this.setState({
+                        characterSubRaceOptions: [],
+                    });
+                    break;
                 case ("dragonborn"):
-                options = ClassList.filter(obj => obj.Race === value);
-                this.setState({
-                    characterSubRaceOptions: options,
-                });
-                break;
+                    options = ClassList.filter(obj => obj.Race === value);
+                    this.setState({
+                        characterSubRaceOptions: options,
+                    });
+                    break;
                 case ("dwarf"):
-                options = ClassList.filter(obj => obj.Race === value);
-                this.setState({
-                    characterSubRaceOptions: options,
-                });
-                break;
+                    options = ClassList.filter(obj => obj.Race === value);
+                    this.setState({
+                        characterSubRaceOptions: options,
+                    });
+                    break;
                 case ("elf"):
-                options = ClassList.filter(obj => obj.Race === value);
-                this.setState({
-                    characterSubRaceOptions: options,
-                });
-                break;
+                    options = ClassList.filter(obj => obj.Race === value);
+                    this.setState({
+                        characterSubRaceOptions: options,
+                    });
+                    break;
                 case ("gnome"):
-                options = ClassList.filter(obj => obj.Race === value);
-                this.setState({
-                    characterSubRaceOptions: options,
-                });
-                break;
+                    options = ClassList.filter(obj => obj.Race === value);
+                    this.setState({
+                        characterSubRaceOptions: options,
+                    });
+                    break;
                 case ("halfling"):
-                options = ClassList.filter(obj => obj.Race === value);
-                this.setState({
-                    characterSubRaceOptions: options,
-                });
-                break;
+                    options = ClassList.filter(obj => obj.Race === value);
+                    this.setState({
+                        characterSubRaceOptions: options,
+                    });
+                    break;
             }
         }
     };
@@ -386,7 +392,7 @@ class Main extends Component {
         function add(a, b) {
             return a + b;
         }
-        console.log(`Dice roll ${result}`);
+        // console.log(`Dice roll ${result}`);
         return result;
     };
 
@@ -3160,7 +3166,7 @@ class Main extends Component {
                     });
                 }
                 break;
-                case ("character"):
+            case ("character"):
                 if (this.state.characterDiv === false) {
                     this.setState({
                         characterDiv: true,
@@ -3770,171 +3776,171 @@ class Main extends Component {
         let sounds = [...this.state.sounds];
         switch (event.target.id) {
             case ("darkWinds"):
-            sounds[0] = true;
-            break;
+                sounds[0] = true;
+                break;
             case ("blackLotus"):
-            sounds[1] = true;
-            break;
+                sounds[1] = true;
+                break;
             case ("nightSounds"):
-            sounds[2] = true;
-            break;
+                sounds[2] = true;
+                break;
             case ("rumination"):
-            sounds[3] = true;
-            break;
+                sounds[3] = true;
+                break;
             case ("beach"):
-            sounds[4] = true;
-            break;
+                sounds[4] = true;
+                break;
             case ("bigStorm"):
-            sounds[5] = true;
-            break;
+                sounds[5] = true;
+                break;
             case ("carnivalRide"):
-            sounds[6] = true;
-            break;
+                sounds[6] = true;
+                break;
             case ("dryLava"):
-            sounds[7] = true;
-            break;
+                sounds[7] = true;
+                break;
             case ("earthquake"):
-            sounds[8] = true;
-            break;
+                sounds[8] = true;
+                break;
             case ("fire"):
-            sounds[9] = true;
-            break;
+                sounds[9] = true;
+                break;
             case ("fireplace"):
-            sounds[10] = true;
-            break;
+                sounds[10] = true;
+                break;
             case ("forestFire"):
-            sounds[11] = true;
-            break;
+                sounds[11] = true;
+                break;
             case ("forest"):
-            sounds[12] = true;
-            break;
+                sounds[12] = true;
+                break;
             case ("heartbeat"):
-            sounds[13] = true;
-            break;
+                sounds[13] = true;
+                break;
             case ("hurricane"):
-            sounds[14] = true;
-            break;
+                sounds[14] = true;
+                break;
             case ("jungle"):
-            sounds[15] = true;
-            break;
+                sounds[15] = true;
+                break;
             case ("noMoreMagic"):
-            sounds[16] = true;
-            break;
+                sounds[16] = true;
+                break;
             case ("ocean"):
-            sounds[17] = true;
-            break;
+                sounds[17] = true;
+                break;
             case ("rain"):
-            sounds[18] = true;
-            break;
+                sounds[18] = true;
+                break;
             case ("rainThunder"):
-            sounds[19] = true;
-            break;
+                sounds[19] = true;
+                break;
             case ("song18"):
-            sounds[20] = true;
-            break;
+                sounds[20] = true;
+                break;
             case ("storm"):
-            sounds[21] = true;
-            break;
+                sounds[21] = true;
+                break;
             case ("swamp"):
-            sounds[22] = true;
-            break;
+                sounds[22] = true;
+                break;
             case ("loomingBattle"):
-            sounds[23] = true;
-            break;
+                sounds[23] = true;
+                break;
             case ("wind"):
-            sounds[24] = true;
-            break;
+                sounds[24] = true;
+                break;
             case ("windHowl"):
-            sounds[25] = true;
-            break;
+                sounds[25] = true;
+                break;
         }
         this.setState({
             sounds,
         });
-        
+
     };
 
     handleStop(event) {
         let sounds = [...this.state.sounds];
         switch (event.target.id) {
             case ("darkWinds"):
-            sounds[0] = false;
-            break;
+                sounds[0] = false;
+                break;
             case ("blackLotus"):
-            sounds[1] = false;
-            break;
+                sounds[1] = false;
+                break;
             case ("nightSounds"):
-            sounds[2] = false;
-            break;
+                sounds[2] = false;
+                break;
             case ("rumination"):
-            sounds[3] = false;
-            break;
+                sounds[3] = false;
+                break;
             case ("beach"):
-            sounds[4] = false;
-            break;
+                sounds[4] = false;
+                break;
             case ("bigStorm"):
-            sounds[5] = false;
-            break;
+                sounds[5] = false;
+                break;
             case ("carnivalRide"):
-            sounds[6] = false;
-            break;
+                sounds[6] = false;
+                break;
             case ("dryLava"):
-            sounds[7] = false;
-            break;
+                sounds[7] = false;
+                break;
             case ("earthquake"):
-            sounds[8] = false;
-            break;
+                sounds[8] = false;
+                break;
             case ("fire"):
-            sounds[9] = false;
-            break;
+                sounds[9] = false;
+                break;
             case ("fireplace"):
-            sounds[10] = false;
-            break;
+                sounds[10] = false;
+                break;
             case ("forestFire"):
-            sounds[11] = false;
-            break;
+                sounds[11] = false;
+                break;
             case ("forest"):
-            sounds[12] = false;
-            break;
+                sounds[12] = false;
+                break;
             case ("heartbeat"):
-            sounds[13] = false;
-            break;
+                sounds[13] = false;
+                break;
             case ("hurricane"):
-            sounds[14] = false;
-            break;
+                sounds[14] = false;
+                break;
             case ("jungle"):
-            sounds[15] = false;
-            break;
+                sounds[15] = false;
+                break;
             case ("noMoreMagic"):
-            sounds[16] = false;
-            break;
+                sounds[16] = false;
+                break;
             case ("ocean"):
-            sounds[17] = false;
-            break;
+                sounds[17] = false;
+                break;
             case ("rain"):
-            sounds[18] = false;
-            break;
+                sounds[18] = false;
+                break;
             case ("rainThunder"):
-            sounds[19] = false;
-            break;
+                sounds[19] = false;
+                break;
             case ("song18"):
-            sounds[20] = false;
-            break;
+                sounds[20] = false;
+                break;
             case ("storm"):
-            sounds[21] = false;
-            break;
+                sounds[21] = false;
+                break;
             case ("swamp"):
-            sounds[22] = false;
-            break;
+                sounds[22] = false;
+                break;
             case ("loomingBattle"):
-            sounds[23] = false;
-            break;
+                sounds[23] = false;
+                break;
             case ("wind"):
-            sounds[24] = false;
-            break;
+                sounds[24] = false;
+                break;
             case ("windHowl"):
-            sounds[25] = false;
-            break;
+                sounds[25] = false;
+                break;
         }
         this.setState({
             sounds,
@@ -3942,7 +3948,7 @@ class Main extends Component {
     };
 
     economicStatus(Arr, divide, minimum) {
-        let result = (Math.floor(Math.random() * Arr.length*divide) +minimum);
+        let result = (Math.floor(Math.random() * Arr.length * divide) + minimum);
         let resultArr = Arr.slice(0, result);
         console.log("Economic Status Function Test");
         console.log(result);
@@ -4114,241 +4120,241 @@ class Main extends Component {
                 }
                 break;
             case ("fair"):
-            console.log("Economic Status Fair");
-            generalItems = this.economicStatus(generalItems, 0.75, 3);
-            this.setState({
-                vendorEquipment: generalItems,
-            });
-            if (this.state.checkboxFarm === true) {
-                console.log("Farms True");
-                farm = this.economicStatus(farm, 0.75, 1);
-                farm.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
+                console.log("Economic Status Fair");
+                generalItems = this.economicStatus(generalItems, 0.75, 3);
                 this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
+                    vendorEquipment: generalItems,
                 });
-                console.log(combinedTradeGoods);
-            }
-            if (this.state.checkboxBlacksmith === true) {
-                console.log("Blacksmith True");
-                weapons = this.economicStatus(weapons, 0.75, 2);
-                this.setState({
-                    vendorWeapons: weapons,
-                });
-            }
-            if (this.state.checkboxMine === true) {
-                console.log("Mine True");
-                ore = this.economicStatus(ore, 0.75, 2);
-                ore.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-                console.log(combinedTradeGoods);
-            }
-            if (this.state.checkboxCloth === true) {
-                console.log("Cloth True");
-                cloth = this.economicStatus(cloth, 0/75, 2);
-                cloth.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-            }
-            if (this.state.checkboxSpice === true) {
-                console.log("Spice True");
-                spice = this.economicStatus(spice, 0.75, 2);
-                spice.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-            }
-            if (this.state.checkboxHarbor === true) {
-                console.log("Harbor True");
-                result = this.economicStatus(ships, 0.75, 1);
-                console.log("result");
-                console.log(result);
-                this.setState({
-                    vendorShips: result,
-                });
-            }
-            if (this.state.checkboxLivestock === true) {
-                console.log("Livestock True");
-                livestock = this.economicStatus(livestock, 0.75, 2);
-                mounts = this.economicStatus(mounts, 0.75, 2);
-                mountEquipment = this.economicStatus(mountEquipment, 0.75, 2);
-                livestock.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                    vendorMounts: mounts,
-                    vendorTackHarnessVehicle: mountEquipment,
-                });
-            }
+                if (this.state.checkboxFarm === true) {
+                    console.log("Farms True");
+                    farm = this.economicStatus(farm, 0.75, 1);
+                    farm.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.checkboxBlacksmith === true) {
+                    console.log("Blacksmith True");
+                    weapons = this.economicStatus(weapons, 0.75, 2);
+                    this.setState({
+                        vendorWeapons: weapons,
+                    });
+                }
+                if (this.state.checkboxMine === true) {
+                    console.log("Mine True");
+                    ore = this.economicStatus(ore, 0.75, 2);
+                    ore.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.checkboxCloth === true) {
+                    console.log("Cloth True");
+                    cloth = this.economicStatus(cloth, 0 / 75, 2);
+                    cloth.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.checkboxSpice === true) {
+                    console.log("Spice True");
+                    spice = this.economicStatus(spice, 0.75, 2);
+                    spice.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.checkboxHarbor === true) {
+                    console.log("Harbor True");
+                    result = this.economicStatus(ships, 0.75, 1);
+                    console.log("result");
+                    console.log(result);
+                    this.setState({
+                        vendorShips: result,
+                    });
+                }
+                if (this.state.checkboxLivestock === true) {
+                    console.log("Livestock True");
+                    livestock = this.economicStatus(livestock, 0.75, 2);
+                    mounts = this.economicStatus(mounts, 0.75, 2);
+                    mountEquipment = this.economicStatus(mountEquipment, 0.75, 2);
+                    livestock.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                        vendorMounts: mounts,
+                        vendorTackHarnessVehicle: mountEquipment,
+                    });
+                }
                 break;
             case ("poor"):
-            console.log("Economic Status Poor");
-            generalItems = this.economicStatus(generalItems, 0.5, 1);
-            this.setState({
-                vendorEquipment: generalItems,
-            });
-            if (this.state.checkboxFarm === true) {
-                console.log("Farms True");
-                farm = this.economicStatus(farm, 0.5, 0);
-                farm.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
+                console.log("Economic Status Poor");
+                generalItems = this.economicStatus(generalItems, 0.5, 1);
                 this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
+                    vendorEquipment: generalItems,
                 });
-                console.log(combinedTradeGoods);
-            }
-            if (this.state.checkboxBlacksmith === true) {
-                console.log("Blacksmith True");
-                weapons = this.economicStatus(weapons, 0.5, 0);
-                this.setState({
-                    vendorWeapons: weapons,
-                });
-            }
-            if (this.state.checkboxMine === true) {
-                console.log("Mine True");
-                ore = this.economicStatus(ore, 0.5, 0);
-                ore.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-                console.log(combinedTradeGoods);
-            }
-            if (this.state.checkboxCloth === true) {
-                console.log("Cloth True");
-                cloth = this.economicStatus(cloth, 0.5, 0);
-                cloth.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-            }
-            if (this.state.checkboxSpice === true) {
-                console.log("Spice True");
-                spice = this.economicStatus(spice, 0.5, 0);
-                spice.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-            }
-            if (this.state.checkboxHarbor === true) {
-                console.log("Harbor True");
-                result = this.economicStatus(ships, 0.5, 0);
-                console.log("result");
-                console.log(result);
-                this.setState({
-                    vendorShips: result,
-                });
-            }
-            if (this.state.checkboxLivestock === true) {
-                console.log("Livestock True");
-                livestock = this.economicStatus(livestock, 0.5, 0);
-                mounts = this.economicStatus(mounts, 0.5, 0);
-                mountEquipment = this.economicStatus(mountEquipment, 0.5, 0);
-                livestock.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                    vendorMounts: mounts,
-                    vendorTackHarnessVehicle: mountEquipment,
-                });
-            }
+                if (this.state.checkboxFarm === true) {
+                    console.log("Farms True");
+                    farm = this.economicStatus(farm, 0.5, 0);
+                    farm.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.checkboxBlacksmith === true) {
+                    console.log("Blacksmith True");
+                    weapons = this.economicStatus(weapons, 0.5, 0);
+                    this.setState({
+                        vendorWeapons: weapons,
+                    });
+                }
+                if (this.state.checkboxMine === true) {
+                    console.log("Mine True");
+                    ore = this.economicStatus(ore, 0.5, 0);
+                    ore.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.checkboxCloth === true) {
+                    console.log("Cloth True");
+                    cloth = this.economicStatus(cloth, 0.5, 0);
+                    cloth.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.checkboxSpice === true) {
+                    console.log("Spice True");
+                    spice = this.economicStatus(spice, 0.5, 0);
+                    spice.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.checkboxHarbor === true) {
+                    console.log("Harbor True");
+                    result = this.economicStatus(ships, 0.5, 0);
+                    console.log("result");
+                    console.log(result);
+                    this.setState({
+                        vendorShips: result,
+                    });
+                }
+                if (this.state.checkboxLivestock === true) {
+                    console.log("Livestock True");
+                    livestock = this.economicStatus(livestock, 0.5, 0);
+                    mounts = this.economicStatus(mounts, 0.5, 0);
+                    mountEquipment = this.economicStatus(mountEquipment, 0.5, 0);
+                    livestock.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                        vendorMounts: mounts,
+                        vendorTackHarnessVehicle: mountEquipment,
+                    });
+                }
                 break;
             case ("failing"):
-            console.log("Economic Status Failing");
-            generalItems = this.economicStatus(generalItems, 0.25, 1);
-            this.setState({
-                vendorEquipment: generalItems,
-            });
-            if (this.state.checkboxFarm === true) {
-                console.log("Farms True");
-                farm = this.economicStatus(farm, 0.25, 0);
-                farm.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
+                console.log("Economic Status Failing");
+                generalItems = this.economicStatus(generalItems, 0.25, 1);
                 this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
+                    vendorEquipment: generalItems,
                 });
-                console.log(combinedTradeGoods);
-            }
-            if (this.state.checkboxBlacksmith === true) {
-                console.log("Blacksmith True");
-                weapons = this.economicStatus(weapons, 0.25, 0);
-                this.setState({
-                    vendorWeapons: weapons,
-                });
-            }
-            if (this.state.checkboxMine === true) {
-                console.log("Mine True");
-                ore = this.economicStatus(ore, 0.25, 0);
-                ore.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-                console.log(combinedTradeGoods);
-            }
-            if (this.state.checkboxCloth === true) {
-                console.log("Cloth True");
-                cloth = this.economicStatus(cloth, 0.25, 0);
-                cloth.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-            }
-            if (this.state.checkboxSpice === true) {
-                console.log("Spice True");
-                spice = this.economicStatus(spice, 0.25, 0);
-                spice.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                });
-            }
-            if (this.state.checkboxHarbor === true) {
-                console.log("Harbor True");
-                result = this.economicStatus(ships, 0.25, 0);
-                console.log("result");
-                console.log(result);
-                this.setState({
-                    vendorShips: result,
-                });
-            }
-            if (this.state.checkboxLivestock === true) {
-                console.log("Livestock True");
-                livestock = this.economicStatus(livestock, 0.25, 0);
-                mounts = this.economicStatus(mounts, 0.25, 0);
-                mountEquipment = this.economicStatus(mountEquipment, 0.25, 0);
-                livestock.forEach(item => (
-                    combinedTradeGoods.push(item)
-                ));
-                this.setState({
-                    vendorTradeGoods: combinedTradeGoods,
-                    vendorMounts: mounts,
-                    vendorTackHarnessVehicle: mountEquipment,
-                });
-            }
+                if (this.state.checkboxFarm === true) {
+                    console.log("Farms True");
+                    farm = this.economicStatus(farm, 0.25, 0);
+                    farm.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.checkboxBlacksmith === true) {
+                    console.log("Blacksmith True");
+                    weapons = this.economicStatus(weapons, 0.25, 0);
+                    this.setState({
+                        vendorWeapons: weapons,
+                    });
+                }
+                if (this.state.checkboxMine === true) {
+                    console.log("Mine True");
+                    ore = this.economicStatus(ore, 0.25, 0);
+                    ore.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                    console.log(combinedTradeGoods);
+                }
+                if (this.state.checkboxCloth === true) {
+                    console.log("Cloth True");
+                    cloth = this.economicStatus(cloth, 0.25, 0);
+                    cloth.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.checkboxSpice === true) {
+                    console.log("Spice True");
+                    spice = this.economicStatus(spice, 0.25, 0);
+                    spice.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                    });
+                }
+                if (this.state.checkboxHarbor === true) {
+                    console.log("Harbor True");
+                    result = this.economicStatus(ships, 0.25, 0);
+                    console.log("result");
+                    console.log(result);
+                    this.setState({
+                        vendorShips: result,
+                    });
+                }
+                if (this.state.checkboxLivestock === true) {
+                    console.log("Livestock True");
+                    livestock = this.economicStatus(livestock, 0.25, 0);
+                    mounts = this.economicStatus(mounts, 0.25, 0);
+                    mountEquipment = this.economicStatus(mountEquipment, 0.25, 0);
+                    livestock.forEach(item => (
+                        combinedTradeGoods.push(item)
+                    ));
+                    this.setState({
+                        vendorTradeGoods: combinedTradeGoods,
+                        vendorMounts: mounts,
+                        vendorTackHarnessVehicle: mountEquipment,
+                    });
+                }
                 break;
         }
     };
@@ -4373,9 +4379,39 @@ class Main extends Component {
     };
 
     handleSpellClick() {
-        let randomSpell = Spells[Math.floor(Math.random()*Spells.length)];
+        let randomSpell = Spells[Math.floor(Math.random() * Spells.length)];
         console.log(Spells.length);
         console.log(randomSpell);
+    };
+
+    handleGenerateStatRolls() {
+        this.setState({
+            statRollsRandom: [],
+            statRollsStandard: [],
+        });
+        let allStatRolls = [];
+        while (allStatRolls.length < 6) {
+            let rolls = [];
+            while (rolls.length < 4) {
+                rolls.push(this.DiceRoll(1, 6))
+            }
+            rolls.sort();
+            rolls.reverse();
+            rolls.pop();
+            let result = rolls.reduce(this.getSum);
+            allStatRolls.push(result);
+        }
+        this.setState({
+            statRollsRandom: allStatRolls,
+        });
+    };
+
+    handleStandardSetStats() {
+        this.setState({
+            statRollsRandom: [],
+            statRollsStandard: [15, 14, 13, 12, 10, 8],
+        });
+
     };
 
     render() {
@@ -4436,7 +4472,7 @@ class Main extends Component {
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement" />
                         {" "}
-                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="character"/>
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="character" />
                     </div>
 
                     {/* Individual Loot Div */}
@@ -5522,7 +5558,7 @@ class Main extends Component {
                         ?
                         <div className="visible" id="settlementGeneratorDiv">
                             <h2>Select the size of the settlement</h2>
-                            <br/>
+                            <br />
                             <select onChange={this.handleChange} name="sizeSettlement">
                                 <option value="settlement">Settlement</option>
                                 <option value="town">Town</option>
@@ -5531,18 +5567,18 @@ class Main extends Component {
                             <br />
                             <br />
                             <h2>Select the resources available at this settlement</h2>
-                                <div className="checkboxDiv">
-                                <br/>
-                                    <label><input onChange={this.handleCheckBox} type="checkbox"value="farm"/>Farm</label><br/>
-                                    <label><input onChange={this.handleCheckBox} type="checkbox" value="blacksmith"/>Blacksmith</label><br/>
-                                    <label><input onChange={this.handleCheckBox} type="checkbox" value="mine"/>Mine</label><br/>
-                                    <label><input onChange={this.handleCheckBox} type="checkbox" value="cloth"/>Cloth</label><br/>
-                                    <label><input onChange={this.handleCheckBox} type="checkbox" value="spice"/>Spice</label><br/>
-                                    <label><input onChange={this.handleCheckBox} type="checkbox" value="harbor"/>Harbor</label><br/>
-                                    <label><input onChange={this.handleCheckBox} type="checkbox" value="livestock"/>Livestock</label>
-                                    <br />
-                                    <br />
-                                </div>
+                            <div className="checkboxDiv">
+                                <br />
+                                <label><input onChange={this.handleCheckBox} type="checkbox" value="farm" />Farm</label><br />
+                                <label><input onChange={this.handleCheckBox} type="checkbox" value="blacksmith" />Blacksmith</label><br />
+                                <label><input onChange={this.handleCheckBox} type="checkbox" value="mine" />Mine</label><br />
+                                <label><input onChange={this.handleCheckBox} type="checkbox" value="cloth" />Cloth</label><br />
+                                <label><input onChange={this.handleCheckBox} type="checkbox" value="spice" />Spice</label><br />
+                                <label><input onChange={this.handleCheckBox} type="checkbox" value="harbor" />Harbor</label><br />
+                                <label><input onChange={this.handleCheckBox} type="checkbox" value="livestock" />Livestock</label>
+                                <br />
+                                <br />
+                            </div>
                             <h2>Select the economic status of the settlement</h2>
                             <select onChange={this.handleChange} name="economySettlement">
                                 <option value="thriving">Thriving</option>
@@ -5560,56 +5596,106 @@ class Main extends Component {
                         : null
                     }
                     {(this.state.characterDiv === true)
-                    ?
-                    <div className="visible">
-                        <button onClick={this.handleSpellClick}>Test</button>
-                        
-                        <h2>Character's Name</h2><input onChange={this.handleChange} type="text" name="characterName"/>
-                        <h4>Race</h4>
-                        <select onChange={this.handleChange} name="characterRace">
-                        <option value="">None Selected</option>
-                        <option value="dragonborn">Dragonborn</option>
-                        <option value="dwarf">Dwarf</option>
-                        <option value="elf">Elf</option>
-                        <option value="gnome">Gnome</option>
-                        <option value="half elf">Half Elf</option>
-                        <option value="half orc">Half Orc</option>
-                        <option value="halfling">Halfling</option>
-                        <option value="human">Human</option>
-                        <option value="tiefling">Tiefling</option>
-                        </select>
-                        {(this.state.characterSubRaceOptions.length > 0)
                         ?
-                        <div>
-                            <h4>Sub Race</h4>
-                        <select onChange={this.handleChange} name="characterSubRace">
-                        {this.state.characterSubRaceOptions.map(item => (
-                            <option key={item.SubRaceValue} value={item.SubRaceValue}>{item.SubRaceName}</option>
-                        ))}
-                        </select>
+                        <div className="visible">
+                            <button onClick={this.handleSpellClick}>Random Spell Console</button>
+
+                            <h2>Character's Name</h2><input onChange={this.handleChange} type="text" name="characterName" />
+                            <h4>Race</h4>
+                            <select onChange={this.handleChange} name="characterRace">
+                                <option value="">None Selected</option>
+                                <option value="dragonborn">Dragonborn</option>
+                                <option value="dwarf">Dwarf</option>
+                                <option value="elf">Elf</option>
+                                <option value="gnome">Gnome</option>
+                                <option value="half elf">Half Elf</option>
+                                <option value="half orc">Half Orc</option>
+                                <option value="halfling">Halfling</option>
+                                <option value="human">Human</option>
+                                <option value="tiefling">Tiefling</option>
+                            </select>
+                            {(this.state.characterSubRaceOptions.length > 0)
+                                ?
+                                <div>
+                                    <h4>Sub Race</h4>
+                                    <select onChange={this.handleChange} name="characterSubRace">
+                                        {this.state.characterSubRaceOptions.map(item => (
+                                            <option key={item.SubRaceValue} value={item.SubRaceValue}>{item.SubRaceName}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                : null
+                            }
+                            <h4>Class</h4>
+                            <select onChange={this.handleChange} name="characterClass">
+                                <option value="">None Selected</option>
+                                <option value="barbarian">Barbarian</option>
+                                <option value="bard">Bard</option>
+                                <option value="cleric">Cleric</option>
+                                <option value="druid">Druid</option>
+                                <option value="fighter">Fighter</option>
+                                <option value="monk">Monk</option>
+                                <option value="paladin">Paladin</option>
+                                <option value="ranger">Ranger</option>
+                                <option value="rogue">Rogue</option>
+                                <option value="sorcerer">Sorcerer</option>
+                                <option value="warlock">Warlock</option>
+                                <option value="wizard">Wizard</option>
+                            </select>
+                            <br />
+                            <br />
+                            {(this.state.statRollsRandom.length > 0)
+                                ?
+                                <div>
+                                    <h4>Random Set</h4>
+                                    <span>{this.state.statRollsRandom[0]}, {this.state.statRollsRandom[1]}, {this.state.statRollsRandom[2]}, {this.state.statRollsRandom[3]}, {this.state.statRollsRandom[4]}, {this.state.statRollsRandom[5]}</span>
+                                </div>
+                                : null
+                            }
+                            {(this.state.statRollsStandard.length > 0)
+                                ?
+                                <div>
+                                    <h4>Standard Set</h4>
+                                    <span>{this.state.statRollsStandard[0]}, {this.state.statRollsStandard[1]}, {this.state.statRollsStandard[2]}, {this.state.statRollsStandard[3]}, {this.state.statRollsStandard[4]}, {this.state.statRollsStandard[5]}</span>
+                                </div>
+                                : null
+                            }
+                            <br />
+                            <button onClick={this.handleGenerateStatRolls}>Random</button> {" "} <button onClick={this.handleStandardSetStats}>Standard Set</button>
+                            <br />
+                            <select onChange={this.handleChange} name="characterBackground">
+                                <option value="">None Selected</option>
+                                <option value="acolyte">Acolyte</option>
+                                <option value="charlatan">Charlatan</option>
+                                <option value="criminal">Criminal</option>
+                                <option value="entertainer">Entertainer</option>
+                                <option value="folk here">Folk Hero</option>
+                                <option value="guild artisan">Guild Artisan</option>
+                                <option value="hermit">Hermit</option>
+                                <option value="noble">Noble</option>
+                                <option value="outlander">Outlander</option>
+                                <option value="sage">Sage</option>
+                                <option value="sailor">Sailor</option>
+                                <option value="soldier">Soldier</option>
+                                <option value="urchin">Urchin</option>
+                            </select>
+                            <br />
+                            <select onChange={this.handleChange} name="characterAlignment">
+                                <option value="">None Selected</option>
+                                <option value="lawful good">Lawful Good</option>
+                                <option value="neutral good">Neutral Good</option>
+                                <option value="chaotic good">Chaotic Good</option>
+                                <option value="lawful neutral">Lawful Neutral</option>
+                                <option value="neutral">Neutral</option>
+                                <option value="chaotic neutral">Chaotic Neutral</option>
+                                <option value="lawful evil">Lawful Evil</option>
+                                <option value="neutral evil">Neutral Evil</option>
+                                <option value="chaotic evil">Chaotic Evil</option>
+                            </select>
                         </div>
                         : null
-                        }
-                        
-                        <h4>Class</h4>
-                        <select onChange={this.handleChange} name="characterClass">
-                        <option value="">None Selected</option>
-                        <option value="barbarian">Barbarian</option>
-                        <option value="bard">Bard</option>
-                        <option value="cleric">Cleric</option>
-                        <option value="druid">Druid</option>
-                        <option value="fighter">Fighter</option>
-                        <option value="monk">Monk</option>
-                        <option value="paladin">Paladin</option>
-                        <option value="ranger">Ranger</option>
-                        <option value="rogue">Rogue</option>
-                        <option value="sorcerer">Sorcerer</option>
-                        <option value="warlock">Warlock</option>
-                        <option value="wizard">Wizard</option>
-                        </select>
-                    </div>
-                    : null
                     }
+
                 </div>
             )
         }
