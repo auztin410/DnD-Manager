@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-const WorldShakingEvent = props => {
+const WorldShakingEventComponent = props => {
     if(!props.worldShakingDetails) {
         return (
             <div className="bigEvent">
@@ -19,4 +19,4 @@ const WorldShakingEvent = props => {
     }
 }
 
-export default WorldShakingEvent;
+export default WorldShakingEventComponent;

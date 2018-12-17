@@ -4,7 +4,7 @@ import Draggable, { DraggableCore } from 'react-draggable';
 import NpcGenerator from '../assets/Json/NpcGenerator';
 import Npc from './Npc';
 import WorldEventGenerator from '../assets/Json/World-Shaking-Events';
-import WorldShakingEvent from './WorldShakingEvent';
+import WorldShakingEventComponent from './WorldShakingEvent';
 import MagicItemsTables from '../assets/Json/MagicItemTables';
 import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
@@ -4663,7 +4663,7 @@ class Main extends Component {
                             </div>
                             {(this.state.worldShakingEvent)
                                 ?
-                                <WorldShakingEvent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails} />
+                                <WorldShakingEventComponent worldShakingEvent={this.state.worldShakingEvent} worldShakingDetails={this.state.worldShakingDetails} />
                                 : null
                             }
                         </div>
