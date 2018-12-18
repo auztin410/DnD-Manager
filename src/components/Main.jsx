@@ -235,31 +235,31 @@ class Main extends Component {
                     });
                     break;
                 case ("dragonborn"):
-                    options = ClassList.filter(obj => obj.Race === value);
+                    options = RaceList.filter(obj => obj.Race === value);
                     this.setState({
                         characterSubRaceOptions: options,
                     });
                     break;
                 case ("dwarf"):
-                    options = ClassList.filter(obj => obj.Race === value);
+                    options = RaceList.filter(obj => obj.Race === value);
                     this.setState({
                         characterSubRaceOptions: options,
                     });
                     break;
                 case ("elf"):
-                    options = ClassList.filter(obj => obj.Race === value);
+                    options = RaceList.filter(obj => obj.Race === value);
                     this.setState({
                         characterSubRaceOptions: options,
                     });
                     break;
                 case ("gnome"):
-                    options = ClassList.filter(obj => obj.Race === value);
+                    options = RaceList.filter(obj => obj.Race === value);
                     this.setState({
                         characterSubRaceOptions: options,
                     });
                     break;
                 case ("halfling"):
-                    options = ClassList.filter(obj => obj.Race === value);
+                    options = RaceList.filter(obj => obj.Race === value);
                     this.setState({
                         characterSubRaceOptions: options,
                     });
