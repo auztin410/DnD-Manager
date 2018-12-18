@@ -310,7 +310,7 @@ class Main extends Component {
         }
     };
 
-    handleNpcGenerator(event) {
+    handleNpcGenerator() {
         let appearance = NpcGenerator.appearance[Math.floor(Math.random() * NpcGenerator.appearance.length)];
         let highAbility = NpcGenerator.highAbility[Math.floor(Math.random() * NpcGenerator.highAbility.length)];
         let lowAbility = NpcGenerator.lowAbility[Math.floor(Math.random() * NpcGenerator.lowAbility.length)];
@@ -328,7 +328,7 @@ class Main extends Component {
     };
 
 
-    handleWorldShakingEvent(event) {
+    handleWorldShakingEvent() {
         let bigEvent = WorldEventGenerator.Event[Math.floor(Math.random() * WorldEventGenerator.Event.length)];
         if (bigEvent === "Rise of a leader or an era" || bigEvent === "Fall of a leader or an era") {
             let details = WorldEventGenerator.Leader[Math.floor(Math.random() * WorldEventGenerator.Leader.length)];
