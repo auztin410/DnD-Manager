@@ -29,7 +29,7 @@
             "Prayer book",
             "5 Sticks of incense",
             "Vestments",
-            "Common Clothes",
+            "Common clothes",
             "Pouch"
         ],
         "Currency": 15,
@@ -584,17 +584,178 @@
     {
         "BackgroundName": "Noble",
         "BackgroundValue": "noble",
-        "Skills": [],
-        "Tools": [],
+        "Skills": ["History", "Persuasion"],
+        "Tools": ["One type of gaming set"],
+        "Languages": ["One of your choice"],
+        "Equipment": ["Fine clothes", "Signet ring", "Scroll of pedigree", "Purse"],
+        "Currency": 25,
+        "FeatureName": "Position of Privilege",
+        "Feature": [
+            "Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are. The common folk and merchants make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to."
+        ],
+        "PersonalityTraits": [
+            "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
+            "The common folk love me for my kindness and generosity.",
+            "No one could doubt by looking at my regal bearing that I am a cut above the unwashed masses.",
+            "I take great pains to always look my best and follow the latest fashions.",
+            "I don’t like to get my hands dirty, and I won’t be caught dead in unsuitable accommodations.",
+            "Despite my noble birth, I do not place myself above other folk. We all have the same blood.",
+            "My favor, once lost, is lost forever.",
+            "If you do me an injury, I will crush you, ruin your name, and salt your fields."
+        ],
+        "Ideals": [
+            "Respect. Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)",
+            "Responsibility. It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)",
+            "Independence. I must prove that I can handle myself without the coddling of my family. (Chaotic)",
+            "Power. If I can attain more power, no one will tell me what to do. (Evil)",
+            "Family. Blood runs thicker than water. (Any)",
+            "Noble Obligation. It is my duty to protect and care for the people beneath me. (Good)"
+        ],
+        "Bonds": [
+            "I will face any challenge to win the approval of my family.",
+            "My house’s alliance with another noble family must be sustained at all costs.",
+            "Nothing is more important than the other members of my family.",
+            "I am in love with the heir of a family that my family despises.",
+            "My loyalty to my sovereign is unwavering.",
+            "The common folk must see me as a hero of the people."
+        ],
+        "Flaws": [
+            "I secretly believe that everyone is beneath me.",
+            "I hide a truly scandalous secret that could ruin my family forever.",
+            "I too often hear veiled insults and threats in every word addressed to me, and I’m quick to anger.",
+            "I have an insatiable desire for carnal pleasures.",
+            "In fact, the world does revolve around me.",
+            "By my words and actions, I often bring shame to my family."
+        ],
+        "Description": [
+            "You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat unfamiliar with work or discomfort, a former merchant just elevated to the nobility, or a disinherited scoundrel with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply about the people who live and work on your land, keenly aware of your responsibility to them. Work with your DM to come up with an appropriate title and determine how much authority that title carries.",
+            "A noble title doesn’t stand on its own—it’s connected to an entire family, and whatever title you hold, you will pass it down to your own children. Not only do you need to determine your noble title, but you should also work with the DM to describe your family and their influence on you.",
+            "Is your family old and established, or was your title only recently bestowed? How much influence do they wield, and over what area? What kind of reputation does your family have among the other aristocrats of the region? How do the common people regard them? What’s your position in the family? Are you the heir to the head of the family? Have you already inherited the title? How do you feel about that responsibility? Or are you so far down the line of inheritance that no one cares what you do, as long as you don’t embarrass the family? How does the head of your family feel about your adventuring career? Are you in your family’s good graces, or shunned by the rest of your family? Does your family have a coat of arms? An insignia you might wear on a signet ring? Particular colors you wear all the time? An animal you regard as a symbol of your line or even a spiritual member of the family? These details help establish your family and your title as features of the world of the campaign."
+        ]
+    },
+    {
+        "BackgroundName": "Soldier",
+        "BackgroundValue": "soldier",
+        "Skills": ["Athletics", "Intimidation"],
+        "Tools": ["One type of gaming set", "Vehicles (land)"],
         "Languages": [],
-        "Equipment": [],
-        "Currency": 0,
-        "FeatureName": "",
-        "Feature": [],
-        "PersonalityTraits": [],
-        "Ideals": [],
-        "Bonds": [],
-        "Flaws": [],
-        "Description": []
+        "Equipment": ["An insignia of rank", "A trophy from a fallen enemy", "Set of done dice or deck or cards", "Common clothes", "Belt pouch"],
+        "Currency": 10,
+        "FeatureName": "Military Rank",
+        "Feature": [
+            "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use.",
+            "You can also usually gain access to friendly military encampments and fortresses where your rank is recognized."
+        ],
+        "PersonalityTraits": [
+            "I'm always polite and respectful.",
+            "I’m haunted by memories of war. I can’t get the images of violence out of my mind.",
+            "I’ve lost too many friends, and I’m slow to make new ones.",
+            "I'm full of inspiring and cautionary tales from my military experience relevant to almost every combat situation.",
+            "I can stare down a hell hound without flinching.",
+            "I enjoy being strong and like breaking things.",
+            "I have a crude sense of humor.",
+            "I face problems head-on. A simple, direct solution is the best path to success."
+        ],
+        "Ideals": [
+            "Greater Good. Our lot is to lay down our lives in defense of others. (Good)",
+            "Responsibility. I do what I must and obey just authority. (Lawful)",
+            "Independence. When people follow orders blindly, they embrace a kind of tyranny. (Chaotic)",
+            "Might. In life as in war, the stronger force wins. (Evil)",
+            "Live and Let Live. Ideals aren’t worth killing over or going to war for. (Neutral)",
+            "Nation. My city, nation, or people are all that matter. (Any)"
+        ],
+        "Bonds": [
+            "I would still lay down my life for the people I served with.",
+            "Someone saved my life on the battlefield. To this day, I will never leave a friend behind.",
+            "My honor is my life.",
+            "I’ll never forget the crushing defeat my company suffered or the enemies who dealt it.",
+            "Those who fight beside me are those worth dying for.",
+            "I fight for those who cannot fight for themselves."
+        ],
+        "Flaws": [
+            "The monstrous enemy we faced in battle still leaves me quivering with fear.",
+            "I have little respect for anyone who is not a proven warrior.",
+            "I made a terrible mistake in battle that cost many lives—and I would do anything to keep that mistake secret.",
+            "My hatred of my enemies is blind and unreasoning.",
+            "I obey the law, even if the law causes misery.",
+            "I’d rather eat my armor than admit when I’m wrong."
+        ],
+        "Description": [
+            "War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield.",
+            "You might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.",
+            "When you choose this background, work with your DM to determine which military organization you were a part of, how far through its ranks you progressed, and what kind of experiences you had during your military career. Was it a standing army, a town guard, or a village militia? Or it might have been a noble’s or merchant’s private army, or a mercenary company."
+        ],
+        "Specialty": [
+            "Officer",
+            "Scout",
+            "Infantry",
+            "Cavalry",
+            "Healer",
+            "Quartermaster",
+            "Standard bearer",
+            "Support staff"
+        ]
+    },
+    {
+        "BackgroundName": "Sage",
+        "BackgroundValue": "sage",
+        "Skills": ["Arcana", "History"],
+        "Tools": [],
+        "Languages": ["Two of your choice"],
+        "Equipment": ["Ink bottle", "Quill", "Small knife", "A letter from a colleague posing a question you have yet to solve.", "Common clothes", "Belt pouch"],
+        "Currency": 10,
+        "FeatureName": "Researcher",
+        "Feature": [
+            "When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it.",
+            "Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found.",
+            "Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign."
+        ],
+        "PersonalityTraits": [
+            "I use polysyllabic words that convey the impression of great erudition.",
+            "I've read every book in the world’s greatest libraries—or I like to boast that I have.",
+            "I'm used to helping out those who aren’t as smart as I am, and I patiently explain anything and everything to others.",
+            "There’s nothing I like more than a good mystery.",
+            "I’m willing to listen to every side of an argument before I make my own judgment.",
+            "I . . . speak . . . slowly . . . when talking . . . to idiots, . . . which . . . almost . . . everyone . . . is . . . compared . . . to me.",
+            "I am horribly, horribly awkward in social situations.",
+            "I’m convinced that people are always trying to steal my secrets."
+        ],
+        "Ideals": [
+            "Knowledge. The path to power and self-improvement is through knowledge. (Neutral)",
+            "Beauty. What is beautiful points us beyond itself toward what is true. (Good)",
+            "Logic. Emotions must not cloud our logical thinking. (Lawful)",
+            "No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)",
+            "Power. Knowledge is the path to power and domination. (Evil)",
+            "Self-Improvement. The goal of a life of study is the betterment of oneself. (Any)"
+        ],
+        "Bonds": [
+            "It is my duty to protect my students.",
+            "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.",
+            "I work to preserve a library, university, scriptorium, or monastery.",
+            "My life’s work is a series of tomes related to a specific field of lore.",
+            "I've been searching my whole life for the answer to a certain question.",
+            "I sold my soul for knowledge. I hope to do great deeds and win it back."
+        ],
+        "Flaws": [
+            "I am easily distracted by the promise of information.",
+            "Most people scream and run when they see a demon. I stop and take notes on its anatomy.",
+            "Unlocking an ancient mystery is worth the price of a civilization.",
+            "I overlook obvious solutions in favor of complicated ones.",
+            "I speak without really thinking through my words, invariably insulting others.",
+            "I can’t keep a secret to save my life, or anyone else’s."
+        ],
+        "Description": [
+            "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study."
+        ],
+        "Specialty": [
+            "Alchemist",
+            "Astronomer",
+            "Discredited academic",
+            "Librarian",
+            "Professor",
+            "Researcher",
+            "Wizard's apprentice",
+            "Scribe"
+        ]
     }
 ]
