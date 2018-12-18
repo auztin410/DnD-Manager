@@ -86,7 +86,7 @@
         "Tools": [
             "Herbalism kit"
         ],
-        "Languages": "One of your choice",
+        "Languages": ["One of your choice"],
         "Equipment": [
             "Scroll case",
             "Winter blanket",
@@ -156,7 +156,7 @@
         "Tools": [
             "One type of artisan tools"
         ],
-        "Languages": "One of your choice",
+        "Languages": ["One of your choice"],
         "Equipment": [
             "A set of artisan tools",
             "A letter of introduction from your guild",
@@ -241,7 +241,7 @@
             "Disguise kit",
             "One type of instrument"
         ],
-        "Languages": "",
+        "Languages": [],
         "Equipment": [
             "One musical instrument of your choice",
             "A favor from an admirer",
