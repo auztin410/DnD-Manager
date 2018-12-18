@@ -25,7 +25,7 @@ import Ships from '../assets/Json/Ships';
 import ReactHowler from 'react-howler'
 import { blackLotus, nightSounds, darkWinds, rumination, beach, bigStorm, carnivalRide, dryLava, earthquake, fire, firePlace, forestFire, forest, heartbeat, hurricane, jungle, noMoreMagic, ocean, rain, rainThunder, song18, storm, swamp, loomingBattle, wind, windHowl } from '../assets/Music';
 import Spells from '../assets/Json/Spells';
-import ClassList from '../assets/Json/ClassList';
+import RaceList from '../assets/Json/RaceList';
 
 
 
