@@ -17,6 +17,7 @@ class CharacterCreation extends Component {
             characterIdeal: "",
             characterBond: "",
             characterFlaw: "",
+            characterSpecialization: "",
             characterAlignment: "",
             characterSubRaceOptions: [],
             statRollsRandom: [],
@@ -306,9 +307,23 @@ class CharacterCreation extends Component {
                                     <option key={item} value={item}>{item}</option>
                                 ))}
                                 </select>
+                                {(this.state.characterBackgroundSelected.Specialization.length > 0)
+                                ?
+                                <div>
+                                    <h4>{this.state.characterBackgroundSelected.SpecializationName}</h4>
+                                    <select onChange={this.handleChangeCharacterCreation} name="characterSpecialization">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterBackgroundSelected.Specialization.map(item => (
+                                        <option key={item} value={item}>{item}</option>
+                                    ))}
+                                    </select>
+                                </div>
+                                : null
+                                }
                             </div>
                             }
                             <br />
+                            <h4>Alignment</h4>
                             <select onChange={this.handleChangeCharacterCreation} name="characterAlignment">
                                 <option value="">None Selected</option>
                                 <option value="lawful good">Lawful Good</option>
