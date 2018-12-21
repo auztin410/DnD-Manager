@@ -409,6 +409,114 @@ h4 {
   background-size: 100% 100%;
 }
 
+.terrainTrap {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/trap.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainTreasure {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/treasure.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainLava {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/lava.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainRock {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/rock.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainForest {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/forest.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainSwamp {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/swamp.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainGrass {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/grass.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainSnow {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/snow.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainMountain {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/mountain.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 .off {
   position: absolute;
   height: 50px;

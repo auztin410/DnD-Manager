@@ -69,9 +69,6 @@ class Grid extends Component {
                         squares: grid,
                     })
                 }
-                // else if (this.state.saved) {
-
-                // }
                 break;
             case ("terrain"):
                 grid[selectedSquare].Terrain = terrain;
@@ -111,6 +108,51 @@ class Grid extends Component {
                                 <div className="terrainDoor" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
                             )
                         }
+                        else if (item.Terrain === "trap") {
+                            return (
+                                <div className="terrainTrap" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "treasure") {
+                            return (
+                                <div className="terrainTreasure" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "lava") {
+                            return (
+                                <div className="terrainLava" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "rock") {
+                            return (
+                                <div className="terrainRock" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "forest") {
+                            return (
+                                <div className="terrainForest" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "swamp") {
+                            return (
+                                <div className="terrainSwamp" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "mountain") {
+                            return (
+                                <div className="terrainMountain" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "grass") {
+                            return (
+                                <div className="terrainGrass" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "snow") {
+                            return (
+                                <div className="terrainSnow" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
                     })}
                 </div>
                 <div>
@@ -140,6 +182,15 @@ class Grid extends Component {
                                 <option value="wall">Wall</option>
                                 <option value="water">Water</option>
                                 <option value="door">Door</option>
+                                <option value="trap">Trap</option>
+                                <option value="treasure">Treasure</option>
+                                <option value="lava">Lava</option>
+                                <option value="rock">Rough Terrain</option>
+                                <option value="forest">Forest</option>
+                                <option value="swamp">Swamp</option>
+                                <option value="snow">Snow</option>
+                                <option value="grass">Grass</option>
+                                <option value="mountain">Mountain</option>
                             </select>
                         </div>
                         : null
