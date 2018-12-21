@@ -373,6 +373,42 @@ h4 {
   float: left;
 }
 
+.terrainWall {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/wall.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainWater {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets//water.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.terrainDoor {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/door.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 .off {
   position: absolute;
   height: 50px;
