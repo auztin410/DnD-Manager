@@ -152,11 +152,11 @@ class CharacterCreation extends Component {
     render() {
         return (
         <div className="visible">
-                            <button onClick={this.handleSpellClick}>Random Spell Console</button>
+                            <button onClick={this.handleSpellClick} className="customButton">Random Spell Console</button>
 
                             <h2>Character's Name</h2><input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" />
                             <h4>Race</h4>
-                            <select onChange={this.handleChangeCharacterCreation} name="characterRace">
+                            <select onChange={this.handleChangeCharacterCreation} name="characterRace" className="customButton">
                                 <option value="">None Selected</option>
                                 <option value="dragonborn">Dragonborn</option>
                                 <option value="dwarf">Dwarf</option>
@@ -172,7 +172,7 @@ class CharacterCreation extends Component {
                                 ?
                                 <div>
                                     <h4>Sub Race</h4>
-                                    <select onChange={this.handleChangeCharacterCreation} name="characterSubRace">
+                                    <select onChange={this.handleChangeCharacterCreation} name="characterSubRace" className="customButton">
                                     <option value="">None Selected</option>
                                         {this.state.characterSubRaceOptions.map(item => (
                                             <option key={item.SubRaceValue} value={item.SubRaceValue}>{item.SubRaceName}</option>
@@ -182,7 +182,7 @@ class CharacterCreation extends Component {
                                 : null
                             }
                             <h4>Class</h4>
-                            <select onChange={this.handleChangeCharacterCreation} name="characterClass">
+                            <select onChange={this.handleChangeCharacterCreation} name="characterClass" className="customButton">
                                 <option value="">None Selected</option>
                                 <option value="barbarian">Barbarian</option>
                                 <option value="bard">Bard</option>
@@ -216,9 +216,9 @@ class CharacterCreation extends Component {
                                 : null
                             }
                             <br />
-                            <button onClick={this.handleGenerateStatRolls}>Random</button> {" "} <button onClick={this.handleStandardSetStats}>Standard Set</button>
+                            <button onClick={this.handleGenerateStatRolls} className="customButton">Random</button> {" "} <button onClick={this.handleStandardSetStats} className="customButton">Standard Set</button>
                             <br />
-                            <select onChange={this.handleChangeCharacterCreation} name="characterBackground">
+                            <select onChange={this.handleChangeCharacterCreation} name="characterBackground" className="customButton">
                                 <option value="">None Selected</option>
                                 <option value="acolyte">Acolyte</option>
                                 <option value="charlatan">Charlatan</option>
@@ -274,34 +274,34 @@ class CharacterCreation extends Component {
                                     <p key={item}>{item}</p>
                                 ))}
                                 <h4>Personality Traits</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait1">
+                                <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait1" className="customButton">
                                 <option value="">None Selected</option>
                                 {this.state.characterBackgroundSelected.PersonalityTraits.map(item => (
                                     <option key={item} value={item}>{item}</option>
                                 ))}
                                 </select>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait2">
+                                <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait2" className="customButton">
                                 <option value="">None Selected</option>
                                 {this.state.characterBackgroundSelected.PersonalityTraits.map(item => (
                                     <option key={item} value={item}>{item}</option>
                                 ))}
                                 </select> 
                                 <h4>Ideals</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterIdeal">
+                                <select onChange={this.handleChangeCharacterCreation} name="characterIdeal" className="customButton">
                                 <option value="">None Selected</option>
                                 {this.state.characterBackgroundSelected.Ideals.map(item => (
                                     <option key={item} value={item}>{item}</option>
                                 ))}
                                 </select>
                                 <h4>Bond</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterBond">
+                                <select onChange={this.handleChangeCharacterCreation} name="characterBond" className="customButton">
                                 <option value="">None Selected</option>
                                 {this.state.characterBackgroundSelected.Bonds.map(item => (
                                     <option key={item} value={item}>{item}</option>
                                 ))}
                                 </select>
                                 <h4>Flaw</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterFlaw">
+                                <select onChange={this.handleChangeCharacterCreation} name="characterFlaw" className="customButton">
                                 <option value="">None Selected</option>
                                 {this.state.characterBackgroundSelected.Flaws.map(item => (
                                     <option key={item} value={item}>{item}</option>
@@ -311,7 +311,7 @@ class CharacterCreation extends Component {
                                 ?
                                 <div>
                                     <h4>{this.state.characterBackgroundSelected.SpecializationName}</h4>
-                                    <select onChange={this.handleChangeCharacterCreation} name="characterSpecialization">
+                                    <select onChange={this.handleChangeCharacterCreation} name="characterSpecialization" className="customButton">
                                     <option value="">None Selected</option>
                                     {this.state.characterBackgroundSelected.Specialization.map(item => (
                                         <option key={item} value={item}>{item}</option>
@@ -324,7 +324,7 @@ class CharacterCreation extends Component {
                             }
                             <br />
                             <h4>Alignment</h4>
-                            <select onChange={this.handleChangeCharacterCreation} name="characterAlignment">
+                            <select onChange={this.handleChangeCharacterCreation} name="characterAlignment" className="customButton">
                                 <option value="">None Selected</option>
                                 <option value="lawful good">Lawful Good</option>
                                 <option value="neutral good">Neutral Good</option>
