@@ -4124,9 +4124,9 @@ class Main extends Component {
                         ?
                         <div className="visible" id="monster">
                             <div className="buttonSpacer">
-                                {/* <input type="text" name="searchCreature" onChange={this.handleChange} />     */}
                                 <Autocomplete
                                     items={CreatureNames}
+                                    inputProps={{style: {fontSize: "18px"}}}
                                     shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
                                     getItemValue={item => item.label}
                                     renderItem={(item, highlighted) =>

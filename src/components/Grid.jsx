@@ -84,9 +84,6 @@ class Grid extends Component {
             <div>
                 <div className="visible" id="gridMap">
                     <h4>Grid</h4>
-                    {/* {this.state.squares.map(item => (
-                        <div className="square" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
-                    ))} */}
                     {this.state.squares.map(item => {
                         if (item.Terrain === "") {
                             return (
