@@ -652,6 +652,20 @@ h4 {
   margin-left: 42%;
 }
 
+.customSelect {
+  font-family: 'Marcellus SC', serif;
+  font-size: 18px;
+  background: tan url('../src/assets//u0.jpg') repeat-x 0 0;
+  /* background-image: url('../src/assets/u0.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-color: tan; */
+  border-color: black;
+  border-style: double;
+  margin: 5px;
+  padding: 5px;
+}
+
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909, 0 0 60px #0f5f13, 0 0 70px #125017;
