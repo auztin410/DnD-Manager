@@ -1,0 +1,56 @@
+[
+    {
+        "Name": "",
+        "HitDice": "1d12",
+        "StartingHP": 12,
+        "Armor": [
+            "Light armor",
+            "Medium armor",
+            "Shields"
+        ],
+        "Weapon": [
+            "Simple weapons",
+            "Martial weapons"
+        ],
+        "Tools": [],
+        "SavingThrows": [
+            "Strength",
+            "Constitution"
+        ],
+        "Skills": 2,
+        "SkillChoices": [
+            "Animal handling",
+            "Athletics",
+            "Intimidation",
+            "Nature",
+            "Perception",
+            "Survival"
+        ],
+        "StartingChoices1": [
+            {
+                "Name": "Greataxe",
+                "Quantity": 1
+            },
+            "Battleaxe",
+            "Flail",
+            "Glaive",
+            "Greatsword",
+            "Halberd",
+            "Lance",
+            "Longsword",
+            "Maul",
+            "Morningstar",
+            "Pike",
+            "Rapier",
+            "Scimitar",
+            "Shortsword",
+            "Trident",
+            "War pick",
+            "Warhammer",
+            "Whip"
+        ],
+        "StartingChoices2": [
+            ""
+        ]
+    }
+]
