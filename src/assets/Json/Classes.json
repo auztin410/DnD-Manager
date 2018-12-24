@@ -31,26 +31,410 @@
                 "Name": "Greataxe",
                 "Quantity": 1
             },
-            "Battleaxe",
-            "Flail",
-            "Glaive",
-            "Greatsword",
-            "Halberd",
-            "Lance",
-            "Longsword",
-            "Maul",
-            "Morningstar",
-            "Pike",
-            "Rapier",
-            "Scimitar",
-            "Shortsword",
-            "Trident",
-            "War pick",
-            "Warhammer",
-            "Whip"
+            {
+                "Name": "Battleaxe",
+                "Quantity": 1
+            },
+            {
+                "Name": "Flail",
+                "Quantity": 1
+            },
+            {
+                "Name": "Glaive",
+                "Quantity": 1
+            },
+            {
+                "Name": "Greatsword",
+                "Quantity": 1
+            },
+            {
+                "Name": "Halberd",
+                "Quantity": 1
+            },
+            {
+                "Name": "Lance",
+                "Quantity": 1
+            },
+            {
+                "Name": "Longsword",
+                "Quantity": 1
+            },
+            {
+                "Name": "Maul",
+                "Quantity": 1
+            },
+            {
+                "Name": "Morningstar",
+                "Quantity": 1
+            },
+            {
+                "Name": "Pike",
+                "Quantity": 1
+            },
+            {
+                "Name": "Rapier",
+                "Quantity": 1
+            },
+            {
+                "Name": "Scimitar",
+                "Quantity": 1
+            },
+            {
+                "Name": "Shortsword",
+                "Quantity": 1
+            },
+            {
+                "Name": "Trident",
+                "Quantity": 1
+            },
+            {
+                "Name": "War pick",
+                "Quantity": 1
+            },
+            {
+                "Name": "Warhammer",
+                "Quantity": 1
+            },
+            {
+                "Name": "Whip",
+                "Quantity": 1
+            }
         ],
         "StartingChoices2": [
-            ""
+            {
+                "Name": "Club",
+                "Quantity": 1
+            },
+            {
+                "Name": "Dagger",
+                "Quantity": 1
+            },
+            {
+                "Name": "Greatclub",
+                "Quantity": 1
+            },
+            {
+                "Name": "Handaxe",
+                "Quantity": 2
+            },
+            {
+                "Name": "Javelin",
+                "Quantity": 1
+            },
+            {
+                "Name": "Light hammer",
+                "Quantity": 1
+            },
+            {
+                "Name": "Mace",
+                "Quantity": 1
+            },
+            {
+                "Name": "Quarterstaff",
+                "Quantity": 1
+            },
+            {
+                "Name": "Sickle",
+                "Quantity": 1
+            },
+            {
+                "Name": "Spear",
+                "Quantity": 1
+            }
+        ],
+        "Pack": [
+            "Explorer's pack"
+        ],
+        "Equipment": [
+            {
+                "Name": "Javelin",
+                "Quantity": 4
+            }
+        ],
+        "Level": [
+            {
+                "Level": 1,
+                "ProficiencyBonus": 2,
+                "Rages": 2,
+                "RageDamage": 2
+            },
+            {
+                "Level": 2,
+                "ProficiencyBonus": 2,
+                "Rages": 2,
+                "RageDamage": 2
+            },
+            {
+                "Level": 3,
+                "ProficiencyBonus": 2,
+                "Rages": 3,
+                "RageDamage": 2
+            },
+            {
+                "Level": 4,
+                "ProficiencyBonus": 2,
+                "Rages": 3,
+                "RageDamage": 2
+            },
+            {
+                "Level": 5,
+                "ProficiencyBonus": 3,
+                "Rages": 3,
+                "RageDamage": 2
+            },
+            {
+                "Level": 6,
+                "ProficiencyBonus": 3,
+                "Rages": 4,
+                "RageDamage": 2
+            },
+            {
+                "Level": 7,
+                "ProficiencyBonus": 3,
+                "Rages": 4,
+                "RageDamage": 2
+            },
+            {
+                "Level": 8,
+                "ProficiencyBonus": 3,
+                "Rages": 4,
+                "RageDamage": 2
+            },
+            {
+                "Level": 9,
+                "ProficiencyBonus": 4,
+                "Rages": 4,
+                "RageDamage": 3
+            },
+            {
+                "Level": 10,
+                "ProficiencyBonus": 4,
+                "Rages": 4,
+                "RageDamage": 3
+            },
+            {
+                "Level": 11,
+                "ProficiencyBonus": 4,
+                "Rages": 4,
+                "RageDamage": 3
+            },
+            {
+                "Level": 12,
+                "ProficiencyBonus": 4,
+                "Rages": 5,
+                "RageDamage": 3
+            },
+            {
+                "Level": 13,
+                "ProficiencyBonus": 5,
+                "Rages": 5,
+                "RageDamage": 3
+            },
+            {
+                "Level": 14,
+                "ProficiencyBonus": 5,
+                "Rages": 5,
+                "RageDamage": 3
+            },
+            {
+                "Level": 15,
+                "ProficiencyBonus": 5,
+                "Rages": 5,
+                "RageDamage": 3
+            },
+            {
+                "Level": 16,
+                "ProficiencyBonus": 5,
+                "Rages": 5,
+                "RageDamage": 4
+            },
+            {
+                "Level": 17,
+                "ProficiencyBonus": 6,
+                "Rages": 6,
+                "RageDamage": 4
+            },
+            {
+                "Level": 18,
+                "ProficiencyBonus": 6,
+                "Rages": 6,
+                "RageDamage": 4
+            },
+            {
+                "Level": 19,
+                "ProficiencyBonus": 6,
+                "Rages": 6,
+                "RageDamage": 4
+            },
+            {
+                "Level": 20,
+                "ProficiencyBonus": 6,
+                "Rages": "Unlimited",
+                "RageDamage": 4
+            }
+        ],
+        "Features": [
+            {
+                "Level": 1,
+                "Name": "Rage",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 1,
+                "Name": "Unarmored Defense",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 2,
+                "Name": "Reckless Attack",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 2,
+                "Name": "Danger Sense",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 3,
+                "Name": "Primal Path",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 4,
+                "Name": "Ability Score Improvement",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 5,
+                "Name": "Extra Attack",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 5,
+                "Name": "Fast Movement",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 6,
+                "Name": "Path Feature",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 7,
+                "Name": "Feral Instinct",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 8,
+                "Name": "Ability Score Improvement",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 9,
+                "Name": "Brutal Critical",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 10,
+                "Name": "Path Feature",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 11,
+                "Name": "Relentless Rage",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 12,
+                "Name": "Ability Score Improvement",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 13,
+                "Name": "Brutal Critical",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 14,
+                "Name": "Path Feature",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 15,
+                "Name": "Persistent Rage",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 16,
+                "Name": "Ability Score Improvement",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 17,
+                "Name": "Brutal Critical",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 18,
+                "Name": "Indomitable Might",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 19,
+                "Name": "Ability Score Improvement",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            },
+            {
+                "Level": 20,
+                "Name": "Primal Champion",
+                "Description": "",
+                "Cooldown": "",
+                "Uses": 0
+            }
         ]
     }
 ]
