@@ -1,6 +1,7 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
 import RaceList from '../assets/Json/RaceList';
 import BackgroundList from '../assets/Json/BackgroundList';
+import Classes from '../assets/Json/Classes';
 
 class CharacterCreation extends Component {
     constructor(props) {
@@ -10,6 +11,14 @@ class CharacterCreation extends Component {
             characterRace: "",
             characterSubRace: "",
             characterClass: "",
+            characterClassSelected: null,
+            classSkillChoice1: "",
+            classSkillChoice2: "",
+            classSkillChoice3: "",
+            classSkillChoice4: "",
+            startingChoice1: [],
+            startingChoice2: [],
+            packChoice: "",
             characterBackground: "",
             characterBackgroundSelected: null,
             characterPersonalityTrait1: "",
@@ -129,215 +138,375 @@ class CharacterCreation extends Component {
             let selected;
             console.log(value);
             switch (value) {
-                default: 
-                selected = BackgroundList.find(item => item.BackgroundValue === value);
-                this.setState({
-                    characterBackgroundSelected: selected,
-                });
-                break;
+                default:
+                    selected = BackgroundList.find(item => item.BackgroundValue === value);
+                    this.setState({
+                        characterBackgroundSelected: selected,
+                    });
+                    break;
                 case (""):
-                this.setState({
-                    characterBackgroundSelected: null,
-                    characterPersonalityTrait1: "",
-                    characterPersonalityTrait2: "",
-                    characterIdeal: "",
-                    characterBond: "",
-                    characterFlaw: "",
-                });
-                break;
+                    this.setState({
+                        characterBackgroundSelected: null,
+                        characterPersonalityTrait1: "",
+                        characterPersonalityTrait2: "",
+                        characterIdeal: "",
+                        characterBond: "",
+                        characterFlaw: "",
+                    });
+                    break;
+            }
+        }
+        else if (name === "characterClass") {
+            let selected;
+            console.log(value);
+            switch (value) {
+                default:
+                    selected = Classes.find(item => item.Name === value);
+                    this.setState({
+                        characterClassSelected: selected,
+                    });
+                    break;
+                case (""):
+                    this.setState({
+                        characterClassSelected: null,
+                    });
+                    break;
             }
         }
     };
 
     render() {
         return (
-        <div className="visible">
-                            <button onClick={this.handleSpellClick} className="customButton">Random Spell Console</button>
+            <div className="visible">
+                <button onClick={this.handleSpellClick} className="customButton">Random Spell Console</button>
 
-                            <h2>Character's Name</h2><input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" className="customSelect"/>
-                            <h4>Race</h4>
-                            <select onChange={this.handleChangeCharacterCreation} name="characterRace" className="customSelect">
-                                <option value="">None Selected</option>
-                                <option value="dragonborn">Dragonborn</option>
-                                <option value="dwarf">Dwarf</option>
-                                <option value="elf">Elf</option>
-                                <option value="gnome">Gnome</option>
-                                <option value="half elf">Half Elf</option>
-                                <option value="half orc">Half Orc</option>
-                                <option value="halfling">Halfling</option>
-                                <option value="human">Human</option>
-                                <option value="tiefling">Tiefling</option>
-                            </select>
-                            {(this.state.characterSubRaceOptions.length > 0)
-                                ?
-                                <div>
-                                    <h4>Sub Race</h4>
-                                    <select onChange={this.handleChangeCharacterCreation} name="characterSubRace" className="customSelect">
-                                    <option value="">None Selected</option>
-                                        {this.state.characterSubRaceOptions.map(item => (
-                                            <option key={item.SubRaceValue} value={item.SubRaceValue}>{item.SubRaceName}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                                : null
-                            }
-                            <h4>Class</h4>
-                            <select onChange={this.handleChangeCharacterCreation} name="characterClass" className="customSelect">
-                                <option value="">None Selected</option>
-                                <option value="barbarian">Barbarian</option>
-                                <option value="bard">Bard</option>
-                                <option value="cleric">Cleric</option>
-                                <option value="druid">Druid</option>
-                                <option value="fighter">Fighter</option>
-                                <option value="monk">Monk</option>
-                                <option value="paladin">Paladin</option>
-                                <option value="ranger">Ranger</option>
-                                <option value="rogue">Rogue</option>
-                                <option value="sorcerer">Sorcerer</option>
-                                <option value="warlock">Warlock</option>
-                                <option value="wizard">Wizard</option>
-                            </select>
-                            <br />
-                            <br />
-                            {(this.state.statRollsRandom.length > 0)
-                                ?
-                                <div>
-                                    <h4>Random Set</h4>
-                                    <span>{this.state.statRollsRandom[0]}, {this.state.statRollsRandom[1]}, {this.state.statRollsRandom[2]}, {this.state.statRollsRandom[3]}, {this.state.statRollsRandom[4]}, {this.state.statRollsRandom[5]}</span>
-                                </div>
-                                : null
-                            }
-                            {(this.state.statRollsStandard.length > 0)
-                                ?
-                                <div>
-                                    <h4>Standard Set</h4>
-                                    <span>{this.state.statRollsStandard[0]}, {this.state.statRollsStandard[1]}, {this.state.statRollsStandard[2]}, {this.state.statRollsStandard[3]}, {this.state.statRollsStandard[4]}, {this.state.statRollsStandard[5]}</span>
-                                </div>
-                                : null
-                            }
-                            <br />
-                            <button onClick={this.handleGenerateStatRolls} className="customButton">Random</button> {" "} <button onClick={this.handleStandardSetStats} className="customButton">Standard Set</button>
-                            <br />
-                            <select onChange={this.handleChangeCharacterCreation} name="characterBackground" className="customSelect">
-                                <option value="">None Selected</option>
-                                <option value="acolyte">Acolyte</option>
-                                <option value="charlatan">Charlatan</option>
-                                <option value="criminal">Criminal</option>
-                                <option value="entertainer">Entertainer</option>
-                                <option value="folk hero">Folk Hero</option>
-                                <option value="guild artisan">Guild Artisan</option>
-                                <option value="hermit">Hermit</option>
-                                <option value="noble">Noble</option>
-                                <option value="outlander">Outlander</option>
-                                <option value="sage">Sage</option>
-                                <option value="sailor">Sailor</option>
-                                <option value="soldier">Soldier</option>
-                                <option value="urchin">Urchin</option>
-                            </select>
-                            {(this.state.characterBackground === "")
-                            ? null
-                            : 
+                <h2>Character's Name</h2><input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" className="customSelect" />
+                <h4>Race</h4>
+                <select onChange={this.handleChangeCharacterCreation} name="characterRace" className="customSelect">
+                    <option value="">None Selected</option>
+                    <option value="dragonborn">Dragonborn</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="elf">Elf</option>
+                    <option value="gnome">Gnome</option>
+                    <option value="half elf">Half Elf</option>
+                    <option value="half orc">Half Orc</option>
+                    <option value="halfling">Halfling</option>
+                    <option value="human">Human</option>
+                    <option value="tiefling">Tiefling</option>
+                </select>
+                {(this.state.characterSubRaceOptions.length > 0)
+                    ?
+                    <div>
+                        <h4>Sub Race</h4>
+                        <select onChange={this.handleChangeCharacterCreation} name="characterSubRace" className="customSelect">
+                            <option value="">None Selected</option>
+                            {this.state.characterSubRaceOptions.map(item => (
+                                <option key={item.SubRaceValue} value={item.SubRaceValue}>{item.SubRaceName}</option>
+                            ))}
+                        </select>
+                    </div>
+                    : null
+                }
+                <h4>Class</h4>
+                <select onChange={this.handleChangeCharacterCreation} name="characterClass" className="customSelect">
+                    <option value="">None Selected</option>
+                    <option value="barbarian">Barbarian</option>
+                    <option value="bard">Bard</option>
+                    <option value="cleric">Cleric</option>
+                    <option value="druid">Druid</option>
+                    <option value="fighter">Fighter</option>
+                    <option value="monk">Monk</option>
+                    <option value="paladin">Paladin</option>
+                    <option value="ranger">Ranger</option>
+                    <option value="rogue">Rogue</option>
+                    <option value="sorcerer">Sorcerer</option>
+                    <option value="warlock">Warlock</option>
+                    <option value="wizard">Wizard</option>
+                </select>
+                <br />
+                {(this.state.characterClassSelected)
+                    ?
+                    <div>
+                        <h4>Proficiencies</h4>
+                        <br />
+                        <h4>Armor</h4>
+                        {this.state.characterClassSelected.Armor.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
+                        <h4>Weapons</h4>
+                        {this.state.characterClassSelected.Weapon.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
+                        {(this.state.characterClassSelected.Tools.length > 0)
+                            ?
                             <div>
-                                <h4>Description</h4>
-                                {this.state.characterBackgroundSelected.Description.map(item => (
+                                <h4>Tools</h4>
+                                {this.state.characterClassSelected.Tools.map(item => (
                                     <p key={item}>{item}</p>
                                 ))}
-                                <h4>Skills</h4>
-                                {this.state.characterBackgroundSelected.Skills.map(item => (
-                                    <p key={item}>{item}</p>
-                                ))}
-                                {(this.state.characterBackgroundSelected.Tools.length > 0)
-                                ?
-                                <div>
-                                    <h4>Tools</h4>
-                                    {this.state.characterBackgroundSelected.Tools.map(item => (
-                                        <p key={item}>{item}</p>
+                            </div>
+                            : null
+                        }
+                        <h4>Saving Throws</h4>
+                        {this.state.characterClassSelected.SavingThrows.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
+                        <h4>Skills</h4>
+                        {(this.state.characterClassSelected.Skills === 2)
+                            ?
+                            <div>
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice1" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
                                     ))}
-                                </div>
-                                : null
-                                }
-                                {(this.state.characterBackgroundSelected.Languages.length > 0)
-                                ?
-                                <div>
-                                    <h4>Languages</h4>
-                                    <p>{this.state.characterBackgroundSelected.Languages[0]}</p>
-                                </div>
-                                : null
-                                }
-                                <h4>Equipment</h4>
-                                {this.state.characterBackgroundSelected.Equipment.map(item => (
+                                </select>
+                                <br />
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice2" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            : null
+                        }
+                        {(this.state.characterClassSelected.Skills === 3)
+                            ?
+                            <div>
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice1" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                                <br />
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice2" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice3" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            : null
+                        }
+                        {(this.state.characterClassSelected.Skills === 4)
+                        ?
+                        <div>
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice1" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                                <br />
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice2" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                                <br/>
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice3" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                                <br/>
+                                <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice3" className="customSelect">
+                                    <option value="">None Selected</option>
+                                    {this.state.characterClassSelected.SkillChoices.map(item => (
+                                        <option value={item} key={item}>{item}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            : null
+                        }
+                        <h4>Weapon Choices</h4>
+                        <select onChange={this.handleChangeCharacterCreation} name="startingChoice1" className="customSelect">
+                        <option value="">None Selected</option>
+                        {this.state.characterClassSelected.StartingChoices1.map(item => (
+                            <option data-value={item} key={item.Name}>{item.Quantity} X {item.Name}</option>
+                        ))}
+                        </select>
+                        <select onChange={this.handleChangeCharacterCreation} name="startingChoice2" className="customSelect">
+                        <option value="">None Selected</option>
+                        {this.state.characterClassSelected.StartingChoices2.map(item => (
+                            <option data-value={item} key={item.Name}>{item.Quantity} X {item.Name}</option>
+                        ))}
+                        </select>
+                        <br/>
+                        <br/>
+                        <h4>Starting Pack</h4>
+                        {(this.state.characterClassSelected.Pack.length > 1)
+                        ?
+                        <div>
+                        <select name="packChoice" className="customSelect">
+                        <option value="">None Selected</option>
+                        {this.state.characterClassSelected.Pack.map(item => (
+                            <option value={item} key={item}>{item}</option>
+                        ))}
+                        </select>
+                        </div>
+                        :
+                        <div>
+                            <p>{this.state.characterClassSelected.Pack[0]}</p>
+                        </div>
+                        }
+                        <h4>Extra Equipment</h4>
+                        {this.state.characterClassSelected.Equipment.map(item => (
+                            <p key={item.Name}>{item.Quantity} X {item.Name}</p>
+                        ))}
+                    </div>
+                    : null
+                }
+                <br />
+                {(this.state.statRollsRandom.length > 0)
+                    ?
+                    <div>
+                        <h4>Random Set</h4>
+                        <span>{this.state.statRollsRandom[0]}, {this.state.statRollsRandom[1]}, {this.state.statRollsRandom[2]}, {this.state.statRollsRandom[3]}, {this.state.statRollsRandom[4]}, {this.state.statRollsRandom[5]}</span>
+                    </div>
+                    : null
+                }
+                {(this.state.statRollsStandard.length > 0)
+                    ?
+                    <div>
+                        <h4>Standard Set</h4>
+                        <span>{this.state.statRollsStandard[0]}, {this.state.statRollsStandard[1]}, {this.state.statRollsStandard[2]}, {this.state.statRollsStandard[3]}, {this.state.statRollsStandard[4]}, {this.state.statRollsStandard[5]}</span>
+                    </div>
+                    : null
+                }
+                <br />
+                <button onClick={this.handleGenerateStatRolls} className="customButton">Random</button> {" "} <button onClick={this.handleStandardSetStats} className="customButton">Standard Set</button>
+                <br />
+                <select onChange={this.handleChangeCharacterCreation} name="characterBackground" className="customSelect">
+                    <option value="">None Selected</option>
+                    <option value="acolyte">Acolyte</option>
+                    <option value="charlatan">Charlatan</option>
+                    <option value="criminal">Criminal</option>
+                    <option value="entertainer">Entertainer</option>
+                    <option value="folk hero">Folk Hero</option>
+                    <option value="guild artisan">Guild Artisan</option>
+                    <option value="hermit">Hermit</option>
+                    <option value="noble">Noble</option>
+                    <option value="outlander">Outlander</option>
+                    <option value="sage">Sage</option>
+                    <option value="sailor">Sailor</option>
+                    <option value="soldier">Soldier</option>
+                    <option value="urchin">Urchin</option>
+                </select>
+                {(this.state.characterBackground === "")
+                    ? null
+                    :
+                    <div>
+                        <h4>Description</h4>
+                        {this.state.characterBackgroundSelected.Description.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
+                        <h4>Skills</h4>
+                        {this.state.characterBackgroundSelected.Skills.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
+                        {(this.state.characterBackgroundSelected.Tools.length > 0)
+                            ?
+                            <div>
+                                <h4>Tools</h4>
+                                {this.state.characterBackgroundSelected.Tools.map(item => (
                                     <p key={item}>{item}</p>
                                 ))}
-                                <h4>Starting Currency: {this.state.characterBackgroundSelected.Currency} GP</h4>
-                                <h4>Feature: {this.state.characterBackgroundSelected.FeatureName}</h4>
-                                {this.state.characterBackgroundSelected.Feature.map(item => (
-                                    <p key={item}>{item}</p>
-                                ))}
-                                <h4>Personality Traits</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait1" className="customSelect">
-                                <option value="">None Selected</option>
-                                {this.state.characterBackgroundSelected.PersonalityTraits.map(item => (
-                                    <option key={item} value={item}>{item}</option>
-                                ))}
-                                </select>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait2" className="customSelect">
-                                <option value="">None Selected</option>
-                                {this.state.characterBackgroundSelected.PersonalityTraits.map(item => (
-                                    <option key={item} value={item}>{item}</option>
-                                ))}
-                                </select> 
-                                <h4>Ideals</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterIdeal" className="customSelect">
-                                <option value="">None Selected</option>
-                                {this.state.characterBackgroundSelected.Ideals.map(item => (
-                                    <option key={item} value={item}>{item}</option>
-                                ))}
-                                </select>
-                                <h4>Bond</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterBond" className="customSelect">
-                                <option value="">None Selected</option>
-                                {this.state.characterBackgroundSelected.Bonds.map(item => (
-                                    <option key={item} value={item}>{item}</option>
-                                ))}
-                                </select>
-                                <h4>Flaw</h4>
-                                <select onChange={this.handleChangeCharacterCreation} name="characterFlaw" className="customSelect">
-                                <option value="">None Selected</option>
-                                {this.state.characterBackgroundSelected.Flaws.map(item => (
-                                    <option key={item} value={item}>{item}</option>
-                                ))}
-                                </select>
-                                {(this.state.characterBackgroundSelected.Specialization.length > 0)
-                                ?
-                                <div>
-                                    <h4>{this.state.characterBackgroundSelected.SpecializationName}</h4>
-                                    <select onChange={this.handleChangeCharacterCreation} name="characterSpecialization" className="customSelect">
+                            </div>
+                            : null
+                        }
+                        {(this.state.characterBackgroundSelected.Languages.length > 0)
+                            ?
+                            <div>
+                                <h4>Languages</h4>
+                                <p>{this.state.characterBackgroundSelected.Languages[0]}</p>
+                            </div>
+                            : null
+                        }
+                        <h4>Equipment</h4>
+                        {this.state.characterBackgroundSelected.Equipment.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
+                        <h4>Starting Currency: {this.state.characterBackgroundSelected.Currency} GP</h4>
+                        <h4>Feature: {this.state.characterBackgroundSelected.FeatureName}</h4>
+                        {this.state.characterBackgroundSelected.Feature.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
+                        <h4>Personality Traits</h4>
+                        <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait1" className="customSelect">
+                            <option value="">None Selected</option>
+                            {this.state.characterBackgroundSelected.PersonalityTraits.map(item => (
+                                <option key={item} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        <select onChange={this.handleChangeCharacterCreation} name="characterPersonalityTrait2" className="customSelect">
+                            <option value="">None Selected</option>
+                            {this.state.characterBackgroundSelected.PersonalityTraits.map(item => (
+                                <option key={item} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        <h4>Ideals</h4>
+                        <select onChange={this.handleChangeCharacterCreation} name="characterIdeal" className="customSelect">
+                            <option value="">None Selected</option>
+                            {this.state.characterBackgroundSelected.Ideals.map(item => (
+                                <option key={item} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        <h4>Bond</h4>
+                        <select onChange={this.handleChangeCharacterCreation} name="characterBond" className="customSelect">
+                            <option value="">None Selected</option>
+                            {this.state.characterBackgroundSelected.Bonds.map(item => (
+                                <option key={item} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        <h4>Flaw</h4>
+                        <select onChange={this.handleChangeCharacterCreation} name="characterFlaw" className="customSelect">
+                            <option value="">None Selected</option>
+                            {this.state.characterBackgroundSelected.Flaws.map(item => (
+                                <option key={item} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        {(this.state.characterBackgroundSelected.Specialization.length > 0)
+                            ?
+                            <div>
+                                <h4>{this.state.characterBackgroundSelected.SpecializationName}</h4>
+                                <select onChange={this.handleChangeCharacterCreation} name="characterSpecialization" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterBackgroundSelected.Specialization.map(item => (
                                         <option key={item} value={item}>{item}</option>
                                     ))}
-                                    </select>
-                                </div>
-                                : null
-                                }
+                                </select>
                             </div>
-                            }
-                            <br />
-                            <h4>Alignment</h4>
-                            <select onChange={this.handleChangeCharacterCreation} name="characterAlignment" className="customSelect">
-                                <option value="">None Selected</option>
-                                <option value="lawful good">Lawful Good</option>
-                                <option value="neutral good">Neutral Good</option>
-                                <option value="chaotic good">Chaotic Good</option>
-                                <option value="lawful neutral">Lawful Neutral</option>
-                                <option value="neutral">Neutral</option>
-                                <option value="chaotic neutral">Chaotic Neutral</option>
-                                <option value="lawful evil">Lawful Evil</option>
-                                <option value="neutral evil">Neutral Evil</option>
-                                <option value="chaotic evil">Chaotic Evil</option>
-                            </select>
-                        </div>
-                        )
+                            : null
+                        }
+                    </div>
+                }
+                <br />
+                <h4>Alignment</h4>
+                <select onChange={this.handleChangeCharacterCreation} name="characterAlignment" className="customSelect">
+                    <option value="">None Selected</option>
+                    <option value="lawful good">Lawful Good</option>
+                    <option value="neutral good">Neutral Good</option>
+                    <option value="chaotic good">Chaotic Good</option>
+                    <option value="lawful neutral">Lawful Neutral</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="chaotic neutral">Chaotic Neutral</option>
+                    <option value="lawful evil">Lawful Evil</option>
+                    <option value="neutral evil">Neutral Evil</option>
+                    <option value="chaotic evil">Chaotic Evil</option>
+                </select>
+            </div>
+        )
     }
 }
 

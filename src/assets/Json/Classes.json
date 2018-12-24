@@ -1,6 +1,6 @@
 [
     {
-        "Name": "",
+        "Name": "barbarian",
         "HitDice": "1d12",
         "StartingHP": 12,
         "Armor": [
