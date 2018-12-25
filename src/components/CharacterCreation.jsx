@@ -85,12 +85,24 @@ class CharacterCreation extends Component {
         }
         this.setState({
             statRolls: allStatRolls,
+            strength: 0,
+            dexterity: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            charisma: 0,
         });
     };
 
     handleStandardSetStats() {
         this.setState({
             statRolls: [15, 14, 13, 12, 10, 8],
+            strength: 0,
+            dexterity: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            charisma: 0,
         });
 
     };
