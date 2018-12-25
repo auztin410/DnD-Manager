@@ -656,14 +656,20 @@ h4 {
   font-family: 'Marcellus SC', serif;
   font-size: 18px;
   background: tan url('../src/assets//u0.jpg') repeat-x 0 0;
-  /* background-image: url('../src/assets/u0.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-color: tan; */
   border-color: black;
   border-style: double;
   margin: 5px;
   padding: 5px;
+}
+
+#characterCreation {
+  width: 1200px;
+}
+
+#features {
+  width: 1120px;
 }
 
 @-webkit-keyframes glow {

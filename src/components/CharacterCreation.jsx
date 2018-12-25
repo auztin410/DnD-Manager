@@ -29,13 +29,22 @@ class CharacterCreation extends Component {
             characterSpecialization: "",
             characterAlignment: "",
             characterSubRaceOptions: [],
-            statRollsRandom: [],
-            statRollsStandard: [],
+            showDetails: false,
+            statRolls: [],
+            strength: 0,
+            dexterity: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            charisma: 0,
         }
 
         this.handleGenerateStatRolls = this.handleGenerateStatRolls.bind(this);
         this.handleStandardSetStats = this.handleStandardSetStats.bind(this);
         this.handleChangeCharacterCreation = this.handleChangeCharacterCreation.bind(this);
+        this.handleDetails = this.handleDetails.bind(this);
+        this.handleStatChange = this.handleStatChange.bind(this);
+        this.handleStatRemove = this.handleStatRemove.bind(this);
 
     }
 
@@ -60,8 +69,7 @@ class CharacterCreation extends Component {
 
     handleGenerateStatRolls() {
         this.setState({
-            statRollsRandom: [],
-            statRollsStandard: [],
+            statRolls: [],
         });
         let allStatRolls = [];
         while (allStatRolls.length < 6) {
@@ -76,14 +84,13 @@ class CharacterCreation extends Component {
             allStatRolls.push(result);
         }
         this.setState({
-            statRollsRandom: allStatRolls,
+            statRolls: allStatRolls,
         });
     };
 
     handleStandardSetStats() {
         this.setState({
-            statRollsRandom: [],
-            statRollsStandard: [15, 14, 13, 12, 10, 8],
+            statRolls: [15, 14, 13, 12, 10, 8],
         });
 
     };
@@ -175,9 +182,92 @@ class CharacterCreation extends Component {
         }
     };
 
+    handleDetails() {
+        if (this.state.showDetails === true) {
+            this.setState({
+                showDetails: false,
+            });
+        }
+        else if (this.state.showDetails === false) {
+            this.setState({
+                showDetails: true,
+            });
+        }
+    };
+
+    handleStatChange(event) {
+        let value = event.target.value;
+        let rolls = this.state.statRolls;
+            console.log(`value: ${value}`);
+            console.log(rolls);
+            let index = rolls.findIndex(item => item == value);
+            console.log(index);
+            console.log(rolls[index]);
+            rolls.splice(index,1);
+            this.setState({
+                [event.target.name]: event.target.value,
+                statRolls: rolls,
+            });
+        };
+
+    handleStatRemove(event) {
+        let name = event.target.id;
+        let rolls = this.state.statRolls;
+        let strength = this.state.strength;
+        let dexterity = this.state.dexterity;
+        let constitution = this.state.constitution;
+        let intelligence = this.state.intelligence;
+        let wisdom = this.state.wisdom;
+        let charisma = this.state.charisma;
+        switch (name) {
+            case ("strength"):
+            rolls.push(strength);
+            this.setState({
+                statRolls: rolls,
+                strength: 0,
+            });
+            break;
+            case ("dexterity"):
+            rolls.push(dexterity);
+            this.setState({
+                statRolls: rolls,
+                dexterity: 0,
+            });
+            break;
+            case ("constitution"):
+            rolls.push(constitution);
+            this.setState({
+                statRolls: rolls,
+                constitution: 0,
+            });
+            break;
+            case ("intelligence"):
+            rolls.push(intelligence);
+            this.setState({
+                statRolls: rolls,
+                intelligence: 0,
+            });
+            break;
+            case ("wisdom"):
+            rolls.push(wisdom);
+            this.setState({
+                statRolls: rolls,
+                wisdom: 0,
+            });
+            break;
+            case ("charisma"):
+            rolls.push(charisma);
+            this.setState({
+                statRolls: rolls,
+                charisma: 0,
+            });
+            break;
+        }
+    };
+
     render() {
         return (
-            <div className="visible">
+            <div className="visible" id="characterCreation">
                 <button onClick={this.handleSpellClick} className="customButton">Random Spell Console</button>
 
                 <h2>Character's Name</h2><input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" className="customSelect" />
@@ -364,26 +454,43 @@ class CharacterCreation extends Component {
                         {this.state.characterClassSelected.Equipment.map(item => (
                             <p key={item.Name}>{item.Quantity} X {item.Name}</p>
                         ))}
+                        <span onClick={this.handleDetails} className="customButton">Details</span>
+                        {(this.state.showDetails === true)
+                        ?
+                        <div className="scrollDiv">
+                            {this.state.characterClassSelected.Features.map(item => (
+                                <div key={item.Name} className="monsterGrouping" id="features">
+                                    <h4 className="plaque">{item.Name}</h4>
+                                    <p>Level: {item.Level}</p>
+                                    <p>Uses: {item.Uses}</p>{" "}<p>Cooldown: {item.CoolDown}</p>
+                                    {item.Description.map(item => (
+                                        <p key={item}>{item}</p>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                        : null
+                        }
                     </div>
                     : null
                 }
                 <br />
-                {(this.state.statRollsRandom.length > 0)
+                {(this.state.statRolls.length > 0)
                     ?
                     <div>
-                        <h4>Random Set</h4>
-                        <span>{this.state.statRollsRandom[0]}, {this.state.statRollsRandom[1]}, {this.state.statRollsRandom[2]}, {this.state.statRollsRandom[3]}, {this.state.statRollsRandom[4]}, {this.state.statRollsRandom[5]}</span>
+                        {this.state.statRolls.map((item, index) => (<span key={index}>{item}{" | "}</span>))}
                     </div>
                     : null
                 }
-                {(this.state.statRollsStandard.length > 0)
-                    ?
-                    <div>
-                        <h4>Standard Set</h4>
-                        <span>{this.state.statRollsStandard[0]}, {this.state.statRollsStandard[1]}, {this.state.statRollsStandard[2]}, {this.state.statRollsStandard[3]}, {this.state.statRollsStandard[4]}, {this.state.statRollsStandard[5]}</span>
-                    </div>
-                    : null
-                }
+                <br/>
+                <div>
+                        Strength: {(this.state.strength === 0) ? <span><select name="strength" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span> : <span onClick={this.handleStatRemove} className="customButton" id="strength">{this.state.strength}</span>}
+                        Dexterity: {(this.state.dexterity === 0) ? <span><select name="dexterity" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="dexterity">{this.state.dexterity}</span>}
+                        Constitution: {(this.state.constitution === 0) ? <span><select name="constitution" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="constitution">{this.state.constitution}</span>}
+                        Intelligence: {(this.state.intelligence === 0) ? <span><select name="intelligence" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="intelligence">{this.state.intelligence}</span>}
+                        Wisdom: {(this.state.wisdom === 0) ? <span><select name="wisdom" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="wisdom">{this.state.wisdom}</span>}
+                        Charisma: {(this.state.charisma === 0) ? <span><select name="charisma" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="charisma">{this.state.charisma}</span>}
+                </div>
                 <br />
                 <button onClick={this.handleGenerateStatRolls} className="customButton">Random</button> {" "} <button onClick={this.handleStandardSetStats} className="customButton">Standard Set</button>
                 <br />
