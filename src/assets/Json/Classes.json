@@ -495,5 +495,156 @@
                 "Uses": 0
             }
         ]
+    },
+    {
+        "Name": "bard",
+        "HitDice": "1d8",
+        "StartingHP": 8,
+        "Armor": [
+            "Light armor"
+        ],
+        "Weapon": [
+            "Simple weapons",
+            "Hand crossbow",
+            "Longsword",
+            "Rapier",
+            "Shortsword"
+        ],
+        "Tools": [
+            "Three musical instrument of your choice"
+        ],
+        "SavingThrows": [
+            "Dexterity",
+            "Charisma"
+        ],
+        "Skills": 3,
+        "SkillChoices": [
+            "Athletics",
+            "Acrobatics",
+            "Sleight of hand",
+            "Stealth",
+            "Arcana",
+            "History",
+            "Investigation",
+            "Nature",
+            "Religion",
+            "Animal handling",
+            "Insight",
+            "Medicine",
+            "Perception",
+            "Survival",
+            "Deception",
+            "Intimidation",
+            "Performance",
+            "Persuasion"
+        ],
+        "StartingChoices1": [
+            {
+                "Name": "Rapier",
+                "Quantity": 1
+            },
+            {
+                "Name": "Shortsword",
+                "Quantity": 1
+            },
+            {
+                "Name": "Club",
+                "Quantity": 1
+            },
+            {
+                "Name": "Dagger",
+                "Quantity": 1
+            },
+            {
+                "Name": "Greatclub",
+                "Quantity": 1
+            },
+            {
+                "Name": "Handaxe",
+                "Quantity": 1
+            },
+            {
+                "Name": "Javelin",
+                "Quantity": 1
+            },
+            {
+                "Name": "Light hammer",
+                "Quantity": 1
+            },
+            {
+                "Name": "Mace",
+                "Quantity": 1
+            },
+            {
+                "Name": "Quarterstaff",
+                "Quantity": 1
+            },
+            {
+                "Name": "Sickle",
+                "Quantity": 1
+            },
+            {
+                "Name": "Spear",
+                "Quantity": 1
+            }
+        ],
+        "StartingChoices2": [
+            {
+                "Name": "Bagpipes",
+                "Quantity": 1
+            },
+            {
+                "Name": "Drum",
+                "Quantity": 1
+            },
+            {
+                "Name": "Dulcimer",
+                "Quantity": 1
+            },
+            {
+                "Name": "Flute",
+                "Quantity": 1
+            },
+            {
+                "Name": "Lute",
+                "Quantity": 1
+            },
+            {
+                "Name": "Lyre",
+                "Quantity": 1
+            },
+            {
+                "Name": "Horn",
+                "Quantity": 1
+            },
+            {
+                "Name": "Pan flute",
+                "Quantity": 1
+            },
+            {
+                "Name": "Shawm",
+                "Quantity": 1
+            },
+            {
+                "Name": "Viol",
+                "Quantity": 1
+            }
+        ],
+        "Pack": [
+            "Diplomat's pack",
+            "Entertainer's pack"
+        ],
+        "Equipment": [
+            {
+                "Name": "Leather armor",
+                "Quantity": 1
+            },
+            {
+                "Name": "Dagger",
+                "Quantity": 1
+            }
+        ],
+        "Level": [],
+        "Features": []
     }
 ]
