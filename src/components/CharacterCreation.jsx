@@ -486,7 +486,7 @@ class CharacterCreation extends Component {
                                 <h4>Spell Slots</h4>
                                 {this.state.characterClassSelected.Level.map(item => (
                                     <div>
-                                    <strong>Level: {item.Level}</strong>{" "}1st: {item.SpellSlots[0]} | 2nd: {item.SpellSlots[1]} | 3rd: {item.SpellSlots[2]} | 4th: {item.SpellSlots[3]} | 5th: {item.SpellSlots[4]} | 6th: {item.SpellSlots[5]} | 7th: {item.SpellSlots[6]} | 8th: {item.SpellSlots[7]} | 9th: {item.SpellSlots[9]}
+                                    <span className="levelSpans"><strong>Level: {item.Level}</strong></span>{" "} <span className="levelSpans">1st: {item.SpellSlots[0]} </span> <span className="levelSpans">2nd: {item.SpellSlots[1]} </span> <span className="levelSpans">3rd: {item.SpellSlots[2]} </span> <span className="levelSpans">4th: {item.SpellSlots[3]} </span> <span className="levelSpans">5th: {item.SpellSlots[4]} </span> <span className="levelSpans">6th: {item.SpellSlots[5]} </span> <span className="levelSpans">7th: {item.SpellSlots[6]} </span> <span className="levelSpans">8th: {item.SpellSlots[7]} </span> <span className="levelSpans">9th: {item.SpellSlots[9]} </span>
                                     </div>
                                 ))}
                             </div>
