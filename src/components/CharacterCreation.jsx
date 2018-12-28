@@ -480,6 +480,18 @@ class CharacterCreation extends Component {
                                     ))}
                                 </div>
                             ))}
+                            {(this.state.characterClassSelected.Level[0].SpellSlots)
+                            ?
+                            <div>
+                                <h4>Spell Slots</h4>
+                                {this.state.characterClassSelected.Level.map(item => (
+                                    <div>
+                                    <strong>Level: {item.Level}</strong>{" "}1st: {item.SpellSlots[0]} | 2nd: {item.SpellSlots[1]} | 3rd: {item.SpellSlots[2]} | 4th: {item.SpellSlots[3]} | 5th: {item.SpellSlots[4]} | 6th: {item.SpellSlots[5]} | 7th: {item.SpellSlots[6]} | 8th: {item.SpellSlots[7]} | 9th: {item.SpellSlots[9]}
+                                    </div>
+                                ))}
+                            </div>
+                            : null
+                            }
                         </div>
                         : null
                         }

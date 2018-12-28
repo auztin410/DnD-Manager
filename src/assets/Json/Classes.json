@@ -644,7 +644,148 @@
                 "Quantity": 1
             }
         ],
-        "Level": [],
+        "Level": [
+            {
+                "Level": 1,
+                "ProficiencyBonus": 2,
+                "CantripsKnown": 2,
+                "SpellsKnown": 4,
+                "SpellSlots": [2,0,0,0,0,0,0,0,0]
+            },
+            {
+                "Level": 2,
+                "ProficiencyBonus": 2,
+                "CantripsKnown": 2,
+                "SpellsKnown": 5,
+                "SpellSlots": [3,0,0,0,0,0,0,0,0]
+            },
+            {
+                "Level": 3,
+                "ProficiencyBonus": 2,
+                "CantripsKnown": 2,
+                "SpellsKnown": 6,
+                "SpellSlots": [4,2,0,0,0,0,0,0,0]
+            },
+            {
+                "Level": 4,
+                "ProficiencyBonus": 2,
+                "CantripsKnown": 3,
+                "SpellsKnown": 7,
+                "SpellSlots": [4,3,0,0,0,0,0,0,0]
+            },
+            {
+                "Level": 5,
+                "ProficiencyBonus": 3,
+                "CantripsKnown": 3,
+                "SpellsKnown": 8,
+                "SpellSlots": [4,3,2,0,0,0,0,0,0]
+            },
+            {
+                "Level": 6,
+                "ProficiencyBonus": 3,
+                "CantripsKnown": 3,
+                "SpellsKnown": 9,
+                "SpellSlots": [4,3,3,0,0,0,0,0,0]
+            },
+            {
+                "Level": 7,
+                "ProficiencyBonus": 3,
+                "CantripsKnown": 3,
+                "SpellsKnown": 10,
+                "SpellSlots": [4,3,3,1,0,0,0,0,0]
+            },
+            {
+                "Level": 8,
+                "ProficiencyBonus": 3,
+                "CantripsKnown": 3,
+                "SpellsKnown": 11,
+                "SpellSlots": [4,3,3,2,0,0,0,0,0]
+            },
+            {
+                "Level": 9,
+                "ProficiencyBonus": 4,
+                "CantripsKnown": 3,
+                "SpellsKnown": 12,
+                "SpellSlots": [4,3,3,3,1,0,0,0,0]
+            },
+            {
+                "Level": 10,
+                "ProficiencyBonus": 4,
+                "CantripsKnown": 4,
+                "SpellsKnown": 14,
+                "SpellSlots": [4,3,3,3,2,0,0,0,0]
+            },
+            {
+                "Level": 11,
+                "ProficiencyBonus": 4,
+                "CantripsKnown": 4,
+                "SpellsKnown": 15,
+                "SpellSlots": [4,3,3,3,2,1,0,0,0]
+            },
+            {
+                "Level": 12,
+                "ProficiencyBonus": 4,
+                "CantripsKnown": 4,
+                "SpellsKnown": 15,
+                "SpellSlots": [4,3,3,3,2,1,0,0,0]
+            },
+            {
+                "Level": 13,
+                "ProficiencyBonus": 5,
+                "CantripsKnown": 4,
+                "SpellsKnown": 16,
+                "SpellSlots": [4,3,3,3,2,1,1,0,0]
+            },
+            {
+                "Level": 14,
+                "ProficiencyBonus": 5,
+                "CantripsKnown": 4,
+                "SpellsKnown": 18,
+                "SpellSlots": [4,3,3,3,2,1,1,0,0]
+            },
+            {
+                "Level": 15,
+                "ProficiencyBonus": 5,
+                "CantripsKnown": 4,
+                "SpellsKnown": 19,
+                "SpellSlots": [4,3,3,3,2,1,1,1,0]
+            },
+            {
+                "Level": 16,
+                "ProficiencyBonus": 5,
+                "CantripsKnown": 4,
+                "SpellsKnown": 19,
+                "SpellSlots": [4,3,3,3,2,1,1,1,0]
+            },
+            {
+                "Level": 17,
+                "ProficiencyBonus": 6,
+                "CantripsKnown": 4,
+                "SpellsKnown": 20,
+                "SpellSlots": [4,3,3,3,2,1,1,1,1]
+            },
+            {
+                "Level": 18,
+                "ProficiencyBonus": 6,
+                "CantripsKnown": 4,
+                "SpellsKnown": 22,
+                "SpellSlots": [4,3,3,3,3,1,1,1,1]
+            },
+            {
+                "Level": 19,
+                "ProficiencyBonus": 6,
+                "CantripsKnown": 4,
+                "SpellsKnown": 22,
+                "SpellSlots": [4,3,3,3,3,2,1,1,1]
+            },
+            {
+                "Level": 20,
+                "ProficiencyBonus": 6,
+                "CantripsKnown": 4,
+                "SpellsKnown": 22,
+                "SpellSlots": [4,3,3,3,3,2,2,1,1]
+            }
+        ],
         "Features": []
     }
 ]
