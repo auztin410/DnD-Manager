@@ -484,11 +484,34 @@ class CharacterCreation extends Component {
                             ?
                             <div>
                                 <h4>Spell Slots</h4>
+                                <table>
+                                    <tr className="tableHeader">
+                                        <th>Level</th>
+                                        <th>1st</th>
+                                        <th>2nd</th>
+                                        <th>3rd</th>
+                                        <th>4th</th>
+                                        <th>5th</th>
+                                        <th>6th</th>
+                                        <th>7th</th>
+                                        <th>8th</th>
+                                        <th>9th</th>
+                                    </tr>
                                 {this.state.characterClassSelected.Level.map(item => (
-                                    <div>
-                                    <span className="levelSpans"><strong>Level: {item.Level}</strong></span>{" "} <span className="levelSpans">1st: {item.SpellSlots[0]} </span> <span className="levelSpans">2nd: {item.SpellSlots[1]} </span> <span className="levelSpans">3rd: {item.SpellSlots[2]} </span> <span className="levelSpans">4th: {item.SpellSlots[3]} </span> <span className="levelSpans">5th: {item.SpellSlots[4]} </span> <span className="levelSpans">6th: {item.SpellSlots[5]} </span> <span className="levelSpans">7th: {item.SpellSlots[6]} </span> <span className="levelSpans">8th: {item.SpellSlots[7]} </span> <span className="levelSpans">9th: {item.SpellSlots[9]} </span>
-                                    </div>
+                                    <tr id="tableRow" className={`tableRow${item.Level}`}>
+                                    <td><strong>{item.Level}</strong></td>
+                                    <td>{item.SpellSlots[0]}</td>
+                                    <td>{item.SpellSlots[1]}</td>
+                                    <td>{item.SpellSlots[2]}</td>
+                                    <td>{item.SpellSlots[3]}</td>
+                                    <td>{item.SpellSlots[4]}</td>
+                                    <td>{item.SpellSlots[5]}</td>
+                                    <td>{item.SpellSlots[6]}</td>
+                                    <td>{item.SpellSlots[7]}</td>
+                                    <td>{item.SpellSlots[8]}</td>
+                                    </tr>
                                 ))}
+                                </table>
                             </div>
                             : null
                             }

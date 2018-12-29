@@ -672,8 +672,40 @@ h4 {
   width: 1120px;
 }
 
-.levelSpans {
-  border-style: groove;
+table, th, td {
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  background-color: rgb(240, 33, 33);
+  color: white;
+  font-family: Dungeon, sans-serif;
+  font-size: 28px;
+}
+
+table {
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+th, td {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.tableRow1, .tableRow3, .tableRow5, .tableRow7, .tableRow9, .tableRow11, .tableRow13, .tableRow15, .tableRow17, .tableRow19 {
+  background-color: rgb(190, 184, 184);
+}
+
+.tableRow2, .tableRow4, .tableRow6, .tableRow8, .tableRow10, .tableRow12, .tableRow14, .tableRow16, .tableRow18, .tableRow20 {
+  background-color: white;
+}
+
+#tableRow:hover {
+  background-color: black;
+  color: white;
+  font-weight: bold;
 }
 
 @-webkit-keyframes glow {
