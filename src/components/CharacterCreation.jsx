@@ -487,6 +487,8 @@ class CharacterCreation extends Component {
                                 <table>
                                     <tr className="tableHeader">
                                         <th>Level</th>
+                                        <th>Spells Known</th>
+                                        <th>Cantrips Known</th>
                                         <th>1st</th>
                                         <th>2nd</th>
                                         <th>3rd</th>
@@ -500,6 +502,8 @@ class CharacterCreation extends Component {
                                 {this.state.characterClassSelected.Level.map(item => (
                                     <tr id="tableRow" className={`tableRow${item.Level}`}>
                                     <td><strong>{item.Level}</strong></td>
+                                    <td>{item.SpellsKnown}</td>
+                                    <td>{item.CantripsKnown}</td>
                                     <td>{item.SpellSlots[0]}</td>
                                     <td>{item.SpellSlots[1]}</td>
                                     <td>{item.SpellSlots[2]}</td>

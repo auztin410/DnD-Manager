@@ -706,6 +706,7 @@ th, td {
   background-color: black;
   color: white;
   font-weight: bold;
+  border-collapse: unset;
 }
 
 @-webkit-keyframes glow {
