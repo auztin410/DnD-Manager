@@ -683,6 +683,14 @@ table, th, td {
   font-size: 28px;
 }
 
+.proficiencyTable {
+  border: 1px black solid;
+}
+
+.profRow {
+  border: 1px black solid;
+}
+
 table {
   margin: 0 auto;
   overflow-y: auto;
@@ -706,7 +714,73 @@ th, td {
   background-color: black;
   color: white;
   font-weight: bold;
-  border-collapse: unset;
+}
+
+.statContainer {
+  width: 100%;
+}
+
+.statDiv {
+  display: inline-block;
+}
+
+.hexagon {
+  position: relative;
+  width: 80px; 
+  height: 46.19px;
+  background-color: rgb(240, 33, 33);
+  margin: 23.09px 0;
+  margin-right: 15px;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  float: left;
+  transition: transform 1.5s;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 56.57px;
+  height: 56.57px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 10.7157px;
+}
+
+.hexagon:before {
+  top: -28.2843px;
+  border-top: solid 1.4142px #000000;
+  border-right: solid 1.4142px #000000;
+}
+
+.hexagon:after {
+  bottom: -28.2843px;
+  border-bottom: solid 1.4142px #000000;
+  border-left: solid 1.4142px #000000;
+}
+
+.hexagon-text {
+  font-family: 'Marcellus SC', serif;
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  z-index: 1000;
+  margin: 0 auto;
+  width: 100%;
+  top: 5px;
+}
+
+.hexagon:hover {
+  transform: rotate(360deg);
+}
+
+.hexagon:hover > .hexagon-text {
+  opacity:0;
+  z-index: -1000;
 }
 
 @-webkit-keyframes glow {

@@ -280,8 +280,6 @@ class CharacterCreation extends Component {
     render() {
         return (
             <div className="visible" id="characterCreation">
-                <button onClick={this.handleSpellClick} className="customButton">Random Spell Console</button>
-
                 <h2>Character's Name</h2><input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" className="customSelect" />
                 <h4>Race</h4>
                 <select onChange={this.handleChangeCharacterCreation} name="characterRace" className="customSelect">
@@ -331,28 +329,37 @@ class CharacterCreation extends Component {
                     <div>
                         <h4>Proficiencies</h4>
                         <br />
-                        <h4>Armor</h4>
-                        {this.state.characterClassSelected.Armor.map(item => (
-                            <p key={item}>{item}</p>
-                        ))}
-                        <h4>Weapons</h4>
-                        {this.state.characterClassSelected.Weapon.map(item => (
-                            <p key={item}>{item}</p>
-                        ))}
-                        {(this.state.characterClassSelected.Tools.length > 0)
-                            ?
-                            <div>
-                                <h4>Tools</h4>
-                                {this.state.characterClassSelected.Tools.map(item => (
-                                    <p key={item}>{item}</p>
+                        <table className="proficiencyTable">
+                            <tr className="profRow">
+                                <th className="profRow">Weapons</th>
+                                {this.state.characterClassSelected.Weapon.map(item => (
+                                    <td className="profRow">{item}</td>
                                 ))}
-                            </div>
+                            </tr>
+                            <tr className="profRow">
+                                <th className="profRow">Armor</th>
+                                {this.state.characterClassSelected.Armor.map(item => (
+                                    <td className="profRow">{item}</td>
+                                ))}
+                            </tr>
+                            {(this.state.characterClassSelected.Tools.length > 0)
+                            ?
+                            <tr className="profRow">
+                                <th className="profRow">Tools</th>
+                                {this.state.characterClassSelected.Tools.map(item => (
+                                    <td className="profRow">{item}</td>
+                                ))}
+                            </tr>
                             : null
-                        }
-                        <h4>Saving Throws</h4>
-                        {this.state.characterClassSelected.SavingThrows.map(item => (
-                            <p key={item}>{item}</p>
-                        ))}
+                            }                            
+                            <tr className="profRow">
+                                <th className="profRow">Saving Throws</th>
+                                {this.state.characterClassSelected.SavingThrows.map(item => (
+                                    <td className="profRow">{item}</td>
+                                ))}
+                            </tr>
+                        </table>
+                        <br/>
                         <h4>Skills</h4>
                         {(this.state.characterClassSelected.Skills === 2)
                             ?
@@ -534,17 +541,23 @@ class CharacterCreation extends Component {
                     : null
                 }
                 <br/>
-                <div>
-                        Strength: {(this.state.strength === 0) ? <span><select name="strength" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span> : <span onClick={this.handleStatRemove} className="customButton" id="strength">{this.state.strength}</span>}
-                        Dexterity: {(this.state.dexterity === 0) ? <span><select name="dexterity" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="dexterity">{this.state.dexterity}</span>}
-                        Constitution: {(this.state.constitution === 0) ? <span><select name="constitution" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="constitution">{this.state.constitution}</span>}
-                        Intelligence: {(this.state.intelligence === 0) ? <span><select name="intelligence" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="intelligence">{this.state.intelligence}</span>}
-                        Wisdom: {(this.state.wisdom === 0) ? <span><select name="wisdom" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="wisdom">{this.state.wisdom}</span>}
-                        Charisma: {(this.state.charisma === 0) ? <span><select name="charisma" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <span onClick={this.handleStatRemove} className="customButton" id="charisma">{this.state.charisma}</span>}
+                <div className="statContainer">
+                <div className="statDiv">
+                        {(this.state.strength === 0) ? <span>Strength:<select name="strength" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span> : <div onClick={this.handleStatRemove} id="strength" className="hexagon"><div className="hexagon-text"><h4>Strength</h4><h2>{this.state.strength}</h2></div></div>}
+                        {(this.state.dexterity === 0) ? <span>Dexterity:<select name="dexterity" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <div onClick={this.handleStatRemove} className="hexagon" id="dexterity"><div className="hexagon-text"><h4>Dexterity</h4><h2>{this.state.dexterity}</h2></div></div>}
+                        {(this.state.constitution === 0) ? <span>Constitution:<select name="constitution" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <div onClick={this.handleStatRemove} className="hexagon" id="constitution"><div className="hexagon-text"><h4>Constitution</h4><h2>{this.state.constitution}</h2></div></div>}
+                        {(this.state.intelligence === 0) ? <span>Intelligence:<select name="intelligence" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <div onClick={this.handleStatRemove} className="hexagon" id="intelligence"><div className="hexagon-text"><h4>Intelligence</h4><h2>{this.state.intelligence}</h2></div></div>}
+                        {(this.state.wisdom === 0) ? <span>Wisdom:<select name="wisdom" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <div onClick={this.handleStatRemove} className="hexagon" id="wisdom"><div className="hexagon-text"><h4>Wisdom</h4><h2>{this.state.wisdom}</h2></div></div>}
+                        {(this.state.charisma === 0) ? <span>Charisma:<select name="charisma" onChange={this.handleStatChange}><option value="">None Selected</option>{this.state.statRolls.map((item, index) => <option key={index} value={item}>{item}</option>)} </select></span>: <div onClick={this.handleStatRemove} className="hexagon" id="charisma"><div className="hexagon-text"><h4>Charisma</h4><h2>{this.state.charisma}</h2></div></div>}
+                </div>
                 </div>
                 <br />
+                <br/>
+                <div>
                 <button onClick={this.handleGenerateStatRolls} className="customButton">Random</button> {" "} <button onClick={this.handleStandardSetStats} className="customButton">Standard Set</button>
+                </div>                
                 <br />
+                <h4>Background</h4>
                 <select onChange={this.handleChangeCharacterCreation} name="characterBackground" className="customSelect">
                     <option value="">None Selected</option>
                     <option value="acolyte">Acolyte</option>
