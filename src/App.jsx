@@ -13,38 +13,38 @@ const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
 			<nav className="navbar">
-				
-						<Link to="/">
-							Home
+
+				<Link to="/">
+					Home
 						</Link>
-					{" "}
-					
-						<Link to="/main">
-							Main
+				{" "}
+
+				<Link to="/main">
+					Main
 						</Link>
-					{" "}
-						<Link to="#" onClick={props._logout}>
-							Logout
+				{" "}
+				<Link to="#" onClick={props._logout}>
+					Logout
 						</Link>
-					
+
 			</nav>
 		)
 	} else {
 		return (
 			<nav className="navbar">
-				
-						<Link to="/" className="nav-link">
-							Home
+
+				<Link to="/" className="nav-link">
+					Home
 						</Link>
-					{" "}
-						<Link to="/login" className="nav-link">
-							login
+				{" "}
+				<Link to="/login" className="nav-link">
+					login
 						</Link>
-					{" "}
-						<Link to="/signup" className="nav-link">
-							sign up
+				{" "}
+				<Link to="/signup" className="nav-link">
+					sign up
 						</Link>
-				
+
 			</nav>
 		)
 	}
@@ -55,7 +55,8 @@ class App extends Component {
 		super()
 		this.state = {
 			loggedIn: false,
-			user: null
+			user: null,
+			d20: true,
 		}
 		this._logout = this._logout.bind(this)
 		this._login = this._login.bind(this)
@@ -108,12 +109,12 @@ class App extends Component {
 					})
 				}
 			})
-	}
+	};
 
 	render() {
 		return (
 			<div className="App">
-				<h1 className="header">Dungeons and Dragons Game Manager</h1>
+					{/* <h1 className="header">Dungeons and Dragons Game Manager</h1> */}
 				{/* <Header user={this.state.user} /> */}
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
@@ -130,8 +131,9 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
+
+				<Route exact path="/main" component={Main} />	
 				
-				<Route exact path="/main" component={Main} />
 			</div>
 		)
 	}

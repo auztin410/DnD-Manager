@@ -11,6 +11,9 @@
 
 body {
   background-color:rgba(227, 219, 179, 1);
+  background-image: url('./assets/Images/BG.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h2, h3, h4 {
@@ -23,7 +26,10 @@ h4 {
 
 .App {
   text-align: center;
-  background-color:rgba(227, 219, 179, 1);
+  /* background-color:rgba(227, 219, 179, 1);
+  background-image: url('./assets/Images/BG.png');
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .App-header {
@@ -39,7 +45,7 @@ h4 {
 
 .header {
   font-family: Dungeon, sans-serif;
-  font-size: 60px;
+  font-size: 78px;
   background-color: rgb(240, 33, 33);
   border-bottom-style: double;
   border-bottom-color: black;
@@ -54,8 +60,11 @@ h4 {
 }
 
 .buttons {
-  height: 50px;
+  padding-top: 5px;
+  width: 100px;
   margin-bottom: 10px;
+  float: left;
+  left: 0;
 }
 
 .loot {
@@ -783,6 +792,64 @@ th, td {
   z-index: -1000;
 }
 
+.hexagonBlack {
+  position: relative;
+  width: 80px; 
+  height: 46.19px;
+  background-color: rgb(0, 0, 0);
+  margin: 23.09px 0;
+  margin-right: 15px;
+  border-left: solid 1px #ffffff;
+  border-right: solid 1px #ffffff;
+  float: left;
+  margin-left: 10px;
+  z-index: 1;
+  -webkit-animation:spin 1.5s linear forwards;
+    -moz-animation:spin 1.5s linear forwards;
+    animation:spin 1.5s linear forwards;
+}
+
+.hexagonBlack:before,
+.hexagonBlack:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 56.57px;
+  height: 56.57px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 10.7157px;
+}
+
+.hexagonBlack:before {
+  top: -28.2843px;
+  border-top: solid 1.4142px #ffffff;
+  border-right: solid 1.4142px #ffffff;
+}
+
+.hexagonBlack:after {
+  bottom: -28.2843px;
+  border-bottom: solid 1.4142px #ffffff;
+  border-left: solid 1.4142px #ffffff;
+}
+
+.hexagonBlack-text {
+  font-family: 'Marcellus SC', serif;
+  font-size: 18px;
+  color: white;
+  position: absolute;
+  z-index: 1000;
+  margin: 0 auto;
+  width: 100%;
+  top: 10px;
+}
+
+#fadeIn {
+  animation: fadeIn 1.5s forwards 0s linear;
+}
+
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909, 0 0 60px #0f5f13, 0 0 70px #125017;
@@ -790,4 +857,19 @@ th, td {
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #136610, 0 0 40px #19860a, 0 0 50px #0b6b13, 0 0 60px #138018, 0 0 70px #137e05, 0 0 80px #0b9b12;
   }
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@keyframes fadeIn{
+  0%{
+      transform: translateY(0) skewX(0) skewY(0);
+      opacity: 0;
+      }
+  100%{
+      transform: rotate(xx) translateY(0) skewX(0) skewY(0);
+      opacity: 100;
+      }
 }

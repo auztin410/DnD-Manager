@@ -83,7 +83,6 @@ class Grid extends Component {
         return (
             <div>
                 <div className="visible" id="gridMap">
-                    <h4>Grid</h4>
                     {this.state.squares.map(item => {
                         if (item.Terrain === "") {
                             return (
