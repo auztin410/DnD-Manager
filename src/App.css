@@ -26,10 +26,6 @@ h4 {
 
 .App {
   text-align: center;
-  /* background-color:rgba(227, 219, 179, 1);
-  background-image: url('./assets/Images/BG.png');
-  background-repeat: no-repeat;
-  background-size: cover; */
 }
 
 .App-header {
@@ -47,11 +43,11 @@ h4 {
   font-family: Dungeon, sans-serif;
   font-size: 78px;
   background-color: rgb(240, 33, 33);
-  border-bottom-style: double;
-  border-bottom-color: black;
   color: white;
   margin: 0;
   padding: 0;
+  width: 92vw;
+  float: left;
 }
 
 .navbar {
@@ -64,7 +60,6 @@ h4 {
   width: 100px;
   margin-bottom: 10px;
   float: left;
-  left: 0;
 }
 
 .loot {
@@ -804,9 +799,9 @@ th, td {
   float: left;
   margin-left: 10px;
   z-index: 1;
-  -webkit-animation:spin 1.5s linear forwards;
-    -moz-animation:spin 1.5s linear forwards;
-    animation:spin 1.5s linear forwards;
+  -webkit-animation:spin 1s linear forwards;
+    -moz-animation:spin 1s linear forwards;
+    animation:spin 1s linear forwards;
 }
 
 .hexagonBlack:before,
@@ -847,7 +842,9 @@ th, td {
 }
 
 #fadeIn {
-  animation: fadeIn 1.5s forwards 0s linear;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: .5s;
 }
 
 @-webkit-keyframes glow {
@@ -862,14 +859,3 @@ th, td {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-@keyframes fadeIn{
-  0%{
-      transform: translateY(0) skewX(0) skewY(0);
-      opacity: 0;
-      }
-  100%{
-      transform: rotate(xx) translateY(0) skewX(0) skewY(0);
-      opacity: 100;
-      }
-}

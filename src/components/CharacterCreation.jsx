@@ -470,9 +470,16 @@ class CharacterCreation extends Component {
                         </div>
                         }
                         <h4>Extra Equipment</h4>
-                        {this.state.characterClassSelected.Equipment.map(item => (
-                            <p key={item.Name}>{item.Quantity} X {item.Name}</p>
-                        ))}
+                        <table>
+                           {this.state.characterClassSelected.Equipment.map(item => (
+                               <tr className="profRow">
+                                   <th className="profRow" key={item.Name}>{item.Name}</th>
+                                   <td className="profRow" key={item.Quantity}>{item.Quantity}</td>
+                               </tr>
+                           ))} 
+                        </table>
+                        <br/>
+                        <br/>
                         <span onClick={this.handleDetails} className="customButton">Details</span>
                         {(this.state.showDetails === true)
                         ?
@@ -582,33 +589,46 @@ class CharacterCreation extends Component {
                         {this.state.characterBackgroundSelected.Description.map(item => (
                             <p key={item}>{item}</p>
                         ))}
-                        <h4>Skills</h4>
-                        {this.state.characterBackgroundSelected.Skills.map(item => (
-                            <p key={item}>{item}</p>
-                        ))}
-                        {(this.state.characterBackgroundSelected.Tools.length > 0)
-                            ?
-                            <div>
-                                <h4>Tools</h4>
-                                {this.state.characterBackgroundSelected.Tools.map(item => (
-                                    <p key={item}>{item}</p>
-                                ))}
-                            </div>
-                            : null
-                        }
-                        {(this.state.characterBackgroundSelected.Languages.length > 0)
-                            ?
-                            <div>
-                                <h4>Languages</h4>
-                                <p>{this.state.characterBackgroundSelected.Languages[0]}</p>
-                            </div>
-                            : null
-                        }
-                        <h4>Equipment</h4>
-                        {this.state.characterBackgroundSelected.Equipment.map(item => (
-                            <p key={item}>{item}</p>
-                        ))}
-                        <h4>Starting Currency: {this.state.characterBackgroundSelected.Currency} GP</h4>
+
+                            <table>
+                                <tr className="profRow">
+                                    <th className="profRow">Skills</th>
+                                    {this.state.characterBackgroundSelected.Skills.map(item => (
+                                        <td className="profRow" key={item}>{item}</td>
+                                    ))}
+                                </tr>
+                                {(this.state.characterBackgroundSelected.Tools.length > 0)
+                                ?
+                                <tr className="profRow">
+                                    <th className="profRow">Tools</th>
+                                    {this.state.characterBackgroundSelected.Tools.map(item => (
+                                        <td className="profRow" key={item}>{item}</td>
+                                    ))}
+                                </tr>
+                                : null
+                                }
+                                {(this.state.characterBackgroundSelected.Languages.length > 0)
+                                ?
+                                <tr className="profRow">
+                                    <th className="profRow">Languages</th>
+                                    {this.state.characterBackgroundSelected.Languages.map(item => (
+                                        <td className="profRow" key={item}>{item}</td>
+                                    ))}
+                                </tr>
+                                : null
+                                }
+                                <tr className="profRow">
+                                    <th className="profRow">Equipment</th>
+                                    {this.state.characterBackgroundSelected.Equipment.map(item => (
+                                        <td className="profRow" key={item}>{item}</td>
+                                    ))}
+                                </tr>
+                                <tr className="profRow">
+                                    <th className="profRow">Starting Currency</th>
+                                    <td className="profRow">{this.state.characterBackgroundSelected.Currency} GP</td>
+                                </tr>
+                            </table>
+                            <br/>
                         <h4>Feature: {this.state.characterBackgroundSelected.FeatureName}</h4>
                         {this.state.characterBackgroundSelected.Feature.map(item => (
                             <p key={item}>{item}</p>

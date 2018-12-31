@@ -25,7 +25,9 @@
             "Religion"
         ],
         "Tools": [],
-        "Languages": "Two of your choice",
+        "Languages": [
+            "Two of your choice"
+        ],
         "Equipment": [
             "Holy symbol",
             "Prayer book",
