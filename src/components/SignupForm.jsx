@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import '../App.css';
 
 class SignupForm extends Component {
 	constructor() {
@@ -11,8 +12,9 @@ class SignupForm extends Component {
 			confirmPassword: '',
 			redirectTo: null
 		}
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
 	}
 	handleChange(event) {
 		this.setState({
@@ -38,13 +40,20 @@ class SignupForm extends Component {
 					console.log('duplicate')
 				}
 			})
-	}
+	};
+
+	handleKeyPress = (event) => {
+		if(event.key == 'Enter'){
+			this.handleSubmit(event);
+		}
+	  };
+
 	render() {
 		if (this.state.redirectTo) {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
 		return (
-			<div className="SignupForm">
+			<div className="loginForm">
 				<h1>Signup form</h1>
 				<label htmlFor="username">Username: </label>
 				<input
@@ -52,6 +61,7 @@ class SignupForm extends Component {
 					name="username"
 					value={this.state.username}
 					onChange={this.handleChange}
+					className="loginInput"
 				/>
 				<br/>
 				<br/>
@@ -61,6 +71,7 @@ class SignupForm extends Component {
 					name="password"
 					value={this.state.password}
 					onChange={this.handleChange}
+					className="loginInput"
 				/>
 				<br/>
 				<br/>
@@ -70,10 +81,11 @@ class SignupForm extends Component {
 					name="confirmPassword"
 					value={this.state.confirmPassword}
 					onChange={this.handleChange}
-				/>
+					className="loginInput"
+					id="loginBottomInput"
+				/>{" "}<div onClick={this.handleSubmit} id="registerButton" className="hexagonButton"><div className="hexagonButton-text">Register</div></div>
 				<br/>
-				<br/>
-				<button onClick={this.handleSubmit}>Sign up</button>
+				{/* <button onClick={this.handleSubmit}>Sign up</button> */}
 			</div>
 		)
 	}

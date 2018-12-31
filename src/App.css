@@ -48,6 +48,93 @@ h4 {
   padding: 0;
   width: 92vw;
   float: left;
+  transition: .5s;
+}
+
+.loginForm {
+  font-family: 'Marcellus SC', serif;
+  font-size: 28px;
+  background-color: rgb(240, 33, 33);
+  color: white;
+}
+
+.loginInput {
+  font-family: Dungeon, sans-serif;
+  font-size: 28px;
+}
+
+#loginBottomInput {
+  margin-bottom: 20px;
+}
+
+.hexagonButton {
+  width: 80px; 
+  height: 46.19px;
+  background-color: rgb(240, 33, 33);
+  margin: 23.09px 0;
+  margin-right: 15px;
+  border-left: solid 1px #ffffff;
+  border-right: solid 1px #ffffff;
+  float: left;
+  margin-left: 10px;
+  z-index: 1;
+}
+
+.hexagonButton:before,
+.hexagonButton:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 56.57px;
+  height: 56.57px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 10.7157px;
+}
+
+.hexagonButton:before {
+  top: -28.2843px;
+  border-top: solid 1.4142px #ffffff;
+  border-right: solid 1.4142px #ffffff;
+}
+
+.hexagonButton:after {
+  bottom: -28.2843px;
+  border-bottom: solid 1.4142px #ffffff;
+  border-left: solid 1.4142px #ffffff;
+}
+
+.hexagonButton-text {
+  font-family: 'Marcellus SC', serif;
+  font-size: 18px;
+  color: white;
+  position: absolute;
+  z-index: 1000;
+  margin: 0 auto;
+  width: 100%;
+  top: 10px;
+}
+
+.hexagonButton:hover {
+  background-color: black;
+}
+
+.hexagonButton:hover > .hexagonButton-text {
+  color: rgb(240, 33, 33);
+}
+
+#loginButton {
+  position: relative;
+  top: -70px;
+  left: 1080px;
+}
+
+#registerButton {
+  position: relative;
+  top: -120px;
+  left: 1100px;
 }
 
 .navbar {
@@ -60,6 +147,7 @@ h4 {
   width: 100px;
   margin-bottom: 10px;
   float: left;
+  transition: .5s;
 }
 
 .loot {
@@ -853,7 +941,6 @@ th, td {
 #fadeIn {
   overflow-x: hidden;
   overflow-y: hidden;
-  transition: .5s;
 }
 
 @-webkit-keyframes glow {

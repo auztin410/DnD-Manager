@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import '../../App.css';
 
 class LoginForm extends Component {
 	constructor() {
@@ -10,15 +11,16 @@ class LoginForm extends Component {
 			redirectTo: null
 		}
 		// this.googleSignin = this.googleSignin.bind(this)
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
 	}
 
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
-	}
+	};
 
 	handleSubmit(event) {
 		event.preventDefault()
@@ -27,14 +29,20 @@ class LoginForm extends Component {
 		this.setState({
 			redirectTo: '/'
 		})
-	}
+	};
+
+	handleKeyPress = (event) => {
+		if(event.key == 'Enter'){
+			this.handleSubmit(event);
+		}
+	  };
 
 	render() {
 		if (this.state.redirectTo) {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
 			return (
-				<div className="LoginForm">
+				<div className="loginForm">
 					<h1>Login form</h1>
 					<form>
 						<label htmlFor="username">Username: </label>
@@ -43,6 +51,8 @@ class LoginForm extends Component {
 							name="username"
 							value={this.state.username}
 							onChange={this.handleChange}
+							onKeyPress={this.handleKeyPress}
+							className="loginInput"
 						/>
 						<br/>
 						<br/>
@@ -52,10 +62,11 @@ class LoginForm extends Component {
 							name="password"
 							value={this.state.password}
 							onChange={this.handleChange}
-						/>
-						<br/>
-						<br/>
-						<button onClick={this.handleSubmit}>Login</button>
+							onKeyPress={this.handleKeyPress}
+							className="loginInput"
+							id="loginBottomInput"
+						/>{" "}<div onClick={this.handleSubmit} id="loginButton" className="hexagonButton"><div className="hexagonButton-text">Login</div></div>
+						{/* <button onClick={this.handleSubmit} className="loginButton">Login</button> */}
 					</form>
 				</div>
 			)
