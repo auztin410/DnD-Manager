@@ -787,6 +787,18 @@ th, td {
   z-index: -1000;
 }
 
+#spin {
+  -webkit-animation:spin .8s linear forwards;
+  -moz-animation:spin .8s linear forwards;
+  animation:spin .8s linear forwards;
+}
+
+#spinRev {
+  -webkit-animation:spinRev .8s linear forwards;
+  -moz-animation:spinRev .8s linear forwards;
+  animation:spinRev .8s linear forwards;
+}
+
 .hexagonBlack {
   position: relative;
   width: 80px; 
@@ -799,9 +811,6 @@ th, td {
   float: left;
   margin-left: 10px;
   z-index: 1;
-  -webkit-animation:spin 1s linear forwards;
-    -moz-animation:spin 1s linear forwards;
-    animation:spin 1s linear forwards;
 }
 
 .hexagonBlack:before,
@@ -859,3 +868,8 @@ th, td {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@keyframes spinRev {
+	0%  {transform: rotate(360deg);}
+  100% {transform: rotate(0deg);}	
+}
