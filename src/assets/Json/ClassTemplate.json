@@ -1,0 +1,163 @@
+{
+    "Name": "",
+    "HitDice": "",
+    "StartingHP": 0,
+    "Armor": [],
+    "Weapon": [],
+    "Tools": 1,
+    "ToolChoices": [],
+    "SetTools": [],
+    "SavingThrows": [],
+    "Skills": 2,
+    "SkillChoices": [],
+    "StartingChoices1": [
+        {
+            "Name": "",
+            "Quantity": 1
+        }
+    ],
+    "StartingChoices2": [
+        {
+            "Name": "",
+            "Quantity": 1
+        }
+    ],
+    "Pack": [],
+    "Equipment": [
+        {
+            "Name": "",
+            "Quantity": 1
+        }
+    ],
+    "Level": [
+        {
+            "Level": 1,
+            "ProficiencyBonus": 2,
+            "Rages": 2,
+            "RageDamage": 2
+        },
+        {
+            "Level": 2,
+            "ProficiencyBonus": 2,
+            "Rages": 2,
+            "RageDamage": 2
+        },
+        {
+            "Level": 3,
+            "ProficiencyBonus": 2,
+            "Rages": 3,
+            "RageDamage": 2
+        },
+        {
+            "Level": 4,
+            "ProficiencyBonus": 2,
+            "Rages": 3,
+            "RageDamage": 2
+        },
+        {
+            "Level": 5,
+            "ProficiencyBonus": 3,
+            "Rages": 3,
+            "RageDamage": 2
+        },
+        {
+            "Level": 6,
+            "ProficiencyBonus": 3,
+            "Rages": 4,
+            "RageDamage": 2
+        },
+        {
+            "Level": 7,
+            "ProficiencyBonus": 3,
+            "Rages": 4,
+            "RageDamage": 2
+        },
+        {
+            "Level": 8,
+            "ProficiencyBonus": 3,
+            "Rages": 4,
+            "RageDamage": 2
+        },
+        {
+            "Level": 9,
+            "ProficiencyBonus": 4,
+            "Rages": 4,
+            "RageDamage": 3
+        },
+        {
+            "Level": 10,
+            "ProficiencyBonus": 4,
+            "Rages": 4,
+            "RageDamage": 3
+        },
+        {
+            "Level": 11,
+            "ProficiencyBonus": 4,
+            "Rages": 4,
+            "RageDamage": 3
+        },
+        {
+            "Level": 12,
+            "ProficiencyBonus": 4,
+            "Rages": 5,
+            "RageDamage": 3
+        },
+        {
+            "Level": 13,
+            "ProficiencyBonus": 5,
+            "Rages": 5,
+            "RageDamage": 3
+        },
+        {
+            "Level": 14,
+            "ProficiencyBonus": 5,
+            "Rages": 5,
+            "RageDamage": 3
+        },
+        {
+            "Level": 15,
+            "ProficiencyBonus": 5,
+            "Rages": 5,
+            "RageDamage": 3
+        },
+        {
+            "Level": 16,
+            "ProficiencyBonus": 5,
+            "Rages": 5,
+            "RageDamage": 4
+        },
+        {
+            "Level": 17,
+            "ProficiencyBonus": 6,
+            "Rages": 6,
+            "RageDamage": 4
+        },
+        {
+            "Level": 18,
+            "ProficiencyBonus": 6,
+            "Rages": 6,
+            "RageDamage": 4
+        },
+        {
+            "Level": 19,
+            "ProficiencyBonus": 6,
+            "Rages": 6,
+            "RageDamage": 4
+        },
+        {
+            "Level": 20,
+            "ProficiencyBonus": 6,
+            "Rages": "Unlimited",
+            "RageDamage": 4
+        }
+    ],
+    "Features": [
+        {
+            "Level": 1,
+            "Name": "",
+            "Description": [],
+            "CoolDown": "",
+            "Uses": 0
+        }
+    ]
+}
