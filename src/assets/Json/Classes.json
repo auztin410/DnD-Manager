@@ -13,6 +13,8 @@
             "Martial weapons"
         ],
         "Tools": [],
+        "ToolChoices": [],
+        "SetTools": [],
         "SavingThrows": [
             "Strength",
             "Constitution"
@@ -510,9 +512,20 @@
             "Rapier",
             "Shortsword"
         ],
-        "Tools": [
-            "Three musical instrument of your choice"
+        "Tools": 3,
+        "ToolChoices": [
+            "Bagpipes",
+            "Drum",
+            "Dulcimer",
+            "Flute",
+            "Lute",
+            "Lyre",
+            "Horn",
+            "Pan flute",
+            "Shawm",
+            "Viol"
         ],
+        "SetTools": [],
         "SavingThrows": [
             "Dexterity",
             "Charisma"
@@ -786,6 +799,30 @@
                 "SpellSlots": [4,3,3,3,3,2,2,1,1]
             }
         ],
-        "Features": []
+        "Features": [
+            {
+                "Level": 1,
+                "Name": "Spellcasting",
+                "Description": [
+                    "Charisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.",
+                    "Spell save DC = 8 + your proficiency bonus + your Charisma modifier.",
+                    "Spell attack modifier = your proficiency bonus + your Charisma modifier."
+                ],
+                "CoolDown": "None",
+                "Uses": 0
+            },
+            {
+                "Level": 1,
+                "Name": "Bardic Inspiration",
+                "Description": [
+                    "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.",
+                    "Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.",
+                    "You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.",
+                    "Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level."
+                ],
+                "CoolDown": "Long rest",
+                "Uses": 0
+            }
+        ]
     }
 ]
