@@ -10,10 +10,16 @@
 @font-face { font-family: Abyssal; font-weight: bold; src: url('../src/assets/Fonts/Barazhad\ Bold.otf');}
 
 body {
-  background-color:rgba(227, 219, 179, 1);
-  background-image: url('./assets/Images/BG.png');
+  background-image: linear-gradient(rgb(17, 16, 16) , rgb(22, 19, 19), rgb(48, 20, 20), rgb(71, 16, 16), rgb(102, 15, 15), rgb(160, 9, 9));
+  /* background-image: linear-gradient(#190A05, #870000); */
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 100vh;
+  /* background-color:rgba(227, 219, 179, 1); */
+  /* background-image: url('./assets/Images/BG.png'); */
 }
 
 h2, h3, h4 {
@@ -40,27 +46,41 @@ h4 {
 }
 
 .header {
-  font-family: Dungeon, sans-serif;
-  font-size: 78px;
-  background-color: rgb(240, 33, 33);
-  color: white;
+  /* font-family: Dungeon, sans-serif; */
+  font-family: 'Marcellus SC', serif;
+  font-size: 70px;
+  background-color: rgba(240, 33, 33, 0.5);
+  color: rgb(255, 255, 255);
   margin: 0;
   padding: 0;
   width: 92vw;
   float: left;
   transition: .5s;
+  text-align: left;
+}
+
+.ddm {
+  padding-left: 10px;
+  text-shadow: 2px 2px 8px black;
+}
+
+.user {
+  font-size: 28px;
+  text-shadow: 2px 2px 8px black;
+  text-align: right;
+  padding-left: 800px;
 }
 
 .loginForm {
   font-family: 'Marcellus SC', serif;
-  font-size: 28px;
+  font-size: 24px;
   background-color: rgb(240, 33, 33);
   color: white;
 }
 
 .loginInput {
-  font-family: Dungeon, sans-serif;
-  font-size: 28px;
+  font-family: 'Marcellus SC', serif;
+  font-size: 24px;
 }
 
 #loginBottomInput {
@@ -207,7 +227,7 @@ h4 {
   left: 0;
   right: 0;
   top: 0;
-  margin-top: 30vh;
+  margin-top: 20vh;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
@@ -338,12 +358,11 @@ h4 {
 }
 
 .visible {
-  background-color: rgba(189, 165, 165, 0.486);
+  background-color: rgba(255, 255, 255, 0.733);
   float: left;
-  border-color: black;
-  border-style: double;
   margin: 10px;
   padding: 2px;
+  box-shadow: 2px 2px 8px black;
 }
 
 #individualLoot {
