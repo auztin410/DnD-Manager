@@ -11,13 +11,19 @@
 
 body {
   background: rgb(1,1,1);
-  background: linear-gradient(180deg, rgba(1,1,1,1) 0%, rgba(226,233,226,1) 100%);
+  /* background: linear-gradient(180deg, rgba(1,1,1,1) 0%, rgba(226,233,226,1) 100%);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   height: 100vh;
+  /* Gradient Animation */
+  background: linear-gradient(180deg, #000000, #f3ebeb);
+  background-size: 400% 400%;
+  -webkit-animation: GradientAnimation 20s ease infinite;
+  -moz-animation: GradientAnimation 20s ease infinite;
+  animation: GradientAnimation 20s ease infinite;
 }
 
 h2, h3, h4 {
@@ -978,4 +984,20 @@ th, td {
 @keyframes spinRev {
 	0%  {transform: rotate(360deg);}
   100% {transform: rotate(0deg);}	
+}
+
+@-webkit-keyframes GradientAnimation {
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
+}
+@-moz-keyframes GradientAnimation {
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
+}
+@keyframes GradientAnimation { 
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
 }
