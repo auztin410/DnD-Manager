@@ -280,9 +280,9 @@ class CharacterCreation extends Component {
     render() {
         return (
             <div className="visible" id="characterCreation">
-                <h2>Character's Name</h2><input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" className="customSelect" />
-                <h4>Race</h4>
-                <select onChange={this.handleChangeCharacterCreation} name="characterRace" className="customSelect">
+                <span>Character's Name{" "}<input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" className="customSelect" /></span>
+                <br/>
+                <span>Race{" "}<select onChange={this.handleChangeCharacterCreation} name="characterRace" className="customSelect">
                     <option value="">None Selected</option>
                     <option value="dragonborn">Dragonborn</option>
                     <option value="dwarf">Dwarf</option>
@@ -293,21 +293,22 @@ class CharacterCreation extends Component {
                     <option value="halfling">Halfling</option>
                     <option value="human">Human</option>
                     <option value="tiefling">Tiefling</option>
-                </select>
+                </select></span>
+               
                 {(this.state.characterSubRaceOptions.length > 0)
                     ?
-                    <div>
-                        <h4>Sub Race</h4>
+                        <span>Sub Race
                         <select onChange={this.handleChangeCharacterCreation} name="characterSubRace" className="customSelect">
                             <option value="">None Selected</option>
                             {this.state.characterSubRaceOptions.map(item => (
                                 <option key={item.SubRaceValue} value={item.SubRaceValue}>{item.SubRaceName}</option>
                             ))}
                         </select>
-                    </div>
+                        </span>
                     : null
                 }
-                <h4>Class</h4>
+                <br/>
+                <span>Class
                 <select onChange={this.handleChangeCharacterCreation} name="characterClass" className="customSelect">
                     <option value="">None Selected</option>
                     <option value="barbarian">Barbarian</option>
@@ -323,6 +324,7 @@ class CharacterCreation extends Component {
                     <option value="warlock">Warlock</option>
                     <option value="wizard">Wizard</option>
                 </select>
+                </span>
                 <br />
                 {(this.state.characterClassSelected)
                     ?
@@ -360,36 +362,34 @@ class CharacterCreation extends Component {
                             </tr>
                         </table>
                         <br/>
-                        <h4>Skills</h4>
+                        <span>Skills
                         {(this.state.characterClassSelected.Skills === 2)
                             ?
-                            <div>
+                            <span>
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice1" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                                <br />
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice2" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                            </div>
+                            </span>
                             : null
                         }
                         {(this.state.characterClassSelected.Skills === 3)
                             ?
-                            <div>
+                            <span>
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice1" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                                <br />
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice2" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
@@ -402,43 +402,42 @@ class CharacterCreation extends Component {
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                            </div>
+                            </span>
                             : null
                         }
                         {(this.state.characterClassSelected.Skills === 4)
                         ?
-                        <div>
+                        <span>
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice1" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                                <br />
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice2" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                                <br/>
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice3" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                                <br/>
                                 <select onChange={this.handleChangeCharacterCreation} name="classSkillChoice3" className="customSelect">
                                     <option value="">None Selected</option>
                                     {this.state.characterClassSelected.SkillChoices.map(item => (
                                         <option value={item} key={item}>{item}</option>
                                     ))}
                                 </select>
-                            </div>
+                            </span>
                             : null
                         }
-                        <h4>Weapon Choices</h4>
+                        </span>
+                        <br/>
+                        <span>Weapon Choices
                         <select onChange={this.handleChangeCharacterCreation} name="startingChoice1" className="customSelect">
                         <option value="">None Selected</option>
                         {this.state.characterClassSelected.StartingChoices1.map(item => (
@@ -451,6 +450,7 @@ class CharacterCreation extends Component {
                             <option data-value={item} key={item.Name}>{item.Quantity} X {item.Name}</option>
                         ))}
                         </select>
+                        </span>
                         <br/>
                         <br/>
                         <h4>Starting Pack</h4>

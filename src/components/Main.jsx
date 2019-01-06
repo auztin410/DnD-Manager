@@ -4232,19 +4232,27 @@ class Main extends Component {
                                     {EquipmentPacks.map(item => (
                                         <option value={item.Name} key={item.Name}>{item.Name} | {item.Cost} {item.Currency}</option>
                                     ))}
-                                </select>
-                                <br />
-                                <br />
-                                <span className="customButton" onClick={this.handleEquipmentPack}>Select</span>
+                                </select>{" "}<span className="customButton" onClick={this.handleEquipmentPack}>Select</span>                                
                             </form>
                             {(this.state.itemsInPack.length > 0)
                                 ?
                                 <div>
+                                    <table>
+                                        <tr id="tableHeader">
+                                            <th>Item</th>
+                                            <th>Cost</th>
+                                            <th>Weight</th>
+                                            <th>Quantity</th>
+                                        </tr>
                                     {this.state.itemsInPack.map(item => (
-                                        <div className="monsterGrouping">
-                                            <p>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight} lbs. | Quantity: {item.Quantity}</p>
-                                        </div>
+                                        <tr className="profRow">
+                                            <td className="profRow">{item.Name}</td>
+                                            <td className="profRow">{item.Cost}{" "}{item.Currency}</td>
+                                            <td className="profRow">{item.Weight}</td>
+                                            <td className="profRow">{item.Quantity}</td>
+                                        </tr>
                                     ))}
+                                    </table>
                                     <div className="monsterGrouping">
                                         <p>Total weight: {this.state.itemsInPackTotalWeight} lbs.</p>
                                     </div>

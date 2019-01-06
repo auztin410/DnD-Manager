@@ -339,24 +339,24 @@ h4 {
 }
 
 .customButton {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Marcellus SC', serif;
   font-size: 18px;
-  background-image: url('../src/assets/u0.jpg');
-  border-color: black;
-  border-style: double;
+  background-color: rgba(206, 193, 193, 0.288);
   margin: 5px;
   padding: 5px;
+  box-shadow: 2px 2px 4px black;
 }
 
 
 .customButton:hover {
-  border-width: 5px;
-  margin: 0;
+  box-shadow: 2px 2px 8px black;
+  font-weight: bold;
 }
 
 .buttonSpacer {
   height: 35px;
   margin: 10px;
+  padding-bottom: 5px;
 }
 
 .visible {
@@ -389,7 +389,7 @@ h4 {
 }
 
 #monster {
-  width: 47vw;
+  width: 800px;
 }
 
 #worldMap {

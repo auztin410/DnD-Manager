@@ -4,16 +4,48 @@ import '../App.css';
 const Npc = props => (
 
     <div className="npc">
-            <div className="container"><p className="property">Name: {props.npc.name}</p></div>
-            <div className="container"><p className="property">Appearance: {props.npc.appearance}</p></div>
-            <div className="container"><p className="property">High ability: {props.npc.highAbility}</p></div> 
-            <div className="container"><p className="property">Low ability: {props.npc.lowAbility}</p></div>
-            <div className="container"><p className="property">Talent: {props.npc.talents}</p></div>
-            <div className="container"><p className="property">Mannerism: {props.npc.mannerism}</p></div>
-            <div className="container"><p className="property">Trait: {props.npc.trait}</p></div>
-            <div className="container"><p className="property">Ideal: {props.npc.ideals}</p></div>
-            <div className="container"><p className="property">Bond: {props.npc.bonds}</p></div>
-            <div className="container"><p className="property">Flaws and secret: {props.npc.flawsSecrets}</p></div>
+            <table>
+                <tr>
+                    <td className="profRow">Name:</td>
+                    <td className="profRow">{props.npc.name}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Appearance:</td>
+                    <td className="profRow">{props.npc.appearance}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">High Ability:</td>
+                    <td className="profRow">{props.npc.highAbility}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Low Ability:</td>
+                    <td className="profRow">{props.npc.lowAbility}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Talent:</td>
+                    <td className="profRow">{props.npc.talents}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Mannerism:</td>
+                    <td className="profRow">{props.npc.mannerism}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Trait:</td>
+                    <td className="profRow">{props.npc.trait}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Ideal:</td>
+                    <td className="profRow">{props.npc.ideals}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Bond:</td>
+                    <td className="profRow">{props.npc.bonds}</td>
+                </tr>
+                <tr>
+                    <td className="profRow">Flaws and Secrets</td>
+                    <td className="profRow">{props.npc.flawsSecrets}</td>
+                </tr>
+            </table>
         </div>
 );
         
