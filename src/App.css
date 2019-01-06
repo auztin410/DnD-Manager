@@ -10,16 +10,14 @@
 @font-face { font-family: Abyssal; font-weight: bold; src: url('../src/assets/Fonts/Barazhad\ Bold.otf');}
 
 body {
-  background-image: linear-gradient(rgb(17, 16, 16) , rgb(22, 19, 19), rgb(48, 20, 20), rgb(71, 16, 16), rgb(102, 15, 15), rgb(160, 9, 9));
-  /* background-image: linear-gradient(#190A05, #870000); */
+  background: rgb(1,1,1);
+  background: linear-gradient(180deg, rgba(1,1,1,1) 0%, rgba(226,233,226,1) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   height: 100vh;
-  /* background-color:rgba(227, 219, 179, 1); */
-  /* background-image: url('./assets/Images/BG.png'); */
 }
 
 h2, h3, h4 {
@@ -201,12 +199,14 @@ h4 {
 }
 
 .generated {
-  background-image: url('./assets//u0.jpg');
+  /* background-image: url('./assets//u0.jpg'); */
+  background-color: rgba(236, 227, 227, 0.473);
   width: 20vw;
   margin: 10px;
   float: left;
-  border-color: black;
-  border-style: double;
+  box-shadow: 2px 2px 4px black;
+  /* border-color: black;
+  border-style: double; */
 }
 
 .items {
@@ -237,6 +237,8 @@ h4 {
   border-width: 8px;
   border-style: ridge;
   border-color: rgba(65, 36, 13, 0.61);
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .itemSection {
@@ -358,7 +360,8 @@ h4 {
 }
 
 .visible {
-  background-color: rgba(255, 255, 255, 0.733);
+  /* background-color: rgba(212, 193, 193, 0.801); */
+  background-image: url('./assets//u0.jpg');
   float: left;
   margin: 10px;
   padding: 2px;
@@ -366,7 +369,7 @@ h4 {
 }
 
 #individualLoot {
-  width: 21.8vw;
+  width: 345px;
 }
 
 #translation {
@@ -409,7 +412,7 @@ h4 {
 }
 
 #merchantDiv {
-  width: 1520px;
+  width: 1425px;
 }
 
 #soundDiv {
@@ -708,20 +711,17 @@ h4 {
 
 .merchantOptions {
   float: left;
-  width: 550px;
-  border-style: double;
-  border-color: black;
+  width: 475px;
 }
 
 .merchantPending {
   float: left;
   width: 475px;
-  border-style: double;
-  border-color: black;
 }
 
 .merchantItem {
-  background-image: url('./assets//u0.jpg');
+  /* background-image: url('./assets//u0.jpg'); */
+  background-color: rgba(168, 161, 161, 0.479);
   margin-top: 2px;
   border-style: outset;
 }
