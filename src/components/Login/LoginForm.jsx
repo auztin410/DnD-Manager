@@ -43,9 +43,9 @@ class LoginForm extends Component {
 		} else {
 			return (
 				<div className="loginForm">
-					<h1>Login form</h1>
-					<form>
-						<label htmlFor="username">Username: </label>
+					<form className="login">
+						{/* <label htmlFor="username">Username: </label> */}
+						<span>Username:</span>
 						<input
 							type="text"
 							name="username"
@@ -53,10 +53,11 @@ class LoginForm extends Component {
 							onChange={this.handleChange}
 							onKeyPress={this.handleKeyPress}
 							className="loginInput"
+							id="loginTopInput"
 						/>
 						<br/>
-						<br/>
-						<label htmlFor="password">Password: </label>
+						{/* <label htmlFor="password">Password: </label> */}
+						<span>Password:</span>
 						<input
 							type="password"
 							name="password"
