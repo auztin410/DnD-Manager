@@ -3997,9 +3997,21 @@ class Main extends Component {
                             }
                             {(this.state.treasureArtResults.length >= 1)
                                 ? <div className="generated">
+                                <table>
+                                    <tr>
+                                        <th className="profRow">Item</th>
+                                        <th className="profRow">Quantity</th>
+                                        <th className="profRow">Value GP</th>
+                                    </tr>
                                     {this.state.treasureArtResults.map(item => (
-                                        <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value} GP</p></span>
+                                        <tr key={item.Name}>
+                                            <td className="profRow">{item.Name}</td>
+                                            <td className="profRow">{item.Count}</td>
+                                            <td className="profRow">{item.Value}</td>
+                                        </tr>
+                                        // <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value} GP</p></span>
                                     ))}
+                                    </table>
                                 </div>
                                 : null
                             }
