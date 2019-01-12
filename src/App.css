@@ -71,6 +71,7 @@ h4 {
   width: 1200px;
   margin: 0 auto;
   padding: 25px;
+  margin-bottom: 40px;
   box-shadow: 2px 2px 8px rgb(0, 0, 0);
 }
 
@@ -100,6 +101,22 @@ h4 {
 #red {
   background-color: rgba(255, 0, 0, 0.856);
   box-shadow: 2px 2px 12px rgb(224, 7, 7);
+}
+
+.name {
+  font-family: Nodestro, sans-serif;
+  font-size: 48px;
+  text-shadow: 2px 2px 8px whitesmoke;
+  color: black;
+}
+
+.characterDetails {
+  width: 1200px;
+  font-family: 'Marcellus SC', serif;
+  padding: 28px;
+  background-image: url('./assets/u0.jpg');
+  margin: 0 auto;
+  box-shadow: 2px 2px 8px black;
 }
 
 .header {
