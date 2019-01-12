@@ -8,6 +8,8 @@
 @font-face { font-family: Draconic; font-weight: bold; src: url('../src/assets/Fonts/Iokharic\ Bold.otf');}
 @font-face { font-family: Abyssal; src: url('../src/assets/Fonts/Barazhad.otf');}
 @font-face { font-family: Abyssal; font-weight: bold; src: url('../src/assets/Fonts/Barazhad\ Bold.otf');}
+@font-face { font-family: Nodestro; src: url('../src/assets/Fonts/Nodesto\ Caps\ Condensed.otf');}
+@font-face { font-family: Nodestro; font-weight: bold; src: url('../src/assets/Fonts/Nodesto\ Caps\ Condensed\ Bold.otf');}
 
 body {
   background: rgb(1,1,1);
@@ -49,11 +51,45 @@ h4 {
   font-size: large;
 }
 
+.mainUser {
+  /* width: 250px; */
+  font-family: Nodestro, sans-serif;
+  font-size: 36px;
+  color: whitesmoke;
+  background-color: rgb(240, 33, 33);
+  text-shadow: 2px 2px 8px black;
+  box-shadow: 2px 2px 8px black;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.characterList {
+  background-image: url('./assets/u0.jpg');
+  font-family: Nodestro, sans-serif;
+  font-size: 26px;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 25px;
+  box-shadow: 2px 2px 8px rgb(0, 0, 0);
+}
+
+.characterTable {
+  background-color: rgba(252, 249, 249, 0.329);
+}
+
+.characterTableHeader {
+  background-color: rgb(240, 33, 33);
+  font-size: 32px;
+  color: whitesmoke;
+  text-shadow: 4px 4px 8px black; 
+}
+
 .header {
-  /* font-family: Dungeon, sans-serif; */
-  font-family: 'Marcellus SC', serif;
-  font-size: 70px;
-  background-color: rgba(240, 33, 33, 0.5);
+  font-family: Nodestro, sans-serif;
+  font-size: 72px;
+  background-color: rgb(240, 33, 33);
   color: rgb(255, 255, 255);
   margin: 0;
   padding: 0;
@@ -64,26 +100,31 @@ h4 {
 }
 
 .ddm {
+  /* background: -webkit-linear-gradient(rgb(241, 237, 237), rgb(19, 18, 18), rgb(10, 10, 10), black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: whitesmoke;
+  text-shadow: 3px 3px 12px black;
   padding-left: 10px;
-  text-shadow: 2px 2px 8px black;
 }
 
 .user {
-  font-size: 28px;
+  color: whitesmoke;
+  font-size: 36px;
   text-shadow: 2px 2px 8px black;
   text-align: right;
-  padding-left: 800px;
+  padding-left: 930px;
 }
 
 .loginForm {
-  font-family: 'Marcellus SC', serif;
+  font-family: Nodestro, sans-serif;
   font-size: 24px;
   background-color: rgb(240, 33, 33);
   color: white;
 }
 
 .loginInput {
-  font-family: 'Marcellus SC', serif;
+  font-family: Nodestro, sans-serif;
   font-size: 24px;
   text-align: left;
   margin-top: 20px;
@@ -347,8 +388,9 @@ h4 {
 }
 
 .customButton {
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
+  /* font-family: 'Marcellus SC', serif; */
+  font-family: Nodestro, sans-serif;
+  font-size: 24px;
   background-color: rgba(206, 193, 193, 0.288);
   margin: 5px;
   padding: 5px;
