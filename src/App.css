@@ -52,7 +52,6 @@ h4 {
 }
 
 .mainUser {
-  /* width: 250px; */
   font-family: Nodestro, sans-serif;
   font-size: 36px;
   color: whitesmoke;
@@ -67,9 +66,9 @@ h4 {
 
 .characterList {
   background-image: url('./assets/u0.jpg');
-  font-family: Nodestro, sans-serif;
-  font-size: 26px;
-  width: 1000px;
+  font-family: 'Marcellus SC', serif;
+  font-size: 18px;
+  width: 1200px;
   margin: 0 auto;
   padding: 25px;
   box-shadow: 2px 2px 8px rgb(0, 0, 0);
@@ -84,6 +83,23 @@ h4 {
   font-size: 32px;
   color: whitesmoke;
   text-shadow: 4px 4px 8px black; 
+}
+
+.circle {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  margin: 0 auto;
+}
+
+#green {
+  background-color: rgba(0, 128, 0, 0.856);
+  box-shadow: 2px 2px 12px rgba(4, 161, 4, 0.856);
+}
+
+#red {
+  background-color: rgba(255, 0, 0, 0.856);
+  box-shadow: 2px 2px 12px rgb(224, 7, 7);
 }
 
 .header {
@@ -117,14 +133,14 @@ h4 {
 }
 
 .loginForm {
-  font-family: Nodestro, sans-serif;
+  font-family: 'Marcellus SC', serif;
   font-size: 24px;
   background-color: rgb(240, 33, 33);
   color: white;
 }
 
 .loginInput {
-  font-family: Nodestro, sans-serif;
+  font-family: 'Marcellus SC', serif;
   font-size: 24px;
   text-align: left;
   margin-top: 20px;
@@ -388,9 +404,8 @@ h4 {
 }
 
 .customButton {
-  /* font-family: 'Marcellus SC', serif; */
-  font-family: Nodestro, sans-serif;
-  font-size: 24px;
+  font-family: 'Marcellus SC', serif;
+  font-size: 18px;
   background-color: rgba(206, 193, 193, 0.288);
   margin: 5px;
   padding: 5px;

@@ -57,9 +57,11 @@ class App extends Component {
 			loggedIn: false,
 			user: null,
 			d20: true,
+			characterDetails: false,
 		}
-		this._logout = this._logout.bind(this)
-		this._login = this._login.bind(this)
+		this._logout = this._logout.bind(this);
+		this._login = this._login.bind(this);
+		this.handleView = this.handleView.bind(this);
 	}
 	componentDidMount() {
 		axios.get('/auth/user').then(response => {
@@ -111,6 +113,20 @@ class App extends Component {
 			})
 	};
 
+	handleView() {
+		console.log("Test prop function");
+		if(this.state.characterDetails === false) {
+			this.setState({
+				characterDetails: true,
+			});
+		}
+		else if (this.state.characterDetails === true) {
+			this.setState({
+				characterDetails: false
+			});
+		}		
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -120,7 +136,7 @@ class App extends Component {
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
-				<Route exact path="/" render={() => <Home user={this.state.user} />} />
+				<Route exact path="/" render={() => <Home user={this.state.user} view={this.handleView} show={this.state.characterDetails}/>} />
 				<Route
 					exact
 					path="/login"

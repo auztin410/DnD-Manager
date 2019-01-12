@@ -23,8 +23,8 @@ const Home = props => {
 								<td className="profRow">Mountain Dwarf</td>
 								<td className="profRow">Paladin</td>
 								<td className="profRow">Acolyte</td>
-								<td className="profRow">False</td>
-								<td className="profRow"><button className="customButton">View</button></td>
+								<td className="profRow"><div className="circle" id="red"></div></td>
+								<td className="profRow"><button onClick={props.view} className="customButton">View</button></td>
 							</tr>
 							<tr>
 								<td className="profRow">Nakoth Narran</td>
@@ -32,7 +32,7 @@ const Home = props => {
 								<td className="profRow">Dark Elf</td>
 								<td className="profRow">Sorcerer</td>
 								<td className="profRow">Charlattan</td>
-								<td className="profRow">True</td>
+								<td className="profRow"><div className="circle" id="green"></div></td>
 								<td className="profRow"><button className="customButton">View</button></td>
 							</tr>
 							<tr>
@@ -41,7 +41,7 @@ const Home = props => {
 								<td className="profRow">Human/Slob</td>
 								<td className="profRow">Warrior?</td>
 								<td className="profRow">Homeless</td>
-								<td className="profRow">True</td>
+								<td className="profRow"><div className="circle" id="green"></div></td>
 								<td className="profRow"><button className="customButton">View</button></td>
 							</tr>
 						</table>
