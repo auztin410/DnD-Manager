@@ -1051,12 +1051,20 @@ th, td {
 
 .questSection {
   float: left;
-  border-style: double;
-  border-color: black;
-  margin: 0 auto;
+  width: 150px;
   margin: 10px;
-  width: 300px;
-  height: 280px;
+  font-family: 'Marcellus SC', serif;
+}
+
+#questHeader {
+  background-color: rgb(240, 33, 33);
+  color: whitesmoke;
+  font-family: 'Marcellus SC', serif;
+}
+
+#questSelect:hover {
+  background-color: black;
+  color: whitesmoke;
 }
 
 .quest {
