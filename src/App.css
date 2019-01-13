@@ -776,6 +776,7 @@ h4 {
 }
 
 .monsterGrouping {
+  font-family: 'Marcellus SC', serif;
   background-image: url('./assets/u0.jpg');
   border-color: black;
   border-style: double;

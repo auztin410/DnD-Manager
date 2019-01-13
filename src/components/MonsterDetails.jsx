@@ -13,7 +13,7 @@ const MonsterDetails = props => (
             {/* <span onClick={props.action}><FontAwesomeIcon icon="dice"/></span> */}
         </div>
         <div className="monsterGrouping">
-            <p>Size: {props.monster.size} | Type: {props.monster.type} | Subtype: {props.monster.subtype}</p>
+            <p>Size: {props.monster.size} | Type: {props.monster.type} {(props.monster.subtype === "") ? null : <span>| Subtype: {props.monster.subtype}</span> } </p>
             <p>Challenge Rating: {props.monster.challenge_rating} | Alignment: {props.monster.alignment}</p>
             <p>Sense: {props.monster.senses}</p>
             {(props.monster.languages)
@@ -24,13 +24,41 @@ const MonsterDetails = props => (
         </div>
         <div className="monsterGrouping">
             <h4>Base Stats</h4>
-            <p>Strength: {props.monster.strength} | Dexterity: {props.monster.dexterity} | Constitution: {props.monster.constitution}</p>
-            <p>Intelligence: {props.monster.intelligence} | Wisdom: {props.monster.wisdom} | Charisma: {props.monster.charisma}</p>
+            <table>
+                <tr>
+                    <th className="profRow">Str</th>
+                    <th className="profRow">Dex</th>
+                    <th className="profRow">Con</th>
+                    <th className="profRow">Int</th>
+                    <th className="profRow">Wis</th>
+                    <th className="profRow">Cha</th>
+                </tr>
+                <tr>
+                    <td className="profRow">{props.monster.strength}</td>
+                    <td className="profRow">{props.monster.dexterity}</td>
+                    <td className="profRow">{props.monster.constitution}</td>
+                    <td className="profRow">{props.monster.intelligence}</td>
+                    <td className="profRow">{props.monster.wisdom}</td>
+                    <td className="profRow">{props.monster.charisma}</td>
+                </tr>
+            </table>
+            <br/>
         </div>
         <div className="monsterGrouping">
             <h4>Additional Stats</h4>
-            <p>Hit points: {props.monster.hit_points} | Hit dice: {props.monster.hit_dice}</p>
-            <p>Speed: {props.monster.speed}</p>
+            <table>
+                <tr>
+                    <th className="profRow">Hit Points</th>
+                    <th className="profRow">Hit Dice</th>
+                    <th className="profRow">Speed</th>
+                </tr>
+                <tr>
+                    <td className="profRow">{props.monster.hit_points}</td>
+                    <td className="profRow">{props.monster.hit_dice}</td>
+                    <td className="profRow">{props.monster.speed}</td>
+                </tr>
+            </table>
+            <br/>
         </div>
         {(props.monster.damage_vulnerabilities === "" && props.monster.damage_resistances === "" && props.monster.damage_immunities === "" && props.monster.condition_immunities === "")
             ? null
@@ -60,36 +88,25 @@ const MonsterDetails = props => (
             ?
             <div className="monsterGrouping">
                 <h4>Saving Throws</h4>
-                {(props.monster.strength_save)
-                    ?
-                    <p>Strength: {props.monster.strength_save}</p>
-                    : null
-                }
-                {(props.monster.dexterity_save)
-                    ?
-                    <p>Dexterity: {props.monster.dexterity_save}</p>
-                    : null
-                }
-                {(props.monster.constitution_save)
-                    ?
-                    <p>Constitution: {props.monster.constitution_save}</p>
-                    : null
-                }
-                {(props.monster.intelligence_save)
-                    ?
-                    <p>Intelligence: {props.monster.intelligence_save}</p>
-                    : null
-                }
-                {(props.monster.wisdom_save)
-                    ?
-                    <p>Wisdom: {props.monster.wisdom_save}</p>
-                    : null
-                }
-                {(props.monster.charisma_save)
-                    ?
-                    <p>Charisma: {props.monster.charisma_save}</p>
-                    : null
-                }
+                <table>
+                    <tr>
+                        {(props.monster.strength_save) ? <th className="profRow">Strength</th> : null}
+                        {(props.monster.dexterity_save) ? <th className="profRow">Dexterity</th> : null}
+                        {(props.monster.constitution_save) ? <th className="profRow">Constitution</th> : null}
+                        {(props.monster.intelligence_save) ? <th className="profRow">Intelligence</th> : null}
+                        {(props.monster.wisdom_save) ? <th className="profRow">Wisdom</th> : null}
+                        {(props.monster.charisma_save) ? <th className="profRow">Charisma</th> : null}
+                    </tr>
+                    <tr>
+                        {(props.monster.strength_save) ? <td className="profRow">{props.monster.strength_save}</td> : null}
+                        {(props.monster.dexterity_save) ? <td className="profRow">{props.monster.dexterity_save}</td> : null}
+                        {(props.monster.constitution_save) ? <td className="profRow">{props.monster.constitution_save}</td> : null}
+                        {(props.monster.intelligence_save) ? <td className="profRow">{props.monster.intelligence_save}</td> : null}
+                        {(props.monster.wisdom_save) ? <td className="profRow">{props.monster.wisdom_save}</td> : null}
+                        {(props.monster.charisma_save) ? <td className="profRow">{props.monster.charisma_save}</td> : null}
+                    </tr>
+                </table>
+                <br/>
             </div>
             : null
         }
@@ -97,86 +114,45 @@ const MonsterDetails = props => (
             ?
             <div className="monsterGrouping">
                 <h4>Skills</h4>
-                {(props.monster.athletics)
-                    ?
-                    <p>Athletics: {props.monster.athletics}</p>
-                    : null
-                }
-                {(props.monster.acrobatics)
-                    ?
-                    <p>Acrobatics: {props.monster.acrobatics}</p>
-                    : null
-                }
-                {(props.monster.stealth)
-                    ?
-                    <p>Stealth: {props.monster.stealth}</p>
-                    : null
-                }
-                {(props.monster.arcana)
-                    ?
-                    <p>Arcana: {props.monster.arcana}</p>
-                    : null
-                }
-                {(props.monster.history)
-                    ?
-                    <p>History: {props.monster.history}</p>
-                    : null
-                }
-                {(props.monster.investigation)
-                    ?
-                    <p>Investigation: {props.monster.investigation}</p>
-                    : null
-                }
-                {(props.monster.nature)
-                    ?
-                    <p>Nature: {props.monster.nature}</p>
-                    : null
-                }
-                {(props.monster.religion)
-                    ?
-                    <p>Religion: {props.monster.religion}</p>
-                    : null
-                }
-                {(props.monster.insight)
-                    ?
-                    <p>Insight: {props.monster.insight}</p>
-                    : null
-                }
-                {(props.monster.medicine)
-                    ?
-                    <p>Medicine: {props.monster.medicine}</p>
-                    : null
-                }
-                {(props.monster.perception)
-                    ?
-                    <p>Perception: {props.monster.perception}</p>
-                    : null
-                }
-                {(props.monster.survival)
-                    ?
-                    <p>Survival: {props.monster.survival}</p>
-                    : null
-                }
-                {(props.monster.deception)
-                    ?
-                    <p>Deception: {props.monster.deception}</p>
-                    : null
-                }
-                {(props.monster.intimidation)
-                    ?
-                    <p>Intimidation: {props.monster.intimidation}</p>
-                    : null
-                }
-                {(props.monster.performance)
-                    ?
-                    <p>Performance: {props.monster.performance}</p>
-                    : null
-                }
-                {(props.monster.persuasion)
-                    ?
-                    <p>Persuasion: {props.monster.persuasion}</p>
-                    : null
-                }
+                <table>
+                    <tr>
+                        {(props.monster.athletics) ? <th className="profRow">Athletics</th> : null}
+                        {(props.monster.acrobatics) ? <th className="profRow">Acrobatics</th> : null}
+                        {(props.monster.stealth) ? <th className="profRow">Stealth</th> : null}
+                        {(props.monster.arcana) ? <th className="profRow">Arcana</th> : null}
+                        {(props.monster.history) ? <th className="profRow">History</th> : null}
+                        {(props.monster.investigation) ? <th className="profRow">Investigation</th> : null}
+                        {(props.monster.nature) ? <th className="profRow">Nature</th> : null}
+                        {(props.monster.religion) ? <th className="profRow">Religion</th> : null}
+                        {(props.monster.insight) ? <th className="profRow">Insight</th> : null}
+                        {(props.monster.medicine) ? <th className="profRow">Medicine</th> : null}
+                        {(props.monster.perception) ? <th className="profRow">Perception</th> : null}
+                        {(props.monster.survival) ? <th className="profRow">Survival</th> : null}
+                        {(props.monster.deception) ? <th className="profRow">Deception</th> : null}
+                        {(props.monster.intimidation) ? <th className="profRow">Intimidation</th> : null}
+                        {(props.monster.performance) ? <th className="profRow">Performance</th> : null}
+                        {(props.monster.persuasion) ? <th className="profRow">Persuasion</th> : null}
+                    </tr>
+                    <tr>
+                    {(props.monster.athletics) ? <td className="profRow">{props.monster.athletics}</td> : null}
+                        {(props.monster.acrobatics) ? <td className="profRow">{props.monster.acrobatics}</td> : null}
+                        {(props.monster.stealth) ? <td className="profRow">{props.monster.stealth}</td> : null}
+                        {(props.monster.arcana) ? <td className="profRow">{props.monster.arcana}</td> : null}
+                        {(props.monster.history) ? <td className="profRow">{props.monster.history}</td> : null}
+                        {(props.monster.investigation) ? <td className="profRow">{props.monster.investigation}</td> : null}
+                        {(props.monster.nature) ? <td className="profRow">{props.monster.nature}</td> : null}
+                        {(props.monster.religion) ? <td className="profRow">{props.monster.religion}</td> : null}
+                        {(props.monster.insight) ? <td className="profRow">{props.monster.insight}</td> : null}
+                        {(props.monster.medicine) ? <td className="profRow">{props.monster.medicine}</td> : null}
+                        {(props.monster.perception) ? <td className="profRow">{props.monster.perception}</td> : null}
+                        {(props.monster.survival) ? <td className="profRow">{props.monster.survival}</td> : null}
+                        {(props.monster.deception) ? <td className="profRow">{props.monster.deception}</td> : null}
+                        {(props.monster.intimidation) ? <td className="profRow">{props.monster.intimidation}</td> : null}
+                        {(props.monster.performance) ? <td className="profRow">{props.monster.performance}</td> : null}
+                        {(props.monster.persuasion) ? <td className="profRow">{props.monster.persuasion}</td> : null}
+                    </tr>
+                </table>
+                <br/>
             </div>
             : null
         }
