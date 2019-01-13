@@ -1059,6 +1059,14 @@ th, td {
   height: 280px;
 }
 
+.quest {
+  height: 25px;
+  width: 25px;
+  border-style: double;
+  border-color: black;
+  margin: 5px;
+}
+
 .questDesc {
   height: 60px;
   overflow-y: auto;
