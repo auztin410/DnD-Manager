@@ -29,6 +29,7 @@ import BackgroundList from '../assets/Json/BackgroundList';
 import CharacterCreation from './CharacterCreation';
 import Sounds from './Sounds';
 import Grid from './Grid';
+import QuestTracker from './QuestTracker';
 
 
 
@@ -80,6 +81,7 @@ class Main extends Component {
             equipmentDiv: false,
             merchantDiv: false,
             characterDiv: false,
+            questDiv: false,
             enemy: null,
             worldMap: null,
             showWorldMap: false,
@@ -3107,6 +3109,18 @@ class Main extends Component {
                     });
                 }
                 break;
+            case ("quest"):
+                if (this.state.questDiv === false) {
+                    this.setState({
+                        questDiv: true,
+                    });
+                }
+                else if (this.state.questDiv === true) {
+                    this.setState({
+                        questDiv: false
+                    });
+                }
+                break;
         }
 
     };
@@ -3940,6 +3954,8 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement" />
                         {" "}
                         <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="character" />
+                        {" "}
+                        <img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="quest"/>
                     </div>
                     
                     
@@ -4482,7 +4498,10 @@ class Main extends Component {
                         ? <CharacterCreation/>
                         : null
                     }
-
+                    {(this.state.questDiv === true)
+                        ? <QuestTracker />
+                        : null
+                    }
                 </div>
             )
         }

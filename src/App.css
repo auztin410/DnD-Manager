@@ -1045,6 +1045,30 @@ th, td {
   overflow-y: hidden;
 }
 
+#questTracker {
+  width: 82vw;
+}
+
+.questSection {
+  float: left;
+  border-style: double;
+  border-color: black;
+  margin: 0 auto;
+  margin: 10px;
+  width: 300px;
+  height: 280px;
+}
+
+.questDesc {
+  height: 60px;
+  overflow-y: auto;
+}
+
+.questRewardTable{
+  height: 60px;
+  overflow-y: auto;
+}
+
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909, 0 0 60px #0f5f13, 0 0 70px #125017;

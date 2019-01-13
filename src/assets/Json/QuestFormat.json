@@ -1,0 +1,151 @@
+[
+            {
+                "Title": "The Beginning",
+                "Start": {
+                    "NPC": "Timmy T",
+                    "Location": "Dumpleburg"
+                },
+                "End": {
+                    "NPC": "Lance V",
+                    "Location": "Cactemere"
+                },
+                "Description": "Little Timmy T has given you 5 silver to seek out Lance V a knight of legend and fame, to try and convince him to meet the young boy.",
+                "Reward": [],
+                "EXP": 200,
+                "QuestPart": 1
+            },
+            {
+                "Title": "The Turn",
+                "Start": {
+                    "NPC": "Lance V",
+                    "Location": "Cactemere"
+                },
+                "End": {
+                    "NPC": "Viximo The Blacksmith",
+                    "Location": "Long Ridge"
+                },
+                "Description": "You found Lance V, and he agreed to go meet Little Timmy T if you seek out the Great blacksmith Viximo and get him to craft him a magical sword.",
+                "Reward": [],
+                "EXP": 350,
+                "QuestPart": 2
+            },
+            {
+                "Title": "Digging Up Ore",
+                "Start": {
+                    "NPC": "Viximo The Blacksmith",
+                    "Location": "Long Ridge"
+                },
+                "End": {
+                    "NPC": "Orn The Foreman",
+                    "Location": "Quarry Town"
+                },
+                "Description": "Viximo will make Lance V a magical weapon but he requires special ore to forge the weapon and has sent you to Quarry Town to retrieve some.",
+                "Reward": [],
+                "EXP": 50,
+                "QuestPart": 3
+            },
+            {
+                "Title": "A Hunk of Ore",
+                "Start": {
+                    "NPC": "Orn The Foreman",
+                    "Location": "Quarry Town"
+                },
+                "End": {
+                    "NPC": "Viximo The Blacksmith",
+                    "Location": "Long Ridge"
+                },
+                "Description": "Orn the Foreman allowed you to buy some ore or dig it up yourself and can return to Viximo with it.",
+                "Reward": [
+                    {
+                        "Name": "Mithril Ore",
+                        "Quantity": 4
+                    }
+                ],
+                "EXP": 100,
+                "QuestPart": 4
+            },
+            {
+                "Title": "Forging A Weapon",
+                "Start": {
+                    "NPC": "Viximo The Blacksmith",
+                    "Location": "Long Ridge"
+                },
+                "End": {
+                    "NPC": "Lance V",
+                    "Location": "Cactemere"
+                },
+                "Description": "Viximo has taken the ore you retrieved from Quarry Town and forged a powerful magical weapon for Lance V.",
+                "Reward": [
+                    {
+                        "Name": "Knight's Companion",
+                        "Quantity": 1
+                    }
+                ],
+                "EXP": 150,
+                "QuestPart": 5
+            },
+            {
+                "Title": "A Wish is Granted",
+                "Start": {
+                    "NPC": "Lance V",
+                    "Location": "Cactemere"
+                },
+                "End": {
+                    "NPC": "Timmy T",
+                    "Location": "Dumpleburg"
+                },
+                "Description": "Once giving Lance V, his new sword Knight's Companion, he agrees to accompany you to Dumpleburg to meet Little Timmy T.",
+                "Reward": [
+                    {
+                        "Name": "Special Coin",
+                        "Quantity": 1
+                    }
+                ],
+                "EXP": 500,
+                "QuestPart": 6
+            },
+    {
+        "Title": "Hunt Game",
+        "Start": {
+            "NPC": "Will The Huntsman",
+            "Location": "Lodge Villmark"
+        },
+        "End": {
+            "NPC": "Dead Game",
+            "Location": "Forest of Villmark"
+        },
+        "Description": "Will The Huntsman has requested you go into the forest to hunt and kill some game.",
+        "Reward": [
+            {
+                "Name": "Veal",
+                "Quantity": 12
+            },
+            {
+                "Name": "Deer Skin",
+                "Quantity": 1
+            }
+        ],
+        "EXP": 50,
+        "QuestPart": 0
+    },
+    {
+        "Title": "Harvest Herb",
+        "Start": {
+            "NPC": "Old Grema",
+            "Location": "Witches Watch"
+        },
+        "End": {
+            "NPC": "Herb",
+            "Location": "Dark Wood"
+        },
+        "Description": "Old Grema has sent you into the Dark Wood to find the herb you are seeking.",
+        "Reward": [
+            {
+                "Name": "Karn Root",
+                "Quantity": 1
+            }
+        ],
+        "EXP": 5,
+        "QuestPart": 0
+    }
+]
