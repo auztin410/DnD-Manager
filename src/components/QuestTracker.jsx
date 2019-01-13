@@ -9,10 +9,13 @@ class QuestTracker extends Component {
             singleQuests: [],
             groupedTitles: [],
             groupedQuests: [],
+            showQuest: false,
+            selectedQuest: [],
         }
 
         this.handleFindGroup = this.handleFindGroup.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
+        this.handleCloseQuest = this.handleCloseQuest.bind(this);
     }
 
     componentDidMount() {
@@ -30,6 +33,17 @@ class QuestTracker extends Component {
         let quest = event.target.innerHTML;
         let found = this.state.groupedQuests.find(item => item.Title === quest);
         console.log(found);
+        this.setState({
+            selectedQuest: found,
+            showQuest: true,
+        });
+    };
+
+    handleCloseQuest() {
+        this.setState({
+            selectedQuest: [],
+            showQuest: false,
+        });
     };
 
     handleFindGroup(title) {
@@ -78,6 +92,36 @@ class QuestTracker extends Component {
                         ))}
                     </div>
                     : null
+                }
+                {(this.state.showQuest === true)
+                ?
+                <div className="questSelected">
+                    <span className="closeDisplayItem" onClick={this.handleCloseQuest}>X</span>
+                    <h4>{this.state.selectedQuest.Title}</h4>
+                    <p>Start: {this.state.selectedQuest.Start.NPC} | {this.state.selectedQuest.Start.Location}</p>
+                    <p>End: {this.state.selectedQuest.End.NPC} | {this.state.selectedQuest.End.Location}</p>
+                    <div className="questDescription">
+                        {this.state.selectedQuest.Description}
+                    </div>
+                    <p>Experience: {this.state.selectedQuest.EXP}</p>
+                    {(this.state.selectedQuest.Reward.length > 0)
+                    ?
+                    <table>
+                        <tr>
+                            <th className="profRow" colSpan="2">Rewards</th>
+                        </tr>
+                        
+                        {this.state.selectedQuest.Reward.map(item => (
+                            <tr key={item.Name}>
+                                <td className="profRow">{item.Name}</td>
+                                <td className="profRow">{item.Quantity}</td>
+                            </tr>
+                        ))}
+                    </table>
+                    : null
+                    }
+                </div>
+                : null
                 }
             </div>
         )

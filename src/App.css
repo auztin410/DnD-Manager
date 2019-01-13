@@ -335,6 +335,8 @@ h4 {
 }
 
 .closeDisplayItem {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bold;
   position: absolute;
   right: 0;
   margin-right: 10px;
@@ -1060,6 +1062,20 @@ th, td {
   background-color: rgb(240, 33, 33);
   color: whitesmoke;
   font-family: 'Marcellus SC', serif;
+}
+
+.questSelected {
+  background-image: url('./assets/u0.jpg');
+  font-family: 'Marcellus SC', serif;
+  font-size: 18px;
+  border-style: outset;
+  width: 500px;
+  height: 250px;
+  padding: 10px;
+  overflow-y: auto;
+  position: absolute;
+  left: 35%;
+  z-index: 1;
 }
 
 #questSelect:hover {
