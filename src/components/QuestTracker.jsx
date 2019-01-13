@@ -7,18 +7,35 @@ class QuestTracker extends Component {
         super(props)
         this.state = {
             singleQuests: [],
+            groupedTitles: [],
             groupedQuests: [],
         }
+
+        this.handleFindGroup = this.handleFindGroup.bind(this);
     }
 
     componentDidMount() {
         let singleQuests = Quests.filter(item => item.QuestGroup === false);
         let groupedQuests = Quests.filter(item => item.QuestGroup === true);
+        let groupedTitles = [...new Set(groupedQuests.map(item => item.Group))];
         this.setState({
             singleQuests,
             groupedQuests,
+            groupedTitles,
         })
-    }
+    };
+
+    handleFindGroup(title) {
+        console.log(title);
+        let found = this.state.groupedQuests.filter(item => item.Group === title);
+        console.log("Found");
+        console.log(found);
+        return (
+            found.map(item => (
+                <span key={item.Title} className="quest">{item.Title}</span>
+            ))
+        )        
+    };
 
     render() {
         return (
@@ -27,7 +44,7 @@ class QuestTracker extends Component {
                 ?
                 <div>
                     {this.state.singleQuests.map(item => (
-                        <span className="quest">{item.Title}</span>
+                        <span key={item.Title} className="quest">{item.Title}</span>
                     ))}
                 </div>
                 : null
@@ -37,7 +54,19 @@ class QuestTracker extends Component {
                 ?
                 <div>
                     {this.state.groupedQuests.map(item => (
-                        <span className="quest">{item.Title}</span>
+                        <span key={item.Title} className="quest">{item.Title}</span>
+                    ))}
+                </div>
+                : null
+                }
+                {(this.state.groupedTitles.length > 0)
+                ?
+                <div>
+                    {this.state.groupedTitles.map(item => (
+                        <div key={item} className="questGroups">
+                            <h4>{item}</h4>
+                            {this.handleFindGroup(item)}
+                        </div>
                     ))}
                 </div>
                 : null
