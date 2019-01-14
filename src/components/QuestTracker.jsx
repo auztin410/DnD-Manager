@@ -49,12 +49,16 @@ class QuestTracker extends Component {
     handleFindGroup(title) {
         console.log(title);
         let found = this.state.groupedQuests.filter(item => item.Group === title);
+        let sorted = found.sort(function(a,b){
+            return a.QuestPart - b.QuestPart;
+        });
         console.log("Found");
         console.log(found);
         return (
-            found.map(item => (
-                <tr key={item.Title}>
-                    <td onClick={this.handleSelect} className="profRow" id="questSelect">{item.Title}</td>
+            sorted.map(item => (
+                <tr key={item.Title} onClick={this.handleSelect} id="questSelect">
+                    <td className="profRow">{item.Title}</td>
+                    <td className="profRow">{(item.Completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
                 </tr>
             ))
         )
@@ -68,31 +72,28 @@ class QuestTracker extends Component {
                     <div className="questSection">
                     <table>
                         <tr>
-                            <th className="profRow" id="questHeader">Single Quest</th>
+                            <th className="profRow" id="questHeader" colSpan="2">Single Quest</th>
                         </tr>
                         {this.state.singleQuests.map(item => (
                             <tr key={item.Title}>
                                 <td className="profRow" id="questSelect">{item.Title}</td>
+                                <td className="profRow">{(item.Completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
                             </tr>
                         ))}
                     </table>
                     </div>
                     : null
                 }
-                {(this.state.groupedTitles.length > 0)
-                    ?
-                    <div className="questSection">
-                        {this.state.groupedTitles.map(item => (
-                                <table key={item}>
+                {this.state.groupedTitles.map(item => (
+                                <div key={item} className="questSection">
+                                <table>
                                     <tr>
-                                        <th className="profRow" id="questHeader">{item}</th>
+                                        <th className="profRow" id="questHeader" colSpan="2">{item}</th>
                                     </tr>
                                     {this.handleFindGroup(item)}
                                 </table>
+                                </div>
                         ))}
-                    </div>
-                    : null
-                }
                 {(this.state.showQuest === true)
                 ?
                 <div className="questSelected">

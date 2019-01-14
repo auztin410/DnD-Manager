@@ -3,6 +3,7 @@
         "Title": "The Beginning",
         "QuestGroup": true,
         "Group": "A Long Journey",
+        "QuestPart": 1,
         "Start": {
             "NPC": "Timmy T",
             "Location": "Dumpleburg"
@@ -14,12 +15,13 @@
         "Description": "Little Timmy T has given you 5 silver to seek out Lance V a knight of legend and fame, to try and convince him to meet the young boy.",
         "Reward": [],
         "EXP": 200,
-        "QuestPart": 1
+        "Completed": true
     },
     {
         "Title": "The Turn",
         "QuestGroup": true,
         "Group": "A Long Journey",
+        "QuestPart": 2,
         "Start": {
             "NPC": "Lance V",
             "Location": "Cactemere"
@@ -31,12 +33,13 @@
         "Description": "You found Lance V, and he agreed to go meet Little Timmy T if you seek out the Great blacksmith Viximo and get him to craft him a magical sword.",
         "Reward": [],
         "EXP": 350,
-        "QuestPart": 2
+        "Completed": true
     },
     {
         "Title": "Digging Up Ore",
         "QuestGroup": true,
         "Group": "A Long Journey",
+        "QuestPart": 3,
         "Start": {
             "NPC": "Viximo The Blacksmith",
             "Location": "Long Ridge"
@@ -48,12 +51,13 @@
         "Description": "Viximo will make Lance V a magical weapon but he requires special ore to forge the weapon and has sent you to Quarry Town to retrieve some.",
         "Reward": [],
         "EXP": 50,
-        "QuestPart": 3
+        "Completed": false
     },
     {
         "Title": "A Hunk of Ore",
         "QuestGroup": true,
         "Group": "A Long Journey",
+        "QuestPart": 4,
         "Start": {
             "NPC": "Orn The Foreman",
             "Location": "Quarry Town"
@@ -70,12 +74,13 @@
             }
         ],
         "EXP": 100,
-        "QuestPart": 4
+        "Completed": false
     },
     {
         "Title": "Forging A Weapon",
         "QuestGroup": true,
         "Group": "A Long Journey",
+        "QuestPart": 5,
         "Start": {
             "NPC": "Viximo The Blacksmith",
             "Location": "Long Ridge"
@@ -92,12 +97,13 @@
             }
         ],
         "EXP": 150,
-        "QuestPart": 5
+        "Completed": false
     },
     {
         "Title": "A Wish is Granted",
         "QuestGroup": true,
         "Group": "A Long Journey",
+        "QuestPart": 6,
         "Start": {
             "NPC": "Lance V",
             "Location": "Cactemere"
@@ -114,12 +120,13 @@
             }
         ],
         "EXP": 500,
-        "QuestPart": 6
+        "Completed": false
     },
     {
         "Title": "Hunt Game",
         "QuestGroup": false,
         "Group": "",
+        "QuestPart": 0,
         "Start": {
             "NPC": "Will The Huntsman",
             "Location": "Lodge Villmark"
@@ -140,12 +147,13 @@
             }
         ],
         "EXP": 50,
-        "QuestPart": 0
+        "Completed": false
     },
     {
         "Title": "Harvest Herb",
         "QuestGroup": false,
         "Group": "",
+        "QuestPart": 0,
         "Start": {
             "NPC": "Old Grema",
             "Location": "Witches Watch"
@@ -162,6 +170,65 @@
             }
         ],
         "EXP": 5,
-        "QuestPart": 0
+        "Completed": true
+    },
+    {
+        "Title": "The Steward's Request",
+        "QuestGroup": true,
+        "Group": "A Royal Wedding",
+        "QuestPart": 2,
+        "Start": {
+            "NPC": "Steward Leobold",
+            "Location": "Titan's Star"
+        },
+        "End": {
+            "NPC": "Feil The Jewelcraft",
+            "Location": "The Isle of Gonn"
+        },
+        "Description": "The steward of Titan Star has asked you to retrieve a truly special piece of jewelry for the upcoming royal wedding.",
+        "Reward": [],
+        "EXP": 25,
+        "Completed": false
+    },
+    {
+        "Title": "The Star of Titan",
+        "QuestGroup": true,
+        "Group": "A Royal Wedding",
+        "QuestPart": 3,
+        "Start": {
+            "NPC": "Feil The Jewelcrafter",
+            "Location": "The Isle of Gonn"
+        },
+        "End": {
+            "NPC": "Steward Leobold",
+            "Location": "Titan's Star"
+        },
+        "Description": "You spoke to Feil The Jewelcraft and picked up the unique jeweled necklace.",
+        "Reward": [
+            {
+                "Name": "The Star of Titan",
+                "Quantity": 1
+            }
+        ],
+        "EXP": 150,
+        "Completed": false
+    },
+    {
+        "Title": "A Rumor of Royalty",
+        "QuestGroup": true,
+        "Group": "A Royal Wedding",
+        "QuestPart": 1,
+        "Start": {
+            "NPC": "Willard The Innkeep",
+            "Location": "Titan's Star"
+        },
+        "End": {
+            "NPC": "Steward Leobold",
+            "Location": "Titan's Star"
+        },
+        "Description": "Willard The Innkeep has told you a rumor that the Titan's Star steward is seeking an adventure for an important task.",
+        "Reward": [],
+        "EXP": 0,
+        "Completed": true
     }
 ]
