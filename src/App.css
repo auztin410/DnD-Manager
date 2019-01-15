@@ -1047,6 +1047,12 @@ th, td {
   overflow-y: hidden;
 }
 
+.createQuest {
+  text-align: left;
+  float: left;
+  width: 350px;
+}
+
 #questTracker {
   width: 82vw;
 }
