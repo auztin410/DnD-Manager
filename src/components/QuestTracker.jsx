@@ -13,6 +13,7 @@ class QuestTracker extends Component {
             selectedQuest: [],
             questName: "",
             chainQuest: "",
+            chainBoolean: false,
             questChainName: "",
             questChainPart: "",
             startNPC: "",
@@ -45,6 +46,21 @@ class QuestTracker extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
+        switch(event.target.name) {
+            case "chainQuest":
+            if(event.target.value === "") {
+                this.setState({
+                    chainBoolean: false,
+                });
+            }
+            else {
+                this.setState({
+                    chainBoolean: true,
+                    questChainName: this.state.chainQuest,
+                });
+            }
+            break;
+        }
     };
 
     handleSelect(event) {
@@ -87,7 +103,7 @@ class QuestTracker extends Component {
         let group = this.state.groupedQuests;
         let quest = {
             Title: this.state.questName,
-            QuestGroup: this.state.chainQuest,
+            QuestGroup: this.state.chainBoolean,
             Group: this.state.chainQuest,
             QuestPart: this.state.questChainPart,
             Start: {
