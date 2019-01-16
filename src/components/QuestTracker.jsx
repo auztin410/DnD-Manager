@@ -116,14 +116,15 @@ class QuestTracker extends Component {
             endNPC: "",
             questDescription: "",
             experience: ""
-        })
+        });
+        document.getElementById("questCreation").reset();
     };
 
     render() {
         return (
             <div className="visible" id="questTracker">
                 <div className="createQuest">
-                    <form>
+                    <form id="questCreation">
                         <span>Quest Name</span><input type="text" name="questName" onChange={this.handleChange} />
                         <br />
                         <span>Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
@@ -136,11 +137,13 @@ class QuestTracker extends Component {
                         </select>
                         {(this.state.chainQuest === "new")
                             ?
-                            <div>
-                                <span>Quest Chain Name</span><input type="text" name="questChainName" onChange={this.handleChange} />
-                                <span>Quest Part</span><input type="text" name="questChainPart" onChange={this.handleChange} />
-                            </div>
+                            <span>Quest Chain Name<input type="text" name="questChainName" onChange={this.handleChange} /></span>
                             : null
+                        }
+                        <br/>
+                        {(this.state.chainQuest === "")
+                        ? null
+                        : <span>Quest Chain Part<input type="text" name="questChainPart" onChange={this.handleChange}/></span>
                         }
                         <br />
                         <span>Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange} />
