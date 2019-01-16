@@ -14,6 +14,7 @@ class QuestTracker extends Component {
             questName: "",
             chainQuest: "",
             questChainName: "",
+            questChainPart: "",
             startNPC: "",
             startLocation: "",
             endNPC: "",
@@ -26,6 +27,7 @@ class QuestTracker extends Component {
         this.handleSelect = this.handleSelect.bind(this);
         this.handleCloseQuest = this.handleCloseQuest.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmitQuest = this.handleSubmitQuest.bind(this);
     }
 
     componentDidMount() {
@@ -80,16 +82,53 @@ class QuestTracker extends Component {
         )
     };
 
+    handleSubmitQuest(event) {
+        event.preventDefault();
+        let group = this.state.groupedQuests;
+        let quest = {
+            Title: this.state.questName,
+            QuestGroup: this.state.chainQuest,
+            Group: this.state.chainQuest,
+            QuestPart: this.state.questChainPart,
+            Start: {
+                NPC: this.state.startNPC,
+                Location: this.state.startLocation
+            },
+            End: {
+                NPC: this.state.endNPC,
+                Location: this.state.endLocation
+            },
+            Description: this.state.questDescription,
+            Reward: [],
+            EXP: this.state.experience,
+            Completed: false
+        }
+        group.push(quest);
+        this.setState({
+            groupedQuests: group,
+            questName: "",
+            chainQuest: "",
+            questChainName: "",
+            questChainPart: "",
+            startLocation: "",
+            startNPC: "",
+            endLocation: "",
+            endNPC: "",
+            questDescription: "",
+            experience: ""
+        })
+    };
+
     render() {
         return (
             <div className="visible" id="questTracker">
                 <div className="createQuest">
                     <form>
-                        <span>Quest Name</span><input type="text" name="questName" onChange={this.handleChange}/>
-                        <br/>
+                        <span>Quest Name</span><input type="text" name="questName" onChange={this.handleChange} />
+                        <br />
                         <span>Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
                             <option value="">Single Quest</option>
-                            <br/>
+                            <br />
                             <option value="new">New Chain</option>
                             {this.state.groupedTitles.map(item => (
                                 <option key={item} value={item}>{item}</option>
@@ -97,22 +136,27 @@ class QuestTracker extends Component {
                         </select>
                         {(this.state.chainQuest === "new")
                             ?
-                            <input type="text" name="questChainName" onChange={this.handleChange}/>
+                            <div>
+                                <span>Quest Chain Name</span><input type="text" name="questChainName" onChange={this.handleChange} />
+                                <span>Quest Part</span><input type="text" name="questChainPart" onChange={this.handleChange} />
+                            </div>
                             : null
                         }
-                        <br/>
-                        <span>Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange}/>
-                        <br/>
-                        <span>Start Location</span><input type="text" name="startLocation" onChange={this.handleChange}/>
-                        <br/>
-                        <br/>
-                        <span>End NPC</span><input type="text" name="endNPC" onChange={this.handleChange}/>
-                        <br/>
-                        <span>End Location</span><input type="text" name="endLocation" onChange={this.handleChange}/>
-                        <br/>
-                        <span>Experience</span><input type="number" name="experience" onChange={this.handleChange}/>
-                        <br/>
+                        <br />
+                        <span>Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange} />
+                        <br />
+                        <span>Start Location</span><input type="text" name="startLocation" onChange={this.handleChange} />
+                        <br />
+                        <br />
+                        <span>End NPC</span><input type="text" name="endNPC" onChange={this.handleChange} />
+                        <br />
+                        <span>End Location</span><input type="text" name="endLocation" onChange={this.handleChange} />
+                        <br />
+                        <span>Experience</span><input type="number" name="experience" onChange={this.handleChange} />
+                        <br />
                         <span>Description</span><textarea name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea>
+                        <br />
+                        <button onClick={this.handleSubmitQuest}>Submit</button>
                     </form>
                 </div>
                 {(this.state.singleQuests.length > 0)
