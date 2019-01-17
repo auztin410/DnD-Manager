@@ -43,24 +43,28 @@ class QuestTracker extends Component {
     };
 
     handleChange(event) {
+        let name = event.target.name;
+        let value = event.target.value;
         this.setState({
             [event.target.name]: event.target.value
+        }, () => {
+            switch(name) {
+                case "chainQuest":
+                if(value === "") {
+                    this.setState({
+                        chainBoolean: false,
+                    });
+                }
+                else {
+                    this.setState({
+                        chainBoolean: true,
+                        questChainName: this.state.chainQuest,
+                    });
+                }
+                break;
+            }
+            this.componentDidMount();
         });
-        switch(event.target.name) {
-            case "chainQuest":
-            if(event.target.value === "") {
-                this.setState({
-                    chainBoolean: false,
-                });
-            }
-            else {
-                this.setState({
-                    chainBoolean: true,
-                    questChainName: this.state.chainQuest,
-                });
-            }
-            break;
-        }
     };
 
     handleSelect(event) {
