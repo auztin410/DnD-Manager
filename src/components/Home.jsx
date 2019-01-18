@@ -43,7 +43,7 @@ const Home = props => {
 	if (props.user) {
 		return (
 			<div className="Home">
-				<h4 className="mainUser">Current User: {props.user.local.username}</h4>
+				{/* <h4 className="mainUser">Current User: {props.user.local.username}</h4> */}
 				<div className="characterList">
 						<table className="characterTable">
 							<tr className="characterTableHeader">
@@ -151,7 +151,7 @@ const Home = props => {
 	} else {
 		return (
 			<div className="Home">
-				<h4 className="mainUser">No User</h4>
+				{/* <h4 className="mainUser">No User</h4> */}
 			</div>
 		)
 	}

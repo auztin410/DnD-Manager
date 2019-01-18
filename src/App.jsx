@@ -12,40 +12,42 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
-			<nav className="navbar">
-
+			<div className="navbar">
+				<div className="ddm">DDM</div>
+				<div className="user">User: {props.user.local.username}</div>
 				<Link to="/">
-					Home
+					<span className="link">Home</span>
 						</Link>
 				{" "}
 
 				<Link to="/main">
-					Main
+					<span className="link">Main</span>
 						</Link>
 				{" "}
 				<Link to="#" onClick={props._logout}>
-					Logout
+					<span className="link">Logout</span>
 						</Link>
 
-			</nav>
+			</div>
 		)
 	} else {
 		return (
-			<nav className="navbar">
-
+			<div className="navbar">
+			<div className="ddm">DDM</div>
+			<div className="user"></div>
 				<Link to="/" className="nav-link">
-					Home
+					<span className="link">Home</span>
 						</Link>
 				{" "}
 				<Link to="/login" className="nav-link">
-					login
+					<span className="link">Login</span>
 						</Link>
 				{" "}
 				<Link to="/signup" className="nav-link">
-					sign up
+					<span className="link">Sign-up</span>
 						</Link>
 
-			</nav>
+			</div>
 		)
 	}
 }
@@ -136,7 +138,7 @@ class App extends Component {
 					{/* <h1 className="header">Dungeons and Dragons Game Manager</h1> */}
 				{/* <Header user={this.state.user} /> */}
 				{/* LINKS to our different 'pages' */}
-				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
+				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} user={this.state.user} />
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
 				<Route exact path="/" render={() => <Home user={this.state.user} view={this.handleView} show={this.state.characterDetails} details={this.state.details} />} />

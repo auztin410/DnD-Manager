@@ -3926,7 +3926,7 @@ class Main extends Component {
             return (
                 <div>
                     <div onClick={this.handled20} className="hexagonBlack" id={this.state.d20[3]}><h2 className="hexagonBlack-text">{this.state.d20[0]}</h2></div>
-                        <h1 className="header" id="fadeIn" style={{height: this.state.d20[2], transitionDelay: this.state.d20[4]}}><span className="ddm">DDM</span> {(this.state.loggedIn === true) ? <span className="user">Logged in as: {this.state.user.local.username}</span> : null} </h1>
+                        {/* <h1 className="header" id="fadeIn" style={{height: this.state.d20[2], transitionDelay: this.state.d20[4]}}><span className="ddm">DDM</span> {(this.state.loggedIn === true) ? <span className="user">Logged in as: {this.state.user.local.username}</span> : null} </h1> */}
                     <div className="buttons" id="fadeIn" style={{width: this.state.d20[1], transitionDelay: this.state.d20[5]}}>
                         {/* Buttons for opening up divs */}
                         <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Loot.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Loot_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Loot.png'))} alt="loot" />

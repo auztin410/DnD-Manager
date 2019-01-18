@@ -36,19 +36,45 @@ h4 {
   margin: 0;
 }
 
+div {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  color: white;
-  
+.navbar {
+  width: 100%;
+  text-align: right;
+  background-color: rgb(240, 33, 33);
+  height: 80px;
+  margin: 0px;
+  padding: 0px;
 }
 
-.App-intro {
-  font-size: large;
+.ddm {
+  float: left;
+  font-family: Nodestro, sans-serif;
+  font-size: 72px;
+  color: whitesmoke;
+}
+
+.user {
+  position: relative;
+  right: 45%;
+  top: 45%;
+  font-family: Nodestro, sans-serif;
+  color: whitesmoke;
+  font-size: 36px;
+  text-shadow: 2px 2px 8px black;
+  padding-left: 930px;
+}
+
+.link {
+  font-family: Nodestro, sans-serif;
+  font-weight: bold;
 }
 
 .mainUser {
@@ -130,23 +156,6 @@ h4 {
   float: left;
   transition: .5s;
   text-align: left;
-}
-
-.ddm {
-  /* background: -webkit-linear-gradient(rgb(241, 237, 237), rgb(19, 18, 18), rgb(10, 10, 10), black);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  color: whitesmoke;
-  text-shadow: 3px 3px 12px black;
-  padding-left: 10px;
-}
-
-.user {
-  color: whitesmoke;
-  font-size: 36px;
-  text-shadow: 2px 2px 8px black;
-  text-align: right;
-  padding-left: 930px;
 }
 
 .loginForm {
@@ -235,11 +244,6 @@ h4 {
   position: relative;
   top: -120px;
   left: 1100px;
-}
-
-.navbar {
-  margin-top: 5px;
-  margin-bottom: 10px;
 }
 
 .buttons {
