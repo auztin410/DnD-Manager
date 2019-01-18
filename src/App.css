@@ -78,6 +78,15 @@ div {
   font-size: 20px;
 }
 
+.linking {
+  color: whitesmoke;
+  margin: 2px;
+}
+
+.linking:hover {
+  color: black;
+}
+
 .links {
   margin-right: 45px;
 }

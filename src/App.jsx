@@ -20,17 +20,16 @@ const DisplayLinks = props => {
 				<div className="ddm">DDM</div>
 				<div className="user">User: {props.user.local.username}</div>
 				<div className="links">
-				<Link to="/">
+				<Link to="/" className="linking">
 					<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
-					
 						</Link>
 				{" "}
 
-				<Link to="/main">
+				<Link to="/main" className="linking">
 					<span className="link"><FontAwesomeIcon icon="dungeon" /></span>
 						</Link>
 				{" "}
-				<Link to="#" onClick={props._logout}>
+				<Link to="#" onClick={props._logout} className="linking">
 					<span className="link"><FontAwesomeIcon icon="sign-out-alt" /></span>
 						</Link>
 				</div>
@@ -42,15 +41,15 @@ const DisplayLinks = props => {
 			<div className="ddm">DDM</div>
 			<div className="user">No User</div>
 			<div className="links">
-				<Link to="/" className="nav-link">
+				<Link to="/" className="linking">
 					<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
 						</Link>
 				{" "}
-				<Link to="/login" className="nav-link">
+				<Link to="/login" className="linking">
 					<span className="link"><FontAwesomeIcon icon="user" /></span>
 						</Link>
 				{" "}
-				<Link to="/signup" className="nav-link">
+				<Link to="/signup" className="linking">
 					<span className="link"><FontAwesomeIcon icon="user-plus" /></span>
 						</Link>
 			</div>
