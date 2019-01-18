@@ -91,6 +91,31 @@ div {
   margin-right: 45px;
 }
 
+.downArrow {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  transition: 0.5s;
+}
+
+.upArrow {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  transition: 0.5s;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.arrowIcon {
+  font-size: 32px;
+  color: rgb(240, 33, 33);
+}
+
+.arrowIcon:hover {
+  color: whitesmoke;
+}
+
 .mainUser {
   font-family: Nodestro, sans-serif;
   font-size: 36px;
