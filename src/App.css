@@ -75,6 +75,11 @@ div {
 .link {
   font-family: Nodestro, sans-serif;
   font-weight: bold;
+  font-size: 20px;
+}
+
+.links {
+  margin-right: 45px;
 }
 
 .mainUser {

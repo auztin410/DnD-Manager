@@ -8,6 +8,10 @@ import SignupForm from './components/SignupForm';
 import Home from './components/Home';
 import Main from './components/Main';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus);
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -15,38 +19,41 @@ const DisplayLinks = props => {
 			<div className="navbar">
 				<div className="ddm">DDM</div>
 				<div className="user">User: {props.user.local.username}</div>
+				<div className="links">
 				<Link to="/">
-					<span className="link">Home</span>
+					<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
+					
 						</Link>
 				{" "}
 
 				<Link to="/main">
-					<span className="link">Main</span>
+					<span className="link"><FontAwesomeIcon icon="dungeon" /></span>
 						</Link>
 				{" "}
 				<Link to="#" onClick={props._logout}>
-					<span className="link">Logout</span>
+					<span className="link"><FontAwesomeIcon icon="sign-out-alt" /></span>
 						</Link>
-
+				</div>
 			</div>
 		)
 	} else {
 		return (
 			<div className="navbar">
 			<div className="ddm">DDM</div>
-			<div className="user"></div>
+			<div className="user">No User</div>
+			<div className="links">
 				<Link to="/" className="nav-link">
-					<span className="link">Home</span>
+					<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
 						</Link>
 				{" "}
 				<Link to="/login" className="nav-link">
-					<span className="link">Login</span>
+					<span className="link"><FontAwesomeIcon icon="user" /></span>
 						</Link>
 				{" "}
 				<Link to="/signup" className="nav-link">
-					<span className="link">Sign-up</span>
+					<span className="link"><FontAwesomeIcon icon="user-plus" /></span>
 						</Link>
-
+			</div>
 			</div>
 		)
 	}
