@@ -102,7 +102,7 @@ div {
   width: 100%;
   padding: 0;
   margin: 0;
-  transition: 0.5s;
+  transition: 1s;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -114,6 +114,44 @@ div {
 
 .arrowIcon:hover {
   color: whitesmoke;
+}
+
+.bannerContainer {
+  margin: 0 auto;
+}
+
+.banner {
+  height: 130px;
+  width: 50px;
+  background-color: rgb(240, 33, 33);
+  float: left;
+  color: whitesmoke;  
+  border: 2px solid whitesmoke;
+}
+
+#bannerLeft {
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 2px;
+  margin-left: 10px;
+  margin-right: 3px;
+}
+
+#bannerRight {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 45px;
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+.banner:hover {
+  box-shadow: 2px 2px 8px whitesmoke;
+  color: black;
+  border-color: black;
+}
+
+.bannerIcon {
+  font-size: 24px;
+  margin-top: 35px;
 }
 
 .mainUser {
