@@ -110,98 +110,56 @@ div {
 
 .bannerContainer {
   margin: 0 auto;
-  width: 734px;
+  width: 660px;
 }
 
-.testBanner {
-  margin: 10px;
+.bannerRed {
   height: 130px;
   width: 50px;
-  background-color: rgb(244, 33, 33);
-  float: left;
-  color: whitesmoke;
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 55%, 50% 100%, 1% 55%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 55%, 50% 100%, 1% 55%, 0 0);
-}
-
-.testBanner2 {
-  margin: 10px;
-  height: 130px;
-  width: 50px;
-  background-color: rgb(244, 33, 33);
-  float: left;
-  color: whitesmoke;
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 75%, 60% 100%, 40% 100%, 0 75%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 75%, 60% 100%, 40% 100%, 0 75%, 0 0);
-}
-
-.testBanner3 {
-  margin: 10px;
-  height: 130px;
-  width: 50px;
-  background-color: rgb(244, 33, 33);
-  float: left;
-  color: whitesmoke;
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 65% 100%, 35% 100%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 65% 100%, 35% 100%, 0 0);
-}
-
-.testBanner4 {
-  margin: 10px;
-  height: 130px;
-  width: 50px;
-  background-color: rgb(244, 33, 33);
-  float: left;
-  color: whitesmoke;
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
-}
-
-.testBanner5 {
-  margin: 10px;
-  height: 130px;
-  width: 50px;
-  background-color: rgb(244, 33, 33);
-  float: left;
-  color: whitesmoke;
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
-}
-
-.testBanner6 {
-  margin: 10px;
-  height: 130px;
-  width: 50px;
-  background-color: rgb(244, 33, 33);
-  float: left;
-  color: whitesmoke;
-  -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0 0);
-  clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0 0);
-}
-
-.testBanner7 {
-  margin: 10px;
-  height: 130px;
-  width: 50px;
-  background-color: rgb(244, 33, 33);
-  float: left;
-  color: whitesmoke;
-  -webkit-clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);
-  clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);
-}
-
-.banner {
-  height: 130px;
-  width: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
   background-color: rgb(240, 33, 33);
   float: left;
-  color: whitesmoke;  
-  border: 2px double whitesmoke;
+  color: whitesmoke;
+}
+
+.bannerRed:hover {
+  color: black;
+}
+
+.bannerGrey {
+  height: 130px;
+  width: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: rgb(102, 102, 102);
+  float: left;
+  color: whitesmoke;
+}
+
+.bannerGrey:hover {
+  color: rgb(240, 33, 33);
+}
+
+.bannerBlack {
+  height: 130px;
+  width: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: rgb(8, 8, 8);
+  float: left;
+  color: whitesmoke;
+}
+
+.bannerBlack:hover {
+  color: rgb(102, 102, 102);
 }
 
 .bannerOpen {
   height: 130px;
   width: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
   float: left;
   box-shadow: 2px 2px 8px whitesmoke;
   color: rgb(240, 33, 33);
@@ -222,16 +180,34 @@ div {
   margin-right: 10px;
 }
 
-#bannerMiddle {
-  border-bottom-left-radius: 25%;
-  border-bottom-right-radius: 25%;
-  margin-left: 5px;
-  margin-right: 5px;
+#bannerFifthInner {
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 80% 78%, 50% 100%, 50% 100%, 20% 78%, 0% 43%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 100% 43%, 80% 78%, 50% 100%, 50% 100%, 20% 78%, 0% 43%, 0 0);
 }
 
-.banner:hover {
-  box-shadow: 2px 2px 8px whitesmoke;
-  color: black;
+#bannerFourthInner {
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 50% 100%, 50% 100%, 6% 78%, 0% 43%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 50% 100%, 50% 100%, 6% 78%, 0% 43%, 0 0);
+}
+
+#bannerThirdInner {
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
+}
+
+#bannerSecondInner {
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
+}
+
+#bannerInner {
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 98% 35%, 88% 64%, 79% 91%, 50% 100%, 21% 91%, 11% 65%, 2% 35%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 98% 35%, 88% 64%, 79% 91%, 50% 100%, 21% 91%, 11% 65%, 2% 35%, 0 0);  
+}
+
+#bannerMiddle {
+  -webkit-clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);
+  clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);  
 }
 
 .bannerIcon {

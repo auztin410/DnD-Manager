@@ -153,13 +153,6 @@ const Home = props => {
 		return (
 			<div className="Home">
 				{/* <h4 className="mainUser">No User</h4> */}
-				<div className="testBanner"><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
-				<div className="testBanner2"><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
-				<div className="testBanner3"><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
-				<div className="testBanner4"><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
-				<div className="testBanner5"><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
-				<div className="testBanner6"><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
-				<div className="testBanner7"><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
 			</div>
 		)
 	}
