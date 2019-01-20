@@ -12,20 +12,10 @@
 @font-face { font-family: Nodestro; font-weight: bold; src: url('../src/assets/Fonts/Nodesto\ Caps\ Condensed\ Bold.otf');}
 
 body {
-  background: rgb(1,1,1);
-  /* background: linear-gradient(180deg, rgba(1,1,1,1) 0%, rgba(226,233,226,1) 100%);
-  background-repeat: no-repeat;
-  background-size: cover; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background-color: #1B1B1B;
+  background-color: #353839;
+  background-image: url('./assets/Images/dark_wood.png');
   height: 100vh;
-  /* Gradient Animation */
-  background: linear-gradient(180deg, #000000, #f3ebeb);
-  background-size: 400% 400%;
-  -webkit-animation: GradientAnimation 20s ease infinite;
-  -moz-animation: GradientAnimation 20s ease infinite;
-  animation: GradientAnimation 20s ease infinite;
 }
 
 h2, h3, h4 {
@@ -525,12 +515,12 @@ div {
 }
 
 .visible {
-  /* background-color: rgba(240, 33, 33, 0.5); */
   background-image: url('./assets//u0.jpg');
   float: left;
   margin: 10px;
   padding: 2px;
-  box-shadow: 2px 2px 8px black;
+  /* box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.521); */
+  border-radius: 2px;
 }
 
 #individualLoot {
@@ -966,6 +956,14 @@ table, th, td {
 
 .profRow {
   border: 1px black solid;
+}
+
+.monsterAction {
+  font-size: 10px;
+}
+
+#descScroll {
+  font-size: 10px;
 }
 
 table {

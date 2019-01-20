@@ -7,16 +7,28 @@ const MonsterSpecialAbilities = props => (
     <div className="plaque">
             <h4>Special Abilities</h4>
         </div>
-        {/* {props.monster.special_abilities.map(({name, desc, attack_bonus, damage_dice, damage_bonus}) => (
-                <div className="monsterGrouping" key={name}>
-                <p>Action: {name}</p>
-                <p>Description: {desc}</p>
-                <p>Attack Bonus: {attack_bonus}</p>
-                {damage_dice && <p>Damage Dice: {damage_dice}</p>}
-                {damage_bonus && <p>Damage Bonus: {damage_bonus}</p>}
-                </div>
-            ))} */}
-            {props.monster.special_abilities.map(({ name, desc, attack_bonus, damage_dice, damage_bonus }) => (
+        <table className="monsterAction">
+            <tbody>
+                <tr>
+                    <th className="profRow">Action</th>
+                    <th className="profRow">Description</th>
+                    <th className="profRow">Attack Bonus</th>
+                    <th className="profRow">Damage Dice</th>
+                    <th className="profRow">Damage Bonus</th>
+                </tr>
+                {props.monster.special_abilities.map(item => (
+                    <tr key={item.name}>
+                        <td className="profRow">{item.name}</td>
+                        <td className="profRow" id="descScroll">{item.desc}</td>
+                        <td className="profRow">{item.attack_bonus}</td>
+                        <td className="profRow">{item.damage_dice}</td>
+                        <td className="profRow">{item.damage_bonus}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+
+            {/* {props.monster.special_abilities.map(({ name, desc, attack_bonus, damage_dice, damage_bonus }) => (
             <div key={name} className="monsterGrouping">
             <table>
                 <tr>
@@ -35,7 +47,7 @@ const MonsterSpecialAbilities = props => (
                 </tr>
             </table>
             </div>
-        ))}
+        ))} */}
     </div>
 );
 
