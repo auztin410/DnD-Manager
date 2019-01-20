@@ -108,6 +108,7 @@ div {
 
 .bannerContainer {
   margin: 0 auto;
+  width: 737px;
 }
 
 .banner {
@@ -131,6 +132,13 @@ div {
   border-bottom-right-radius: 45px;
   margin-left: 3px;
   margin-right: 10px;
+}
+
+#bannerMiddle {
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .banner:hover {
@@ -937,6 +945,12 @@ div {
 
 #features {
   width: 1120px;
+}
+
+.basicBorder {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 400px;
 }
 
 table, th, td {

@@ -2966,9 +2966,8 @@ class Main extends Component {
         })
     }
 
-    handleOpenClose(event) {
-        console.log(event.target.alt);
-        switch (event.target.alt) {
+    handleOpenClose(div) {
+        switch (div) {
             case ("loot"):
                 if (this.state.individualLootDiv === false) {
                     this.setState({
@@ -3945,19 +3944,23 @@ class Main extends Component {
                     
                   
                     <div className="upArrow" style={{height: this.state.arrow[1]}}>
-                        <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Loot.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Loot_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Loot.png'))} alt="loot" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Treasure.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Treasure_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Treasure.png'))} alt="treasure" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/NPC.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/NPC_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/NPC.png'))} alt="npc" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Event.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Event_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Event.png'))} alt="bigEvent" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Enemy.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Enemy_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Enemy.png'))} alt="enemy" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Translate.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Translate_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Translate.png'))} alt="translation" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/World_Map.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/World_Map_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/World_Map.png'))} alt="worldMap" />
+                        {/* <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Loot.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Loot_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Loot.png'))} alt="loot" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Treasure.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Treasure_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Treasure.png'))} alt="treasure" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/NPC.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/NPC_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/NPC.png'))} alt="npc" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Event.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Event_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Event.png'))} alt="bigEvent" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Enemy.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Enemy_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Enemy.png'))} alt="enemy" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Translate.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Translate_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Translate.png'))} alt="translation" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/World_Map.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/World_Map_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/World_Map.png'))} alt="worldMap" />
                         <br/>
                         <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Grid.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Grid_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Grid.png'))} alt="gridMap" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="merchant" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="sound" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="character" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="quest"/>
-                        <br/>
-                        {/* <span className="bannerContainer">
-                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="ring" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight"><FontAwesomeIcon icon="dragon" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerLeft"><FontAwesomeIcon icon="scroll" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight"><FontAwesomeIcon icon="skull-crossbones" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerLeft"><FontAwesomeIcon icon="hat-wizard" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight"><FontAwesomeIcon icon="dice-d20" className="bannerIcon"/></div>
-                        <div className="banner"><FontAwesomeIcon icon="fist-raised" className="bannerIcon"/></div>
-                        </span> */}
+                        <br/> */}
+                        <div className="bannerContainer">
+                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="coins" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("treasure")}><FontAwesomeIcon icon="dice-d20" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("npc")}><FontAwesomeIcon icon="address-card" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("bigEvent")}><FontAwesomeIcon icon="cloud-moon" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("enemy")}><FontAwesomeIcon icon="dragon" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerMiddle" onClick={() => this.handleOpenClose("translation")}><FontAwesomeIcon icon="map-signs" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("gridMap")}><FontAwesomeIcon icon="chess-board" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("merchant")}><FontAwesomeIcon icon="hands-helping" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("sound")}><FontAwesomeIcon icon="drum" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("settlement")}><FontAwesomeIcon icon="landmark" className="bannerIcon"/></div>
+                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("quest")}><FontAwesomeIcon icon="exclamation" className="bannerIcon"/></div>
+                        </div>
                     </div>
                     {(this.state.arrow[0] === false)
                         ?

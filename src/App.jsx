@@ -9,9 +9,9 @@ import Home from './components/Home';
 import Main from './components/Main';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised} from '@fortawesome/free-solid-svg-icons';
+import {faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised);
+library.add(faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns);
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {

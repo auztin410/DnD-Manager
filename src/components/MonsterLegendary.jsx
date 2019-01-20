@@ -7,7 +7,6 @@ const MonsterLegendary = props => (
         <div className="plaque">
             <h4>Legendary Actions</h4>
         </div>
-
         <table className="monsterAction">
             <tbody>
                 <tr>
