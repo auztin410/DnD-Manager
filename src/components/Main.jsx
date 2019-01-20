@@ -22,9 +22,6 @@ import TradeGoods from '../assets/Json/TradeGoods';
 import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
-import Spells from '../assets/Json/Spells';
-import RaceList from '../assets/Json/RaceList';
-import BackgroundList from '../assets/Json/BackgroundList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import CharacterCreation from './CharacterCreation';
@@ -142,7 +139,6 @@ class Main extends Component {
         this.handleOpenClose = this.handleOpenClose.bind(this);
         this.handleGenerateMonster = this.handleGenerateMonster.bind(this);
         this.handleMonsterActions = this.handleMonsterActions.bind(this);
-        this.handleLoadWorldMap = this.handleLoadWorldMap.bind(this);
         this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
         this.handleEquipmentPack = this.handleEquipmentPack.bind(this);
         this.handleSearchCreature = this.handleSearchCreature.bind(this);
@@ -3040,18 +3036,6 @@ class Main extends Component {
                     });
                 }
                 break;
-            case ("worldMap"):
-                if (this.state.worldMapDiv === false) {
-                    this.setState({
-                        worldMapDiv: true
-                    });
-                }
-                else if (this.state.worldMapDiv === true) {
-                    this.setState({
-                        worldMapDiv: false
-                    });
-                }
-                break;
             case ("gridMap"):
                 if (this.state.gridDiv === false) {
                     this.setState({
@@ -3181,12 +3165,6 @@ class Main extends Component {
         console.log("monster action click");
         this.setState({
             monsterAction: true
-        });
-    };
-
-    handleLoadWorldMap() {
-        this.setState({
-            showWorldMap: true,
         });
     };
 
@@ -3949,17 +3927,17 @@ class Main extends Component {
                         <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Grid.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Grid_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Grid.png'))} alt="gridMap" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="merchant" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="sound" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="character" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="quest"/>
                         <br/> */}
                         <div className="bannerContainer">
-                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="coins" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("treasure")}><FontAwesomeIcon icon="dice-d20" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("npc")}><FontAwesomeIcon icon="address-card" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("bigEvent")}><FontAwesomeIcon icon="cloud-moon" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("enemy")}><FontAwesomeIcon icon="dragon" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerMiddle" onClick={() => this.handleOpenClose("translation")}><FontAwesomeIcon icon="map-signs" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("gridMap")}><FontAwesomeIcon icon="chess-board" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("merchant")}><FontAwesomeIcon icon="hands-helping" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("sound")}><FontAwesomeIcon icon="drum" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerLeft" onClick={() => this.handleOpenClose("settlement")}><FontAwesomeIcon icon="landmark" className="bannerIcon"/></div>
-                        <div className="banner" id="bannerRight" onClick={() => this.handleOpenClose("quest")}><FontAwesomeIcon icon="exclamation" className="bannerIcon"/></div>
+                        <div className={(this.state.individualLootDiv === true) ? "bannerOpen" : "banner"} id="bannerLeft" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="coins" className="bannerIcon"/></div>
+                        <div className={(this.state.treasureLootDiv === true) ? "bannerOpen" : "banner"} id="bannerRight" onClick={() => this.handleOpenClose("treasure")}><FontAwesomeIcon icon="dice-d20" className="bannerIcon"/></div>
+                        <div className={(this.state.npcDiv === true) ? "bannerOpen" : "banner"} id="bannerLeft" onClick={() => this.handleOpenClose("npc")}><FontAwesomeIcon icon="address-card" className="bannerIcon"/></div>
+                        <div className={(this.state.bigEventDiv === true) ? "bannerOpen" : "banner"} id="bannerRight" onClick={() => this.handleOpenClose("bigEvent")}><FontAwesomeIcon icon="cloud-moon" className="bannerIcon"/></div>
+                        <div className={(this.state.monsterDiv === true) ? "bannerOpen" : "banner"} id="bannerLeft" onClick={() => this.handleOpenClose("enemy")}><FontAwesomeIcon icon="dragon" className="bannerIcon"/></div>
+                        <div className={(this.state.translationDiv === true) ? "bannerOpen" : "banner"} id="bannerMiddle" onClick={() => this.handleOpenClose("translation")}><FontAwesomeIcon icon="map-signs" className="bannerIcon"/></div>
+                        <div className={(this.state.gridDiv === true) ? "bannerOpen" : "banner"} id="bannerRight" onClick={() => this.handleOpenClose("gridMap")}><FontAwesomeIcon icon="chess-board" className="bannerIcon"/></div>
+                        <div className={(this.state.merchantDiv === true) ? "bannerOpen" : "banner"} id="bannerLeft" onClick={() => this.handleOpenClose("merchant")}><FontAwesomeIcon icon="hands-helping" className="bannerIcon"/></div>
+                        <div className={(this.state.soundDiv === true) ? "bannerOpen" : "banner"} id="bannerRight" onClick={() => this.handleOpenClose("sound")}><FontAwesomeIcon icon="drum" className="bannerIcon"/></div>
+                        <div className={(this.state.settlementDiv === true) ? "bannerOpen" : "banner"} id="bannerLeft" onClick={() => this.handleOpenClose("settlement")}><FontAwesomeIcon icon="landmark" className="bannerIcon"/></div>
+                        <div className={(this.state.questDiv === true) ? "bannerOpen" : "banner"} id="bannerRight" onClick={() => this.handleOpenClose("quest")}><FontAwesomeIcon icon="exclamation" className="bannerIcon"/></div>
                         </div>
                     </div>
                     {(this.state.arrow[0] === false)
@@ -4236,29 +4214,6 @@ class Main extends Component {
                         </div>
                         : null
                     }
-                    {/* World Map Div */}
-                    {(this.state.worldMapDiv === true)
-                        ?
-                        <div className="visible" id="worldMap">
-
-                            {(this.state.showWorldMap === true)
-                                ?
-                                <div>
-                                    <br />
-                                    <img className="mapImage" src={this.state.worldMap} alt="map" />
-                                </div>
-                                :
-                                <div>
-                                    <form>
-                                        <input className="customButton" name="worldMap" type="text" onChange={this.handleChange} />
-                                        <br />
-                                        <br />
-                                        <span className="customButton" onClick={this.handleLoadWorldMap}>Submit</span>
-                                    </form>
-                                </div>
-                            }
-                        </div>
-                        : null}
                     {/* Grid Div */}
                     {(this.state.gridDiv === true)
                         ? <Grid/>

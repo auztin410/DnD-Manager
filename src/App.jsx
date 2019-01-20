@@ -9,9 +9,10 @@ import Home from './components/Home';
 import Main from './components/Main';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns} from '@fortawesome/free-solid-svg-icons';
+import { faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns, faChild } from '@fortawesome/free-solid-svg-icons';
+import CharacterCreation from './components/CharacterCreation';
 
-library.add(faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns);
+library.add(faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns, faChild);
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -20,39 +21,42 @@ const DisplayLinks = props => {
 				<div className="ddm">DDM</div>
 				<div className="user">User: {props.user.local.username}</div>
 				<div className="links">
-				<Link to="/" className="linking">
-					<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
-						</Link>
-				{" "}
-
-				<Link to="/main" className="linking">
-					<span className="link"><FontAwesomeIcon icon="dungeon" /></span>
-						</Link>
-				{" "}
-				<Link to="#" onClick={props._logout} className="linking">
-					<span className="link"><FontAwesomeIcon icon="sign-out-alt" /></span>
-						</Link>
+					<Link to="/" className="linking">
+						<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
+					</Link>
+					{" "}
+					<Link to="/character" className="linking">
+						<span className="link"><FontAwesomeIcon icon="child" /></span>
+					</Link>
+					{" "}
+					<Link to="/main" className="linking">
+						<span className="link"><FontAwesomeIcon icon="dungeon" /></span>
+					</Link>
+					{" "}
+					<Link to="#" onClick={props._logout} className="linking">
+						<span className="link"><FontAwesomeIcon icon="sign-out-alt" /></span>
+					</Link>
 				</div>
 			</div>
 		)
 	} else {
 		return (
 			<div className="navbar">
-			<div className="ddm">DDM</div>
-			<div className="user">No User</div>
-			<div className="links">
-				<Link to="/" className="linking">
-					<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
-						</Link>
-				{" "}
-				<Link to="/login" className="linking">
-					<span className="link"><FontAwesomeIcon icon="user" /></span>
-						</Link>
-				{" "}
-				<Link to="/signup" className="linking">
-					<span className="link"><FontAwesomeIcon icon="user-plus" /></span>
-						</Link>
-			</div>
+				<div className="ddm">DDM</div>
+				<div className="user">No User</div>
+				<div className="links">
+					<Link to="/" className="linking">
+						<span className="link"><FontAwesomeIcon icon="house-damage" /></span>
+					</Link>
+					{" "}
+					<Link to="/login" className="linking">
+						<span className="link"><FontAwesomeIcon icon="user" /></span>
+					</Link>
+					{" "}
+					<Link to="/signup" className="linking">
+						<span className="link"><FontAwesomeIcon icon="user-plus" /></span>
+					</Link>
+				</div>
 			</div>
 		)
 	}
@@ -124,7 +128,7 @@ class App extends Component {
 
 	handleView(details) {
 		console.log("Test prop function");
-		if(this.state.characterDetails === false) {
+		if (this.state.characterDetails === false) {
 			this.setState({
 				characterDetails: true,
 				details,
@@ -135,13 +139,13 @@ class App extends Component {
 				characterDetails: false,
 				details: [],
 			});
-		}		
+		}
 	};
 
 	render() {
 		return (
 			<div className="App">
-					{/* <h1 className="header">Dungeons and Dragons Game Manager</h1> */}
+				{/* <h1 className="header">Dungeons and Dragons Game Manager</h1> */}
 				{/* <Header user={this.state.user} /> */}
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} user={this.state.user} />
@@ -159,8 +163,9 @@ class App extends Component {
 				/>
 				<Route exact path="/signup" component={SignupForm} />
 
-				<Route exact path="/main" component={Main} />	
-				
+				<Route exact path="/main" component={Main} />
+
+				<Route exact path="/character" component={CharacterCreation} />
 			</div>
 		)
 	}

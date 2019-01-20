@@ -279,7 +279,7 @@ class CharacterCreation extends Component {
 
     render() {
         return (
-            <div className="visible" id="characterCreation">
+            <div id="characterCreation">
                 <span>Name{" "}<input onChange={this.handleChangeCharacterCreation} type="text" name="characterName" className="customSelect" /></span>
                 <br/>
                 <span>Race{" "}<select onChange={this.handleChangeCharacterCreation} name="characterRace" className="customSelect">
