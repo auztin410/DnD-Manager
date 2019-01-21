@@ -55,7 +55,15 @@ app.use(function(err, req, res, next) {
 	console.log('====== ERROR =======')
 	console.error(err.stack)
 	res.status(500)
-})
+});
+
+
+// ===== Adding DB Schemas =====
+
+
+// ===== Routes =====
+
+
 
 // ==== Starting Server =====
 app.listen(PORT, () => {
