@@ -9,10 +9,11 @@ import Home from './components/Home';
 import Main from './components/Main';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns, faChild } from '@fortawesome/free-solid-svg-icons';
+import { faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns, faChild, faBookReader} from '@fortawesome/free-solid-svg-icons';
 import CharacterCreation from './components/CharacterCreation';
+import Dm from './components/Dm';
 
-library.add(faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns, faChild);
+library.add(faHouseDamage, faDungeon, faSignOutAlt, faUser, faUserPlus, faCaretDown, faCaretUp, faRing, faDragon, faScroll, faSkullCrossbones, faHatWizard, faDiceD20, faFistRaised, faCoins, faAddressCard, faCloudMoon, faGlobe, faChessBoard, faHandsHelping, faDrum, faLandmark, faExclamation, faMapSigns, faChild, faBookReader);
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -27,6 +28,10 @@ const DisplayLinks = props => {
 					{" "}
 					<Link to="/character" className="linking">
 						<span className="link"><FontAwesomeIcon icon="child" /></span>
+					</Link>
+					{" "}
+					<Link to="/dm" className="linking">
+						<span className="link"><FontAwesomeIcon icon="book-reader"/></span>
 					</Link>
 					{" "}
 					<Link to="/main" className="linking">
@@ -166,6 +171,8 @@ class App extends Component {
 				<Route exact path="/main" component={Main} />
 
 				<Route exact path="/character" component={CharacterCreation} />
+
+				<Route exact path="/dm" component={Dm} />
 			</div>
 		)
 	}
