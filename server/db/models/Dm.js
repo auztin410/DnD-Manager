@@ -2,11 +2,14 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var SessionsSchema = new Schema({
+var DmSchema = new Schema({
     name: {
         type: String
     },
     userId: {
+        type: String
+    },
+    code: {
         type: String
     },
     players: {
@@ -14,6 +17,6 @@ var SessionsSchema = new Schema({
     }
 });
 
-var Sessions = mongoose.model("Sessions", SessionsSchema);
+var Dm = mongoose.model("Dm", DmSchema);
 
-module.exports = Sessions;
+module.exports = Dm;

@@ -59,10 +59,30 @@ app.use(function(err, req, res, next) {
 
 
 // ===== Adding DB Schemas =====
-
+var Dm = require('./db/models/Dm');
 
 // ===== Routes =====
+app.post('/create/session', function (req, res) {
+	Dm.create(
+	{
+		name: req.body.name,
+		userId: req.body.userId,
+		code: req.body.code
+	} 
+	).then(function (result) {
+		res.json(result);
+	}).catch(function (err) {
+		res.json(err);
+	});
+});
 
+app.get('/find/sessions/:userId', function (req, res) {
+	Dm.find(
+		{ userId: req.params.userId }
+	)
+	.then(dbItem => res.json(dbItem))
+	.catch((err) => res.json(err));
+});
 
 
 // ==== Starting Server =====
