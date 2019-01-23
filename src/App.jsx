@@ -73,6 +73,7 @@ class App extends Component {
 		this.state = {
 			loggedIn: false,
 			user: null,
+			sessionList: null,
 			d20: true,
 			characterDetails: false,
 			details: [],
@@ -89,7 +90,14 @@ class App extends Component {
 				this.setState({
 					loggedIn: true,
 					user: response.data.user
-				})
+				}, () => {
+                    axios.get(`/find/sessions/${this.state.user._id}`).then(response => {
+                        console.log(response.data);
+                        this.setState({
+                            sessionList: response.data,
+                        });
+                    });
+                });
 			} else {
 				this.setState({
 					loggedIn: false,
@@ -156,7 +164,7 @@ class App extends Component {
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} user={this.state.user} />
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
-				<Route exact path="/" render={() => <Home user={this.state.user} view={this.handleView} show={this.state.characterDetails} details={this.state.details} />} />
+				<Route exact path="/" render={() => <Home user={this.state.user} view={this.handleView} show={this.state.characterDetails} details={this.state.details} sessions={this.state.sessionList}/>} />
 				<Route
 					exact
 					path="/login"

@@ -46,107 +46,73 @@ const Home = props => {
 			<div className="Home">
 				{/* <h4 className="mainUser">Current User: {props.user.local.username}</h4> */}
 				<div className="characterList">
-						<table className="characterTable">
-							<tr className="characterTableHeader">
-								<th className="profRow">Name</th>
-								<th className="profRow">Level</th>
-								<th className="profRow">Race</th>
-								<th className="profRow">Class</th>
-								<th className="profRow">Background</th>
-								<th className="profRow">Session</th>
-								<th className="profRow">View</th>
-							</tr>
-							<tr>
-								<td className="profRow">Magmir Emberbeard</td>
-								<td className="profRow">12</td>
-								<td className="profRow">Mountain Dwarf</td>
-								<td className="profRow">Paladin</td>
-								<td className="profRow">Acolyte</td>
-								<td className="profRow"><div className="circle" id="red"></div></td>
-								<td className="profRow"><button onClick={() => props.view(Magmir)} className="customButton">View</button></td>
-							</tr>
-							<tr>
-								<td className="profRow">Nakoth Narran</td>
-								<td className="profRow">6</td>
-								<td className="profRow">Dark Elf</td>
-								<td className="profRow">Sorcerer</td>
-								<td className="profRow">Charlattan</td>
-								<td className="profRow"><div className="circle" id="green"></div></td>
-								<td className="profRow"><button className="customButton">View</button></td>
-							</tr>
-							<tr>
-								<td className="profRow">Grubis The Liar</td>
-								<td className="profRow">-19</td>
-								<td className="profRow">Human/Slob</td>
-								<td className="profRow">Warrior?</td>
-								<td className="profRow">Homeless</td>
-								<td className="profRow"><div className="circle" id="green"></div></td>
-								<td className="profRow"><button className="customButton">View</button></td>
-							</tr>
-						</table>
+					<table className="characterTable">
+						<tr className="characterTableHeader">
+							<th className="profRow">Name</th>
+							<th className="profRow">Level</th>
+							<th className="profRow">Race</th>
+							<th className="profRow">Class</th>
+							<th className="profRow">Background</th>
+							<th className="profRow">Session</th>
+							<th className="profRow">View</th>
+						</tr>
+						<tr>
+							<td className="profRow">Magmir Emberbeard</td>
+							<td className="profRow">12</td>
+							<td className="profRow">Mountain Dwarf</td>
+							<td className="profRow">Paladin</td>
+							<td className="profRow">Acolyte</td>
+							<td className="profRow"><div className="circle" id="red"></div></td>
+							<td className="profRow"><button onClick={() => props.view(Magmir)} className="customButton">View</button></td>
+						</tr>
+						<tr>
+							<td className="profRow">Nakoth Narran</td>
+							<td className="profRow">6</td>
+							<td className="profRow">Dark Elf</td>
+							<td className="profRow">Sorcerer</td>
+							<td className="profRow">Charlattan</td>
+							<td className="profRow"><div className="circle" id="green"></div></td>
+							<td className="profRow"><button className="customButton">View</button></td>
+						</tr>
+						<tr>
+							<td className="profRow">Grubis The Liar</td>
+							<td className="profRow">-19</td>
+							<td className="profRow">Human/Slob</td>
+							<td className="profRow">Warrior?</td>
+							<td className="profRow">Homeless</td>
+							<td className="profRow"><div className="circle" id="green"></div></td>
+							<td className="profRow"><button className="customButton">View</button></td>
+						</tr>
+					</table>
 				</div>
-				{(props.show === true) 
+				<br />
+				{(props.sessions)
 					?
-					<div className="characterDetails">
-						<h4 className="name">{props.details.Name}</h4>
-						<br/>
-						<table>
-							<tr>
-								<th className="profRow">Level</th>
-								<th className="profRow">Race</th>
-								<th className="profRow">Class</th>
-								<th className="profRow">Background</th>
-								<th className="profRow">Str</th>
-								<th className="profRow">Dex</th>
-								<th className="profRow">Con</th>
-								<th className="profRow">Int</th>
-								<th className="profRow">Wis</th>
-								<th className="profRow">Char</th>
-							</tr>
-							<tr>
-								<td className="profRow">{props.details.Level}</td>
-								<td className="profRow">{props.details.Race}</td>
-								<td className="profRow">{props.details.Class}</td>
-								<td className="profRow">{props.details.Background}</td>
-								<td className="profRow">{props.details.Strength}</td>
-								<td className="profRow">{props.details.Dexterity}</td>
-								<td className="profRow">{props.details.Constitution}</td>
-								<td className="profRow">{props.details.Intelligence}</td>
-								<td className="profRow">{props.details.Wisdom}</td>
-								<td className="profRow">{props.details.Charisma}</td>
-							</tr>
-						</table>
-						<br/>
-						<h4>Equipped</h4>
-						<br/>
-						<table>
-							<tr>
-								<th className="profRow">Weapon</th>
-								<td className="profRow">{props.details.Weapon}</td>
-							</tr>
-							<tr>
-								<th className="profRow">Armor</th>
-								<td className="profRow">{props.details.Armor}</td>
-							</tr>
-						</table>
-						<br/>
-						<h4>Equipment</h4>
-						<br/>
-						<table>
-							<tr>
-								<th>Item</th>
-								<th>Quantity</th>
-							</tr>
-							{props.details.Equipment.map(item => (
-									<tr key={item.Name}>
-									<td className="profRow">{item.Name}</td>
-									<td className="profRow">{item.Quantity}</td>
+					<div className="characterList">
+						<table className="characterTable">
+							<tbody>
+								<tr className="characterTableHeader">
+									<th className="profRow">Session Link</th>
+									<th className="profRow">Session Name</th>
+									<th className="profRow">Code</th>
+									<th className="profRow" colSpan="8">Players</th>
+								</tr>
+								{props.sessions.map(item => (
+									<tr key={item._id}>
+										<td className="profRow"><button>Go to Session</button></td>
+										<td className="profRow">{item.name}</td>
+										<td className="profRow">{item.code}</td>
+										{item.players.map(item2 => (
+											<td className="profRow">{item2}</td>
+										))}
 									</tr>
-								))}							
+								))}
+							</tbody>
 						</table>
 					</div>
 					: null
 				}
+
 			</div>
 		)
 	} else {
