@@ -105,7 +105,7 @@ class App extends Component {
 				})
 			}
 		})
-	}
+	};
 
 	_logout(event) {
 		event.preventDefault()
@@ -164,7 +164,7 @@ class App extends Component {
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} user={this.state.user} />
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
-				<Route exact path="/" render={() => <Home user={this.state.user} view={this.handleView} show={this.state.characterDetails} details={this.state.details} sessions={this.state.sessionList}/>} />
+				<Route exact path="/" component={Home}/>
 				<Route
 					exact
 					path="/login"
