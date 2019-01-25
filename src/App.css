@@ -51,6 +51,11 @@ div {
   color: whitesmoke;
 }
 
+.d-d {
+  height: 50px;
+  fill: whitesmoke;
+}
+
 .user {
   position: relative;
   right: 45%;

@@ -19,7 +19,7 @@ const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
 			<div className="navbar">
-				<div className="ddm">DDM</div>
+				<div className="ddm">D<img className="d-d" src={require('./assets/fontawesome-pro-5.6.3-web/svgs/brands/d-and-d.svg')}/>DM</div>
 				<div className="user">User: {props.user.local.username}</div>
 				<div className="links">
 					<Link to="/" className="linking">
@@ -47,7 +47,7 @@ const DisplayLinks = props => {
 	} else {
 		return (
 			<div className="navbar">
-				<div className="ddm">DDM</div>
+				<div className="ddm">D<img src={require('./assets/fontawesome-pro-5.6.3-web/svgs/brands/d-and-d.svg')}/>DM</div>
 				<div className="user">No User</div>
 				<div className="links">
 					<Link to="/" className="linking">
