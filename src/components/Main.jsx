@@ -163,7 +163,10 @@ class Main extends Component {
         axios.get('/auth/user').then(response => {
             console.log(response.data)
             if (!!response.data.user) {
-                console.log('THERE IS A USER')
+                console.log('THERE IS A USER');
+                let url = window.location.href;
+                let sessionId=url.split("/").pop();
+                console.log(sessionId);
                 this.setState({
                     loggedIn: true,
                     user: response.data.user,

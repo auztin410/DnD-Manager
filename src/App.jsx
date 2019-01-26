@@ -176,7 +176,7 @@ class App extends Component {
 				/>
 				<Route exact path="/signup" component={SignupForm} />
 
-				<Route exact path="/main" component={Main} />
+				<Route path="/main/:sessionId" component={Main} />
 
 				<Route exact path="/character" component={CharacterCreation} />
 
