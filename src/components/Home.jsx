@@ -44,7 +44,7 @@ class Home extends Component {
 				<div className="Home">
 					<br />
 					<div className="characterList">
-						<h3>Characters</h3>
+						<h3 className="title">Characters</h3>
 						<table className="characterTable">
 							<tbody>
 								<tr className="characterTableHeader">
@@ -63,7 +63,7 @@ class Home extends Component {
 					{(this.state.sessionList.length > 0)
 						?
 						<div className="characterList">
-							<h3>Sessions</h3>
+							<h3 className="title">Sessions</h3>
 							<table className="characterTable">
 								<tbody>
 									<tr className="characterTableHeader">
@@ -74,11 +74,11 @@ class Home extends Component {
 									</tr>
 									{this.state.sessionList.map(item => (
 										<tr key={item._id}>
-											<td className="profRow"><Link to={`/main/${item._id}`} className="linking"><span className="link"><FontAwesomeIcon icon="dungeon" /></span></Link></td>
+											<td className="profRow"><Link to={`/main/${item._id}`} className="linkingBlack"><span className="link"><FontAwesomeIcon icon="dungeon" /></span></Link></td>
 											<td className="profRow">{item.name}</td>
 											<td className="profRow">{item.code}</td>
 											{item.players.map(item2 => (
-												<td className="profRow">{item2}</td>
+												<td className="profRow" id="playerList">{item2}</td>
 											))}
 										</tr>
 									))}

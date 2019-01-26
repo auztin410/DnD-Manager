@@ -62,6 +62,8 @@ app.use(function(err, req, res, next) {
 var Dm = require('./db/models/Dm');
 
 // ===== Routes =====
+
+//  ===== Creating a DM Session =====
 app.post('/create/session', function (req, res) {
 	Dm.create(
 	{
@@ -76,9 +78,22 @@ app.post('/create/session', function (req, res) {
 	});
 });
 
+// ===== Find All Sessions For a User =====
 app.get('/find/sessions/:userId', function (req, res) {
 	Dm.find(
 		{ userId: req.params.userId }
+	)
+	.then(dbItem => res.json(dbItem))
+	.catch((err) => res.json(err));
+});
+
+//  ===== Find Specific Session =====
+app.get('/session/load/:sessionId/:userId', function (req, res) {
+	Dm.findById(
+		{
+			_id: req.params.sessionId,
+			userId: req.params.userId
+		}
 	)
 	.then(dbItem => res.json(dbItem))
 	.catch((err) => res.json(err));

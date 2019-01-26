@@ -67,6 +67,12 @@ div {
   padding-left: 930px;
 }
 
+.title {
+  font-size: 32px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px whitesmoke;
+}
+
 .link {
   font-family: Nodestro, sans-serif;
   font-weight: bold;
@@ -82,8 +88,22 @@ div {
   color: black;
 }
 
+.linkingBlack {
+  color: black;
+  margin: 2px;
+}
+
+.linkingBlack:hover {
+  color: rgb(240, 33, 33);
+}
+
 .links {
   margin-right: 45px;
+}
+
+#playerList:hover {
+  background-color: black;
+  color: whitesmoke
 }
 
 .downArrow {
@@ -724,7 +744,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/wall.jpg');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/container-storage.svg');
+  background-color: grey;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -736,7 +757,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets//water.jpg');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/water.svg');
+  background-color: rgb(137, 137, 231);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -748,7 +770,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/door.png');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/dungeon.svg');
+  background-color: grey;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -760,7 +783,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/trap.png');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/times-circle.svg');
+  background-color: rgb(212, 20, 20);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -772,7 +796,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/treasure.png');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/treasure-chest.svg');
+  background-color: rgb(139,69,19);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -784,19 +809,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/lava.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-.terrainRock {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/rock.png');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/water.svg');
+  background-color: rgb(243, 17, 17);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -808,7 +822,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/forest.jpg');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/trees.svg');
+  background-color: green;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -820,7 +835,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/swamp.jpg');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/tree-alt.svg');
+  background-color: rgb(83, 80, 80);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -832,7 +848,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/grass.jpg');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/leaf.svg');
+  background-color: green;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -844,7 +861,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/snow.jpg');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/snowflakes.svg');
+  background-color: white;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -856,7 +874,8 @@ div {
   border-color: black;
   border-width: 2px;
   float: left;
-  background-image: url('./assets/mountain.png');
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/mountains.svg');
+  background-color: lightgray;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

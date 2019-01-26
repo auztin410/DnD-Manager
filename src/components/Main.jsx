@@ -164,13 +164,19 @@ class Main extends Component {
             console.log(response.data)
             if (!!response.data.user) {
                 console.log('THERE IS A USER');
-                let url = window.location.href;
-                let sessionId=url.split("/").pop();
-                console.log(sessionId);
+
                 this.setState({
                     loggedIn: true,
                     user: response.data.user,
                     squares: list,
+                }, () => {
+                    let url = window.location.href;
+                    let sessionId = url.split("/").pop();
+                    console.log(sessionId);
+                    axios.get(`/session/load/${sessionId}/${this.state.user._id}`).then(response => {
+                        console.log("Find Session Response");
+                        console.log(response);
+                    })
                 })
             } else {
                 this.setState({
@@ -196,17 +202,17 @@ class Main extends Component {
     };
 
     handled20() {
-		if (this.state.d20[0] === "Close") {
-			this.setState({
-				d20: ["Open", "0px", "0px", "spinRev", "1s", "0s"],
-			});
-		}
-		else if (this.state.d20[0] === "Open") {
-			this.setState({
-				d20: ["Close", "110px", "94px", "spin", "0s", "1s"],
-			});
-		}
-	};
+        if (this.state.d20[0] === "Close") {
+            this.setState({
+                d20: ["Open", "0px", "0px", "spinRev", "1s", "0s"],
+            });
+        }
+        else if (this.state.d20[0] === "Open") {
+            this.setState({
+                d20: ["Close", "110px", "94px", "spin", "0s", "1s"],
+            });
+        }
+    };
 
     handleChange(event) {
         this.setState({
@@ -3921,38 +3927,38 @@ class Main extends Component {
         else if (this.state.npcComponent === false) {
             return (
                 <div>
-                   
-                    
-                  
-                    <div className="upArrow" style={{height: this.state.arrow[1]}}>
+
+
+
+                    <div className="upArrow" style={{ height: this.state.arrow[1] }}>
                         {/* <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Loot.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Loot_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Loot.png'))} alt="loot" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Treasure.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Treasure_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Treasure.png'))} alt="treasure" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/NPC.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/NPC_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/NPC.png'))} alt="npc" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Event.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Event_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Event.png'))} alt="bigEvent" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Enemy.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Enemy_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Enemy.png'))} alt="enemy" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/Translate.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Translate_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Translate.png'))} alt="translation" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/Buttons/World_Map.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/World_Map_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/World_Map.png'))} alt="worldMap" />
                         <br/>
                         <img onClick={this.handleOpenClose} src={require('../assets/Buttons/Grid.png')} onMouseOver={e => (e.currentTarget.src = require('../assets/Buttons/Grid_Hover.png'))} onMouseOut={e => (e.currentTarget.src = require('../assets/Buttons/Grid.png'))} alt="gridMap" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/loot.png')} alt="equipment" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="merchant" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="sound" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/town.png')} alt="settlement" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="character" />{" "}<img onClick={this.handleOpenClose} src={require('../assets/npc.png')} alt="quest"/>
                         <br/> */}
                         <div className="bannerContainer">
-                        <div className={(this.state.individualLootDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="coins" className="bannerIcon"/></div>
-                        <div className={(this.state.treasureLootDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("treasure")}><FontAwesomeIcon icon="dice-d20" className="bannerIcon"/></div>
-                        <div className={(this.state.npcDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("npc")}><FontAwesomeIcon icon="address-card" className="bannerIcon"/></div>
-                        <div className={(this.state.bigEventDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("bigEvent")}><FontAwesomeIcon icon="cloud-moon" className="bannerIcon"/></div>
-                        <div className={(this.state.monsterDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("enemy")}><FontAwesomeIcon icon="dragon" className="bannerIcon"/></div>
-                        <div className={(this.state.translationDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerMiddle" onClick={() => this.handleOpenClose("translation")}><FontAwesomeIcon icon="map-signs" className="bannerIcon"/></div>
-                        <div className={(this.state.gridDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("gridMap")}><FontAwesomeIcon icon="chess-board" className="bannerIcon"/></div>
-                        <div className={(this.state.merchantDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("merchant")}><FontAwesomeIcon icon="hands-helping" className="bannerIcon"/></div>
-                        <div className={(this.state.soundDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("sound")}><FontAwesomeIcon icon="drum" className="bannerIcon"/></div>
-                        <div className={(this.state.settlementDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("settlement")}><FontAwesomeIcon icon="landmark" className="bannerIcon"/></div>
-                        <div className={(this.state.questDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("quest")}><FontAwesomeIcon icon="exclamation" className="bannerIcon"/></div>
+                            <div className={(this.state.individualLootDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="coins" className="bannerIcon" /></div>
+                            <div className={(this.state.treasureLootDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("treasure")}><FontAwesomeIcon icon="dice-d20" className="bannerIcon" /></div>
+                            <div className={(this.state.npcDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("npc")}><FontAwesomeIcon icon="address-card" className="bannerIcon" /></div>
+                            <div className={(this.state.bigEventDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("bigEvent")}><FontAwesomeIcon icon="cloud-moon" className="bannerIcon" /></div>
+                            <div className={(this.state.monsterDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("enemy")}><FontAwesomeIcon icon="dragon" className="bannerIcon" /></div>
+                            <div className={(this.state.translationDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerMiddle" onClick={() => this.handleOpenClose("translation")}><FontAwesomeIcon icon="map-signs" className="bannerIcon" /></div>
+                            <div className={(this.state.gridDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("gridMap")}><FontAwesomeIcon icon="chess-board" className="bannerIcon" /></div>
+                            <div className={(this.state.merchantDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("merchant")}><FontAwesomeIcon icon="hands-helping" className="bannerIcon" /></div>
+                            <div className={(this.state.soundDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("sound")}><FontAwesomeIcon icon="drum" className="bannerIcon" /></div>
+                            <div className={(this.state.settlementDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("settlement")}><FontAwesomeIcon icon="landmark" className="bannerIcon" /></div>
+                            <div className={(this.state.questDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("quest")}><FontAwesomeIcon icon="exclamation" className="bannerIcon" /></div>
                         </div>
                     </div>
                     {(this.state.arrow[0] === false)
                         ?
-                        <div><FontAwesomeIcon onClick={this.handleArrow} icon="caret-down" className="arrowIcon"/></div>
+                        <div><FontAwesomeIcon onClick={this.handleArrow} icon="caret-down" className="arrowIcon" /></div>
                         :
-                        <div className="UpArrow"><FontAwesomeIcon onClick={this.handleArrow} icon="caret-up" className="arrowIcon"/></div>
-                        }
-                    
-                    
-                    
-                    
+                        <div className="UpArrow"><FontAwesomeIcon onClick={this.handleArrow} icon="caret-up" className="arrowIcon" /></div>
+                    }
+
+
+
+
 
                     {/* Individual Loot Div */}
                     {(this.state.individualLootDiv === true)
@@ -4006,20 +4012,20 @@ class Main extends Component {
                             }
                             {(this.state.treasureArtResults.length >= 1)
                                 ? <div className="generated">
-                                <table>
-                                    <tr>
-                                        <th className="profRow">Item</th>
-                                        <th className="profRow">Quantity</th>
-                                        <th className="profRow">Value GP</th>
-                                    </tr>
-                                    {this.state.treasureArtResults.map(item => (
-                                        <tr key={item.Name}>
-                                            <td className="profRow">{item.Name}</td>
-                                            <td className="profRow">{item.Count}</td>
-                                            <td className="profRow">{item.Value}</td>
+                                    <table>
+                                        <tr>
+                                            <th className="profRow">Item</th>
+                                            <th className="profRow">Quantity</th>
+                                            <th className="profRow">Value GP</th>
                                         </tr>
-                                        // <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value} GP</p></span>
-                                    ))}
+                                        {this.state.treasureArtResults.map(item => (
+                                            <tr key={item.Name}>
+                                                <td className="profRow">{item.Name}</td>
+                                                <td className="profRow">{item.Count}</td>
+                                                <td className="profRow">{item.Value}</td>
+                                            </tr>
+                                            // <span className="items" key={item.Name}><p key={item.Name}>{item.Count} x | {item.Name} | {item.Value} GP</p></span>
+                                        ))}
                                     </table>
                                 </div>
                                 : null
@@ -4167,7 +4173,7 @@ class Main extends Component {
                             <div className="buttonSpacer">
                                 <Autocomplete
                                     items={CreatureNames}
-                                    inputProps={{style: {fontSize: "18px"}}}
+                                    inputProps={{ style: { fontSize: "18px" } }}
                                     shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
                                     getItemValue={item => item.label}
                                     renderItem={(item, highlighted) =>
@@ -4219,7 +4225,7 @@ class Main extends Component {
                     }
                     {/* Grid Div */}
                     {(this.state.gridDiv === true)
-                        ? <Grid/>
+                        ? <Grid />
                         : null
                     }
                     {(this.state.equipmentDiv === true)
@@ -4230,7 +4236,7 @@ class Main extends Component {
                                     {EquipmentPacks.map(item => (
                                         <option value={item.Name} key={item.Name}>{item.Name} | {item.Cost} {item.Currency}</option>
                                     ))}
-                                </select>{" "}<span className="customButton" onClick={this.handleEquipmentPack}>Select</span>                                
+                                </select>{" "}<span className="customButton" onClick={this.handleEquipmentPack}>Select</span>
                             </form>
                             {(this.state.itemsInPack.length > 0)
                                 ?
@@ -4242,14 +4248,14 @@ class Main extends Component {
                                             <th>Weight</th>
                                             <th>Quantity</th>
                                         </tr>
-                                    {this.state.itemsInPack.map(item => (
-                                        <tr className="profRow">
-                                            <td className="profRow">{item.Name}</td>
-                                            <td className="profRow">{item.Cost}{" "}{item.Currency}</td>
-                                            <td className="profRow">{item.Weight}</td>
-                                            <td className="profRow">{item.Quantity}</td>
-                                        </tr>
-                                    ))}
+                                        {this.state.itemsInPack.map(item => (
+                                            <tr className="profRow">
+                                                <td className="profRow">{item.Name}</td>
+                                                <td className="profRow">{item.Cost}{" "}{item.Currency}</td>
+                                                <td className="profRow">{item.Weight}</td>
+                                                <td className="profRow">{item.Quantity}</td>
+                                            </tr>
+                                        ))}
                                     </table>
                                     <div className="monsterGrouping">
                                         <p>Total weight: {this.state.itemsInPackTotalWeight} lbs.</p>
@@ -4420,7 +4426,7 @@ class Main extends Component {
                         : null
                     }
                     {(this.state.soundDiv === true)
-                        ? <Sounds/>
+                        ? <Sounds />
                         : null
                     }
                     {(this.state.settlementDiv === true)
@@ -4465,7 +4471,7 @@ class Main extends Component {
                         : null
                     }
                     {(this.state.characterDiv === true)
-                        ? <CharacterCreation/>
+                        ? <CharacterCreation />
                         : null
                     }
                     {(this.state.questDiv === true)

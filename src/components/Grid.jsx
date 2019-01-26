@@ -119,11 +119,6 @@ class Grid extends Component {
                                 <div className="terrainLava" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
                             )
                         }
-                        else if (item.Terrain === "rock") {
-                            return (
-                                <div className="terrainRock" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
-                            )
-                        }
                         else if (item.Terrain === "forest") {
                             return (
                                 <div className="terrainForest" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
@@ -181,7 +176,6 @@ class Grid extends Component {
                                 <option value="trap">Trap</option>
                                 <option value="treasure">Treasure</option>
                                 <option value="lava">Lava</option>
-                                <option value="rock">Rough Terrain</option>
                                 <option value="forest">Forest</option>
                                 <option value="swamp">Swamp</option>
                                 <option value="snow">Snow</option>
