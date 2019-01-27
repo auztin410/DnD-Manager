@@ -60,6 +60,7 @@ app.use(function(err, req, res, next) {
 
 // ===== Adding DB Schemas =====
 var Dm = require('./db/models/Dm');
+var GridMap = require('./db/models/GridMap');
 
 // ===== Routes =====
 
@@ -97,6 +98,20 @@ app.get('/session/load/:sessionId/:userId', function (req, res) {
 	)
 	.then(dbItem => res.json(dbItem))
 	.catch((err) => res.json(err));
+});
+
+//  ===== Create New Grid Map =====
+app.post('/grid/new', function (req, res) {
+	GridMap.create(
+		{
+			name: req.body.name,
+			grid: req.body.grid
+		}
+	).then(function (result) {
+		res.json(result);
+	}).catch(function (err) {
+		res.json(err);
+	});
 });
 
 

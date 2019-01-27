@@ -14,6 +14,9 @@ var DmSchema = new Schema({
     },
     players: {
         type: Array
+    },
+    grid: {
+        type: [{type: Schema.Types.ObjectId, ref: 'GridMap'}]
     }
 });
 

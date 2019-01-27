@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Grid extends Component {
     constructor(props) {
@@ -9,10 +10,13 @@ class Grid extends Component {
             gridSelect: "",
             terrainSelect: "",
             nameSelect: "",
+            gridName: "",
+            newGrid: "",
         }
         this.handleClickDown = this.handleClickDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSaveGrid = this.handleSaveGrid.bind(this);
+        this.handleNewGridMap = this.handleNewGridMap.bind(this);
     }
 
     componentDidMount() {
@@ -85,6 +89,16 @@ class Grid extends Component {
         let sessionId = url.split("/").pop();
         console.log(sessionId);
         console.log(this.state.squares);
+    };
+
+    handleNewGridMap(event) {
+        event.preventDefault();
+        axios.post('/grid/new/', {
+            name: this.state.newGrid,
+            grid: this.state.squares
+        }).then((res) => {
+            console.log(res);
+        }).catch((err) => (console.log(err)));
     };
 
     render() {
@@ -165,8 +179,21 @@ class Grid extends Component {
                     })}
                 </div>
                 <div className="visible" id="gridControls">
+                    <br/>
                     <select onChange={this.handleChange} name="gridName">
+                    <option value="">None</option>
+                    <option value="new">New</option>
                     </select>
+                    <br/>
+                    {(this.state.gridName === "new")
+                    ?
+                    <form>
+                    <br/>
+                    <input onChange={this.handleChange} type="text" name="newGrid"/>
+                    <button onClick={this.handleNewGridMap}>Submit</button>
+                    </form>
+                    : null
+                }
                     <br/>
                     <select onChange={this.handleChange} name="gridSelect">
                         <option value="">None Selected</option>
