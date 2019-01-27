@@ -12,6 +12,7 @@ class Grid extends Component {
         }
         this.handleClickDown = this.handleClickDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSaveGrid = this.handleSaveGrid.bind(this);
     }
 
     componentDidMount() {
@@ -79,6 +80,13 @@ class Grid extends Component {
         }
     };
 
+    handleSaveGrid() {
+        let url = window.location.href;
+        let sessionId = url.split("/").pop();
+        console.log(sessionId);
+        console.log(this.state.squares);
+    };
+
     render() {
         return (
             <div>
@@ -89,9 +97,14 @@ class Grid extends Component {
                                 <div className="square" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
                             )
                         }
-                        else if (item.Terrain === "wall") {
+                        else if (item.Terrain === "wallH") {
                             return (
-                                <div className="terrainWall" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                                <div className="terrainWallH" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "wallV") {
+                            return (
+                                <div className="terrainWallV" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
                             )
                         }
                         else if (item.Terrain === "water") {
@@ -99,9 +112,14 @@ class Grid extends Component {
                                 <div className="terrainWater" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
                             )
                         }
-                        else if (item.Terrain === "door") {
+                        else if (item.Terrain === "doorH") {
                             return (
-                                <div className="terrainDoor" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                                <div className="terrainDoorH" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
+                            )
+                        }
+                        else if (item.Terrain === "doorV") {
+                            return (
+                                <div className="terrainDoorV" key={item.id} onClick={this.handleClickDown} id={item.id}>{item.Player}</div>
                             )
                         }
                         else if (item.Terrain === "trap") {
@@ -146,7 +164,10 @@ class Grid extends Component {
                         }
                     })}
                 </div>
-                <div>
+                <div className="visible" id="gridControls">
+                    <select onChange={this.handleChange} name="gridName">
+                    </select>
+                    <br/>
                     <select onChange={this.handleChange} name="gridSelect">
                         <option value="">None Selected</option>
                         <option value="player">Player</option>
@@ -160,7 +181,7 @@ class Grid extends Component {
                             <h4>Saved: {this.state.saved}</h4>
                             <br />
                             <form id="nameInput">
-                            <input onChange={this.handleChange} type="text" name="nameSelect" />
+                                <input onChange={this.handleChange} type="text" name="nameSelect" />
                             </form>
                         </div>
                         : null
@@ -170,9 +191,11 @@ class Grid extends Component {
                         <div>
                             <select onChange={this.handleChange} name="terrainSelect">
                                 <option value="">Remove</option>
-                                <option value="wall">Wall</option>
+                                <option value="wallH">Wall Horizontal</option>
+                                <option value="wallV">Wall Vertical</option>
+                                <option value="doorH">Door Horizontal</option>
+                                <option value="doorV">Door Vertical</option>
                                 <option value="water">Water</option>
-                                <option value="door">Door</option>
                                 <option value="trap">Trap</option>
                                 <option value="treasure">Treasure</option>
                                 <option value="lava">Lava</option>
@@ -185,6 +208,9 @@ class Grid extends Component {
                         </div>
                         : null
                     }
+                    <br />
+                    <div className="save" onClick={this.handleSaveGrid}><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/save.svg')} alt="save" height="24" /></div>
+                    <br />
                 </div>
             </div>
         )

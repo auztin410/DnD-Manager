@@ -657,6 +657,10 @@ div {
   width: 1080px;
 }
 
+#gridControls {
+  width: 300px;
+}
+
 #equipmentDiv {
   width: 550px;
 }
@@ -737,7 +741,7 @@ div {
   float: left;
 }
 
-.terrainWall {
+.terrainWallH {
   height: 50px;
   width: 50px;
   border-style: solid;
@@ -748,6 +752,20 @@ div {
   background-color: grey;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.terrainWallV {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/container-storage.svg');
+  background-color: grey;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: rotate(90deg);
 }
 
 .terrainWater {
@@ -763,7 +781,7 @@ div {
   background-size: 100% 100%;
 }
 
-.terrainDoor {
+.terrainDoorH {
   height: 50px;
   width: 50px;
   border-style: solid;
@@ -774,6 +792,20 @@ div {
   background-color: grey;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.terrainDoorV {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  float: left;
+  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/dungeon.svg');
+  background-color: grey;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: rotate(90deg);
 }
 
 .terrainTrap {
@@ -878,6 +910,17 @@ div {
   background-color: lightgray;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.save {
+  width: 34px;
+  margin: 0 auto;
+  background-color: rgb(240, 33, 33);
+  border-radius: 10px;
+}
+
+.save:hover {
+  background-color: whitesmoke;
 }
 
 .off {
