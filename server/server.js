@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/auth', require('./auth'))
 
 // ====== Error handler ====
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
 	console.log('====== ERROR =======')
 	console.error(err.stack)
 	res.status(500)
@@ -67,11 +67,11 @@ var GridMap = require('./db/models/GridMap');
 //  ===== Creating a DM Session =====
 app.post('/create/session', function (req, res) {
 	Dm.create(
-	{
-		name: req.body.name,
-		userId: req.body.userId,
-		code: req.body.code
-	} 
+		{
+			name: req.body.name,
+			userId: req.body.userId,
+			code: req.body.code
+		}
 	).then(function (result) {
 		res.json(result);
 	}).catch(function (err) {
@@ -84,8 +84,8 @@ app.get('/find/sessions/:userId', function (req, res) {
 	Dm.find(
 		{ userId: req.params.userId }
 	)
-	.then(dbItem => res.json(dbItem))
-	.catch((err) => res.json(err));
+		.then(dbItem => res.json(dbItem))
+		.catch((err) => res.json(err));
 });
 
 //  ===== Find Specific Session =====
@@ -95,9 +95,9 @@ app.get('/session/load/:sessionId/:userId', function (req, res) {
 			_id: req.params.sessionId,
 			userId: req.params.userId
 		}
-	)
-	.then(dbItem => res.json(dbItem))
-	.catch((err) => res.json(err));
+	).populate('grid')
+		.then(dbItem => res.json(dbItem))
+		.catch((err) => res.json(err));
 });
 
 //  ===== Create New Grid Map =====
@@ -107,6 +107,18 @@ app.post('/grid/new', function (req, res) {
 			name: req.body.name,
 			grid: req.body.grid
 		}
+	).then(function (result) {
+		res.json(result);
+	}).catch(function (err) {
+		res.json(err);
+	});
+});
+
+//  ===== Save New Grid to Session Id =====
+app.post('/session/grid', function (req, res) {
+	Dm.findOneAndUpdate(
+		{ _id: req.body.sessionId },
+		{ $push: { grid: req.body.gridId	} }
 	).then(function (result) {
 		res.json(result);
 	}).catch(function (err) {

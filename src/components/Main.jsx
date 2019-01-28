@@ -38,6 +38,7 @@ class Main extends Component {
         this.state = {
             loggedIn: false,
             user: null,
+            sessionData: null,
             d20: ["Close", "110px", "94px", "spin", "1s", "0s"],
             npc: [],
             value: "",
@@ -164,11 +165,9 @@ class Main extends Component {
             console.log(response.data)
             if (!!response.data.user) {
                 console.log('THERE IS A USER');
-
                 this.setState({
                     loggedIn: true,
                     user: response.data.user,
-                    squares: list,
                 }, () => {
                     let url = window.location.href;
                     let sessionId = url.split("/").pop();
@@ -176,13 +175,15 @@ class Main extends Component {
                     axios.get(`/session/load/${sessionId}/${this.state.user._id}`).then(response => {
                         console.log("Find Session Response");
                         console.log(response);
-                    })
-                })
+                        this.setState({
+                            sessionData: response.data,
+                        });
+                    }).catch((err) => (console.log(err)));
+                });
             } else {
                 this.setState({
                     loggedIn: false,
                     user: null,
-                    squares: list,
                 })
             }
         })
@@ -4225,7 +4226,7 @@ class Main extends Component {
                     }
                     {/* Grid Div */}
                     {(this.state.gridDiv === true)
-                        ? <Grid />
+                        ? <Grid loaded={this.state.sessionData.grid}/>
                         : null
                     }
                     {(this.state.equipmentDiv === true)

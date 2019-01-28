@@ -12,6 +12,7 @@ class Grid extends Component {
             nameSelect: "",
             gridName: "",
             newGrid: "",
+            gridList: [],
         }
         this.handleClickDown = this.handleClickDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -26,13 +27,26 @@ class Grid extends Component {
         }
         this.setState({
             squares: list,
+            gridList: this.props.loaded,
         });
+        
     };
 
     handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+        if(event.target.name === "" || event.target.name === "new") {
+            this.setState({
+                [event.target.name]: event.target.value
+            });
+        }
+        else {
+            let found = this.state.gridList.find(item => (item.name === event.target.value));
+            console.log('found');
+            console.log(found);
+            this.setState({
+                squares: found.grid,
+            });
+        }
+        
     };
 
     handleClickDown(event) {
@@ -98,6 +112,15 @@ class Grid extends Component {
             grid: this.state.squares
         }).then((res) => {
             console.log(res);
+            console.log(res.data._id);
+            let url = window.location.href;
+            let sessionId = url.split("/").pop();
+            axios.post('/session/grid/', {
+                sessionId: sessionId,
+                gridId: res.data._id
+            }).then((res) => {
+                console.log(res);
+            });
         }).catch((err) => (console.log(err)));
     };
 
@@ -183,7 +206,25 @@ class Grid extends Component {
                     <select onChange={this.handleChange} name="gridName">
                     <option value="">None</option>
                     <option value="new">New</option>
+                    {this.state.gridList.map(item => (
+                        <option key={item._id} value={item.name}>{item.name}</option>
+                    ))}
                     </select>
+                    {/* {(this.props.loaded.grid > 0) 
+                    ?
+                    <select onChange={this.handleChange} name="gridName">
+                    <option value="">None</option>
+                    <option value="new">New</option>
+                    {this.props.loaded.grid.map(item => (
+                        <option key={item._id} value={item.name}>{item.name}</option>
+                    ))}
+                    </select>
+                    : 
+                    <select onChange={this.handleChange} name="gridName">
+                    <option value="">None</option>
+                    <option value="new">New</option>
+                    </select>
+                    } */}
                     <br/>
                     {(this.state.gridName === "new")
                     ?
