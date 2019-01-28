@@ -126,6 +126,18 @@ app.post('/session/grid', function (req, res) {
 	});
 });
 
+//  ===== Save Grid =====
+app.post('/grid/save', function (req, res) {
+	GridMap.findOneAndUpdate(
+		{ _id: req.body._id },
+		{ $set: { grid: req.body.grid } }
+	).then(function (result) {
+		res.json(result);
+	}).catch(function (err) {
+		res.json(err);
+	});
+});
+
 
 // ==== Starting Server =====
 app.listen(PORT, () => {

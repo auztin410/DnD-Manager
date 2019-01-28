@@ -18,6 +18,7 @@ class Grid extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSaveGrid = this.handleSaveGrid.bind(this);
         this.handleNewGridMap = this.handleNewGridMap.bind(this);
+        this.handleChangeGrid = this.handleChangeGrid.bind(this);
     }
 
     componentDidMount() {
@@ -33,20 +34,31 @@ class Grid extends Component {
     };
 
     handleChange(event) {
-        if(event.target.name === "" || event.target.name === "new") {
             this.setState({
                 [event.target.name]: event.target.value
+            });        
+    };
+
+    handleChangeGrid(event) {
+        if(event.target.value === "" || event.target.value === "new") {
+            let list = [];
+            for (let i = 1; i <= 400; i++) {
+            list.push({ id: i, Player: "", Terrain: "" });
+            }
+            this.setState({
+                [event.target.name]: event.target.value,
+                squares: list
             });
         }
         else {
-            let found = this.state.gridList.find(item => (item.name === event.target.value));
+            let found = this.state.gridList.find(item => (item._id === event.target.value));
             console.log('found');
             console.log(found);
             this.setState({
                 squares: found.grid,
+                [event.target.name]: event.target.value
             });
         }
-        
     };
 
     handleClickDown(event) {
@@ -99,10 +111,16 @@ class Grid extends Component {
     };
 
     handleSaveGrid() {
-        let url = window.location.href;
-        let sessionId = url.split("/").pop();
-        console.log(sessionId);
-        console.log(this.state.squares);
+        // let url = window.location.href;
+        // let sessionId = url.split("/").pop();
+        // console.log(sessionId);
+        // console.log(this.state.squares);
+        axios.post('/grid/save/', {
+            _id: this.state.gridName,
+            grid: this.state.squares
+        }).then((res) => {
+            console.log(res);
+        }).catch((err) => (console.log(err)));
     };
 
     handleNewGridMap(event) {
@@ -120,6 +138,7 @@ class Grid extends Component {
                 gridId: res.data._id
             }).then((res) => {
                 console.log(res);
+                window.location.reload();
             });
         }).catch((err) => (console.log(err)));
     };
@@ -203,11 +222,11 @@ class Grid extends Component {
                 </div>
                 <div className="visible" id="gridControls">
                     <br/>
-                    <select onChange={this.handleChange} name="gridName">
+                    <select onChange={this.handleChangeGrid} name="gridName">
                     <option value="">None</option>
                     <option value="new">New</option>
                     {this.state.gridList.map(item => (
-                        <option key={item._id} value={item.name}>{item.name}</option>
+                        <option key={item._id} value={item._id}>{item.name}</option>
                     ))}
                     </select>
                     {/* {(this.props.loaded.grid > 0) 
