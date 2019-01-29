@@ -138,7 +138,8 @@ class Grid extends Component {
                 gridId: res.data._id
             }).then((res) => {
                 console.log(res);
-                window.location.reload();
+                // window.location.reload();
+                () => {this.props.reload()}
             });
         }).catch((err) => (console.log(err)));
     };

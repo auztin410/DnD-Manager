@@ -124,6 +124,7 @@ class Main extends Component {
             vendorShips: [],
         }
 
+        this.handleReloadData = this.handleReloadData.bind(this);
         this.handleArrow = this.handleArrow.bind(this);
         this.handled20 = this.handled20.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -184,9 +185,23 @@ class Main extends Component {
                 this.setState({
                     loggedIn: false,
                     user: null,
-                })
+                });
             }
-        })
+        });
+    };
+
+    handleReloadData() {
+        console.log("Reload Executed");
+        let url = window.location.href;
+        let sessionId = url.split("/").pop();
+        console.log(sessionId);
+        axios.get(`/session/load/${sessionId}/${this.state.user._id}`).then(response => {
+            console.log("Find Session Response");
+            console.log(response);
+            this.setState({
+                sessionData: response.data,
+            });
+        }).catch((err) => (console.log(err)));
     };
 
     handleArrow() {
@@ -4226,7 +4241,7 @@ class Main extends Component {
                     }
                     {/* Grid Div */}
                     {(this.state.gridDiv === true)
-                        ? <Grid loaded={this.state.sessionData.grid}/>
+                        ? <Grid loaded={this.state.sessionData.grid} reload={this.handleReloadData} />
                         : null
                     }
                     {(this.state.equipmentDiv === true)
