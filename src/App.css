@@ -1298,7 +1298,6 @@ th, td {
 .questReward {
   height: 350px;
   width: 350px;
-  margin-left: 500px;
   display: inline-block;
   border: 2px solid black;
 }
@@ -1351,6 +1350,17 @@ th, td {
 .questRewardTable{
   height: 60px;
   overflow-y: auto;
+}
+
+.rewardTable {
+  margin: 0px;
+  text-align: center;
+  font-family: 'Marcellus SC', serif;
+  font-size: 18px;
+}
+
+.numberInput {
+  width: 40px;
 }
 
 @-webkit-keyframes glow {
