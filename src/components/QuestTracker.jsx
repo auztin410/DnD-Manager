@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import Quest from './Quest';
 import Quests from '../assets/Json/QuestFormat.json';
+import Autocomplete from 'react-autocomplete';
+import Equipment from '../assets/Json/Equipment';
+import MagicItemsList from '../assets/Json/MagicItemsList';
+import WeaponsList from '../assets/Json/WeaponsList';
+import TradeGoods from '../assets/Json/TradeGoods';
+import Mounts from '../assets/Json/Mounts';
+import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
+import Ships from '../assets/Json/Ships';
 
 class QuestTracker extends Component {
     constructor(props) {
@@ -22,6 +29,9 @@ class QuestTracker extends Component {
             endLocation: "",
             experience: "",
             questDescription: "",
+            rewardOptions: "",
+            rewardSelected: "",
+            rewardList: false,
         }
 
         this.handleFindGroup = this.handleFindGroup.bind(this);
@@ -63,6 +73,61 @@ class QuestTracker extends Component {
                         });
                     }
                     break;
+                case "rewardOptions":
+                if (value === "") {
+                    this.setState({
+                        rewardSelected: "",
+                        rewardList: false,
+                    });
+                }
+                else if (value === "coin") {
+                    this.setState({
+                        rewardSelected: "coin",
+                        rewardList: false,
+                    });
+                }
+                else if (value === "equipment") {
+                    this.setState({
+                        rewardSelected: Equipment,
+                        rewardList: true,
+                    })
+                }
+                else if (value === "weapon") {
+                    this.setState({
+                        rewardSelected: WeaponsList,
+                        rewardList: true,
+                    });
+                }
+                else if (value === "magic") {
+                    this.setState({
+                        rewardSelected: MagicItemsList,
+                        rewardList: true,
+                    })
+                }
+                else if (value === "trade") {
+                    this.setState({
+                        rewardSelected: TradeGoods,
+                        rewardList: true,
+                    })
+                }
+                else if (value === "mount") {
+                    this.setState({
+                        rewardSelected: Mounts,
+                        rewardList: true,
+                    });
+                }
+                else if (value === "harness") {
+                    this.setState({
+                        rewardSelected: TackHarnessVehicle,
+                        rewardList: true,
+                    });
+                }
+                else if (value === "ship") {
+                    this.setState({
+                        rewardSelected: Ships,
+                        rewardList: true,
+                    });
+                }
             }
             this.componentDidMount();
         });
@@ -157,7 +222,9 @@ class QuestTracker extends Component {
                 <div className="createQuest">
                     <form id="questCreation">
                         <span className="questText">Quest Name</span><input type="text" name="questName" onChange={this.handleChange} />
-                        <br />
+                        <br/>
+                        
+                        <br/>
                         <span className="questText">Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
                             <option value="">Single Quest</option>
                             <br />
@@ -194,8 +261,46 @@ class QuestTracker extends Component {
                         <br />
                         <span className="questText">Experience</span><input type="number" name="experience" onChange={this.handleChange} />
                         <br />
-                        <span className="questText">Description</span><textarea name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea>
-                        <br />
+                        <span className="questText">Description</span>
+                        <br/>
+                        <textarea name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea>
+                        <br/>
+                        <span className="questReward">
+                        <select onChange={this.handleChange} name="rewardOptions">
+                        <option value="">None</option>
+                        <option value="coin">Coin</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="weapon">Weapon</option>
+                        <option value="magic">Magic Item</option>
+                        <option value="trade">Trade Good</option>
+                        <option value="mount">Mount</option>
+                        <option value="harness">Harness/Tackle</option>
+                        <option value="ship">Ship</option>
+                        </select>
+                        <br/>
+                        {(this.state.rewardList === true)
+                        ?
+                        <Autocomplete
+                                    items={this.state.rewardSelected}
+                                    inputProps={{ style: { fontSize: "18px" } }}
+                                    shouldItemRender={(item, value) => item.Name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                                    getItemValue={item => item.Name}
+                                    renderItem={(item, highlighted) =>
+                                        <div className="customButton"
+                                            key={item.id}
+                                            style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
+                                        >
+                                            {item.Name}
+                                        </div>
+                                    }
+                                    value={this.state.value}
+                                    onChange={e => this.setState({ value: e.target.value })}
+                                    onSelect={value => this.setState({ value })}
+                                />
+                        : null
+                        }
+                                </span>
+                                <br/>
                         <button onClick={this.handleSubmitQuest}>Submit</button>
                     </form>
                 </div>
