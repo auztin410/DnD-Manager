@@ -15,6 +15,7 @@ class Grid extends Component {
             gridList: [],
         }
         this.handleClickDown = this.handleClickDown.bind(this);
+        this.handleReloadData = this.handleReloadData.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSaveGrid = this.handleSaveGrid.bind(this);
         this.handleNewGridMap = this.handleNewGridMap.bind(this);
@@ -22,15 +23,32 @@ class Grid extends Component {
     }
 
     componentDidMount() {
+        let url = window.location.href;
+        let sessionId = url.split("/").pop();
+        axios.get(`/grid/load/${sessionId}`).then(response => {
+            console.log("Component Did Mount Response");
+            console.log(response.data);
+            this.setState({
+                gridList: response.data
+            });
+        }).catch((err) => (console.log(err)));
         let list = [];
         for (let i = 1; i <= 400; i++) {
             list.push({ id: i, Player: "", Terrain: "" });
         }
         this.setState({
-            squares: list,
-            gridList: this.props.loaded,
+            squares: list
         });
-        
+    };
+
+    handleReloadData() {
+        let url = window.location.href;
+        let sessionId = url.split("/").pop();
+        axios.get(`/grid/load/${sessionId}`).then(response => {
+            this.setState({
+                gridList: response.data
+            });
+        }).catch((err) => (console.log(err)));
     };
 
     handleChange(event) {
@@ -111,10 +129,6 @@ class Grid extends Component {
     };
 
     handleSaveGrid() {
-        // let url = window.location.href;
-        // let sessionId = url.split("/").pop();
-        // console.log(sessionId);
-        // console.log(this.state.squares);
         axios.post('/grid/save/', {
             _id: this.state.gridName,
             grid: this.state.squares
@@ -125,8 +139,11 @@ class Grid extends Component {
 
     handleNewGridMap(event) {
         event.preventDefault();
+        let url = window.location.href;
+        let sessionId = url.split("/").pop();        
         axios.post('/grid/new/', {
             name: this.state.newGrid,
+            sessionId: sessionId,
             grid: this.state.squares
         }).then((res) => {
             console.log(res);
@@ -138,8 +155,7 @@ class Grid extends Component {
                 gridId: res.data._id
             }).then((res) => {
                 console.log(res);
-                // window.location.reload();
-                () => {this.props.reload()}
+                this.handleReloadData();
             });
         }).catch((err) => (console.log(err)));
     };

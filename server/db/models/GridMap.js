@@ -6,6 +6,9 @@ var GridMapSchema = new Schema({
     name: {
         type: String
     },
+    sessionId: {
+        type: String
+    },
     grid: {
         type: Array
     }

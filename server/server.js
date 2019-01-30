@@ -100,11 +100,25 @@ app.get('/session/load/:sessionId/:userId', function (req, res) {
 		.catch((err) => res.json(err));
 });
 
+
+//  ===== Get All Grid Maps for Session =====
+app.get('/grid/load/:sessionId', function (req, res) {
+	console.log(req.params.sessionId);
+	GridMap.find(
+		{
+			sessionId: req.params.sessionId
+		}
+	)
+	.then(dbItem => res.json(dbItem))
+	.catch((err) => res.json(err));
+});
+
 //  ===== Create New Grid Map =====
 app.post('/grid/new', function (req, res) {
 	GridMap.create(
 		{
 			name: req.body.name,
+			sessionId: req.body.sessionId,
 			grid: req.body.grid
 		}
 	).then(function (result) {
