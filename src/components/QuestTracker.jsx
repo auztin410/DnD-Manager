@@ -25,7 +25,8 @@ class QuestTracker extends Component {
         }
 
         this.handleFindGroup = this.handleFindGroup.bind(this);
-        this.handleSelect = this.handleSelect.bind(this);
+        this.handleSelectGroup = this.handleSelectGroup.bind(this);
+        this.handleSelectSingle = this.handleSelectSingle.bind(this);
         this.handleCloseQuest = this.handleCloseQuest.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitQuest = this.handleSubmitQuest.bind(this);
@@ -48,26 +49,26 @@ class QuestTracker extends Component {
         this.setState({
             [event.target.name]: event.target.value
         }, () => {
-            switch(name) {
+            switch (name) {
                 case "chainQuest":
-                if(value === "") {
-                    this.setState({
-                        chainBoolean: false,
-                    });
-                }
-                else {
-                    this.setState({
-                        chainBoolean: true,
-                        questChainName: this.state.chainQuest,
-                    });
-                }
-                break;
+                    if (value === "") {
+                        this.setState({
+                            chainBoolean: false,
+                        });
+                    }
+                    else {
+                        this.setState({
+                            chainBoolean: true,
+                            questChainName: this.state.chainQuest,
+                        });
+                    }
+                    break;
             }
             this.componentDidMount();
         });
     };
 
-    handleSelect(event) {
+    handleSelectGroup(event) {
         let quest = event.target.innerHTML;
         let found = this.state.groupedQuests.find(item => item.Title === quest);
         console.log(found);
@@ -76,6 +77,16 @@ class QuestTracker extends Component {
             showQuest: true,
         });
     };
+
+    handleSelectSingle(event) {
+        let quest = event.target.innerHTML;
+        let found = this.state.singleQuests.find(item => item.Title === quest);
+        console.log(found);
+        this.setState({
+            selectedQuest: found,
+            showQuest: true,
+        });
+    }
 
     handleCloseQuest() {
         this.setState({
@@ -94,8 +105,8 @@ class QuestTracker extends Component {
         console.log(found);
         return (
             sorted.map(item => (
-                <tr key={item.Title} onClick={this.handleSelect} id="questSelect">
-                    <td className="profRow">{item.Title}</td>
+                <tr key={item.Title}>
+                    <td onClick={this.handleSelectGroup} id="questSelect" className="profRow">{item.Title}</td>
                     <td className="profRow">{(item.Completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
                 </tr>
             ))
@@ -145,9 +156,9 @@ class QuestTracker extends Component {
             <div className="visible" id="questTracker">
                 <div className="createQuest">
                     <form id="questCreation">
-                        <span>Quest Name</span><input type="text" name="questName" onChange={this.handleChange} />
+                        <span className="questText">Quest Name</span><input type="text" name="questName" onChange={this.handleChange} />
                         <br />
-                        <span>Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
+                        <span className="questText">Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
                             <option value="">Single Quest</option>
                             <br />
                             <option value="new">New Chain</option>
@@ -157,27 +168,33 @@ class QuestTracker extends Component {
                         </select>
                         {(this.state.chainQuest === "new")
                             ?
-                            <span>Quest Chain Name<input type="text" name="questChainName" onChange={this.handleChange} /></span>
+                            <span>
+                                <br/>
+                                <span className="questText">Quest Chain Name</span><input type="text" name="questChainName" onChange={this.handleChange} />
+                            </span>
                             : null
                         }
-                        <br/>
+                        <br />
                         {(this.state.chainQuest === "")
-                        ? null
-                        : <span>Quest Chain Part<input type="text" name="questChainPart" onChange={this.handleChange}/></span>
+                            ? null
+                            : <span>
+                                <br/>
+                                <span className="questText">Quest Chain Part</span><input type="text" name="questChainPart" onChange={this.handleChange} />
+                            </span>
                         }
                         <br />
-                        <span>Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange} />
+                        <span className="questText">Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange} />
                         <br />
-                        <span>Start Location</span><input type="text" name="startLocation" onChange={this.handleChange} />
+                        <span className="questText">Start Location</span><input type="text" name="startLocation" onChange={this.handleChange} />
                         <br />
                         <br />
-                        <span>End NPC</span><input type="text" name="endNPC" onChange={this.handleChange} />
+                        <span className="questText">End NPC</span><input type="text" name="endNPC" onChange={this.handleChange} />
                         <br />
-                        <span>End Location</span><input type="text" name="endLocation" onChange={this.handleChange} />
+                        <span className="questText">End Location</span><input type="text" name="endLocation" onChange={this.handleChange} />
                         <br />
-                        <span>Experience</span><input type="number" name="experience" onChange={this.handleChange} />
+                        <span className="questText">Experience</span><input type="number" name="experience" onChange={this.handleChange} />
                         <br />
-                        <span>Description</span><textarea name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea>
+                        <span className="questText">Description</span><textarea name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea>
                         <br />
                         <button onClick={this.handleSubmitQuest}>Submit</button>
                     </form>
@@ -186,15 +203,17 @@ class QuestTracker extends Component {
                     ?
                     <div className="questSection">
                         <table>
-                            <tr>
-                                <th className="profRow" id="questHeader" colSpan="2">Single Quest</th>
-                            </tr>
-                            {this.state.singleQuests.map(item => (
-                                <tr key={item.Title}>
-                                    <td className="profRow" id="questSelect">{item.Title}</td>
-                                    <td className="profRow">{(item.Completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
+                            <tbody>
+                                <tr>
+                                    <th className="profRow" id="questHeader" colSpan="2">Single Quest</th>
                                 </tr>
-                            ))}
+                                {this.state.singleQuests.map(item => (
+                                    <tr key={item.Title}>
+                                        <td onClick={this.handleSelectSingle} className="profRow" id="questSelect">{item.Title}</td>
+                                        <td className="profRow">{(item.Completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
                         </table>
                     </div>
                     : null

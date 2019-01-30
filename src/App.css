@@ -1275,8 +1275,13 @@ th, td {
 
 .createQuest {
   text-align: left;
-  float: left;
-  width: 350px;
+  border: 5px double black;
+  padding: 5px;
+}
+
+.questText {
+  display: inline-block;
+  width: 135px;
 }
 
 #questTracker {
