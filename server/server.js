@@ -176,7 +176,21 @@ app.post('/quest/create', function (req, res) {
 	}).catch(function (err) {
 		res.json(err);
 	});
-})
+});
+
+
+//  ===== Find All Quests for Session Id =====
+app.get('/quest/all/:sessionId', function (req, res) {
+	Quests.find(
+		{
+			sessionId: req.params.sessionId
+		}
+	).then(function (result) {
+		res.json(result);
+	}).catch(function (err) {
+		res.json(err);
+	});
+});
 
 
 // ==== Starting Server =====

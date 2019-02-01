@@ -14,6 +14,7 @@ class QuestTracker extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            allQuests: [],
             singleQuests: [],
             groupedTitles: [],
             groupedQuests: [],
@@ -48,14 +49,27 @@ class QuestTracker extends Component {
     }
 
     componentDidMount() {
-        let singleQuests = Quests.filter(item => item.QuestGroup === false);
-        let groupedQuests = Quests.filter(item => item.QuestGroup === true);
-        let groupedTitles = [...new Set(groupedQuests.map(item => item.Group))];
-        this.setState({
-            singleQuests,
-            groupedQuests,
-            groupedTitles,
-        })
+        let url = window.location.href;
+        let sessionId = url.split("/").pop();
+        axios.get(`/quest/all/${sessionId}`).then(response => {
+            console.log('All Quests For Session Id');
+            console.log(response.data);
+            this.setState({
+                allQuests: response.data,
+            }, () => {
+                let singleQuests = this.state.allQuests.filter(item => item.questGroup === false);
+                let groupedQuests = this.state.allQuests.filter(item => item.questGroup === true);
+                let groupedTitles = [...new Set(groupedQuests.map(item => item.group))];
+                console.log(singleQuests);
+                console.log(groupedQuests);
+                console.log(groupedTitles);
+                this.setState({
+                    singleQuests,
+                    groupedQuests,
+                    groupedTitles,
+                });
+            });
+        }).catch((err) => (console.log(err)));
     };
 
     handleChange(event) {
@@ -66,9 +80,10 @@ class QuestTracker extends Component {
         }, () => {
             switch (name) {
                 case "chainQuest":
-                    if (value === "") {
+                    if (value === "single quest") {
                         this.setState({
                             chainBoolean: false,
+                            questChainName: "single quest"
                         });
                     }
                     else {
@@ -140,7 +155,7 @@ class QuestTracker extends Component {
 
     handleSelectGroup(event) {
         let quest = event.target.innerHTML;
-        let found = this.state.groupedQuests.find(item => item.Title === quest);
+        let found = this.state.groupedQuests.find(item => item.title === quest);
         console.log(found);
         this.setState({
             selectedQuest: found,
@@ -150,7 +165,7 @@ class QuestTracker extends Component {
 
     handleSelectSingle(event) {
         let quest = event.target.innerHTML;
-        let found = this.state.singleQuests.find(item => item.Title === quest);
+        let found = this.state.singleQuests.find(item => item.title === quest);
         console.log(found);
         this.setState({
             selectedQuest: found,
@@ -167,17 +182,17 @@ class QuestTracker extends Component {
 
     handleFindGroup(title) {
         console.log(title);
-        let found = this.state.groupedQuests.filter(item => item.Group === title);
+        let found = this.state.groupedQuests.filter(item => item.group === title);
         let sorted = found.sort(function (a, b) {
-            return a.QuestPart - b.QuestPart;
+            return a.questPart - b.questPart;
         });
         console.log("Found");
         console.log(found);
         return (
             sorted.map(item => (
                 <tr key={item.Title}>
-                    <td onClick={this.handleSelectGroup} id="questSelect" className="profRow">{item.Title}</td>
-                    <td className="profRow">{(item.Completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
+                    <td onClick={this.handleSelectGroup} id="questSelect" className="profRow">{item.title}</td>
+                    <td className="profRow">{(item.completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
                 </tr>
             ))
         )
@@ -217,8 +232,9 @@ class QuestTracker extends Component {
             endNPC: "",
             questDescription: "",
             experience: ""
-        });
-        document.getElementById("questCreation").reset();
+        }, () => {
+            document.getElementById("questCreation").reset();
+        });  
     };
 
     handleAddItem(event) {
@@ -226,6 +242,7 @@ class QuestTracker extends Component {
         let reward = {
             name: this.state.value,
             quantity: this.state.rewardQuantity,
+            type: this.state.rewardOptions,
         }
         let current = this.state.rewards;
         current.push(reward);
@@ -243,7 +260,7 @@ class QuestTracker extends Component {
         axios.post('/quest/create/', {
             title: this.state.questName,
             questGroup: this.state.chainBoolean,
-            group: this.state.chainQuest,
+            group: this.state.questChainName,
             part: this.state.questChainPart,
             startNPC: this.state.startNPC,
             startLocation: this.state.startLocation,
@@ -256,6 +273,11 @@ class QuestTracker extends Component {
             sessionId: sessionId
         }).then((res) => {
             console.log(res.data)
+            document.getElementById("questCreation").reset();
+            this.setState({
+                rewards: [],
+            });
+            this.componentDidMount();
         }).catch((err) => (console.log(err)));
     };
 
@@ -269,7 +291,7 @@ class QuestTracker extends Component {
 
                         <br />
                         <span className="questText">Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
-                            <option value="">Single Quest</option>
+                            <option value="single quest">Single Quest</option>
                             <br />
                             <option value="new">New Chain</option>
                             {this.state.groupedTitles.map(item => (
@@ -379,9 +401,9 @@ class QuestTracker extends Component {
                                     <th className="profRow" id="questHeader" colSpan="2">Single Quest</th>
                                 </tr>
                                 {this.state.singleQuests.map(item => (
-                                    <tr key={item.Title}>
-                                        <td onClick={this.handleSelectSingle} className="profRow" id="questSelect">{item.Title}</td>
-                                        <td className="profRow">{(item.Completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
+                                    <tr key={item.title}>
+                                        <td onClick={this.handleSelectSingle} className="profRow" id="questSelect">{item.title}</td>
+                                        <td className="profRow">{(item.completed === true) ? <div className="circle" id="green"></div> : <div className="circle" id="red"></div>}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -392,10 +414,12 @@ class QuestTracker extends Component {
                 {this.state.groupedTitles.map(item => (
                     <div key={item} className="questSection">
                         <table>
+                            <tbody>
                             <tr>
                                 <th className="profRow" id="questHeader" colSpan="2">{item}</th>
                             </tr>
                             {this.handleFindGroup(item)}
+                            </tbody>
                         </table>
                     </div>
                 ))}
@@ -403,26 +427,28 @@ class QuestTracker extends Component {
                     ?
                     <div className="questSelected">
                         <span className="closeDisplayItem" onClick={this.handleCloseQuest}>X</span>
-                        <h4>{this.state.selectedQuest.Title}</h4>
-                        <p>Start: {this.state.selectedQuest.Start.NPC} | {this.state.selectedQuest.Start.Location}</p>
-                        <p>End: {this.state.selectedQuest.End.NPC} | {this.state.selectedQuest.End.Location}</p>
+                        <h4>{this.state.selectedQuest.title}</h4>
+                        <p>Start: {this.state.selectedQuest.startNPC} | {this.state.selectedQuest.startLocation}</p>
+                        <p>End: {this.state.selectedQuest.endNPC} | {this.state.selectedQuest.endLocation}</p>
                         <div className="questDescription">
-                            {this.state.selectedQuest.Description}
+                            {this.state.selectedQuest.description}
                         </div>
-                        <p>Experience: {this.state.selectedQuest.EXP}</p>
-                        {(this.state.selectedQuest.Reward.length > 0)
+                        <p>Experience: {this.state.selectedQuest.experience}</p>
+                        {(this.state.selectedQuest.reward.length > 0)
                             ?
                             <table>
+                                <tbody>
                                 <tr>
                                     <th className="profRow" colSpan="2">Rewards</th>
                                 </tr>
 
-                                {this.state.selectedQuest.Reward.map(item => (
-                                    <tr key={item.Name}>
-                                        <td className="profRow">{item.Name}</td>
-                                        <td className="profRow">{item.Quantity}</td>
+                                {this.state.selectedQuest.reward.map(item => (
+                                    <tr key={item.name}>
+                                        <td className="profRow">{item.name}</td>
+                                        <td className="profRow">{item.quantity}</td>
                                     </tr>
                                 ))}
+                                </tbody>
                             </table>
                             : null
                         }
