@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Quests from '../assets/Json/QuestFormat.json';
 import Autocomplete from 'react-autocomplete';
 import Equipment from '../assets/Json/Equipment';
@@ -43,6 +44,7 @@ class QuestTracker extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitQuest = this.handleSubmitQuest.bind(this);
         this.handleAddItem = this.handleAddItem.bind(this);
+        this.handleCreateQuest = this.handleCreateQuest.bind(this);
     }
 
     componentDidMount() {
@@ -234,6 +236,29 @@ class QuestTracker extends Component {
         this.inputQuantity.value = "";
     };
 
+    handleCreateQuest(event) {
+        event.preventDefault();
+        let url = window.location.href;
+        let sessionId = url.split("/").pop();
+        axios.post('/quest/create/', {
+            title: this.state.questName,
+            questGroup: this.state.chainBoolean,
+            group: this.state.chainQuest,
+            part: this.state.questChainPart,
+            startNPC: this.state.startNPC,
+            startLocation: this.state.startLocation,
+            endNPC: this.state.endNPC,
+            endLocation: this.state.endLocation,
+            description: this.state.questDescription,
+            reward: this.state.rewards,
+            experience: this.state.experience,
+            completed: false,
+            sessionId: sessionId
+        }).then((res) => {
+            console.log(res.data)
+        }).catch((err) => (console.log(err)));
+    };
+
     render() {
         return (
             <div className="visible" id="questTracker">
@@ -342,7 +367,7 @@ class QuestTracker extends Component {
                         : null
                         }
                         <br/>
-                        <button onClick={this.handleSubmitQuest}>Submit</button>
+                        <button onClick={this.handleCreateQuest}>Submit</button>
                     </form>
                 </div>
                 {(this.state.singleQuests.length > 0)

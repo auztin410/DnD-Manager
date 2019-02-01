@@ -61,6 +61,7 @@ app.use(function (err, req, res, next) {
 // ===== Adding DB Schemas =====
 var Dm = require('./db/models/Dm');
 var GridMap = require('./db/models/GridMap');
+var Quests = require('./db/models/Quests');
 
 // ===== Routes =====
 
@@ -151,6 +152,31 @@ app.post('/grid/save', function (req, res) {
 		res.json(err);
 	});
 });
+
+//  ===== Create Quest =====
+app.post('/quest/create', function (req, res) {
+	Quests.create(
+		{
+			title: req.body.title,
+			questGroup: req.body.questGroup,
+            group: req.body.group,
+            part: req.body.part,
+            startNPC: req.body.startNPC,
+            startLocation: req.body.startLocation,
+            endNPC: req.body.endNPC,
+            endLocation: req.body.endLocation,
+            description: req.body.description,
+            reward: req.body.reward,
+            experience: req.body.experience,
+            completed: req.body.completed,
+            sessionId: req.body.sessionId
+		}
+	).then(function (result) {
+		res.json(result);
+	}).catch(function (err) {
+		res.json(err);
+	});
+})
 
 
 // ==== Starting Server =====
