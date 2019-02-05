@@ -1274,66 +1274,19 @@ th, td {
 }
 
 .createQuest {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-gap: 10px;
-  text-align: left;
-  border: 5px double black;
-  padding: 5px;
+  width: 350px;
+  border: 2px solid black;
+}
+
+#questCreation {
+  width: 350px;
+  float: left;
 }
 
 .descriptionArea {
   height: 120px;
-  width: 500px;
+  width: 340px;
   resize: none;
-}
-
-.form1 {
-  grid-area: 1 / 2 / span 1 / span 1;
-}
-
-.form5 {
-  grid-area: 2 / 1 / span 1 / span 1;
-}
-
-.form6 {
-  grid-area: 2 / 3 / span 1 / span 1;
-}
-
-.form2 {
-  grid-area: 3 / 1 / span 1 / span 1;
-}
-
-.form3 {
-  grid-area: 3 / 2 / span 1 / span 1;
-}
-
-.form4 {
-  grid-area: 3 / 3 / span 1 / span 1;
-}
-
-.form7 {
-  grid-area: 4 / 1 / span 1 / span 1;
-}
-
-.form8 {
-  grid-area: 4 / 2 / span 1 / span 2;
-}
-
-.form9 {
-  grid-area: 5 / 1 / span 1 / span 1;
-}
-
-.form10 {
-  grid-area: 5 / 2 / span 1 / span 1;
-}
-
-.form11 {
-  grid-area: 5 / 3 / span 1 / span 1;
-}
-
-.form12 {
-  grid-area: 6 / 2 / span 1 / span 1;
 }
 
 .questText {
@@ -1361,6 +1314,11 @@ th, td {
 
 .questSection {
   float: left;
+  width: 1200px;
+}
+
+.questTables {
+  float: left;
   width: 180px;
   margin: 10px;
   font-family: 'Marcellus SC', serif;
@@ -1382,6 +1340,7 @@ th, td {
   padding: 10px;
   overflow-y: auto;
   position: absolute;
+  top: 50%;
   left: 35%;
   z-index: 1;
 }
@@ -1410,7 +1369,7 @@ th, td {
 }
 
 .rewardTable {
-  margin: 0px;
+  margin: 0 auto;
   text-align: center;
   font-family: 'Marcellus SC', serif;
   font-size: 18px;

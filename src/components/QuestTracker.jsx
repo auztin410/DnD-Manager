@@ -287,9 +287,9 @@ class QuestTracker extends Component {
             <div className="visible" id="questTracker">
             <form id="questCreation">
                 <div className="createQuest">
-                        <div className="form1"><span className="questText">Quest Name</span><input type="text" name="questName" onChange={this.handleChange} /></div>
+                        <div><span className="questText">Quest Name</span><input type="text" name="questName" onChange={this.handleChange} /></div>
 
-                        <div className="form2"><span className="questText">Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
+                        <div><span className="questText">Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
                             <option value="single quest">Single Quest</option>
                             <option value="new">New Chain</option>
                             {this.state.groupedTitles.map(item => (
@@ -298,29 +298,24 @@ class QuestTracker extends Component {
                         </select></div>
                         {(this.state.chainQuest === "new")
                             ?
-                            <div className="form3"><span>
+                            <div><span>
                                 <span className="questText">Quest Chain Name</span><input type="text" name="questChainName" onChange={this.handleChange} />
                             </span></div>
-                            : <div className="form3"></div>
+                            : <div></div>
                         }
                         <br />
                         {(this.state.chainQuest === "")
-                            ? <div className="form4"></div>
-                            : <div className="form4">
+                            ? null
+                            : <div>
                                 <span className="questText">Quest Chain Part</span><input type="text" name="questChainPart" onChange={this.handleChange} /></div>
                         }
-                        <div className="form5"><span className="questText">Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange} />
+                        <div><span className="questText">Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange} />
                         <br/>
                         <span className="questText">Start Location</span><input type="text" name="startLocation" onChange={this.handleChange} /></div>
 
-                        <div className="form6"><span className="questText">End NPC</span><input type="text" name="endNPC" onChange={this.handleChange} />
+                        <div><span className="questText">End NPC</span><input type="text" name="endNPC" onChange={this.handleChange} />
                         <br/>
                         <span className="questText">End Location</span><input type="text" name="endLocation" onChange={this.handleChange} /></div>
-
-                        <div className="form7"><span className="questText">Experience</span><input type="number" name="experience" onChange={this.handleChange} /></div>
-                        <br />
-                        <div className="form8"><span className="questText">Description</span>
-                        <textarea className="descriptionArea" name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea></div>
 
                         <div className="form9"><span className="questText">Quest Reward</span>
                         <br />
@@ -339,7 +334,7 @@ class QuestTracker extends Component {
                         <br />
                         {(this.state.rewardList === true)
                             ?
-                            <div className="form10">
+                            <div>
                                 <Autocomplete
                                     items={this.state.rewardSelected}
                                     inputProps={{ style: { fontSize: "18px" } }}
@@ -359,12 +354,11 @@ class QuestTracker extends Component {
                                 />{" "}<input onChange={this.handleChange} ref={el => this.inputQuantity = el} className="numberInput" type="number" name="rewardQuantity"></input>{" "}<button onClick={this.handleAddItem}>Add Item</button>
                                 <br/>
                             </div>
-                            : <div className="form10"></div>
+                            : null
                         }
                         <br/>
                         {(this.state.rewards.length > 0)
                         ?
-                        <div className="form11">
                         <table className="rewardTable">
                             <tbody>
                                 <tr>
@@ -379,16 +373,23 @@ class QuestTracker extends Component {
                                 ))}
                             </tbody>
                         </table>
-                        </div>
-                        : <div className="form11"></div>
+                        : null
                         }
+
+                        <div><span className="questText">Experience</span><input type="number" name="experience" onChange={this.handleChange} /></div>
+                        <br />
+                        <div><span className="questText">Description</span>
+                        <textarea className="descriptionArea" name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea></div>
+
+                        
                         <br/>
-                        <button className="form12" onClick={this.handleCreateQuest}>Submit</button>
+                        <button onClick={this.handleCreateQuest}>Submit</button>
                 </div>
                 </form>
+                <div className="questSection">
                 {(this.state.singleQuests.length > 0)
                     ?
-                    <div className="questSection">
+                    <div className="questTables">
                         <table>
                             <tbody>
                                 <tr>
@@ -406,7 +407,7 @@ class QuestTracker extends Component {
                     : null
                 }
                 {this.state.groupedTitles.map(item => (
-                    <div key={item} className="questSection">
+                    <div key={item} className="questTables">
                         <table>
                             <tbody>
                             <tr>
@@ -449,6 +450,7 @@ class QuestTracker extends Component {
                     </div>
                     : null
                 }
+                </div>
             </div>
         )
     }
