@@ -124,7 +124,6 @@ class Main extends Component {
             vendorShips: [],
         }
 
-        this.handleReloadData = this.handleReloadData.bind(this);
         this.handleArrow = this.handleArrow.bind(this);
         this.handled20 = this.handled20.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -188,20 +187,6 @@ class Main extends Component {
                 });
             }
         });
-    };
-
-    handleReloadData() {
-        console.log("Reload Executed");
-        let url = window.location.href;
-        let sessionId = url.split("/").pop();
-        console.log(sessionId);
-        axios.get(`/session/load/${sessionId}/${this.state.user._id}`).then(response => {
-            console.log("Find Session Response");
-            console.log(response);
-            this.setState({
-                sessionData: response.data,
-            });
-        }).catch((err) => (console.log(err)));
     };
 
     handleArrow() {
@@ -4244,6 +4229,8 @@ class Main extends Component {
                         ? <Grid loaded={this.state.sessionData.grid} reload={this.handleReloadData} />
                         : null
                     }
+
+                    {/* Equipment Div */}
                     {(this.state.equipmentDiv === true)
                         ?
                         <div className="visible" id="equipmentDiv">
@@ -4282,6 +4269,8 @@ class Main extends Component {
                         </div>
                         : null
                     }
+
+                    {/* Merchant Div */}
                     {(this.state.merchantDiv === true)
                         ?
                         <div className="visible" id="merchantDiv">
@@ -4291,7 +4280,7 @@ class Main extends Component {
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
                                         {this.state.vendorEquipment.map(item => (
-                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/box-full.svg')} alt="item"/>{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                         ))}
                                     </div>
                                     :
@@ -4308,7 +4297,7 @@ class Main extends Component {
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
                                         {this.state.vendorTradeGoods.map(item => (
-                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/balance-scale-left.svg')} alt="item"/>{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                         ))}
                                     </div>
                                     :
@@ -4325,7 +4314,7 @@ class Main extends Component {
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Mounts</h2>
                                         {this.state.vendorMounts.map(item => (
-                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/horse.svg')} alt="item"/>{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | Carry Weight: {item.CarryingCapacity} | Walking Speed: {item.Speed}</div>
                                         ))}
                                     </div>
                                     :
@@ -4342,7 +4331,7 @@ class Main extends Component {
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Tack, Hardness, and Vehicles</h2>
                                         {this.state.vendorTackHarnessVehicle.map(item => (
-                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/horse-head.svg')} alt="item"/>{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | Weight: {item.Weight}</div>
                                         ))}
                                     </div>
                                     :
@@ -4359,7 +4348,7 @@ class Main extends Component {
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Ships</h2>
                                         {this.state.vendorShips.map(item => (
-                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/ship.svg')} alt="item"/>{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
                                         ))}
                                     </div>
                                     :
@@ -4376,7 +4365,7 @@ class Main extends Component {
                                     <div>
                                         <h2 onClick={this.handleVendorSections} className="woodSign">Weapons</h2>
                                         {this.state.vendorWeapons.map(item => (
-                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}>{item.Name} | Cost: {item.Cost} {item.Currency} | Swimming Speed: {item.Speed} Mph</div>
+                                            <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/axe-battle.svg')} alt="item"/>{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | DMG: {item.Damage} | {item.Damage_Type}</div>
                                         ))}
                                     </div>
                                     :
