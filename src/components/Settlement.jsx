@@ -551,6 +551,68 @@ class Settlement extends Component {
                 <button onClick={this.handleGenerateSettlement}>Generate Settlement!</button>
                 <br />
                 <br />
+                {(this.state.vendorEquipment.length > 0)
+                    ?
+                    <div className="merchantTable">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th className="profRow">Type</th>
+                                    <th className="profRow">Quantity</th>
+                                </tr>
+                                {(this.state.vendorEquipment.length > 0)
+                                    ?
+                                    <tr>
+                                        <td className="profRow">Equipment</td>
+                                        <td className="profRow">{this.state.vendorEquipment.length}</td>
+                                    </tr>
+                                    : null
+                                }
+                                {(this.state.vendorTradeGoods.length > 0)
+                                ?
+                                <tr>
+                                    <td className="profRow">Trade Goods</td>
+                                    <td className="profRow">{this.state.vendorTradeGoods.length}</td>
+                                </tr>
+                                : null
+                                }
+                                {(this.state.vendorMounts.length > 0)
+                                ?
+                                <tr>
+                                    <td className="profRow">Mounts</td>
+                                    <td className="profRow">{this.state.vendorMounts.length}</td>
+                                </tr>
+                                : null
+                                }
+                                {(this.state.vendorTackHarnessVehicle.length > 0)
+                                ?
+                                <tr>
+                                    <td className="profRow">Tack Harness Vehicles</td>
+                                    <td className="profRow">{this.state.vendorTackHarnessVehicle.length}</td>
+                                </tr>
+                                : null
+                                }
+                                {(this.state.vendorShips.length > 0)
+                                ?
+                                <tr>
+                                    <td className="profRow">Ships</td>
+                                    <td className="profRow">{this.state.vendorShips.length}</td>
+                                </tr>
+                                : null
+                                }
+                                {(this.state.vendorWeapons.length > 0)
+                                ?
+                                <tr>
+                                    <td className="profRow">Weapons</td>
+                                    <td className="profRow">{this.state.vendorWeapons.length}</td>
+                                </tr>
+                                : null
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    : null
+                }
             </div>
         )
     }

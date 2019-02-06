@@ -26,7 +26,7 @@ class Main extends Component {
             user: null,
             sessionData: null,
             arrow: [false, "0px"],
-            npcComponent: false,
+            selected: "",
             worldShakingComponent: false,
             individualLootDiv: false,
             treasureLootDiv: false,
@@ -36,16 +36,24 @@ class Main extends Component {
             soundDiv: false,
             settlementDiv: false,
             translationDiv: false,
-            worldMapDiv: false,
             gridDiv: false,
-            equipmentDiv: false,
             merchantDiv: false,
             characterDiv: false,
             questDiv: false,
+            npc: false,
+            bigEvent: false,
+            loot: false,
+            treasure: false,
+            creature: false,
+            sound: false,
+            settlement: false,
+            translation: false,
+            grid: false,
+            merchant: false,
+            quest: false,
         }
 
         this.handleArrow = this.handleArrow.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.handleOpenClose = this.handleOpenClose.bind(this);
     }
 
@@ -96,23 +104,17 @@ class Main extends Component {
         }
     };
 
-    handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    };
-
     handleOpenClose(div) {
         switch (div) {
             case ("loot"):
                 if (this.state.individualLootDiv === false) {
                     this.setState({
-                        individualLootDiv: true
+                        individualLootDiv: true,
                     });
                 }
                 else if (this.state.individualLootDiv === true) {
                     this.setState({
-                        individualLootDiv: false
+                        individualLootDiv: false,
                     });
                 }
                 break;
@@ -261,140 +263,128 @@ class Main extends Component {
                 }
                 break;
         }
+    };
+
+    handleNext(event) {
+        if (this.state.select === "") {
+            if(this.state.individualLootDiv === true) {
+                this.setState({
+                    loot: true
+                });
+            }
+            else if(this.state.treasureLootDiv === true) {
+                this.setState({
+                    treasure: true
+                });
+            }
+        }
+    };
+
+    handleBack(event) {
 
     };
 
     render() {
-
-        if (this.state.npcComponent === true) {
-            return (
-                <div className="treasureHordeContainer">
-                    <div className="main">
-
-                    </div>
-                    <div>
-                        <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
-                    </div>
-                </div>
-            )
-        }
-        else if (this.state.worldShakingComponent === true) {
-            return (
-                <div className="treasureHordeContainer">
-                    <div className="main">
-
-                    </div>
-                    <div>
-                        <button onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</button>
-                        <br />
-                        <br />
-
+        return (
+            <div>
+                <div className="upArrow" style={{ height: this.state.arrow[1] }}>
+                    <div className="bannerContainer">
+                        <div className={(this.state.individualLootDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="coins" className="bannerIcon" /></div>
+                        <div className={(this.state.treasureLootDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("treasure")}><FontAwesomeIcon icon="dice-d20" className="bannerIcon" /></div>
+                        <div className={(this.state.npcDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("npc")}><FontAwesomeIcon icon="address-card" className="bannerIcon" /></div>
+                        <div className={(this.state.bigEventDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("bigEvent")}><FontAwesomeIcon icon="cloud-moon" className="bannerIcon" /></div>
+                        <div className={(this.state.monsterDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("enemy")}><FontAwesomeIcon icon="dragon" className="bannerIcon" /></div>
+                        <div className={(this.state.translationDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerMiddle" onClick={() => this.handleOpenClose("translation")}><FontAwesomeIcon icon="map-signs" className="bannerIcon" /></div>
+                        <div className={(this.state.gridDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("gridMap")}><FontAwesomeIcon icon="chess-board" className="bannerIcon" /></div>
+                        <div className={(this.state.merchantDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("merchant")}><FontAwesomeIcon icon="hands-helping" className="bannerIcon" /></div>
+                        <div className={(this.state.soundDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("sound")}><FontAwesomeIcon icon="drum" className="bannerIcon" /></div>
+                        <div className={(this.state.settlementDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("settlement")}><FontAwesomeIcon icon="landmark" className="bannerIcon" /></div>
+                        <div className={(this.state.questDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("quest")}><FontAwesomeIcon icon="exclamation" className="bannerIcon" /></div>
                     </div>
                 </div>
-            )
-        }
-        else if (this.state.npcComponent === false) {
-            return (
-                <div>
+                {(this.state.arrow[0] === false)
+                    ?
+                    <div><FontAwesomeIcon onClick={this.handleArrow} icon="caret-down" className="arrowIcon" /></div>
+                    :
+                    <div className="UpArrow"><FontAwesomeIcon onClick={this.handleArrow} icon="caret-up" className="arrowIcon" /></div>
+                }
 
 
+                {/* Left and Right Arrows */}
+                <span className="leftArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-left.svg')} alt="leftArrow" /></span>
+                <span className="rightArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-right.svg')} alt="rightArrow" /></span>
 
-                    <div className="upArrow" style={{ height: this.state.arrow[1] }}>
-                        <div className="bannerContainer">
-                            <div className={(this.state.individualLootDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("loot")}><FontAwesomeIcon icon="coins" className="bannerIcon" /></div>
-                            <div className={(this.state.treasureLootDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("treasure")}><FontAwesomeIcon icon="dice-d20" className="bannerIcon" /></div>
-                            <div className={(this.state.npcDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("npc")}><FontAwesomeIcon icon="address-card" className="bannerIcon" /></div>
-                            <div className={(this.state.bigEventDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("bigEvent")}><FontAwesomeIcon icon="cloud-moon" className="bannerIcon" /></div>
-                            <div className={(this.state.monsterDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("enemy")}><FontAwesomeIcon icon="dragon" className="bannerIcon" /></div>
-                            <div className={(this.state.translationDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerMiddle" onClick={() => this.handleOpenClose("translation")}><FontAwesomeIcon icon="map-signs" className="bannerIcon" /></div>
-                            <div className={(this.state.gridDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerInner" onClick={() => this.handleOpenClose("gridMap")}><FontAwesomeIcon icon="chess-board" className="bannerIcon" /></div>
-                            <div className={(this.state.merchantDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerSecondInner" onClick={() => this.handleOpenClose("merchant")}><FontAwesomeIcon icon="hands-helping" className="bannerIcon" /></div>
-                            <div className={(this.state.soundDiv === true) ? "bannerOpen" : "bannerRed"} id="bannerThirdInner" onClick={() => this.handleOpenClose("sound")}><FontAwesomeIcon icon="drum" className="bannerIcon" /></div>
-                            <div className={(this.state.settlementDiv === true) ? "bannerOpen" : "bannerGrey"} id="bannerFourthInner" onClick={() => this.handleOpenClose("settlement")}><FontAwesomeIcon icon="landmark" className="bannerIcon" /></div>
-                            <div className={(this.state.questDiv === true) ? "bannerOpen" : "bannerBlack"} id="bannerFifthInner" onClick={() => this.handleOpenClose("quest")}><FontAwesomeIcon icon="exclamation" className="bannerIcon" /></div>
-                        </div>
-                    </div>
-                    {(this.state.arrow[0] === false)
-                        ?
-                        <div><FontAwesomeIcon onClick={this.handleArrow} icon="caret-down" className="arrowIcon" /></div>
-                        :
-                        <div className="UpArrow"><FontAwesomeIcon onClick={this.handleArrow} icon="caret-up" className="arrowIcon" /></div>
-                    }
+                {/* Individual Loot Div */}
+                {(this.state.individualLootDiv === true)
+                    ?
+                    <Loot />
+                    : null
+                }
+                {/* Treasure Loot Div */}
+                {(this.state.treasureLootDiv === true)
+                    ?
+                    <Treasure />
+                    : null
+                }
+                {/* NPC Div */}
+                {(this.state.npcDiv === true)
+                    ?
+                    <NPCGenerator />
+                    : null
+                }
+                {/* World Shaking Event Div */}
+                {(this.state.bigEventDiv === true)
+                    ?
+                    <BigEvent />
+                    : null
+                }
+                {/* Monster Generator Div */}
+                {(this.state.monsterDiv === true)
+                    ?
+                    <Creature />
+                    : null
+                }
+                {/* Translation Div  */}
+                {(this.state.translationDiv === true)
+                    ?
+                    <TransDiv />
+                    : null
+                }
+                {/* Grid Div */}
+                {(this.state.gridDiv === true)
+                    ? <Grid />
+                    : null
+                }
 
-
-                    {/* Left and Right Arrows */}
-                    <span className="leftArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-left.svg')} alt="leftArrow"/></span>
-                    <span className="rightArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-right.svg')} alt="rightArrow"/></span>
-
-
-                    {/* Individual Loot Div */}
-                    {(this.state.individualLootDiv === true)
-                        ?
-                        <Loot/>
-                        : null
-                    }
-                    {/* Treasure Loot Div */}
-                    {(this.state.treasureLootDiv === true)
-                        ?
-                        <Treasure/>
-                        : null
-                    }
-                    {/* NPC Div */}
-                    {(this.state.npcDiv === true)
-                        ?
-                        <NPCGenerator/>
-                        : null
-                    }
-                    {/* World Shaking Event Div */}
-                    {(this.state.bigEventDiv === true)
-                        ?
-                        <BigEvent/>
-                        : null
-                    }
-                    {/* Monster Generator Div */}
-                    {(this.state.monsterDiv === true)
-                        ?
-                        <Creature/>
-                        : null
-                    }
-                    {/* Translation Div  */}
-                    {(this.state.translationDiv === true)
-                        ?
-                        <TransDiv/>
-                        : null
-                    }
-                    {/* Grid Div */}
-                    {(this.state.gridDiv === true)
-                        ? <Grid/>
-                        : null
-                    }
-
-                    {/* Merchant Div */}
-                    {(this.state.merchantDiv === true)
-                        ?
-                        <Merchant/>
-                        : null
-                    }
-                    {(this.state.soundDiv === true)
-                        ? <Sounds/>
-                        : null
-                    }
-                    {(this.state.settlementDiv === true)
-                        ?
-                        <Settlement/>
-                        : null
-                    }
-                    {(this.state.characterDiv === true)
-                        ? <CharacterCreation />
-                        : null
-                    }
-                    {(this.state.questDiv === true)
-                        ? <QuestTracker />
-                        : null
-                    }
-                </div>
-            )
-        }
+                {/* Merchant Div */}
+                {(this.state.merchantDiv === true)
+                    ?
+                    <Merchant />
+                    : null
+                }
+                {/* Sound Div */}
+                {(this.state.soundDiv === true)
+                    ? <Sounds />
+                    : null
+                }
+                {/* Generate Settlement Div */}
+                {(this.state.settlementDiv === true)
+                    ?
+                    <Settlement />
+                    : null
+                }
+                {/* Character Creation Div */}
+                {(this.state.characterDiv === true)
+                    ? <CharacterCreation />
+                    : null
+                }
+                {/* Quest Tracker Div */}
+                {(this.state.questDiv === true)
+                    ? <QuestTracker />
+                    : null
+                }
+            </div>
+        )
 
     }
 }
