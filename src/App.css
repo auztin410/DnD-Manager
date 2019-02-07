@@ -102,7 +102,6 @@ div {
 }
 
 .leftArrow {
-  z-index: -1;
   position: absolute;
   left:  0;
   top: 50%;
@@ -113,7 +112,6 @@ div {
 }
 
 .rightArrow {
-  z-index: -1;
   position: absolute;
   right: 0;
   top: 50%;

@@ -25,8 +25,10 @@ class Main extends Component {
             loggedIn: false,
             user: null,
             sessionData: null,
-            arrow: [false, "0px"],
-            selected: "",
+            arrow: [true, "150px"],
+            selected: [],
+            number: -1,
+            current: null,
             worldShakingComponent: false,
             individualLootDiv: false,
             treasureLootDiv: false,
@@ -40,10 +42,10 @@ class Main extends Component {
             merchantDiv: false,
             characterDiv: false,
             questDiv: false,
-            npc: false,
             bigEvent: false,
             loot: false,
             treasure: false,
+            npc: false,
             creature: false,
             sound: false,
             settlement: false,
@@ -55,6 +57,8 @@ class Main extends Component {
 
         this.handleArrow = this.handleArrow.bind(this);
         this.handleOpenClose = this.handleOpenClose.bind(this);
+        this.handleNext = this.handleNext.bind(this);
+        this.handleBack = this.handleBack.bind(this);
     }
 
     componentDidMount() {
@@ -110,71 +114,101 @@ class Main extends Component {
                 if (this.state.individualLootDiv === false) {
                     this.setState({
                         individualLootDiv: true,
+                        selected: [...this.state.selected, "loot"],
                     });
                 }
                 else if (this.state.individualLootDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "loot"));
+                    selected.splice(index,1);
                     this.setState({
                         individualLootDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
             case ("treasure"):
                 if (this.state.treasureLootDiv === false) {
                     this.setState({
-                        treasureLootDiv: true
+                        treasureLootDiv: true,
+                        selected: [...this.state.selected, "treasure"],
                     });
                 }
                 else if (this.state.treasureLootDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "treasure"));
+                    selected.splice(index,1);
                     this.setState({
-                        treasureLootDiv: false
+                        treasureLootDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
             case ("npc"):
                 if (this.state.npcDiv === false) {
                     this.setState({
-                        npcDiv: true
+                        npcDiv: true,
+                        selected: [...this.state.selected, "npc"],
                     });
                 }
                 else if (this.state.npcDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "npc"));
+                    selected.splice(index,1);
                     this.setState({
-                        npcDiv: false
+                        npcDiv: false,
+                        selected, selected
                     });
                 }
                 break;
             case ("bigEvent"):
                 if (this.state.bigEventDiv === false) {
                     this.setState({
-                        bigEventDiv: true
+                        bigEventDiv: true,
+                        selected: [...this.state.selected, "bigEvent"],
                     });
                 }
                 else if (this.state.bigEventDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "bigEvent"));
+                    selected.splice(index,1);
                     this.setState({
-                        bigEventDiv: false
+                        bigEventDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
             case ("enemy"):
                 if (this.state.monsterDiv === false) {
                     this.setState({
-                        monsterDiv: true
+                        monsterDiv: true,
+                        selected: [...this.state.selected, "enemy"],
                     });
                 }
                 else if (this.state.monsterDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "enemy"));
+                    selected.splice(index,1);
                     this.setState({
-                        monsterDiv: false
+                        monsterDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
             case ("translation"):
                 if (this.state.translationDiv === false) {
                     this.setState({
-                        translationDiv: true
+                        translationDiv: true,
+                        selected: [...this.state.selected, "translation"],
                     });
                 }
                 else if (this.state.translationDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "translation"));
+                    selected.splice(index,1);
                     this.setState({
-                        translationDiv: false
+                        translationDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
@@ -182,23 +216,16 @@ class Main extends Component {
                 if (this.state.gridDiv === false) {
                     this.setState({
                         gridDiv: true,
+                        selected: [...this.state.selected, "gridMap"],
                     });
                 }
                 else if (this.state.gridDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "gridMap"));
+                    selected.splice(index,1);
                     this.setState({
-                        gridDiv: false
-                    });
-                }
-                break;
-            case ("equipment"):
-                if (this.state.equipmentDiv === false) {
-                    this.setState({
-                        equipmentDiv: true,
-                    });
-                }
-                else if (this.state.equipmentDiv === true) {
-                    this.setState({
-                        equipmentDiv: false
+                        gridDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
@@ -206,11 +233,16 @@ class Main extends Component {
                 if (this.state.merchantDiv === false) {
                     this.setState({
                         merchantDiv: true,
+                        selected: [...this.state.selected, "merchant"],
                     });
                 }
                 else if (this.state.merchantDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "merchant"));
+                    selected.splice(index,1);
                     this.setState({
-                        merchantDiv: false
+                        merchantDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
@@ -218,11 +250,16 @@ class Main extends Component {
                 if (this.state.soundDiv === false) {
                     this.setState({
                         soundDiv: true,
+                        selected: [...this.state.selected, "sound"],
                     });
                 }
                 else if (this.state.soundDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "sound"));
+                    selected.splice(index,1);
                     this.setState({
-                        soundDiv: false
+                        soundDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
@@ -230,23 +267,16 @@ class Main extends Component {
                 if (this.state.settlementDiv === false) {
                     this.setState({
                         settlementDiv: true,
+                        selected: [...this.state.selected, "settlement"],
                     });
                 }
                 else if (this.state.settlementDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item => (item === "settlement"));
+                    selected.splice(index,1);
                     this.setState({
-                        settlementDiv: false
-                    });
-                }
-                break;
-            case ("character"):
-                if (this.state.characterDiv === false) {
-                    this.setState({
-                        characterDiv: true,
-                    });
-                }
-                else if (this.state.characterDiv === true) {
-                    this.setState({
-                        characterDiv: false
+                        settlementDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
@@ -254,34 +284,48 @@ class Main extends Component {
                 if (this.state.questDiv === false) {
                     this.setState({
                         questDiv: true,
+                        selected: [...this.state.selected, "quest"],
                     });
                 }
                 else if (this.state.questDiv === true) {
+                    let selected = this.state.selected;
+                    let index = selected.findIndex(item =>(item === "quest"));
+                    selected.splice(index,1);
                     this.setState({
-                        questDiv: false
+                        questDiv: false,
+                        selected: selected,
                     });
                 }
                 break;
         }
     };
 
-    handleNext(event) {
-        if (this.state.select === "") {
-            if(this.state.individualLootDiv === true) {
-                this.setState({
-                    loot: true
-                });
-            }
-            else if(this.state.treasureLootDiv === true) {
-                this.setState({
-                    treasure: true
-                });
-            }
-        }
+    handleNext() {
+        console.log("Next");
+        let selected = this.state.selected;
+        let i = this.state.number;
+        i = i + 1;
+        i = i % selected.length;
+        let current = selected[i];
+        this.setState({
+            current: current,
+            number: i,
+        });      
     };
 
-    handleBack(event) {
-
+    handleBack() {
+        console.log("Back");
+        let selected = this.state.selected;
+        let i = this.state.number;
+        if (i === 0) {
+            i = selected.length;
+        }
+        i = i - 1;
+        let current = selected[i];
+        this.setState({
+            current: current,
+            number: i,
+        });
     };
 
     render() {
@@ -311,75 +355,78 @@ class Main extends Component {
 
 
                 {/* Left and Right Arrows */}
-                <span className="leftArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-left.svg')} alt="leftArrow" /></span>
-                <span className="rightArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-right.svg')} alt="rightArrow" /></span>
-
+                {(this.state.selected.length === 0)
+                ? null
+                :
+                <span onClick={this.handleBack} className="leftArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-left.svg')} alt="leftArrow" /></span>
+                }
+                {(this.state.selected.length === 0)
+                ? null
+                :
+                <span onClick={this.handleNext} className="rightArrow"><img src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/angle-right.svg')} alt="rightArrow" /></span>
+                }      
+                
                 {/* Individual Loot Div */}
-                {(this.state.individualLootDiv === true)
+                {(this.state.current === "loot")
                     ?
                     <Loot />
                     : null
                 }
                 {/* Treasure Loot Div */}
-                {(this.state.treasureLootDiv === true)
+                {(this.state.current === "treasure")
                     ?
                     <Treasure />
                     : null
                 }
                 {/* NPC Div */}
-                {(this.state.npcDiv === true)
+                {(this.state.current === "npc")
                     ?
                     <NPCGenerator />
                     : null
                 }
                 {/* World Shaking Event Div */}
-                {(this.state.bigEventDiv === true)
+                {(this.state.current === "bigEvent")
                     ?
                     <BigEvent />
                     : null
                 }
                 {/* Monster Generator Div */}
-                {(this.state.monsterDiv === true)
+                {(this.state.current === "enemy")
                     ?
                     <Creature />
                     : null
                 }
                 {/* Translation Div  */}
-                {(this.state.translationDiv === true)
+                {(this.state.current === "translation")
                     ?
                     <TransDiv />
                     : null
                 }
                 {/* Grid Div */}
-                {(this.state.gridDiv === true)
+                {(this.state.current === "gridMap")
                     ? <Grid />
                     : null
                 }
 
                 {/* Merchant Div */}
-                {(this.state.merchantDiv === true)
+                {(this.state.current === "merchant")
                     ?
                     <Merchant />
                     : null
                 }
                 {/* Sound Div */}
-                {(this.state.soundDiv === true)
+                {(this.state.current === "sound")
                     ? <Sounds />
                     : null
                 }
                 {/* Generate Settlement Div */}
-                {(this.state.settlementDiv === true)
+                {(this.state.current === "settlement")
                     ?
                     <Settlement />
                     : null
                 }
-                {/* Character Creation Div */}
-                {(this.state.characterDiv === true)
-                    ? <CharacterCreation />
-                    : null
-                }
                 {/* Quest Tracker Div */}
-                {(this.state.questDiv === true)
+                {(this.state.current === "quest")
                     ? <QuestTracker />
                     : null
                 }
