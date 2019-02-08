@@ -369,66 +369,66 @@ class Main extends Component {
                 {/* Individual Loot Div */}
                 {(this.state.current === "loot")
                     ?
-                    <Loot/>
-                    : null
+                    <Loot display={"visible"}/>
+                    : <Loot display={"invisible"}/>
                 }
                 {/* Treasure Loot Div */}
                 {(this.state.current === "treasure")
                     ?
-                    <Treasure />
-                    : null
+                    <Treasure display={"visible"}/>
+                    : <Treasure display={"invisible"}/>
                 }
                 {/* NPC Div */}
                 {(this.state.current === "npc")
                     ?
-                    <NPCGenerator />
-                    : null
+                    <NPCGenerator display={"visible"}/>
+                    : <NPCGenerator display={"invisible"}/>
                 }
                 {/* World Shaking Event Div */}
                 {(this.state.current === "bigEvent")
                     ?
-                    <BigEvent />
-                    : null
+                    <BigEvent display={"visible"}/>
+                    : <BigEvent display={"invisible"}/>
                 }
                 {/* Monster Generator Div */}
                 {(this.state.current === "enemy")
                     ?
-                    <Creature />
-                    : null
+                    <Creature display={"visible"}/>
+                    : <Creature display={"invisible"}/>
                 }
                 {/* Translation Div  */}
                 {(this.state.current === "translation")
                     ?
-                    <TransDiv />
-                    : null
+                    <TransDiv display={"visible"}/>
+                    : <TransDiv display={"invisible"}/>
                 }
                 {/* Grid Div */}
                 {(this.state.current === "gridMap")
-                    ? <Grid />
-                    : null
+                    ? <Grid display={"visible"} secondary={"gridMap"}/>
+                    : <Grid display={"invisible"}/>
                 }
 
                 {/* Merchant Div */}
                 {(this.state.current === "merchant")
                     ?
-                    <Merchant />
-                    : null
+                    <Merchant display={"visible"}/>
+                    : <Merchant display={"invisible"}/>
                 }
                 {/* Sound Div */}
                 {(this.state.current === "sound")
-                    ? <Sounds />
-                    : null
+                    ? <Sounds display={"visible"}/>
+                    : <Sounds display={"invisible"}/>
                 }
                 {/* Generate Settlement Div */}
                 {(this.state.current === "settlement")
                     ?
-                    <Settlement />
-                    : null
+                    <Settlement display={"visible"}/>
+                    : <Settlement display={"invisible"}/>
                 }
                 {/* Quest Tracker Div */}
                 {(this.state.current === "quest")
-                    ? <QuestTracker />
-                    : null
+                    ? <QuestTracker display={"visible"}/>
+                    : <QuestTracker display={"invisible"}/>
                 }
             </div>
         )

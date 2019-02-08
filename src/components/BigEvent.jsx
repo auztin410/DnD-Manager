@@ -67,7 +67,7 @@ class BigEvent extends Component {
 
     render() {
         return (
-            <div className="visible" id="worldShakingEvent">
+            <div className={this.props.display}>
                 <div className="buttonSpacer">
                     <span className="customButton" onClick={this.handleWorldShakingEvent}>World Shaking Event Generator</span>
                 </div>

@@ -284,7 +284,7 @@ class QuestTracker extends Component {
 
     render() {
         return (
-            <div className="visible" id="questTracker">
+            <div className={this.props.display}>
             <form id="questCreation">
                 <div className="createQuest">
                         <div><span className="questText">Quest Name</span><input type="text" name="questName" onChange={this.handleChange} /></div>

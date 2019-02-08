@@ -190,7 +190,7 @@ class Sounds extends Component {
 
     render() {
         return (
-            <div className="visible" id="soundDiv">
+            <div className={this.props.display} id="soundDiv">
                             {(this.state.sounds[0] === true)
                                 ?
                                 <div className="soundSection">

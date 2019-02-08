@@ -76,7 +76,7 @@ class Creature extends Component {
 
     render() {
         return (
-            <div className="visible" id="monster">
+            <div className={this.props.display} id="monster">
                 <div className="buttonSpacer">
                     <Autocomplete
                         items={CreatureNames}

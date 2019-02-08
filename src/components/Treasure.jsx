@@ -2184,7 +2184,7 @@ class Treasure extends Component {
 
     render() {
         return(
-            <div className="visible">
+            <div className={this.props.display}>
                             <form>
                                 <select className="customButton" name="treasureLoot" onChange={this.handleChange}>
                                     <option value="Challenge0-4">Challenge 0-4</option>

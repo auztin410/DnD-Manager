@@ -162,8 +162,8 @@ class Grid extends Component {
 
     render() {
         return (
-            <div>
-                <div className="visible" id="gridMap">
+            <div className={this.props.display}>
+                <div id={this.props.secondary}>
                     {this.state.squares.map(item => {
                         if (item.Terrain === "") {
                             return (
@@ -237,7 +237,7 @@ class Grid extends Component {
                         }
                     })}
                 </div>
-                <div className="visible" id="gridControls">
+                <div className={this.props.display} id="gridControls">
                     <br/>
                     <select onChange={this.handleChangeGrid} name="gridName">
                     <option value="">None</option>
@@ -246,21 +246,6 @@ class Grid extends Component {
                         <option key={item._id} value={item._id}>{item.name}</option>
                     ))}
                     </select>
-                    {/* {(this.props.loaded.grid > 0) 
-                    ?
-                    <select onChange={this.handleChange} name="gridName">
-                    <option value="">None</option>
-                    <option value="new">New</option>
-                    {this.props.loaded.grid.map(item => (
-                        <option key={item._id} value={item.name}>{item.name}</option>
-                    ))}
-                    </select>
-                    : 
-                    <select onChange={this.handleChange} name="gridName">
-                    <option value="">None</option>
-                    <option value="new">New</option>
-                    </select>
-                    } */}
                     <br/>
                     {(this.state.gridName === "new")
                     ?

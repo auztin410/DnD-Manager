@@ -30,7 +30,7 @@ class NPCGenerator extends Component {
 
     render() {
         return (
-            <div className="visible" id="npc">
+            <div className={this.props.display}>
                 <div className="buttonSpacer">
                     <span className="customButton" onClick={this.handleNpcGenerator}>NPC Generator</span>
                 </div>

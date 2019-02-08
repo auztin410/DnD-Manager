@@ -639,10 +639,21 @@ div {
   overflow-y: auto;
   transition: 1s;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+.invisible {
+  background-image: url('./assets//u0.jpg');
+  margin: 0 auto;
+  padding: 0px;
+  border-radius: 2px;
+  width: 0;
+  height: 0;
+  overflow-y: auto;
+  transition: 1s;
 }
 
 #individualLoot {

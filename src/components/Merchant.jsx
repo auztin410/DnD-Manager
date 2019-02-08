@@ -311,7 +311,7 @@ class Merchant extends Component {
 
     render() {
         return (
-            <div className="visible">
+            <div className={this.props.display}>
                 <div className="merchantOptions">
                     {(this.state.vendorSections[0] === true)
                         ?

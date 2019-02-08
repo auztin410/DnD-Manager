@@ -35,7 +35,7 @@ class TransDiv extends Component {
 
     render() {
         return(
-            <div className="visible" id="translation">
+            <div className={this.props.display} id="translation">
                             <input className="customButton" name="textToTranslate" type="text" onChange={this.handleChange} />
                             <select className="customButton" name="language" onChange={this.handleChange}>
                                 <option value="Elvish">Elvish</option>

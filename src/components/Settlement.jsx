@@ -515,7 +515,7 @@ class Settlement extends Component {
 
     render() {
         return (
-            <div className="visible" id="settlementGeneratorDiv">
+            <div className={this.props.display} id="settlementGeneratorDiv">
                 <h2>Select the size of the settlement</h2>
                 <br />
                 <select onChange={this.handleChange} name="sizeSettlement">
