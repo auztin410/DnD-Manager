@@ -369,7 +369,7 @@ class Main extends Component {
                 {/* Individual Loot Div */}
                 {(this.state.current === "loot")
                     ?
-                    <Loot />
+                    <Loot/>
                     : null
                 }
                 {/* Treasure Loot Div */}

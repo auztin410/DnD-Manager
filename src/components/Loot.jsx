@@ -524,7 +524,7 @@ class Loot extends Component {
 
     render() {
         return (
-            <div className="visible" id="individualLoot">
+            <div className="visible">
                 <form>
                     <select className="customButton" name="individualLoot" onChange={this.handleChange}>
                         <option value="Challenge0-4">Challenge 0-4</option>
