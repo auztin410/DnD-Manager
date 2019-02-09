@@ -317,9 +317,28 @@ class Merchant extends Component {
                         ?
                         <div>
                             <h2 onClick={this.handleVendorSections} className="woodSign">Items</h2>
-                            {this.state.vendorEquipment.map(item => (
-                                <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/box-full.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
-                            ))}
+                            {this.state.vendorEquipment.map(item => {
+                                if(!item.Keyword) {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/box-full.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>  
+                                    )
+                                }
+                                else if(item.Keyword === "Artisan") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/hammer.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                                else if(item.Keyword === "Gaming") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/solid/dice.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                                else if(item.Keyword === "Musical") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name} value={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/mandolin.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                            })}
                         </div>
                         :
                         <div>
@@ -334,9 +353,34 @@ class Merchant extends Component {
                         ?
                         <div>
                             <h2 onClick={this.handleVendorSections} className="woodSign">Trade Goods</h2>
-                            {this.state.vendorTradeGoods.map(item => (
-                                <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/balance-scale-left.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
-                            ))}
+                            {this.state.vendorTradeGoods.map(item => {
+                                if(item.Keyword === "Farm") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/wheat.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                                else if(item.Keyword === "Livestock") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/cow.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                                else if(item.Keyword === "Spice") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/mortar-pestle.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                                else if(item.Keyword === "Ore") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/solid/dice-d12.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                                else if(item.Keyword === "Cloth") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/scarf.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                                    )
+                                }
+                                // <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/balance-scale-left.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
+                            })}
                         </div>
                         :
                         <div>
@@ -402,9 +446,28 @@ class Merchant extends Component {
                         ?
                         <div>
                             <h2 onClick={this.handleVendorSections} className="woodSign">Weapons</h2>
-                            {this.state.vendorWeapons.map(item => (
-                                <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/axe-battle.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | DMG: {item.Damage} | {item.Damage_Type}</div>
-                            ))}
+                            {this.state.vendorWeapons.map(item => {
+                                if(item.Type === "Simple Melee") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/sword.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | DMG: {item.Damage} | {item.Damage_Type}</div> 
+                                    )
+                                }
+                                else if(item.Type === "Simple Ranged") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/bow-arrow.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | DMG: {item.Damage} | {item.Damage_Type}</div>
+                                    )
+                                }
+                                else if(item.Type === "Martial Melee") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/axe-battle.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | DMG: {item.Damage} | {item.Damage_Type}</div>
+                                    )
+                                }
+                                else if(item.Type === "Martial Ranged") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/solid/bow-arrow.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | DMG: {item.Damage} | {item.Damage_Type}</div>
+                                    )
+                                }
+                            })}
                         </div>
                         :
                         <div>

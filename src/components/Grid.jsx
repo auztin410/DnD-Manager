@@ -357,19 +357,19 @@ class Grid extends Component {
                         //     </select>
                         // </div>
                         <div className="gridButtons">
-                        {this.state.terrainList.map(item => {
-                            if(this.state.terrainSelect === item.value) {
-                                return(
-                                    <span onClick={() => this.handleSelectTerrain(item.value)} key={item.value} className={item.style} id="terrainSelected"></span>
-                                )
-                            }
-                            else {
-                                return(
-                                    <span onClick={() => this.handleSelectTerrain(item.value)} key={item.value} className={item.style} id="terrainButtons"></span>
-                                )
-                            }
-                        })}
-                    </div>
+                            {this.state.terrainList.map(item => {
+                                if (this.state.terrainSelect === item.value) {
+                                    return (
+                                        <span onClick={() => this.handleSelectTerrain(item.value)} key={item.value} className={item.style} id="terrainSelected"></span>
+                                    )
+                                }
+                                else {
+                                    return (
+                                        <span onClick={() => this.handleSelectTerrain(item.value)} key={item.value} className={item.style} id="terrainButtons"></span>
+                                    )
+                                }
+                            })}
+                        </div>
                         : null
                     }
                     <br />
