@@ -13,6 +13,60 @@ class Grid extends Component {
             gridName: "",
             newGrid: "",
             gridList: [],
+            terrainList: [
+                {
+                    value: "wallH",
+                    style: "terrainWallH"
+                },
+                {
+                    value: "wallV",
+                    style: "terrainWallV"
+                },
+                {
+                    value: "water",
+                    style: "terrainWater"
+                },
+                {
+                    value: "doorH",
+                    style: "terrainDoorH"
+                },
+                {
+                    value: "doorV",
+                    style: "terrainDoorV"
+                },
+                {
+                    value: "trap",
+                    style: "terrainTrap"
+                },
+                {
+                    value: "treasure",
+                    style: "terrainTreasure"
+                },
+                {
+                    value: "lava",
+                    style: "terrainLava"
+                },
+                {
+                    value: "forest",
+                    style: "terrainForest"
+                },
+                {
+                    value: "swamp",
+                    style: "terrainSwamp"
+                },
+                {
+                    value: "mountain",
+                    style: "terrainMountain"
+                },
+                {
+                    value: "grass",
+                    style: "terrainGrass"
+                },
+                {
+                    value: "snow",
+                    style: "terrainSnow"
+                }
+            ]
         }
         this.handleClickDown = this.handleClickDown.bind(this);
         this.handleReloadData = this.handleReloadData.bind(this);
@@ -52,16 +106,16 @@ class Grid extends Component {
     };
 
     handleChange(event) {
-            this.setState({
-                [event.target.name]: event.target.value
-            });        
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     };
 
     handleChangeGrid(event) {
-        if(event.target.value === "" || event.target.value === "new") {
+        if (event.target.value === "" || event.target.value === "new") {
             let list = [];
             for (let i = 1; i <= 400; i++) {
-            list.push({ id: i, Player: "", Terrain: "" });
+                list.push({ id: i, Player: "", Terrain: "" });
             }
             this.setState({
                 [event.target.name]: event.target.value,
@@ -140,7 +194,7 @@ class Grid extends Component {
     handleNewGridMap(event) {
         event.preventDefault();
         let url = window.location.href;
-        let sessionId = url.split("/").pop();        
+        let sessionId = url.split("/").pop();
         axios.post('/grid/new/', {
             name: this.state.newGrid,
             sessionId: sessionId,
@@ -158,6 +212,13 @@ class Grid extends Component {
                 this.handleReloadData();
             });
         }).catch((err) => (console.log(err)));
+    };
+
+    handleSelectTerrain(terrain) {
+        console.log(terrain);
+        this.setState({
+            terrainSelect: terrain,
+        });
     };
 
     render() {
@@ -238,25 +299,25 @@ class Grid extends Component {
                     })}
                 </div>
                 <div className={this.props.display} id="gridControls">
-                    <br/>
+                    <br />
                     <select onChange={this.handleChangeGrid} name="gridName">
-                    <option value="">None</option>
-                    <option value="new">New</option>
-                    {this.state.gridList.map(item => (
-                        <option key={item._id} value={item._id}>{item.name}</option>
-                    ))}
+                        <option value="">None</option>
+                        <option value="new">New</option>
+                        {this.state.gridList.map(item => (
+                            <option key={item._id} value={item._id}>{item.name}</option>
+                        ))}
                     </select>
-                    <br/>
+                    <br />
                     {(this.state.gridName === "new")
-                    ?
-                    <form>
-                    <br/>
-                    <input onChange={this.handleChange} type="text" name="newGrid"/>
-                    <button onClick={this.handleNewGridMap}>Submit</button>
-                    </form>
-                    : null
-                }
-                    <br/>
+                        ?
+                        <form>
+                            <br />
+                            <input onChange={this.handleChange} type="text" name="newGrid" />
+                            <button onClick={this.handleNewGridMap}>Submit</button>
+                        </form>
+                        : null
+                    }
+                    <br />
                     <select onChange={this.handleChange} name="gridSelect">
                         <option value="">None Selected</option>
                         <option value="player">Player</option>
@@ -277,24 +338,38 @@ class Grid extends Component {
                     }
                     {(this.state.gridSelect === "terrain")
                         ?
-                        <div>
-                            <select onChange={this.handleChange} name="terrainSelect">
-                                <option value="">Remove</option>
-                                <option value="wallH">Wall Horizontal</option>
-                                <option value="wallV">Wall Vertical</option>
-                                <option value="doorH">Door Horizontal</option>
-                                <option value="doorV">Door Vertical</option>
-                                <option value="water">Water</option>
-                                <option value="trap">Trap</option>
-                                <option value="treasure">Treasure</option>
-                                <option value="lava">Lava</option>
-                                <option value="forest">Forest</option>
-                                <option value="swamp">Swamp</option>
-                                <option value="snow">Snow</option>
-                                <option value="grass">Grass</option>
-                                <option value="mountain">Mountain</option>
-                            </select>
-                        </div>
+                        // <div>
+                        //     <select onChange={this.handleChange} name="terrainSelect">
+                        //         <option value="">Remove</option>
+                        //         <option value="wallH">Wall Horizontal</option>
+                        //         <option value="wallV">Wall Vertical</option>
+                        //         <option value="doorH">Door Horizontal</option>
+                        //         <option value="doorV">Door Vertical</option>
+                        //         <option value="water">Water</option>
+                        //         <option value="trap">Trap</option>
+                        //         <option value="treasure">Treasure</option>
+                        //         <option value="lava">Lava</option>
+                        //         <option value="forest">Forest</option>
+                        //         <option value="swamp">Swamp</option>
+                        //         <option value="snow">Snow</option>
+                        //         <option value="grass">Grass</option>
+                        //         <option value="mountain">Mountain</option>
+                        //     </select>
+                        // </div>
+                        <div className="gridButtons">
+                        {this.state.terrainList.map(item => {
+                            if(this.state.terrainSelect === item.value) {
+                                return(
+                                    <span onClick={() => this.handleSelectTerrain(item.value)} key={item.value} className={item.style} id="terrainSelected"></span>
+                                )
+                            }
+                            else {
+                                return(
+                                    <span onClick={() => this.handleSelectTerrain(item.value)} key={item.value} className={item.style} id="terrainButtons"></span>
+                                )
+                            }
+                        })}
+                    </div>
                         : null
                     }
                     <br />

@@ -693,10 +693,14 @@ div {
 #gridMap {
   height: 1080px;
   width: 1080px;
+  float: left;
 }
 
 #gridControls {
+  float: left;
   width: 300px;
+  margin-left: 10px;
+  border: 2px solid black;
 }
 
 #equipmentDiv {
@@ -948,6 +952,25 @@ div {
   background-color: lightgray;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+#terrainButtons {
+  background-color: unset;
+  float: unset;
+  display: inline-block;
+  margin: 2px;
+}
+
+#terrainSelected {
+  float: unset;
+  display: inline-block;
+  margin: 2px;
+  background-color: grey;
+}
+
+.gridButtons {
+  float: unset;
+  margin: 0 auto;
 }
 
 .save {
