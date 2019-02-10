@@ -1,0 +1,145 @@
+[
+    {
+        "Name": "Padded",
+        "AC": 11,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": false,
+        "Weight": 8,
+        "Category": "Light Armor",
+        "Cost": 5,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Leather",
+        "AC": 11,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": true,
+        "Weight": 10,
+        "Category": "Light Armor",
+        "Cost": 10,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Studded leather",
+        "AC": 12,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": false,
+        "Weight": 13,
+        "Category": "Light Armor",
+        "Cost": 45,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Hide",
+        "AC": 12,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": false,
+        "Weight": 12,
+        "Category": "Medium Armor",
+        "Cost": 10,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Chain shirt",
+        "AC": 13,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": false,
+        "Weight": 20,
+        "Category": "Medium Armor",
+        "Cost": 50,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Scale mail",
+        "AC": 14,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": true,
+        "Weight": 45,
+        "Category": "Medium Armor",
+        "Cost": 50,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Breastplate",
+        "AC": 14,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": false,
+        "Weight": 20,
+        "Category": "Medium Armor",
+        "Cost": 400,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Half plate",
+        "AC": 15,
+        "DexModifier": true,
+        "Strength": 0,
+        "Stealth": true,
+        "Weight": 40,
+        "Category": "Medium Armor",
+        "Cost": 750,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Ring mail",
+        "AC": 14,
+        "DexModifier": false,
+        "Strength": 0,
+        "Stealth": true,
+        "Weight": 40,
+        "Category": "Heavy Armor",
+        "Cost": 30,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Chain mail",
+        "AC": 16,
+        "DexModifier": false,
+        "Strength": 13,
+        "Stealth": true,
+        "Weight": 55,
+        "Category": "Heavy Armor",
+        "Cost": 75,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Splint",
+        "AC": 17,
+        "DexModifier": false,
+        "Strength": 15,
+        "Stealth": true,
+        "Weight": 60,
+        "Category": "Heavy Armor",
+        "Cost": 200,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Plate",
+        "AC": 18,
+        "DexModifier": false,
+        "Strength": 15,
+        "Stealth": true,
+        "Weight": 65,
+        "Category": "Heavy Armor",
+        "Cost": 1500,
+        "Currency": "GP"
+    },
+    {
+        "Name": "Shield",
+        "AC": 2,
+        "DexModifier": false,
+        "Strength": 0,
+        "Stealth": false,
+        "Weight": 6,
+        "Category": "Shield",
+        "Cost": 10,
+        "Currency": "GP"
+    }
+]

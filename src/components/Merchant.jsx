@@ -6,13 +6,14 @@ import TradeGoods from '../assets/Json/TradeGoods';
 import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
+import Armor from '../assets/Json/Armor';
 
 class Merchant extends Component {
     constructor(props) {
         super(props)
         this.state = {
             merchantPending: [],
-            vendorSections: [false, false, false, false, false, false],
+            vendorSections: [false, false, false, false, false, false, false],
             pendingCP: 0,
             pendingSP: 0,
             pendingEP: 0,
@@ -26,6 +27,7 @@ class Merchant extends Component {
             purchased: [],
             vendorEquipment: Equipment,
             vendorWeapons: WeaponsList,
+            vendorArmor: Armor,
             vendorTradeGoods: TradeGoods,
             vendorMounts: Mounts,
             vendorTackHarnessVehicle: TackHarnessVehicle,
@@ -221,6 +223,8 @@ class Merchant extends Component {
         let array4False = [...this.state.vendorSections];
         let array5True = [...this.state.vendorSections];
         let array5False = [...this.state.vendorSections];
+        let array6True = [...this.state.vendorSections];
+        let array6False = [...this.state.vendorSections];
         array0True[0] = true;
         array0False[0] = false;
         array1True[1] = true;
@@ -233,6 +237,8 @@ class Merchant extends Component {
         array4False[4] = false;
         array5True[5] = true;
         array5False[5] = false;
+        array6True[6] = true;
+        array6False[6] = false;
         switch (event.target.innerHTML) {
             case ("Items"):
                 if (this.state.vendorSections[0] === false) {
@@ -303,6 +309,18 @@ class Merchant extends Component {
                 else if (this.state.vendorSections[5] === true) {
                     this.setState({
                         vendorSections: array5False,
+                    });
+                }
+                break;
+            case ("Armor"):
+                if (this.state.vendorSections[6] === false) {
+                    this.setState({
+                        vendorSections: array6True,
+                    });
+                }
+                else if (this.state.vendorSections[6] === true) {
+                    this.setState({
+                        vendorSections: array6False,
                     });
                 }
                 break;
@@ -379,7 +397,6 @@ class Merchant extends Component {
                                         <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/scarf.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                                     )
                                 }
-                                // <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/balance-scale-left.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency} | {item.Weight} lbs.</div>
                             })}
                         </div>
                         :
@@ -474,6 +491,42 @@ class Merchant extends Component {
                             {(this.state.vendorWeapons.length > 0)
                                 ?
                                 <h2 onClick={this.handleVendorSections} className="woodSign">Weapons</h2>
+                                : null
+                            }
+                        </div>
+                    }
+                    {(this.state.vendorSections[6] === true)
+                        ?
+                        <div>
+                            <h2 onClick={this.handleVendorSections} className="woodSign">Armor</h2>
+                            {this.state.vendorArmor.map(item => {
+                                if(item.Category === "Light Armor") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/hat-wizard.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency}</div> 
+                                    )
+                                }
+                                else if(item.Category === "Medium Armor") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/hood-cloak.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency}</div>
+                                    )
+                                }
+                                else if(item.Category === "Heavy Armor") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/regular/helmet-battle.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency}</div>
+                                    )
+                                }
+                                else if(item.Category === "Shield") {
+                                    return(
+                                        <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/solid/shield-cross.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency}</div>
+                                    )
+                                }
+                            })}
+                        </div>
+                        :
+                        <div>
+                            {(this.state.vendorArmor.length > 0)
+                                ?
+                                <h2 onClick={this.handleVendorSections} className="woodSign">Armor</h2>
                                 : null
                             }
                         </div>
