@@ -9,6 +9,7 @@
     },
     {
         "Name": "Acid (vial)",
+        "Keyword": "Vial",
         "Weight": 1,
         "Cost": 25,
         "Currency": "GP",
@@ -17,6 +18,7 @@
     },
     {
         "Name": "Alchemist’s fire (flask)",
+        "Keyword": "Vial",
         "Weight": 1,
         "Cost": 50,
         "Currency": "GP",
@@ -25,6 +27,7 @@
     },
     {
         "Name": "Arrows",
+        "Keyword": "Ammunition",
         "Weight": 1,
         "Cost": 1,
         "Currency": "GP",
@@ -33,6 +36,7 @@
     },
     {
         "Name": "Blowgun needles",
+        "Keyword": "Ammunition",
         "Weight": 1,
         "Cost": 1,
         "Currency": "GP",
@@ -41,6 +45,7 @@
     },
     {
         "Name": "Crossbow bolts",
+        "Keyword": "Ammunition",
         "Weight": 1.5,
         "Cost": 1,
         "Currency": "GP",
@@ -49,6 +54,7 @@
     },
     {
         "Name": "Sling bullets",
+        "Keyword": "Ammunition",
         "Weight": 1.5,
         "Cost": 4,
         "Currency": "CP",
@@ -58,6 +64,7 @@
     {
         "Name": "Antitoxin (vial)",
         "Weight": 0,
+        "Keyword": "Vial",
         "Cost": 50,
         "Currency": "GP",
         "Description": "A creature that drinks this vial of liquid gains advantage on saving throws against poison for 1 hour. It confers no benefit to undead or constructs.",
@@ -65,6 +72,7 @@
     },
     {
         "Name": "Crystal",
+        "Keyword": "Focus",
         "Weight": 1,
         "Cost": 10,
         "Currency": "GP",
@@ -73,6 +81,7 @@
     },
     {
         "Name": "Orb",
+        "Keyword": "Focus",
         "Weight": 3,
         "Cost": 20,
         "Currency": "GP",
@@ -81,6 +90,7 @@
     },
     {
         "Name": "Rod",
+        "Keyword": "Focus",
         "Weight": 2,
         "Cost": 10,
         "Currency": "GP",
@@ -89,6 +99,7 @@
     },
     {
         "Name": "Staff",
+        "Keyword": "Focus",
         "Weight": 4,
         "Cost": 5,
         "Currency": "GP",
@@ -97,6 +108,7 @@
     },
     {
         "Name": "Wand",
+        "Keyword": "Focus",
         "Weight": 1,
         "Cost": 10,
         "Currency": "GP",
@@ -105,6 +117,7 @@
     },
     {
         "Name": "Backpack",
+        "Keyword": "Bag",
         "Weight": 5,
         "Cost": 2,
         "Currency": "GP",
@@ -122,6 +135,7 @@
     },
     {
         "Name": "Barrel",
+        "Keyword": "Bag",
         "Weight": 70,
         "Cost": 2,
         "Currency": "GP",
@@ -130,6 +144,7 @@
     },
     {
         "Name": "Basket",
+        "Keyword": "Bag",
         "Weight": 2,
         "Cost": 4,
         "Currency": "SP",
@@ -171,6 +186,7 @@
     },
     {
         "Name": "Book",
+        "Keyword": "Paper",
         "Weight": 5,
         "Cost": 25,
         "Currency": "GP",
@@ -179,6 +195,7 @@
     },
     {
         "Name": "Bottle, glass",
+        "Keyword": "Bag",
         "Weight": 2,
         "Cost": 2,
         "Currency": "GP",
@@ -187,6 +204,7 @@
     },
     {
         "Name": "Bucket",
+        "Keyword": "Bag",
         "Weight": 2,
         "Cost": 5,
         "Currency": "CP",
@@ -203,6 +221,7 @@
     },
     {
         "Name": "Candle",
+        "Keyword": "Fire",
         "Weight": 0,
         "Cost": 1,
         "Currency": "CP",
@@ -211,6 +230,7 @@
     },
     {
         "Name": "Case, crossbow bolt",
+        "Keyword": "Bag",
         "Weight": 1,
         "Cost": 1,
         "Currency": "GP",
@@ -219,6 +239,7 @@
     },
     {
         "Name": "Case, map or scroll",
+        "Keyword": "Bag",
         "Weight": 1,
         "Cost": 1,
         "Currency": "GP",
@@ -235,6 +256,7 @@
     },
     {
         "Name": "Chalk (piece)",
+        "Keyword": "Paper",
         "Weight": 0,
         "Cost": 1,
         "Currency": "CP",
@@ -243,6 +265,7 @@
     },
     {
         "Name": "Chest",
+        "Keyword": "Bag",
         "Weight": 25,
         "Cost": 5,
         "Currency": "GP",
@@ -252,6 +275,7 @@
     },
     {
         "Name": "Climber’s kit",
+        "Keyword": "Kit",
         "Weight": 12,
         "Cost": 25,
         "Currency": "GP",
@@ -260,6 +284,7 @@
     },
     {
         "Name": "Clothes, common",
+        "Keyword": "Clothes",
         "Weight": 3,
         "Cost": 5,
         "Currency": "SP",
@@ -268,6 +293,7 @@
     },
     {
         "Name": "Clothes, costume",
+        "Keyword": "Clothes",
         "Weight": 4,
         "Cost": 5,
         "Currency": "GP",
@@ -276,6 +302,7 @@
     },
     {
         "Name": "Clothes, fine",
+        "Keyword": "Clothes",
         "Weight": 6,
         "Cost": 15,
         "Currency": "GP",
@@ -284,6 +311,7 @@
     },
     {
         "Name": "Clothes, traveler’s",
+        "Keyword": "Clothes",
         "Weight": 4,
         "Cost": 2,
         "Currency": "GP",
@@ -308,6 +336,7 @@
     },
     {
         "Name": "Sprig of mistletoe",
+        "Keyword": "Focus",
         "Weight": 0,
         "Cost": 1,
         "Currency": "GP",
@@ -316,6 +345,7 @@
     },
     {
         "Name": "Totem",
+        "Keyword": "Focus",
         "Weight": 0,
         "Cost": 1,
         "Currency": "GP",
@@ -324,6 +354,7 @@
     },
     {
         "Name": "Wooden staff",
+        "Keyword": "Focus",
         "Weight": 4,
         "Cost": 5,
         "Currency": "GP",
@@ -332,6 +363,7 @@
     },
     {
         "Name": "Yew wand",
+        "Keyword": "Focus",
         "Weight": 1,
         "Cost": 10,
         "Currency": "GP",
@@ -340,6 +372,7 @@
     },
     {
         "Name": "Fishing tackle",
+        "Keyword": "Kit",
         "Weight": 4,
         "Cost": 1,
         "Currency": "GP",
@@ -348,6 +381,7 @@
     },
     {
         "Name": "Flask or tankard",
+        "Keyword": "Bag",
         "Weight": 1,
         "Cost": 2,
         "Currency": "CP",
@@ -380,6 +414,7 @@
     },
     {
         "Name": "Healer’s kit",
+        "Keyword": "Kit",
         "Weight": 3,
         "Cost": 5,
         "Currency": "GP",
@@ -388,6 +423,7 @@
     },
     {
         "Name": "Amulet",
+        "Keyword": "Focus",
         "Weight": 1,
         "Cost": 5,
         "Currency": "GP",
@@ -396,6 +432,7 @@
     },
     {
         "Name": "Emblem",
+        "Keyword": "Focus",
         "Weight": 0,
         "Cost": 5,
         "Currency": "GP",
@@ -404,6 +441,7 @@
     },
     {
         "Name": "Reliquary",
+        "Keyword": "Focus",
         "Weight": 2,
         "Cost": 5,
         "Currency": "GP",
@@ -412,6 +450,7 @@
     },
     {
         "Name": "Holy water (flask)",
+        "Keyword": "Vial",
         "Weight": 1,
         "Cost": 25,
         "Currency": "GP",
@@ -436,6 +475,7 @@
     },
     {
         "Name": "Ink (1 ounce bottle)",
+        "Keyword": "Vial",
         "Weight": 0,
         "Cost": 10,
         "Currency": "GP",
@@ -444,6 +484,7 @@
     },
     {
         "Name": "Ink pen",
+        "Keyword": "Paper",
         "Weight": 0,
         "Cost": 2,
         "Currency": "CP",
@@ -452,6 +493,7 @@
     },
     {
         "Name": "Jug or pitcher",
+        "Keyword": "Bag",
         "Weight": 4,
         "Cost": 2,
         "Currency": "CP",
@@ -468,6 +510,7 @@
     },
     {
         "Name": "Lamp",
+        "Keyword": "Fire",
         "Weight": 1,
         "Cost": 5,
         "Currency": "SP",
@@ -476,6 +519,7 @@
     },
     {
         "Name": "Lantern, bullseye",
+        "Keyword": "Fire",
         "Weight": 2,
         "Cost": 10,
         "Currency": "GP",
@@ -484,6 +528,7 @@
     },
     {
         "Name": "Lantern, hooded",
+        "Keyword": "Fire",
         "Weight": 2,
         "Cost": 5,
         "Currency": "GP",
@@ -516,6 +561,7 @@
     },
     {
         "Name": "Mess kit",
+        "Keyword": "Kit",
         "Weight": 1,
         "Cost": 2,
         "Currency": "SP",
@@ -532,6 +578,7 @@
     },
     {
         "Name": "Oil (flask)",
+        "Keyword": "Vial",
         "Weight": 1,
         "Cost": 1,
         "Currency": "SP",
@@ -540,6 +587,7 @@
     },
     {
         "Name": "Paper (one sheet)",
+        "Keyword": "Paper",
         "Weight": 0,
         "Cost": 2,
         "Currency": "SP",
@@ -548,6 +596,7 @@
     },
     {
         "Name": "Parchment (sheet)",
+        "Keyword": "Paper",
         "Weight": 0,
         "Cost": 1,
         "Currency": "SP",
@@ -556,6 +605,7 @@
     },
     {
         "Name": "Perfume (vial)",
+        "Keyword": "Vial",
         "Weight": 0,
         "Cost": 5,
         "Currency": "GP",
@@ -580,6 +630,7 @@
     },
     {
         "Name": "Poison, basic (vial)",
+        "Keyword": "Vial",
         "Weight": 0,
         "Cost": 100,
         "Currency": "GP",
@@ -604,6 +655,7 @@
     },
     {
         "Name": "Potion of healing",
+        "Keyword": "Vial",
         "Weight": 0.5,
         "Cost": 50,
         "Currency": "GP",
@@ -612,6 +664,7 @@
     },
     {
         "Name": "Pouch",
+        "Keyword": "Bag",
         "Weight": 1,
         "Cost": 5,
         "Currency": "SP",
@@ -621,6 +674,7 @@
     },
     {
         "Name": "Quiver",
+        "Keyword": "Bag",
         "Weight": 1,
         "Cost": 1,
         "Currency": "GP",
@@ -637,6 +691,7 @@
     },
     {
         "Name": "Rations (1 day)",
+        "Keyword": "Food",
         "Weight": 2,
         "Cost": 5,
         "Currency": "SP",
@@ -645,6 +700,7 @@
     },
     {
         "Name": "Robes",
+        "Keyword": "Clothes",
         "Weight": 4,
         "Cost": 1,
         "Currency": "GP",
@@ -669,6 +725,7 @@
     },
     {
         "Name": "Sack",
+        "Keyword": "Bag",
         "Weight": 0.5,
         "Cost": 1,
         "Currency": "CP",
@@ -726,6 +783,7 @@
     },
     {
         "Name": "Spellbook",
+        "Keyword": "Focus",
         "Weight": 3,
         "Cost": 50,
         "Currency": "GP",
@@ -758,6 +816,7 @@
     },
     {
         "Name": "Tinderbox",
+        "Keyword": "Fire",
         "Weight": 1,
         "Cost": 5,
         "Currency": "SP",
@@ -766,6 +825,7 @@
     },
     {
         "Name": "Torch",
+        "Keyword": "Fire",
         "Weight": 1,
         "Cost": 1,
         "Currency": "CP",
@@ -774,6 +834,7 @@
     },
     {
         "Name": "Vial",
+        "Keyword": "Vial",
         "Weight": 0,
         "Cost": 1,
         "Currency": "GP",
@@ -782,6 +843,7 @@
     },
     {
         "Name": "Waterskin",
+        "Keyword": "Bag",
         "Weight": 5,
         "Cost": 2,
         "Currency": "SP",
@@ -951,7 +1013,7 @@
     },
     {
         "Name": "Disguise kit",
-        "Keyword": "",
+        "Keyword": "Kit",
         "Weight": 3,
         "Cost": 25,
         "Currency": "GP",
@@ -960,7 +1022,7 @@
     },
     {
         "Name": "Forgery kit",
-        "Keyword": "",
+        "Keyword": "Kit",
         "Weight": 5,
         "Cost": 15,
         "Currency": "GP",
@@ -1005,7 +1067,7 @@
     },
     {
         "Name": "Herbalism kit",
-        "Keyword": "",
+        "Keyword": "Kit",
         "Weight": 3,
         "Cost": 5,
         "Currency": "GP",
@@ -1104,7 +1166,7 @@
     },
     {
         "Name": "Navigator's tools",
-        "Keyword": "",
+        "Keyword": "Kit",
         "Weight": 2,
         "Cost": 25,
         "Currency": "GP",
@@ -1113,7 +1175,7 @@
     },
     {
         "Name": "Poisoner's kit",
-        "Keyword": "",
+        "Keyword": "Kit",
         "Weight": 2,
         "Cost": 50,
         "Currency": "GP",
@@ -1122,7 +1184,7 @@
     },
     {
         "Name": "Thieves' tools",
-        "Keyword": "",
+        "Keyword": "Kit",
         "Weight": 1,
         "Cost": 25,
         "Currency": "GP",
