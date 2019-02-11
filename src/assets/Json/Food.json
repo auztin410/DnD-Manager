@@ -1,0 +1,61 @@
+[
+    {
+        "Name": "Mug of Ale",
+        "Keyword": "Food",
+        "Weight": 0,
+        "Cost": 4,
+        "Currency": "CP",
+        "Count": 1
+    },
+    {
+        "Name": "Gallon of Ale",
+        "Keyword": "Food",
+        "Weight": 0,
+        "Cost": 2,
+        "Currency": "SP",
+        "Count": 1
+    },
+    {
+        "Name": "Load of Bread",
+        "Keyword": "Food",
+        "Weight": 0,
+        "Cost": 2,
+        "Currency": "CP",
+        "Count": 1
+    },
+    {
+        "Name": "Hunk of Cheese",
+        "Keyword": "Food",
+        "Weight": 0,
+        "Cost": 1,
+        "Currency": "SP",
+        "Count": 1
+    },
+    {
+        "Name": "Chunk of Meat",
+        "Keyword": "Food",
+        "Weight": 0,
+        "Cost": 3,
+        "Currency": "SP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Common Wine (Pitcher)",
+        "Keyword": "Food",
+        "Weight": 0,
+        "Cost": 2,
+        "Currency": "SP",
+        "Description": "",
+        "Count": 1
+    },
+    {
+        "Name": "Fine Wine (Bottle)",
+        "Keyword": "Food",
+        "Weight": 0,
+        "Cost": 10,
+        "Currency": "GP",
+        "Description": "",
+        "Count": 1
+    }
+]

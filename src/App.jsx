@@ -47,7 +47,7 @@ const DisplayLinks = props => {
 	} else {
 		return (
 			<div className="navbar">
-				<div className="ddm">D<img src={require('./assets/fontawesome-pro-5.6.3-web/svgs/brands/d-and-d.svg')}/>DM</div>
+				<div className="ddm">DDM</div>
 				<div className="user">No User</div>
 				<div className="links">
 					<Link to="/" className="linking">

@@ -7,13 +7,14 @@ import Mounts from '../assets/Json/Mounts';
 import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
 import Ships from '../assets/Json/Ships';
 import Armor from '../assets/Json/Armor';
+import Food from '../assets/Json/Food';
 
 class Merchant extends Component {
     constructor(props) {
         super(props)
         this.state = {
             merchantPending: [],
-            vendorSections: [false, false, false, false, false, false, false],
+            vendorSections: [false, false, false, false, false, false, false, false],
             pendingCP: 0,
             pendingSP: 0,
             pendingEP: 0,
@@ -32,6 +33,7 @@ class Merchant extends Component {
             vendorMounts: Mounts,
             vendorTackHarnessVehicle: TackHarnessVehicle,
             vendorShips: Ships,
+            vendorFood: Food,
             // vendorEquipment: [],
             // vendorWeapons: [],
             // vendorTradeGoods: [],
@@ -225,6 +227,8 @@ class Merchant extends Component {
         let array5False = [...this.state.vendorSections];
         let array6True = [...this.state.vendorSections];
         let array6False = [...this.state.vendorSections];
+        let array7True = [...this.state.vendorSections];
+        let array7False = [...this.state.vendorSections];
         array0True[0] = true;
         array0False[0] = false;
         array1True[1] = true;
@@ -239,6 +243,8 @@ class Merchant extends Component {
         array5False[5] = false;
         array6True[6] = true;
         array6False[6] = false;
+        array7True[7] = true;
+        array7False[7] = false;
         switch (event.target.innerHTML) {
             case ("Items"):
                 if (this.state.vendorSections[0] === false) {
@@ -321,6 +327,18 @@ class Merchant extends Component {
                 else if (this.state.vendorSections[6] === true) {
                     this.setState({
                         vendorSections: array6False,
+                    });
+                }
+                break;
+            case ("Food"):
+                if (this.state.vendorSections[7] === false) {
+                    this.setState({
+                        vendorSections: array7True,
+                    });
+                }
+                else if (this.state.vendorSections[7] === true) {
+                    this.setState({
+                        vendorSections: array7False,
                     });
                 }
                 break;
@@ -572,6 +590,23 @@ class Merchant extends Component {
                             {(this.state.vendorArmor.length > 0)
                                 ?
                                 <h2 onClick={this.handleVendorSections} className="woodSign">Armor</h2>
+                                : null
+                            }
+                        </div>
+                    }
+                    {(this.state.vendorSections[7] === true)
+                        ?
+                        <div>
+                            <h2 onClick={this.handleVendorSections} className="woodSign">Food</h2>
+                            {this.state.vendorFood.map(item => (
+                                <div onClick={() => this.handleMerchantEquipment(item)} className="merchantItem" key={item.Name}><img height="20px" width="20px" src={require('../assets/fontawesome-pro-5.6.3-web/svgs/light/utensils.svg')} alt="item" />{" "}{item.Name} | Cost: {item.Cost} {item.Currency}</div>
+                            ))}
+                        </div>
+                        :
+                        <div>
+                            {(this.state.vendorFood.length > 0)
+                                ?
+                                <h2 onClick={this.handleVendorSections} className="woodSign">Food</h2>
                                 : null
                             }
                         </div>
