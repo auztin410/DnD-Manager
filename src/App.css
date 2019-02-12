@@ -347,6 +347,11 @@ div {
   color: white;
 }
 
+.loginText {
+  display: inline-block;
+  width: 120px;
+}
+
 .loginInput {
   font-family: 'Marcellus SC', serif;
   font-size: 24px;

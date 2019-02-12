@@ -55,7 +55,7 @@ class SignupForm extends Component {
 		return (
 			<div className="loginForm">
 				<h1>Signup form</h1>
-				<label htmlFor="username">Username: </label>
+				<span className="loginText">Username:</span>
 				<input
 					type="text"
 					name="username"
@@ -65,7 +65,7 @@ class SignupForm extends Component {
 				/>
 				<br/>
 				<br/>
-				<label htmlFor="password">Password: </label>
+				<span className="loginText">Password:</span>
 				<input
 					type="password"
 					name="password"
@@ -75,7 +75,7 @@ class SignupForm extends Component {
 				/>
 				<br/>
 				<br/>
-				<label htmlFor="confirmPassword">Confirm Password: </label>
+				<span className="loginText">Confirm:</span>
 				<input
 					type="password"
 					name="confirmPassword"
@@ -83,9 +83,9 @@ class SignupForm extends Component {
 					onChange={this.handleChange}
 					className="loginInput"
 					id="loginBottomInput"
-				/>{" "}<div onClick={this.handleSubmit} id="registerButton" className="hexagonButton"><div className="hexagonButton-text">Register</div></div>
+				/>{" "}
+				<div onClick={this.handleSubmit} id="registerButton" className="hexagonButton"><div className="hexagonButton-text">Register</div></div>
 				<br/>
-				{/* <button onClick={this.handleSubmit}>Sign up</button> */}
 			</div>
 		)
 	}

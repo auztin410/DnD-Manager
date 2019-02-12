@@ -15,7 +15,8 @@ class Home extends Component {
 
 	componentDidMount() {
 		axios.get('/auth/user').then(response => {
-			console.log(response.data)
+			console.log(response.data);
+			console.log("Home Did Mount!");
 			if (!!response.data.user) {
 				console.log('THERE IS A USER')
 				this.setState({

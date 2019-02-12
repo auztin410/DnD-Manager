@@ -10,7 +10,6 @@ class LoginForm extends Component {
 			password: '',
 			redirectTo: null
 		}
-		// this.googleSignin = this.googleSignin.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -44,8 +43,7 @@ class LoginForm extends Component {
 			return (
 				<div className="loginForm">
 					<form className="login">
-						{/* <label htmlFor="username">Username: </label> */}
-						<span>Username:</span>
+						<span className="loginText">Username:</span>
 						<input
 							type="text"
 							name="username"
@@ -56,8 +54,7 @@ class LoginForm extends Component {
 							id="loginTopInput"
 						/>
 						<br/>
-						{/* <label htmlFor="password">Password: </label> */}
-						<span>Password:</span>
+						<span className="loginText">Password:</span>
 						<input
 							type="password"
 							name="password"
@@ -67,7 +64,6 @@ class LoginForm extends Component {
 							className="loginInput"
 							id="loginBottomInput"
 						/>{" "}<div onClick={this.handleSubmit} id="loginButton" className="hexagonButton"><div className="hexagonButton-text">Login</div></div>
-						{/* <button onClick={this.handleSubmit} className="loginButton">Login</button> */}
 					</form>
 				</div>
 			)
