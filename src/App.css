@@ -428,9 +428,9 @@ div {
 }
 
 #registerButton {
-  position: relative;
-  top: -120px;
-  left: 1100px;
+  position: absolute;
+  top: 280px;
+  left: 1050px;
 }
 
 .buttons {

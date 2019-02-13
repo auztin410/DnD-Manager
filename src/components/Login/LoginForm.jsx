@@ -63,7 +63,8 @@ class LoginForm extends Component {
 							onKeyPress={this.handleKeyPress}
 							className="loginInput"
 							id="loginBottomInput"
-						/>{" "}<div onClick={this.handleSubmit} id="loginButton" className="hexagonButton"><div className="hexagonButton-text">Login</div></div>
+						/>
+						<div onClick={this.handleSubmit} id="loginButton" className="hexagonButton"><div className="hexagonButton-text">Login</div></div>
 					</form>
 				</div>
 			)

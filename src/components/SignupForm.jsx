@@ -83,7 +83,7 @@ class SignupForm extends Component {
 					onChange={this.handleChange}
 					className="loginInput"
 					id="loginBottomInput"
-				/>{" "}
+				/>
 				<div onClick={this.handleSubmit} id="registerButton" className="hexagonButton"><div className="hexagonButton-text">Register</div></div>
 				<br/>
 			</div>
