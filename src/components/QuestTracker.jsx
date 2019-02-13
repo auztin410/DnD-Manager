@@ -36,6 +36,8 @@ class QuestTracker extends Component {
             rewardList: false,
             rewards: [],
             rewardQuantity: 0,
+            displayMiscQuest: false,
+            displayChainQuests: false,
         }
 
         this.handleFindGroup = this.handleFindGroup.bind(this);
@@ -46,6 +48,9 @@ class QuestTracker extends Component {
         this.handleSubmitQuest = this.handleSubmitQuest.bind(this);
         this.handleAddItem = this.handleAddItem.bind(this);
         this.handleCreateQuest = this.handleCreateQuest.bind(this);
+        this.handleDisplayMisc = this.handleDisplayMisc.bind(this);
+        this.handleDisplayChainQuests = this.handleDisplayChainQuests.bind(this);
+        this.handleFindGroupQuest = this.handleFindGroupQuest.bind(this);
     }
 
     componentDidMount() {
@@ -199,6 +204,45 @@ class QuestTracker extends Component {
         )
     };
 
+    handleFindGroupQuest(title) {
+        console.log(title);
+        let found = this.state.groupedQuests.filter(item => item.group === title);
+        let sorted = found.sort(function (a, b) {
+            return a.questPart - b.questPart;
+        });
+        console.log("Found");
+        console.log(found);
+        return (
+            sorted.map(item => (
+                <div key={item.title} className="quest">
+                    <h2>{item.title}</h2>
+                    <p>Start NPC: {item.startNPC} | Start: {item.startLocation}</p>
+                    <p>End NPC: {item.endLocation} | End: {item.endLocation}</p>
+                    <h4>Description</h4>
+                    <p>{item.description}</p>
+                    <p>Experience: {item.experience}</p>
+                    {(item.reward.length > 0)
+                        ?
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th className="profRow" colSpan="2">Rewards</th>
+                                </tr>
+                                {item.reward.map(items => (
+                                    <tr key={items.name}>
+                                        <td className="profRow">{items.name}</td>
+                                        <td className="profRow">{items.quantity}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                        : null
+                    }
+                </div>
+            ))
+        )
+    };
+
     handleSubmitQuest(event) {
         event.preventDefault();
         let group = this.state.groupedQuests;
@@ -235,7 +279,7 @@ class QuestTracker extends Component {
             experience: ""
         }, () => {
             document.getElementById("questCreation").reset();
-        });  
+        });
     };
 
     handleAddItem(event) {
@@ -282,11 +326,37 @@ class QuestTracker extends Component {
         }).catch((err) => (console.log(err)));
     };
 
+    handleDisplayMisc() {
+        if (this.state.displayMiscQuest) {
+            this.setState({
+                displayMiscQuest: false,
+            });
+        }
+        else if (!this.state.displayMiscQuest) {
+            this.setState({
+                displayMiscQuest: true,
+            });
+        }
+    };
+
+    handleDisplayChainQuests() {
+        if (this.state.displayChainQuests) {
+            this.setState({
+                displayChainQuests: false,
+            });
+        }
+        else if (!this.state.displayChainQuests) {
+            this.setState({
+                displayChainQuests: true,
+            });
+        }
+    };
+
     render() {
         return (
             <div className={this.props.display}>
-            <form id="questCreation">
-                <div className="createQuest">
+                <form id="questCreation">
+                    <div className="createQuest">
                         <div><span className="questText">Quest Name</span><input type="text" name="questName" onChange={this.handleChange} /></div>
 
                         <div><span className="questText">Chain Quest</span><select name="chainQuest" onChange={this.handleChange}>
@@ -310,26 +380,26 @@ class QuestTracker extends Component {
                                 <span className="questText">Quest Chain Part</span><input type="text" name="questChainPart" onChange={this.handleChange} /></div>
                         }
                         <div><span className="questText">Start NPC</span><input type="text" name="startNPC" onChange={this.handleChange} />
-                        <br/>
-                        <span className="questText">Start Location</span><input type="text" name="startLocation" onChange={this.handleChange} /></div>
+                            <br />
+                            <span className="questText">Start Location</span><input type="text" name="startLocation" onChange={this.handleChange} /></div>
 
                         <div><span className="questText">End NPC</span><input type="text" name="endNPC" onChange={this.handleChange} />
-                        <br/>
-                        <span className="questText">End Location</span><input type="text" name="endLocation" onChange={this.handleChange} /></div>
+                            <br />
+                            <span className="questText">End Location</span><input type="text" name="endLocation" onChange={this.handleChange} /></div>
 
                         <div className="form9"><span className="questText">Quest Reward</span>
-                        <br />
-                        <select onChange={this.handleChange} name="rewardOptions">
-                            <option value="">None</option>
-                            <option value="coin">Coin</option>
-                            <option value="equipment">Equipment</option>
-                            <option value="weapon">Weapon</option>
-                            <option value="magic">Magic Item</option>
-                            <option value="trade">Trade Good</option>
-                            <option value="mount">Mount</option>
-                            <option value="harness">Harness/Tackle</option>
-                            <option value="ship">Ship</option>
-                        </select>
+                            <br />
+                            <select onChange={this.handleChange} name="rewardOptions">
+                                <option value="">None</option>
+                                <option value="coin">Coin</option>
+                                <option value="equipment">Equipment</option>
+                                <option value="weapon">Weapon</option>
+                                <option value="magic">Magic Item</option>
+                                <option value="trade">Trade Good</option>
+                                <option value="mount">Mount</option>
+                                <option value="harness">Harness/Tackle</option>
+                                <option value="ship">Ship</option>
+                            </select>
                         </div>
                         <br />
                         {(this.state.rewardList === true)
@@ -352,41 +422,98 @@ class QuestTracker extends Component {
                                     onChange={e => this.setState({ value: e.target.value })}
                                     onSelect={value => this.setState({ value })}
                                 />{" "}<input onChange={this.handleChange} ref={el => this.inputQuantity = el} className="numberInput" type="number" name="rewardQuantity"></input>{" "}<button onClick={this.handleAddItem}>Add Item</button>
-                                <br/>
+                                <br />
                             </div>
                             : null
                         }
-                        <br/>
+                        <br />
                         {(this.state.rewards.length > 0)
-                        ?
-                        <table className="rewardTable">
-                            <tbody>
-                                <tr>
-                                    <th id="questHeader" className="profRow">Item</th>
-                                    <th id="questHeader" className="profRow">Quantity</th>
-                                </tr>
-                                {this.state.rewards.map(item => (
+                            ?
+                            <table className="rewardTable">
+                                <tbody>
                                     <tr>
-                                        <td className="profRow">{item.name}</td>
-                                        <td className="profRow">{item.quantity}</td>
+                                        <th id="questHeader" className="profRow">Item</th>
+                                        <th id="questHeader" className="profRow">Quantity</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                        : null
+                                    {this.state.rewards.map(item => (
+                                        <tr>
+                                            <td className="profRow">{item.name}</td>
+                                            <td className="profRow">{item.quantity}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            : null
                         }
 
                         <div><span className="questText">Experience</span><input type="number" name="experience" onChange={this.handleChange} /></div>
                         <br />
                         <div><span className="questText">Description</span>
-                        <textarea className="descriptionArea" name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea></div>
+                            <textarea className="descriptionArea" name="questDescription" cols="30" rows="10" onChange={this.handleChange}></textarea></div>
 
-                        
-                        <br/>
+
+                        <br />
                         <button onClick={this.handleCreateQuest}>Submit</button>
-                </div>
+                    </div>
                 </form>
-                <div className="questSection">
+
+                <div className="questDisplay">
+                    <h2 onClick={this.handleDisplayMisc}>Misc Quests</h2>
+                    {(this.state.displayMiscQuest)
+                        ?
+                        <div>
+                            {this.state.singleQuests.map(item => (
+                                <div key={item.title} className="quest">
+                                    <h2>{item.title}</h2>
+                                    <p>Start NPC: {item.startNPC} | Start: {item.startLocation}</p>
+                                    <p>End NPC: {item.endLocation} | End: {item.endLocation}</p>
+                                    <h4>Description</h4>
+                                    <p>{item.description}</p>
+                                    <p>Experience: {item.experience}</p>
+                                    {(item.reward.length > 0)
+                                        ?
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th className="profRow" colSpan="2">Rewards</th>
+                                                </tr>
+                                                {item.reward.map(items => (
+                                                    <tr key={items.name}>
+                                                        <td className="profRow">{items.name}</td>
+                                                        <td className="profRow">{items.quantity}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                        : null
+                                    }
+                                </div>
+                            ))}
+                        </div>
+                        : null
+                    }
+                    <h2 onClick={this.handleDisplayChainQuests}>Chain Quests</h2>
+                    {(this.state.displayChainQuests)
+                    ?
+                    <div>
+                    {(this.state.groupedTitles.length > 0)
+                        ?
+                        <div>
+                            {this.state.groupedTitles.map(item => (
+                                <div key={item.title} className="groupQuest">
+                                    <h2>{item}</h2>
+                                    {this.handleFindGroupQuest(item)}
+                                </div>
+                            ))}
+                        </div>
+                        : null
+                    }
+                    </div>
+                    : null
+                    }
+                    
+                </div>
+                {/* <div className="questSection">
                 {(this.state.singleQuests.length > 0)
                     ?
                     <div className="questTables">
@@ -450,7 +577,7 @@ class QuestTracker extends Component {
                     </div>
                     : null
                 }
-                </div>
+                </div> */}
             </div>
         )
     }

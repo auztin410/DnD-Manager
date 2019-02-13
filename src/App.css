@@ -1342,6 +1342,7 @@ th, td {
 .createQuest {
   width: 350px;
   border: 2px solid black;
+  margin-right: 20px;
 }
 
 #questCreation {
@@ -1365,6 +1366,18 @@ th, td {
   margin-bottom: 15px;
   margin-right: 10px;
   width: 135px;
+}
+
+.questDisplay {
+  width: 1000px;
+  border: 2px solid black;
+  height: 84vh;
+  overflow-y: auto;
+}
+
+.groupQuest {
+  border: 2px inset;
+  margin: 5px;
 }
 
 #questTracker {
@@ -1417,11 +1430,11 @@ th, td {
 }
 
 .quest {
-  height: 25px;
-  width: 25px;
-  border-style: double;
-  border-color: black;
+  border: 2px solid black;
   margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
 }
 
 .questDesc {
