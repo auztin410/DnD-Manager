@@ -164,7 +164,7 @@ class App extends Component {
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} user={this.state.user} />
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
-				<Route exact path="/" component={Home}/>
+				<Route exact path="/" component={Home} userData={this.state.loggedIn}/>
 				<Route
 					exact
 					path="/login"

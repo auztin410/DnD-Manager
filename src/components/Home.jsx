@@ -9,11 +9,18 @@ class Home extends Component {
 		this.state = {
 			loggedIn: false,
 			user: null,
-			sessionList: []
+			sessionList: [],
+			reload: false,
 		}
+		this.handleReload = this.handleReload.bind(this);
 	}
 
 	componentDidMount() {
+		setTimeout(this.handleReload, 1000);
+	};
+
+	handleReload(){
+		console.log("Triggered Reload!");
 		axios.get('/auth/user').then(response => {
 			console.log(response.data);
 			console.log("Home Did Mount!");
@@ -21,7 +28,8 @@ class Home extends Component {
 				console.log('THERE IS A USER')
 				this.setState({
 					loggedIn: true,
-					user: response.data.user
+					user: response.data.user,
+					reload: true,
 				}, () => {
 					axios.get(`/find/sessions/${this.state.user._id}`).then(response => {
 						console.log(response.data);
@@ -33,7 +41,8 @@ class Home extends Component {
 			} else {
 				this.setState({
 					loggedIn: false,
-					user: null
+					user: null,
+					reload: true,
 				})
 			}
 		})
@@ -86,7 +95,16 @@ class Home extends Component {
 								</tbody>
 							</table>
 						</div>
-						: null
+						: 
+						<div>
+							{(this.state.reload === false)
+							?
+							<div>
+								{this.handleReload()}
+							</div>
+							: null
+							}
+						</div>
 					}
 
 				</div>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Dm extends Component {
     constructor(props) {
@@ -73,30 +75,33 @@ class Dm extends Component {
                         <button onClick={this.handleSubmit}>Submit</button>
                     </form>
                 </div>
-                <br/>
+                <br />
                 {(this.state.sessionList.length > 0)
-                ?
-                <div>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th className="profRow">Session Name</th>
-                                <th className="profRow">Code</th>
-                                <th className="profRow" colSpan="8">Players</th>
-                            </tr>
-                            {this.state.sessionList.map(item => (
-                                <tr key={item._id}>
-                                    <td className="profRow">{item.name}</td>
-                                    <td className="profRow">{item.code}</td>
-                                    {item.players.map(item2 => (
-                                        <td className="profRow">{item2}</td>
-                                    ))}
+                    ?
+                    <div className="characterList">
+                        <h3 className="title">Sessions</h3>
+                        <table className="characterTable">
+                            <tbody>
+                                <tr className="characterTableHeader">
+                                    <th className="profRow">Session</th>
+                                    <th className="profRow"> Name</th>
+                                    <th className="profRow">Code</th>
+                                    <th className="profRow" colSpan="8">Players</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-                : null
+                                {this.state.sessionList.map(item => (
+                                    <tr key={item._id}>
+                                        <td className="profRow"><Link to={`/main/${item._id}`} className="linkingBlack"><span className="link"><FontAwesomeIcon icon="dungeon" /></span></Link></td>
+                                        <td className="profRow">{item.name}</td>
+                                        <td className="profRow">{item.code}</td>
+                                        {item.players.map(item2 => (
+                                            <td className="profRow" id="playerList">{item2}</td>
+                                        ))}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    : null
                 }
             </div>
         )
