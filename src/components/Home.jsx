@@ -94,7 +94,9 @@ class Home extends Component {
 		} else {
 			return (
 				<div className="Home">
-					{/* <h4 className="mainUser">No User</h4> */}
+				<br/>
+				<h2>Welcome to Dungeons and Dragons Manager!</h2>
+				<h3>Please log in to check out the tool.</h3>
 				</div>
 			)
 		}
