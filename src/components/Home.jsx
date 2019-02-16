@@ -19,7 +19,7 @@ class Home extends Component {
 		setTimeout(this.handleReload, 1000);
 	};
 
-	handleReload(){
+	handleReload() {
 		console.log("Triggered Reload!");
 		axios.get('/auth/user').then(response => {
 			console.log(response.data);
@@ -49,7 +49,23 @@ class Home extends Component {
 	};
 
 	render() {
-		if (this.state.user) {
+		if (!this.props.userData) {
+			return (
+				<div className="Home">
+					<br />
+					<h2>Welcome to Dungeons and Dragons Manager!</h2>
+					<h3>Please log in to check out the tool.</h3>
+					{(this.state.reload === false)
+						?
+						<div>
+							{this.handleReload()}
+						</div>
+						: null
+					}
+				</div>
+			)
+			
+		} else {
 			return (
 				<div className="Home">
 					<br />
@@ -95,26 +111,18 @@ class Home extends Component {
 								</tbody>
 							</table>
 						</div>
-						: 
+						:
 						<div>
 							{(this.state.reload === false)
-							?
-							<div>
-								{this.handleReload()}
-							</div>
-							: null
+								?
+								<div>
+									{this.handleReload()}
+								</div>
+								: null
 							}
 						</div>
 					}
 
-				</div>
-			)
-		} else {
-			return (
-				<div className="Home">
-				<br/>
-				<h2>Welcome to Dungeons and Dragons Manager!</h2>
-				<h3>Please log in to check out the tool.</h3>
 				</div>
 			)
 		}
