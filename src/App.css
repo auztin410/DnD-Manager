@@ -1079,10 +1079,14 @@ div {
 }
 
 .merchantItem {
-  /* background-image: url('./assets//u0.jpg'); */
   background-color: rgba(168, 161, 161, 0.479);
   margin-top: 2px;
   border-style: outset;
+  height: 30px;
+  margin: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+
 }
 
 .merchantItem:hover {
@@ -1091,6 +1095,11 @@ div {
 
 .woodSign {
   background-image: url('./assets/sign.jpg');
+  border: 2px solid black;
+  margin: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 30px;
 }
 
 .red {
