@@ -31,117 +31,117 @@
         "StartingChoices1": [
             {
                 "Name": "Greataxe",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Battleaxe",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Flail",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Glaive",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Greatsword",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Halberd",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Lance",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Longsword",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Maul",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Morningstar",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Pike",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Rapier",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Scimitar",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Shortsword",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Trident",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "War pick",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Warhammer",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Whip",
-                "Quantity": 1
+                "Count": 1
             }
         ],
         "StartingChoices2": [
             {
                 "Name": "Club",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Dagger",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Greatclub",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Handaxe",
-                "Quantity": 2
+                "Count": 2
             },
             {
                 "Name": "Javelin",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Light hammer",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Mace",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Quarterstaff",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Sickle",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Spear",
-                "Quantity": 1
+                "Count": 1
             }
         ],
         "Pack": [
@@ -150,7 +150,7 @@
         "Equipment": [
             {
                 "Name": "Javelin",
-                "Quantity": 4
+                "Count": 4
             }
         ],
         "Level": [
@@ -554,93 +554,93 @@
         "StartingChoices1": [
             {
                 "Name": "Rapier",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Shortsword",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Club",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Dagger",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Greatclub",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Handaxe",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Javelin",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Light hammer",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Mace",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Quarterstaff",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Sickle",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Spear",
-                "Quantity": 1
+                "Count": 1
             }
         ],
         "StartingChoices2": [
             {
                 "Name": "Bagpipes",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Drum",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Dulcimer",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Flute",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Lute",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Lyre",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Horn",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Pan flute",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Shawm",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Viol",
-                "Quantity": 1
+                "Count": 1
             }
         ],
         "Pack": [
@@ -650,11 +650,11 @@
         "Equipment": [
             {
                 "Name": "Leather armor",
-                "Quantity": 1
+                "Count": 1
             },
             {
                 "Name": "Dagger",
-                "Quantity": 1
+                "Count": 1
             }
         ],
         "Level": [
