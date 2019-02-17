@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RaceList from '../assets/Json/RaceList';
 import BackgroundList from '../assets/Json/BackgroundList';
 import Classes from '../assets/Json/Classes';
+import Packs from '../assets/Json/EquipmentPacks';
 
 class CharacterCreation extends Component {
     constructor(props) {
@@ -45,6 +46,7 @@ class CharacterCreation extends Component {
         this.handleDetails = this.handleDetails.bind(this);
         this.handleStatChange = this.handleStatChange.bind(this);
         this.handleStatRemove = this.handleStatRemove.bind(this);
+        this.handleCreateCharacter = this.handleCreateCharacter.bind(this);
 
     }
 
@@ -277,6 +279,40 @@ class CharacterCreation extends Component {
         }
     };
 
+    handleCreateCharacter(){
+        let allItems = [];
+        let unpack = [];
+
+        if(this.state.characterClassSelected.Pack.length === 1){
+            this.setState({
+                packChoice: this.state.characterClassSelected.Pack[0],
+            }, () => {
+                let found = Packs.find(item => (item.Name = this.state.packChoice));
+                found.Items.map(item => (
+                    unpack.push(item)
+                ))
+                console.log("Pack Result");
+                console.log(`Pack Choice ${this.state.packChoice}`);
+                console.log(found);
+                console.log(unpack);
+            });
+        }
+
+        
+
+        let character = {
+            name: this.state.characterName,
+            race: this.state.characterRace,
+            subRave: this.state.characterSubRace,
+            job: this.state.characterClass,
+            weaponProf: this.state.characterClassSelected.Weapon,
+            armorProf: this.state.characterClassSelected.Armor,
+            toolProf: this.state.characterClassSelected.Tools,
+            savingThrows: this.state.characterClassSelected.SavingThrows
+        }
+        console.log(character);
+    };
+
     render() {
         return (
             <div id="characterCreation">
@@ -332,16 +368,17 @@ class CharacterCreation extends Component {
                         <h4>Proficiencies</h4>
                         <br />
                         <table className="proficiencyTable">
+                        <tbody>
                             <tr className="profRow">
                                 <th className="profRow">Weapons</th>
                                 {this.state.characterClassSelected.Weapon.map(item => (
-                                    <td className="profRow">{item}</td>
+                                    <td key={item} className="profRow">{item}</td>
                                 ))}
                             </tr>
                             <tr className="profRow">
                                 <th className="profRow">Armor</th>
                                 {this.state.characterClassSelected.Armor.map(item => (
-                                    <td className="profRow">{item}</td>
+                                    <td key={item} className="profRow">{item}</td>
                                 ))}
                             </tr>
                             {(this.state.characterClassSelected.Tools.length > 0)
@@ -349,7 +386,7 @@ class CharacterCreation extends Component {
                             <tr className="profRow">
                                 <th className="profRow">Tools</th>
                                 {this.state.characterClassSelected.Tools.map(item => (
-                                    <td className="profRow">{item}</td>
+                                    <td key={item} className="profRow">{item}</td>
                                 ))}
                             </tr>
                             : null
@@ -357,9 +394,10 @@ class CharacterCreation extends Component {
                             <tr className="profRow">
                                 <th className="profRow">Saving Throws</th>
                                 {this.state.characterClassSelected.SavingThrows.map(item => (
-                                    <td className="profRow">{item}</td>
+                                    <td key={item} className="profRow">{item}</td>
                                 ))}
                             </tr>
+                            </tbody>
                         </table>
                         <br/>
                         <span>Skills
@@ -471,12 +509,14 @@ class CharacterCreation extends Component {
                         }
                         <h4>Extra Equipment</h4>
                         <table>
+                            <tbody>
                            {this.state.characterClassSelected.Equipment.map(item => (
-                               <tr className="profRow">
+                               <tr key={item.Name} className="profRow">
                                    <th className="profRow" key={item.Name}>{item.Name}</th>
                                    <td className="profRow" key={item.Quantity}>{item.Quantity}</td>
                                </tr>
-                           ))} 
+                           ))}
+                           </tbody>
                         </table>
                         <br/>
                         <br/>
@@ -499,6 +539,7 @@ class CharacterCreation extends Component {
                             <div>
                                 <h4>Spell Slots</h4>
                                 <table>
+                                    <tbody>
                                     <tr className="tableHeader">
                                         <th>Level</th>
                                         <th>Spells Known</th>
@@ -514,7 +555,7 @@ class CharacterCreation extends Component {
                                         <th>9th</th>
                                     </tr>
                                 {this.state.characterClassSelected.Level.map(item => (
-                                    <tr id="tableRow" className={`tableRow${item.Level}`}>
+                                    <tr key={item.Level} id="tableRow" className={`tableRow${item.Level}`}>
                                     <td><strong>{item.Level}</strong></td>
                                     <td>{item.SpellsKnown}</td>
                                     <td>{item.CantripsKnown}</td>
@@ -529,6 +570,7 @@ class CharacterCreation extends Component {
                                     <td>{item.SpellSlots[8]}</td>
                                     </tr>
                                 ))}
+                                </tbody>
                                 </table>
                             </div>
                             : null
@@ -696,6 +738,9 @@ class CharacterCreation extends Component {
                     <option value="neutral evil">Neutral Evil</option>
                     <option value="chaotic evil">Chaotic Evil</option>
                 </select>
+                <br/>
+                <br/>
+                <button onClick={this.handleCreateCharacter}>Submit!</button>
             </div>
         )
     }
