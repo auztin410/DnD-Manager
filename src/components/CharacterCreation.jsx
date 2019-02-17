@@ -38,6 +38,7 @@ class CharacterCreation extends Component {
             intelligence: 0,
             wisdom: 0,
             charisma: 0,
+            skills: []
         }
 
         this.handleGenerateStatRolls = this.handleGenerateStatRolls.bind(this);
@@ -46,6 +47,7 @@ class CharacterCreation extends Component {
         this.handleDetails = this.handleDetails.bind(this);
         this.handleStatChange = this.handleStatChange.bind(this);
         this.handleStatRemove = this.handleStatRemove.bind(this);
+        this.handleSetSkills = this.handleSetSkills.bind(this);
         this.handleCreateCharacter = this.handleCreateCharacter.bind(this);
 
     }
@@ -279,9 +281,35 @@ class CharacterCreation extends Component {
         }
     };
 
+    handleSetSkills(arr){
+        this.setState({
+            skills: arr,
+        }, () => {
+            let character = {
+                name: this.state.characterName,
+                race: this.state.characterRace,
+                subRace: this.state.characterSubRace,
+                job: this.state.characterClass,
+                weaponProf: this.state.characterClassSelected.Weapon,
+                armorProf: this.state.characterClassSelected.Armor,
+                toolProf: this.state.characterClassSelected.Tools,
+                savingThrows: this.state.characterClassSelected.SavingThrows,
+                strength: this.state.strength,
+                dexterity: this.state.dexterity,
+                constitution: this.state.constitution,
+                intelligence: this.state.intelligence,
+                wisdom: this.state.wisdom,
+                charisma: this.state.charisma,
+                skills: this.state.skills
+            }
+            console.log(character);
+        });
+    };
+
     handleCreateCharacter() {
         let allItems = [];
         let unpack = [];
+
 
         if (this.state.characterClassSelected.Pack.length === 1) {
             this.setState({
@@ -299,11 +327,11 @@ class CharacterCreation extends Component {
                 console.log(choice2Found);
                 let backgroundItems = this.state.characterBackgroundSelected.Equipment;
                 let classItems = this.state.characterClassSelected.Equipment;
+                console.log(classItems);
                 allItems = unpack.concat(choice1Found, choice2Found, backgroundItems, classItems);
-                console.log("Pack Result");
-                console.log(`Pack Choice ${this.state.packChoice}`);
-                console.log(found);
-                console.log(unpack);
+                
+                console.log("All Items");
+                console.log(allItems);
             });
         }
         else {
@@ -319,25 +347,28 @@ class CharacterCreation extends Component {
             console.log(choice2Found);
             let backgroundItems = this.state.characterBackgroundSelected.Equipment;
             let classItems = this.state.characterClassSelected.Equipment;
+            console.log(classItems);
             allItems = unpack.concat(choice1Found, choice2Found, backgroundItems, classItems);
 
             console.log("All Items");
             console.log(allItems);
         }
 
-
-
-        let character = {
-            name: this.state.characterName,
-            race: this.state.characterRace,
-            subRave: this.state.characterSubRace,
-            job: this.state.characterClass,
-            weaponProf: this.state.characterClassSelected.Weapon,
-            armorProf: this.state.characterClassSelected.Armor,
-            toolProf: this.state.characterClassSelected.Tools,
-            savingThrows: this.state.characterClassSelected.SavingThrows
+        switch(this.state.characterClassSelected.Skills){
+            case 2:
+            let skills = [this.state.classSkillChoice1, this.state.classSkillChoice2];
+            this.handleSetSkills(skills);
+            break;
+            case 3:
+            skills = [this.state.classSkillChoice1, this.state.classSkillChoice2, this.state.classSkillChoice3];
+            this.handleSetSkills(skills);
+            break;
+            case 4:
+            skills = [this.state.classSkillChoice1, this.state.classSkillChoice2, this.state.classSkillChoice3, this.state.classSkillChoice4];
+            this.handleSetSkills(skills);
+            break;
         }
-        console.log(character);
+        
     };
 
     render() {
