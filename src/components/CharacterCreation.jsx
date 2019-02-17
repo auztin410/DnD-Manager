@@ -300,7 +300,16 @@ class CharacterCreation extends Component {
                 intelligence: this.state.intelligence,
                 wisdom: this.state.wisdom,
                 charisma: this.state.charisma,
-                skills: this.state.skills
+                skills: this.state.skills,
+                alignment: this.state.characterAlignment,
+                background: this.state.characterBackground,
+                personalityTrait1: this.state.characterPersonalityTrait1,
+                personalityTrait2: this.state.characterPersonalityTrait2,
+                personalityIdeal: this.state.characterIdeal,
+                personalityBond: this.state.characterBond,
+                personalityFlaw: this.state.characterFlaw,
+                currency: this.state.characterBackgroundSelected.Currency,
+                specialization: this.state.characterSpecialization
             }
             console.log(character);
         });
@@ -329,7 +338,7 @@ class CharacterCreation extends Component {
                 let classItems = this.state.characterClassSelected.Equipment;
                 console.log(classItems);
                 allItems = unpack.concat(choice1Found, choice2Found, backgroundItems, classItems);
-                
+
                 console.log("All Items");
                 console.log(allItems);
             });
