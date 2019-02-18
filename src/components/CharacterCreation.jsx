@@ -17,8 +17,8 @@ class CharacterCreation extends Component {
             classSkillChoice2: "",
             classSkillChoice3: "",
             classSkillChoice4: "",
-            startingChoice1: null,
-            startingChoice2: null,
+            startingChoice1: "",
+            startingChoice2: "",
             packChoice: "",
             characterBackground: "",
             characterBackgroundSelected: null,
@@ -38,7 +38,7 @@ class CharacterCreation extends Component {
             intelligence: 0,
             wisdom: 0,
             charisma: 0,
-            skills: []
+            skills: [],
         }
 
         this.handleGenerateStatRolls = this.handleGenerateStatRolls.bind(this);
@@ -48,6 +48,7 @@ class CharacterCreation extends Component {
         this.handleStatChange = this.handleStatChange.bind(this);
         this.handleStatRemove = this.handleStatRemove.bind(this);
         this.handleSetSkills = this.handleSetSkills.bind(this);
+        this.handleValidation = this.handleValidation.bind(this);
         this.handleCreateCharacter = this.handleCreateCharacter.bind(this);
 
     }
@@ -123,6 +124,7 @@ class CharacterCreation extends Component {
                 default:
                     this.setState({
                         characterSubRaceOptions: [],
+                        characterSubRace: "none",
                     });
                     break;
                 case ("dragonborn"):
@@ -165,6 +167,18 @@ class CharacterCreation extends Component {
                     selected = BackgroundList.find(item => item.BackgroundValue === value);
                     this.setState({
                         characterBackgroundSelected: selected,
+                        characterPersonalityTrait1: "",
+                        characterPersonalityTrait2: "",
+                        characterIdeal: "",
+                        characterBond: "",
+                        characterFlaw: "",
+                        characterSpecialization: "",
+                    }, () => {
+                        if(this.state.characterBackgroundSelected.SpecializationName === ""){
+                            this.setState({
+                                characterSpecialization: "none"
+                            });
+                        }
                     });
                     break;
                 case (""):
@@ -175,6 +189,7 @@ class CharacterCreation extends Component {
                         characterIdeal: "",
                         characterBond: "",
                         characterFlaw: "",
+                        characterSpecialization: "",
                     });
                     break;
             }
@@ -187,11 +202,40 @@ class CharacterCreation extends Component {
                     selected = Classes.find(item => item.Name === value);
                     this.setState({
                         characterClassSelected: selected,
+                    }, () => {
+                        if(this.state.characterClassSelected.Skills === 2){
+                            this.setState({
+                                classSkillChoice1: "",
+                                classSkillChoice2: "",
+                                classSkillChoice3: "none",
+                                classSkillChoice4: "none",
+                            });
+                        }
+                        else if(this.state.characterClassSelected.Skills === 3){
+                            this.setState({
+                                classSkillChoice1: "",
+                                classSkillChoice2: "",
+                                classSkillChoice3: "",
+                                classSkillChoice4: "none",
+                            });
+                        }
+                        else if(this.state.characterClassSelected.Skills === 4){
+                            this.setState({
+                                classSkillChoice1: "",
+                                classSkillChoice2: "",
+                                classSkillChoice3: "",
+                                classSkillChoice4: "",
+                            });
+                        }
                     });
                     break;
                 case (""):
                     this.setState({
                         characterClassSelected: null,
+                        classSkillChoice1: "",
+                        classSkillChoice2: "",
+                        classSkillChoice3: "",
+                        classSkillChoice4: "",
                     });
                     break;
             }
@@ -315,7 +359,103 @@ class CharacterCreation extends Component {
         });
     };
 
+    handleValidation() {
+        let validations = []
+    if(this.state.characterName === ""){
+        validations.push("Name");
+    }
+    if(this.state.characterRace === ""){
+        validations.push("Race");
+    }
+    if(this.state.characterSubRace === ""){
+        validations.push("Subrace");
+    }
+    if(this.state.characterClass === ""){
+        validations.push("Class");
+    }
+    if(this.state.strength === 0) {
+        validations.push("Strength");
+    }
+    if(this.state.dexterity === 0){
+        validations.push("Dexterity");
+    }
+    if(this.state.constitution === 0){
+        validations.push("Constitution");
+    }
+    if(this.state.intelligence === 0){
+        validations.push("Intelligence");
+    }
+    if(this.state.wisdom === 0){
+        validations.push("Wisdom");
+    }
+    if(this.state.charisma === 0){
+        validations.push("Charisma");
+    }
+    if(this.state.characterAlignment === ""){
+        validations.push("Alignment");
+    }
+    if(this.state.characterBackground === ""){
+        validations.push("Background");
+    }
+    if(this.state.characterPersonalityTrait1 === ""){
+        validations.push("Trait1");
+    }
+    if(this.state.characterPersonalityTrait2 === ""){
+        validations.push("Trait2");
+    }
+    if(this.state.characterIdeal === ""){
+        validations.push("Ideal");
+    }
+    if(this.state.characterBond === ""){
+        validations.push("Bond");
+    }
+    if(this.state.characterFlaw === ""){
+        validations.push("Flaw");
+    }
+    if(this.state.characterSpecialization === ""){
+        validations.push("Specialization");
+    }
+    if(this.state.startingChoice1 === ""){
+        validations.push("StartingChoice1");
+    }
+    if(this.state.startingChoice2 === ""){
+        validations.push("StartingChoice1");
+    }
+    if(this.state.classSkillChoice1 === ""){
+        validations.push("ClassSkillChoice1");
+    }
+    if(this.state.classSkillChoice2 === ""){
+        validations.push("ClassSkillChoice2");
+    }
+    if(this.state.classSkillChoice3 === ""){
+        validations.push("ClassSkillChoice3");
+    }
+    if(this.state.classSkillChoice4 === ""){
+        validations.push("ClassSkillChoice4");
+    }
+    if(this.state.packChoice === ""){
+        validations.push("Pack");
+    }
+    if(validations.length > 0){
+        console.log("All Validation Triggered!");
+        console.log(validations);
+        return false;
+    }
+    else {
+        return true;
+    }    
+    };
+
     handleCreateCharacter() {
+       let validation =  this.handleValidation();
+       
+       if(!validation){
+           return console.log("Character Creation Halted Due to Validation!");
+       }
+       else if(validation){
+           console.log("All Validation Passed!");
+       }
+
         let allItems = [];
         let unpack = [];
 
@@ -700,6 +840,7 @@ class CharacterCreation extends Component {
                         ))}
 
                         <table>
+                            <tbody>
                             <tr className="profRow">
                                 <th className="profRow">Skills</th>
                                 {this.state.characterBackgroundSelected.Skills.map(item => (
@@ -736,6 +877,7 @@ class CharacterCreation extends Component {
                                 <th className="profRow">Starting Currency</th>
                                 <td className="profRow">{this.state.characterBackgroundSelected.Currency} GP</td>
                             </tr>
+                            </tbody>
                         </table>
                         <br />
                         <h4>Feature: {this.state.characterBackgroundSelected.FeatureName}</h4>
