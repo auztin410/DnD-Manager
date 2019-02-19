@@ -39,6 +39,7 @@ class CharacterCreation extends Component {
             wisdom: 0,
             charisma: 0,
             skills: [],
+            validations: [],
         }
 
         this.handleGenerateStatRolls = this.handleGenerateStatRolls.bind(this);
@@ -50,6 +51,8 @@ class CharacterCreation extends Component {
         this.handleSetSkills = this.handleSetSkills.bind(this);
         this.handleValidation = this.handleValidation.bind(this);
         this.handleCreateCharacter = this.handleCreateCharacter.bind(this);
+        this.handleValidationCountDown = this.handleValidationCountDown.bind(this);
+        this.handleResetValidations = this.handleResetValidations.bind(this);
 
     }
 
@@ -203,6 +206,11 @@ class CharacterCreation extends Component {
                     this.setState({
                         characterClassSelected: selected,
                     }, () => {
+                        if(this.state.characterClassSelected.Pack.length === 1){
+                            this.setState({
+                                packChoice: this.state.characterClassSelected.Pack[0],
+                            });
+                        }
                         if(this.state.characterClassSelected.Skills === 2){
                             this.setState({
                                 classSkillChoice1: "",
@@ -362,83 +370,86 @@ class CharacterCreation extends Component {
     handleValidation() {
         let validations = []
     if(this.state.characterName === ""){
-        validations.push("Name");
+        validations.push("Your Character Needs a Name!");
     }
     if(this.state.characterRace === ""){
-        validations.push("Race");
+        validations.push("Your Character has No Race.");
     }
     if(this.state.characterSubRace === ""){
-        validations.push("Subrace");
+        validations.push("Your Character Needs a Subrace.");
     }
     if(this.state.characterClass === ""){
-        validations.push("Class");
+        validations.push("You Haven't Selected a Class.");
     }
     if(this.state.strength === 0) {
-        validations.push("Strength");
+        validations.push("Strength Stat Not Set.");
     }
     if(this.state.dexterity === 0){
-        validations.push("Dexterity");
+        validations.push("Dexterity Stat Not Set.");
     }
     if(this.state.constitution === 0){
-        validations.push("Constitution");
+        validations.push("Constitution Stat Not Set.");
     }
     if(this.state.intelligence === 0){
-        validations.push("Intelligence");
+        validations.push("Intelligence Stat Not Set.");
     }
     if(this.state.wisdom === 0){
-        validations.push("Wisdom");
+        validations.push("Wisdom Stat Not Set.");
     }
     if(this.state.charisma === 0){
-        validations.push("Charisma");
+        validations.push("Charisma Stat Not Set.");
     }
     if(this.state.characterAlignment === ""){
-        validations.push("Alignment");
+        validations.push("No Alignment Set.");
     }
     if(this.state.characterBackground === ""){
-        validations.push("Background");
+        validations.push("Please Select a Background.");
     }
     if(this.state.characterPersonalityTrait1 === ""){
-        validations.push("Trait1");
+        validations.push("Trait1 Not Selected.");
     }
     if(this.state.characterPersonalityTrait2 === ""){
-        validations.push("Trait2");
+        validations.push("Trait2 Not Selected.");
     }
     if(this.state.characterIdeal === ""){
-        validations.push("Ideal");
+        validations.push("Ideal Not Selected.");
     }
     if(this.state.characterBond === ""){
-        validations.push("Bond");
+        validations.push("Bond Not Selected.");
     }
     if(this.state.characterFlaw === ""){
-        validations.push("Flaw");
+        validations.push("Flaw Not Selected.");
     }
     if(this.state.characterSpecialization === ""){
-        validations.push("Specialization");
+        validations.push("A Specialization is Required.");
     }
     if(this.state.startingChoice1 === ""){
-        validations.push("StartingChoice1");
+        validations.push("StartingChoice1 Hasn't Been Selected.");
     }
     if(this.state.startingChoice2 === ""){
-        validations.push("StartingChoice1");
+        validations.push("StartingChoice2 Hasn't Been Selected.");
     }
     if(this.state.classSkillChoice1 === ""){
-        validations.push("ClassSkillChoice1");
+        validations.push("ClassSkillChoice1 Hasn't Been Selected.");
     }
     if(this.state.classSkillChoice2 === ""){
-        validations.push("ClassSkillChoice2");
+        validations.push("ClassSkillChoice2 Hasn't Been Selected.");
     }
     if(this.state.classSkillChoice3 === ""){
-        validations.push("ClassSkillChoice3");
+        validations.push("ClassSkillChoice3 Hasn't Been Selected.");
     }
     if(this.state.classSkillChoice4 === ""){
-        validations.push("ClassSkillChoice4");
+        validations.push("ClassSkillChoice4 Hasn't Been Selected.");
     }
     if(this.state.packChoice === ""){
-        validations.push("Pack");
+        validations.push("A Pack Hasn't Been Chosen.");
     }
     if(validations.length > 0){
         console.log("All Validation Triggered!");
         console.log(validations);
+        this.setState({
+            validations: validations,
+        });
         return false;
     }
     else {
@@ -518,6 +529,17 @@ class CharacterCreation extends Component {
             break;
         }
         
+    };
+
+    handleValidationCountDown(){
+        console.log("Validation Countdown Triggered");
+        setTimeout(this.handleResetValidations, 6000);
+    };
+
+    handleResetValidations(){
+        this.setState({
+            validations: [],
+        })
     };
 
     render() {
@@ -950,6 +972,18 @@ class CharacterCreation extends Component {
                 <br />
                 <br />
                 <button onClick={this.handleCreateCharacter}>Submit!</button>
+
+                {(this.state.validations.length > 0)
+                ?
+                <div className="validationWindow">
+                    {this.handleValidationCountDown()}
+                    {this.state.validations.map(item => (
+                        <p key={item}>{item}</p>
+                    ))}
+                </div>
+                : null
+                }
+
             </div>
         )
     }

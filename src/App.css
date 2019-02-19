@@ -294,6 +294,23 @@ div {
   text-shadow: 4px 4px 8px black; 
 }
 
+.validationWindow {
+  font-family: 'Marcellus SC', serif;
+  font-weight: bold;
+  font-size: 21px;
+  color: rgb(240, 33, 33);
+  background-color: white;
+  overflow-y: auto;
+  z-index: 100;
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  left: 35%;
+  top: 12%;
+  border: 2px solid black;
+  text-align: center;
+}
+
 .circle {
   border-radius: 50%;
   height: 25px;
