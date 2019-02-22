@@ -753,11 +753,10 @@ class CharacterCreation extends Component {
                         {(this.state.showDetails === true)
                             ?
                             <div className="scrollDiv">
-                                {this.state.characterClassSelected.Features.map(item => (
-                                    <div key={item.Name} className="monsterGrouping" id="features">
+                                {this.state.characterClassSelected.Features.map((item, index) => (
+                                    <div key={index} className="monsterGrouping" id="features">
                                         <h4 className="plaque">{item.Name}</h4>
                                         <p>Level: {item.Level}</p>
-                                        <p>Uses: {item.Uses}</p>{" "}<p>Cooldown: {item.CoolDown}</p>
                                         {item.Description.map(item => (
                                             <p key={item}>{item}</p>
                                         ))}
