@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import RaceList from '../assets/Json/RaceList';
 import BackgroundList from '../assets/Json/BackgroundList';
 import Classes from '../assets/Json/Classes';
@@ -39,7 +40,7 @@ class CharacterCreation extends Component {
             wisdom: 0,
             charisma: 0,
             skills: [],
-            validations: [],
+            validations: []
         }
 
         this.handleGenerateStatRolls = this.handleGenerateStatRolls.bind(this);
@@ -55,6 +56,31 @@ class CharacterCreation extends Component {
         this.handleResetValidations = this.handleResetValidations.bind(this);
 
     }
+
+    componentDidMount() {
+		axios.get('/auth/user').then(response => {
+			console.log(response.data)
+			if (!!response.data.user) {
+				console.log('THERE IS A USER')
+				this.setState({
+					loggedIn: true,
+					user: response.data.user
+				}, () => {
+                    axios.get(`/find/sessions/${this.state.user._id}`).then(response => {
+                        console.log(response.data);
+                        this.setState({
+                            sessionList: response.data,
+                        });
+                    });
+                });
+			} else {
+				this.setState({
+					loggedIn: false,
+					user: null
+				})
+			}
+		})
+	};
 
     DiceRoll(times, sides) {
         var allRolls = [];
