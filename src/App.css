@@ -720,7 +720,7 @@ div {
 
 #gridControls {
   float: left;
-  width: 300px;
+  width: 260px;
   margin-left: 10px;
   border: 2px solid black;
 }
@@ -1092,7 +1092,7 @@ div {
 
 .merchantPending {
   float: left;
-  width: 475px;
+  width: 450px;
 }
 
 .merchantItem {
