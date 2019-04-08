@@ -1,50 +1,45 @@
 [
-    {
-        "Name": "dwarf",
-        "AbilityModifier": [0,0,2,0,0,0],
-        "Modifiers": ["Dwarven Toughness"],
-        "Traits": {
-            "Age": "Dwarves mature at the same rate as humans, but they're considered young until they reach the age of 50. On average, they live about 350 years.",
-            "Alignment": "Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order.",
-            "Size": "Medium",
-            "Speed": 25,
-            "Languages": "You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak."
-        },
-        "Passive": [
-            {
-                "Name": "Darkvision",
-                "Description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-            },
-            {
-                "Name": "Dwarven Resilience",
-                "Description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
-            },
-            {
-                "Name": "Stonecunning",
-                "Description": " Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
-            },
-            {
-                "Name": "Heavy Armor",
-                "Description": "Wearing heavy armor doesn't reduce your speed."
-            }
-        ],
-        "Ability": [],
-        "ToolOptions": [
-            "Smith's tools",
-            "Brewer's supplies",
-            "Mason's tools"
-        ],
-        "WeaponProficiency": [
-            "Battleaxe",
-            "Handaxe",
-            "Throwing hammer",
-            "Warhammer"
-        ],
-        "Subraces": [
-            {
-                "Name": "",
-                ""
-            }
-        ]
-    }
+	{
+		"Name": "dwarf",
+		"AbilityModifier": [ 0, 0, 2, 0, 0, 0 ],
+		"Modifiers": [ "Dwarven Toughness" ],
+		"Traits": {
+			"Age": "Dwarves mature at the same rate as humans, but they're considered young until they reach the age of 50. On average, they live about 350 years.",
+			"Alignment": "Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order.",
+			"Size": "Medium",
+			"Speed": 25,
+			"Languages": "You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak."
+		},
+		"Passive": [
+			{
+				"Name": "Darkvision",
+				"Description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+			},
+			{
+				"Name": "Dwarven Resilience",
+				"Description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+			},
+			{
+				"Name": "Stonecunning",
+				"Description": " Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
+			},
+			{
+				"Name": "Heavy Armor",
+				"Description": "Wearing heavy armor doesn't reduce your speed."
+			}
+		],
+		"Ability": [],
+		"ToolOptions": [ "Smith's tools", "Brewer's supplies", "Mason's tools" ],
+		"WeaponProficiency": [ "Battleaxe", "Handaxe", "Throwing hammer", "Warhammer" ],
+		"Subraces": [
+			{
+				"Name": "",
+				"Stats": 0
+			},
+			{
+				"Name": "",
+				"Stats": 0
+			}
+		]
+	}
 ]
