@@ -1,8 +1,34 @@
 [
 	{
-		"Name": "dwarf",
+		"Name": "",
+		"AbilityModifier": [ 0, 0, 0, 0, 0, 0 ],
+		"Traits": {
+			"Age": "",
+			"Alignment": "",
+			"Size": "",
+			"Speed": 0,
+			"Languages": ""
+		},
+		"Passive": [
+			{
+				"Name": "",
+				"Description": ""
+			}
+		],
+		"Ability": [],
+		"ToolOptions": [],
+		"WeaponProficiency": [],
+		"Subraces": [
+			{
+				"Name": "",
+				"AbilityModifier": [ 0, 0, 0, 0, 0, 0 ],
+				"Racial": ""
+			}
+		]
+	},
+	{
+		"Name": "Dwarf",
 		"AbilityModifier": [ 0, 0, 2, 0, 0, 0 ],
-		"Modifiers": [ "Dwarven Toughness" ],
 		"Traits": {
 			"Age": "Dwarves mature at the same rate as humans, but they're considered young until they reach the age of 50. On average, they live about 350 years.",
 			"Alignment": "Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order.",
@@ -33,12 +59,53 @@
 		"WeaponProficiency": [ "Battleaxe", "Handaxe", "Throwing hammer", "Warhammer" ],
 		"Subraces": [
 			{
-				"Name": "",
-				"Stats": 0
+				"Name": "Hill Dwarf",
+				"AbilityModifier": [ 0, 0, 0, 0, 1, 0 ],
+				"Racial": "Dwarven Toughness"
+			},
+			{
+				"Name": "Mountain Dwarf",
+				"AbilityModifier": [ 2, 0, 0, 0, 0, 0 ],
+				"Racial": "Dwarven Armor Training"
+			}
+		]
+	},
+	{
+		"Name": "Elf",
+		"AbilityModifier": [ 0, 2, 0, 0, 0, 0 ],
+		"Traits": {
+			"Age": "Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old.",
+			"Alignment": "Elves love freedom, variety, and self-expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others' freedom as well as their own, and they are more often good than not. The drow are an exception; their exile into the Underdark has made them vicious and dangerous. Drown are more often evil than not.",
+			"Size": "Medium",
+			"Speed": 30,
+			"Languages": "You can speak, read and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is ric and varied, and their songs and poems are famous amongst other race. Many bards learn their language so they can add Elvish ballads to their repertoires."
+		},
+		"Passive": [
+			{
+				"Name": "Darkvision",
+				"Description": "Accustomed to twilit forest and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
 			},
 			{
 				"Name": "",
-				"Stats": 0
+				"Description": ""
+			},
+			{
+				"Name": "",
+				"Description": ""
+			},
+			{
+				"Name": "",
+				"Description": ""
+			}
+		],
+		"Ability": [],
+		"ToolOptions": [],
+		"WeaponProficiency": [],
+		"Subraces": [
+			{
+				"Name": "",
+				"AbilityModifier": [ 0, 0, 0, 0, 0, 0 ],
+				"Racial": ""
 			}
 		]
 	}
