@@ -22,7 +22,7 @@
 			{
 				"Name": "",
 				"AbilityModifier": [ 0, 0, 0, 0, 0, 0 ],
-				"Racial": ""
+				"Racial": []
 			}
 		]
 	},
@@ -61,12 +61,12 @@
 			{
 				"Name": "Hill Dwarf",
 				"AbilityModifier": [ 0, 0, 0, 0, 1, 0 ],
-				"Racial": "Dwarven Toughness"
+				"Racial": [ "Dwarven Toughness" ]
 			},
 			{
 				"Name": "Mountain Dwarf",
 				"AbilityModifier": [ 2, 0, 0, 0, 0, 0 ],
-				"Racial": "Dwarven Armor Training"
+				"Racial": [ "Dwarven Armor Training" ]
 			}
 		]
 	},
@@ -86,16 +86,16 @@
 				"Description": "Accustomed to twilit forest and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
 			},
 			{
-				"Name": "",
-				"Description": ""
+				"Name": "Keen Senses",
+				"Description": "You have proficiency in Perception skill."
 			},
 			{
-				"Name": "",
-				"Description": ""
+				"Name": "Fey Ancestry",
+				"Description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
 			},
 			{
-				"Name": "",
-				"Description": ""
+				"Name": "Trance",
+				"Description": "Elves don't need sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is 'trance.') While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
 			}
 		],
 		"Ability": [],
@@ -103,9 +103,19 @@
 		"WeaponProficiency": [],
 		"Subraces": [
 			{
-				"Name": "",
-				"AbilityModifier": [ 0, 0, 0, 0, 0, 0 ],
-				"Racial": ""
+				"Name": "High Elf",
+				"AbilityModifier": [ 0, 0, 0, 1, 0, 0 ],
+				"Racial": [ "Elf Weapon Training", "Cantrip", "Extra Language" ]
+			},
+			{
+				"Name": "Wood Elf",
+				"AbilityModifier": [ 0, 0, 0, 0, 1, 0 ],
+				"Racial": [ "Elf Weapon Training", "Fleet of Foot", "Mask of the Wild" ]
+			},
+			{
+				"Name": "Dark Elf (Drow)",
+				"AbilityModifier": [ 0, 0, 0, 0, 0, 1 ],
+				"Racial": [ "Superior Darkvision", "Sunlight Sensitivity", "Drow Weapon Training" ]
 			}
 		]
 	}
