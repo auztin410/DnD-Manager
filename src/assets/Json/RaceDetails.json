@@ -158,5 +158,48 @@
 				"Racial": [ "Stout Resilience" ]
 			}
 		]
+	},
+	{
+		"Name": "Human",
+		"AbilityModifier": [ 1, 1, 1, 1, 1, 1 ],
+		"Traits": {
+			"Age": "Humans reach adulthood in their late teens and live less than a century.",
+			"Alignment": "Humans tend towards no particular alignment. The best and the worst are found among them.",
+			"Size": "Medium",
+			"Speed": 30,
+			"Languages": "You can speak, read, and write Common and one extra language of your choice. Humans typically lean the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases and so on."
+		},
+		"Passive": [],
+		"Ability": [],
+		"ToolOptions": [],
+		"WeaponProficiency": [],
+		"Subraces": []
+	},
+	{
+		"Name": "",
+		"AbilityModifier": [ 0, 0, 0, 0, 0, 0 ],
+		"Traits": {
+			"Age": "",
+			"Alignment": "",
+			"Size": "",
+			"Speed": 0,
+			"Languages": ""
+		},
+		"Passive": [
+			{
+				"Name": "",
+				"Description": ""
+			}
+		],
+		"Ability": [],
+		"ToolOptions": [],
+		"WeaponProficiency": [],
+		"Subraces": [
+			{
+				"Name": "",
+				"AbilityModifier": [ 0, 0, 0, 0, 0, 0 ],
+				"Racial": []
+			}
+		]
 	}
 ]
