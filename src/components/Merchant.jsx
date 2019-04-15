@@ -33,7 +33,9 @@ class Merchant extends Component {
 			vendorMounts: Mounts,
 			vendorTackHarnessVehicle: TackHarnessVehicle,
 			vendorShips: Ships,
-			vendorFood: Food
+			vendorFood: Food,
+			merchantModal: false,
+			item: null
 			// vendorEquipment: [],
 			// vendorWeapons: [],
 			// vendorTradeGoods: [],
@@ -53,46 +55,55 @@ class Merchant extends Component {
 	}
 
 	handleMerchantEquipment(item) {
-		console.log(item);
-		let pending = [ ...this.state.merchantPending.map((obj) => ({ ...obj })) ];
-		let thing = item;
-		let check = pending.find((el) => el.Name === thing.Name);
-		if (!check) {
-			thing.Count = 1;
-			pending.push(thing);
-		} else {
-			var foundIndex = pending.findIndex((el) => el.Name === check.Name);
-			item.Count += 1;
-			pending[foundIndex] = item;
-		}
-		let CP = [ 0 ];
-		let SP = [ 0 ];
-		let GP = [ 0 ];
-		let PP = [ 0 ];
-		pending.forEach((item) => {
-			let cost = item.Cost * item.Count;
-			if (item.Currency === 'CP') {
-				CP.push(cost);
-			} else if (item.Currency === 'SP') {
-				SP.push(cost);
-			} else if (item.Currency === 'GP') {
-				GP.push(cost);
-			} else if (item.Currency === 'PP') {
-				PP.push(cost);
-			}
-		});
-		let totalCP = CP.reduce(this.getSum);
-		let totalSP = SP.reduce(this.getSum);
-		let totalGP = GP.reduce(this.getSum);
-		let totalPP = PP.reduce(this.getSum);
 		this.setState({
-			merchantPending: pending,
-			pendingCP: totalCP,
-			pendingSP: totalSP,
-			pendingGP: totalGP,
-			pendingPP: totalPP
+			item,
+			merchantModal: true
 		});
+		console.log(item);
+		this.handleConversion(item);
 	}
+
+	// handleMerchantEquipment(item) {
+	// 	console.log(item);
+	// 	let pending = [ ...this.state.merchantPending.map((obj) => ({ ...obj })) ];
+	// 	let thing = item;
+	// 	let check = pending.find((el) => el.Name === thing.Name);
+	// 	if (!check) {
+	// 		thing.Count = 1;
+	// 		pending.push(thing);
+	// 	} else {
+	// 		var foundIndex = pending.findIndex((el) => el.Name === check.Name);
+	// 		item.Count += 1;
+	// 		pending[foundIndex] = item;
+	// 	}
+	// 	let CP = [ 0 ];
+	// 	let SP = [ 0 ];
+	// 	let GP = [ 0 ];
+	// 	let PP = [ 0 ];
+	// 	pending.forEach((item) => {
+	// 		let cost = item.Cost * item.Count;
+	// 		if (item.Currency === 'CP') {
+	// 			CP.push(cost);
+	// 		} else if (item.Currency === 'SP') {
+	// 			SP.push(cost);
+	// 		} else if (item.Currency === 'GP') {
+	// 			GP.push(cost);
+	// 		} else if (item.Currency === 'PP') {
+	// 			PP.push(cost);
+	// 		}
+	// 	});
+	// 	let totalCP = CP.reduce(this.getSum);
+	// 	let totalSP = SP.reduce(this.getSum);
+	// 	let totalGP = GP.reduce(this.getSum);
+	// 	let totalPP = PP.reduce(this.getSum);
+	// 	this.setState({
+	// 		merchantPending: pending,
+	// 		pendingCP: totalCP,
+	// 		pendingSP: totalSP,
+	// 		pendingGP: totalGP,
+	// 		pendingPP: totalPP
+	// 	});
+	// }
 
 	handleRemoveFromPending(item) {
 		console.log(item);
@@ -351,9 +362,12 @@ class Merchant extends Component {
 		}
 	}
 
-	handleConversion() {
-		let cost = 3;
-		let currency = 'platinum';
+	handleConversion(item) {
+		let cost = item.Cost;
+		let currency = item.Currency;
+
+		// let cost = 3;
+		// let currency = 'platinum';
 
 		let copper;
 		let silver;
@@ -362,7 +376,7 @@ class Merchant extends Component {
 		let platinum;
 
 		switch (currency) {
-			case 'copper':
+			case 'CP':
 				copper = cost;
 				silver = cost / 10;
 				electrum = cost / 50;
@@ -370,7 +384,7 @@ class Merchant extends Component {
 				platinum = cost / 1000;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
-			case 'silver':
+			case 'SP':
 				copper = cost * 10;
 				silver = cost;
 				electrum = cost / 5;
@@ -378,7 +392,7 @@ class Merchant extends Component {
 				platinum = cost / 100;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
-			case 'electrum':
+			case 'EP':
 				copper = cost * 50;
 				silver = cost * 5;
 				electrum = cost;
@@ -386,7 +400,7 @@ class Merchant extends Component {
 				platinum = cost / 20;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
-			case 'gold':
+			case 'GP':
 				copper = cost * 100;
 				silver = cost * 10;
 				electrum = cost * 2;
@@ -394,7 +408,7 @@ class Merchant extends Component {
 				platinum = cost / 10;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
-			case 'platinum':
+			case 'PP':
 				copper = cost * 1000;
 				silver = cost * 100;
 				electrum = cost * 20;
@@ -1036,7 +1050,19 @@ class Merchant extends Component {
 						</div>
 					)}
 				</div>
-				<div className="merchantPending">
+
+				{this.state.merchantModal === true ? (
+					<div className="displayItem">
+						<h2>{this.state.item.Name}</h2>
+						<p>
+							Count: {this.state.item.Count} | Weight: {this.state.item.Weight}
+						</p>
+						<p>
+							Cost: {this.state.item.Cost} {this.state.item.Currency}
+						</p>
+					</div>
+				) : null}
+				{/* <div className="merchantPending">
 					<h2 className="woodSign">Pending</h2>
 					{this.state.merchantPending.map((item) => (
 						<div
@@ -1089,8 +1115,9 @@ class Merchant extends Component {
 							Buy
 						</div>
 					) : null}
-				</div>
-				<div className="merchantPending">
+                </div> */}
+
+				{/* <div className="merchantPending">
 					<h2 className="woodSign">Purchased</h2>
 					<h3 className="woodSign">
 						Your: CP: {this.state.yourCP} | SP: {this.state.yourSP} | EP: {this.state.yourEP} | GP:{' '}
@@ -1101,10 +1128,7 @@ class Merchant extends Component {
 							{item.Name} | Quantity: {item.Count}
 						</div>
 					))}
-				</div>
-				<div>
-					<button onClick={this.handleConversion}>Test Conversion</button>
-				</div>
+				</div> */}
 			</div>
 		);
 	}
