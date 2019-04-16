@@ -15,11 +15,6 @@ class Merchant extends Component {
 		this.state = {
 			merchantPending: [],
 			vendorSections: [ false, false, false, false, false, false, false, false ],
-			pendingCP: 0,
-			pendingSP: 0,
-			pendingEP: 0,
-			pendingGP: 0,
-			pendingPP: 0,
 			yourCP: 5,
 			yourSP: 20,
 			yourEP: 2,
@@ -35,7 +30,14 @@ class Merchant extends Component {
 			vendorShips: Ships,
 			vendorFood: Food,
 			merchantModal: false,
-			item: null
+			item: null,
+			conversion: {
+				CP: null,
+				SP: null,
+				EP: null,
+				GP: null,
+				PP: null
+			}
 			// vendorEquipment: [],
 			// vendorWeapons: [],
 			// vendorTradeGoods: [],
@@ -48,6 +50,7 @@ class Merchant extends Component {
 		this.handleMerchantPurchase = this.handleMerchantPurchase.bind(this);
 		this.handleVendorSections = this.handleVendorSections.bind(this);
 		this.handleConversion = this.handleConversion.bind(this);
+		this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
 	}
 
 	getSum(total, num) {
@@ -61,6 +64,12 @@ class Merchant extends Component {
 		});
 		console.log(item);
 		this.handleConversion(item);
+	}
+
+	handleCloseDisplayItem() {
+		this.setState({
+			merchantModal: false
+		});
 	}
 
 	// handleMerchantEquipment(item) {
@@ -345,21 +354,37 @@ class Merchant extends Component {
 	}
 
 	CheckIfEven(copper, silver, electrum, gold, platinum) {
+		let conversion = {
+			CP: null,
+			SP: null,
+			EP: null,
+			GP: null,
+			PP: null
+		};
+
 		if (Number.isInteger(copper) === true) {
 			console.log(`Copper: ${copper}`);
+			conversion.CP = copper;
 		}
 		if (Number.isInteger(silver) === true) {
 			console.log(`Silver: ${silver}`);
+			conversion.SP = silver;
 		}
 		if (Number.isInteger(electrum) === true) {
 			console.log(`Electrum: ${electrum}`);
+			conversion.EP = electrum;
 		}
 		if (Number.isInteger(gold) === true) {
 			console.log(`Gold: ${gold}`);
+			conversion.GP = gold;
 		}
 		if (Number.isInteger(platinum) === true) {
 			console.log(`Platinum: ${platinum}`);
+			conversion.PP = platinum;
 		}
+		this.setState({
+			conversion
+		});
 	}
 
 	handleConversion(item) {
@@ -1053,13 +1078,18 @@ class Merchant extends Component {
 
 				{this.state.merchantModal === true ? (
 					<div className="displayItem">
+						<span className="closeDisplayItem" onClick={this.handleCloseDisplayItem}>
+							X
+						</span>
 						<h2>{this.state.item.Name}</h2>
 						<p>
 							Count: {this.state.item.Count} | Weight: {this.state.item.Weight}
 						</p>
-						<p>
-							Cost: {this.state.item.Cost} {this.state.item.Currency}
-						</p>
+						{this.state.conversion.CP != null ? <span>{this.state.conversion.CP} CP</span> : null}
+						{this.state.conversion.SP != null ? <span>{this.state.conversion.SP} SP</span> : null}
+						{this.state.conversion.EP != null ? <span>{this.state.conversion.EP} EP</span> : null}
+						{this.state.conversion.GP != null ? <span>{this.state.conversion.GP} GP</span> : null}
+						{this.state.conversion.PP != null ? <span>{this.state.conversion.PP} PP</span> : null}
 					</div>
 				) : null}
 				{/* <div className="merchantPending">
