@@ -1,701 +1,736 @@
-@font-face { font-family: Dungeon; src: url('../src/assets/Fonts/DUNGRG__.TTF');}
-@font-face { font-family: Dungeon; font-weight: bold; src: url('../src/assets/Fonts/DUNGRG__.TTF');}
-@font-face { font-family: Elvish; src: url('../src/assets/Fonts/Rellanic.otf');}
-@font-face { font-family: Elvish; font-weight: bold; src: url('../src/assets/Fonts/Rellanic\ Bold.otf');}
-@font-face { font-family: Dwarven; src: url('../src/assets/Fonts/Davek.otf');}
-@font-face { font-family: Dwarven; font-weight: bold; src: url('../src/assets/Fonts/Davek\ Bold.otf');}
-@font-face { font-family: Draconic; src: url('../src/assets/Fonts/Iokharic.otf');}
-@font-face { font-family: Draconic; font-weight: bold; src: url('../src/assets/Fonts/Iokharic\ Bold.otf');}
-@font-face { font-family: Abyssal; src: url('../src/assets/Fonts/Barazhad.otf');}
-@font-face { font-family: Abyssal; font-weight: bold; src: url('../src/assets/Fonts/Barazhad\ Bold.otf');}
-@font-face { font-family: Nodestro; src: url('../src/assets/Fonts/Nodesto\ Caps\ Condensed.otf');}
-@font-face { font-family: Nodestro; font-weight: bold; src: url('../src/assets/Fonts/Nodesto\ Caps\ Condensed\ Bold.otf');}
-
-body {
-  background-color: #1B1B1B;
-  background-color: #353839;
-  background-image: url('./assets/Images/dark_wall.png');
-  height: 100vh;
+@font-face {
+	font-family: Dungeon;
+	src: url('../src/assets/Fonts/DUNGRG__.TTF');
+}
+@font-face {
+	font-family: Dungeon;
+	font-weight: bold;
+	src: url('../src/assets/Fonts/DUNGRG__.TTF');
+}
+@font-face {
+	font-family: Elvish;
+	src: url('../src/assets/Fonts/Rellanic.otf');
+}
+@font-face {
+	font-family: Elvish;
+	font-weight: bold;
+	src: url('../src/assets/Fonts/Rellanic\ Bold.otf');
+}
+@font-face {
+	font-family: Dwarven;
+	src: url('../src/assets/Fonts/Davek.otf');
+}
+@font-face {
+	font-family: Dwarven;
+	font-weight: bold;
+	src: url('../src/assets/Fonts/Davek\ Bold.otf');
+}
+@font-face {
+	font-family: Draconic;
+	src: url('../src/assets/Fonts/Iokharic.otf');
+}
+@font-face {
+	font-family: Draconic;
+	font-weight: bold;
+	src: url('../src/assets/Fonts/Iokharic\ Bold.otf');
+}
+@font-face {
+	font-family: Abyssal;
+	src: url('../src/assets/Fonts/Barazhad.otf');
+}
+@font-face {
+	font-family: Abyssal;
+	font-weight: bold;
+	src: url('../src/assets/Fonts/Barazhad\ Bold.otf');
+}
+@font-face {
+	font-family: Nodestro;
+	src: url('../src/assets/Fonts/Nodesto\ Caps\ Condensed.otf');
+}
+@font-face {
+	font-family: Nodestro;
+	font-weight: bold;
+	src: url('../src/assets/Fonts/Nodesto\ Caps\ Condensed\ Bold.otf');
 }
 
-h2, h3, h4 {
-  margin: 0;
+body {
+	background-color: #1b1b1b;
+	background-color: #353839;
+	background-image: url('./assets/Images/dark_wall.png');
+	height: 100vh;
+}
+
+h2,
+h3,
+h4 {
+	margin: 0;
 }
 
 h4 {
-  margin: 0;
+	margin: 0;
 }
 
 div {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .navbar {
-  width: 100%;
-  text-align: right;
-  background-color: rgb(240, 33, 33);
-  height: 80px;
-  margin: 0px;
-  padding: 0px;
+	width: 100%;
+	text-align: right;
+	background-color: rgb(240, 33, 33);
+	height: 80px;
+	margin: 0px;
+	padding: 0px;
 }
 
 .ddm {
-  float: left;
-  font-family: Nodestro, sans-serif;
-  font-size: 72px;
-  color: whitesmoke;
+	float: left;
+	font-family: Nodestro, sans-serif;
+	font-size: 72px;
+	color: whitesmoke;
 }
 
 .d-d {
-  height: 50px;
-  fill: whitesmoke;
+	height: 50px;
+	fill: whitesmoke;
 }
 
 .user {
-  position: relative;
-  right: 45%;
-  top: 45%;
-  font-family: Nodestro, sans-serif;
-  color: whitesmoke;
-  font-size: 36px;
-  text-shadow: 2px 2px 8px black;
-  padding-left: 930px;
+	position: relative;
+	right: 45%;
+	top: 45%;
+	font-family: Nodestro, sans-serif;
+	color: whitesmoke;
+	font-size: 36px;
+	text-shadow: 2px 2px 8px black;
+	padding-left: 930px;
 }
 
 .title {
-  font-size: 32px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 8px whitesmoke;
+	font-size: 32px;
+	margin-bottom: 10px;
+	text-shadow: 2px 2px 8px whitesmoke;
 }
 
 .link {
-  font-family: Nodestro, sans-serif;
-  font-weight: bold;
-  font-size: 20px;
+	font-family: Nodestro, sans-serif;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 .linking {
-  color: whitesmoke;
-  margin: 2px;
+	color: whitesmoke;
+	margin: 2px;
 }
 
 .linking:hover {
-  color: black;
+	color: black;
 }
 
 .linkingBlack {
-  color: black;
-  margin: 2px;
+	color: black;
+	margin: 2px;
 }
 
 .linkingBlack:hover {
-  color: rgb(240, 33, 33);
+	color: rgb(240, 33, 33);
 }
 
 .links {
-  margin-right: 45px;
+	margin-right: 45px;
 }
 
 .leftArrow {
-  position: absolute;
-  left:  0;
-  top: 50%;
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-  padding-left: 5px;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	padding-left: 5px;
 }
 
 .rightArrow {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-  padding-right: 5px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	padding-right: 5px;
 }
 
 #playerList:hover {
-  background-color: black;
-  color: whitesmoke
+	background-color: black;
+	color: whitesmoke;
 }
 
 .downArrow {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  transition: 0.5s;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	transition: 0.5s;
 }
 
 .upArrow {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  transition: 1s;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  background-image: url('./assets/Images/dark_wood.png');
-  box-shadow: 2px 2px 8px black;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	transition: 1s;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-image: url('./assets/Images/dark_wood.png');
+	box-shadow: 2px 2px 8px black;
 }
 
 .arrowIcon {
-  font-size: 32px;
-  color: rgb(240, 33, 33);
+	font-size: 32px;
+	color: rgb(240, 33, 33);
 }
 
 .arrowIcon:hover {
-  color: whitesmoke;
+	color: whitesmoke;
 }
 
 .bannerContainer {
-  margin: 0 auto;
-  width: 660px;
+	margin: 0 auto;
+	width: 660px;
 }
 
 .bannerRed {
-  height: 130px;
-  width: 50px;
-  margin-left: 5px;
-  margin-right: 5px;
-  background-color: rgb(240, 33, 33);
-  float: left;
-  color: whitesmoke;
+	height: 130px;
+	width: 50px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: rgb(240, 33, 33);
+	float: left;
+	color: whitesmoke;
 }
 
 .bannerRed:hover {
-  color: black;
+	color: black;
 }
 
 .bannerGrey {
-  height: 130px;
-  width: 50px;
-  margin-left: 5px;
-  margin-right: 5px;
-  background-color: rgb(102, 102, 102);
-  float: left;
-  color: whitesmoke;
+	height: 130px;
+	width: 50px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: rgb(102, 102, 102);
+	float: left;
+	color: whitesmoke;
 }
 
 .bannerGrey:hover {
-  color: rgb(240, 33, 33);
+	color: rgb(240, 33, 33);
 }
 
 .bannerBlack {
-  height: 130px;
-  width: 50px;
-  margin-left: 5px;
-  margin-right: 5px;
-  background-color: rgb(8, 8, 8);
-  float: left;
-  color: whitesmoke;
+	height: 130px;
+	width: 50px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: rgb(8, 8, 8);
+	float: left;
+	color: whitesmoke;
 }
 
 .bannerBlack:hover {
-  color: rgb(102, 102, 102);
+	color: rgb(102, 102, 102);
 }
 
 .bannerOpen {
-  height: 130px;
-  width: 50px;
-  margin-left: 5px;
-  margin-right: 5px;
-  float: left;
-  box-shadow: 2px 2px 8px whitesmoke;
-  color: rgb(240, 33, 33);
-  background-color: whitesmoke;
+	height: 130px;
+	width: 50px;
+	margin-left: 5px;
+	margin-right: 5px;
+	float: left;
+	box-shadow: 2px 2px 8px whitesmoke;
+	color: rgb(240, 33, 33);
+	background-color: whitesmoke;
 }
 
 #bannerLeft {
-  border-bottom-left-radius: 45px;
-  border-bottom-right-radius: 2px;
-  margin-left: 10px;
-  margin-right: 3px;
+	border-bottom-left-radius: 45px;
+	border-bottom-right-radius: 2px;
+	margin-left: 10px;
+	margin-right: 3px;
 }
 
 #bannerRight {
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 45px;
-  margin-left: 3px;
-  margin-right: 10px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 45px;
+	margin-left: 3px;
+	margin-right: 10px;
 }
 
 #bannerFifthInner {
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 80% 78%, 50% 100%, 50% 100%, 20% 78%, 0% 43%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 43%, 80% 78%, 50% 100%, 50% 100%, 20% 78%, 0% 43%, 0 0);
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 80% 78%, 50% 100%, 50% 100%, 20% 78%, 0% 43%, 0 0);
+	clip-path: polygon(50% 0%, 100% 0, 100% 43%, 80% 78%, 50% 100%, 50% 100%, 20% 78%, 0% 43%, 0 0);
 }
 
 #bannerFourthInner {
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 50% 100%, 50% 100%, 6% 78%, 0% 43%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 50% 100%, 50% 100%, 6% 78%, 0% 43%, 0 0);
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 50% 100%, 50% 100%, 6% 78%, 0% 43%, 0 0);
+	clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 50% 100%, 50% 100%, 6% 78%, 0% 43%, 0 0);
 }
 
 #bannerThirdInner {
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
+	clip-path: polygon(50% 0%, 100% 0, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 0 0);
 }
 
 #bannerSecondInner {
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
+	clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0 60%, 0% 35%, 0 0);
 }
 
 #bannerInner {
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 98% 35%, 88% 64%, 79% 91%, 50% 100%, 21% 91%, 11% 65%, 2% 35%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 98% 35%, 88% 64%, 79% 91%, 50% 100%, 21% 91%, 11% 65%, 2% 35%, 0 0);  
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 98% 35%, 88% 64%, 79% 91%, 50% 100%, 21% 91%, 11% 65%, 2% 35%, 0 0);
+	clip-path: polygon(50% 0%, 100% 0, 98% 35%, 88% 64%, 79% 91%, 50% 100%, 21% 91%, 11% 65%, 2% 35%, 0 0);
 }
 
 #bannerMiddle {
-  -webkit-clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);
-  clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);  
+	-webkit-clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);
+	clip-path: polygon(51% 21%, 100% 0, 50% 100%, 0 0);
 }
 
 .bannerIcon {
-  font-size: 24px;
-  margin-top: 35px;
+	font-size: 24px;
+	margin-top: 35px;
 }
 
 .mainUser {
-  font-family: Nodestro, sans-serif;
-  font-size: 36px;
-  color: whitesmoke;
-  background-color: rgb(240, 33, 33);
-  text-shadow: 2px 2px 8px black;
-  box-shadow: 2px 2px 8px black;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
+	font-family: Nodestro, sans-serif;
+	font-size: 36px;
+	color: whitesmoke;
+	background-color: rgb(240, 33, 33);
+	text-shadow: 2px 2px 8px black;
+	box-shadow: 2px 2px 8px black;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
 }
 
 .characterList {
-  background-image: url('./assets/u0.jpg');
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
-  width: 1200px;
-  margin: 0 auto;
-  padding: 25px;
-  box-shadow: 2px 2px 8px rgb(0, 0, 0);
+	background-image: url('./assets/u0.jpg');
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
+	width: 1200px;
+	margin: 0 auto;
+	padding: 25px;
+	box-shadow: 2px 2px 8px rgb(0, 0, 0);
 }
 
 .characterTable {
-  background-color: rgba(252, 249, 249, 0.329);
+	background-color: rgba(252, 249, 249, 0.329);
 }
 
 .characterTableHeader {
-  background-color: rgb(240, 33, 33);
-  font-size: 32px;
-  color: whitesmoke;
-  text-shadow: 4px 4px 8px black; 
+	background-color: rgb(240, 33, 33);
+	font-size: 32px;
+	color: whitesmoke;
+	text-shadow: 4px 4px 8px black;
 }
 
 .validationWindow {
-  font-family: 'Marcellus SC', serif;
-  font-weight: bold;
-  font-size: 21px;
-  color: rgb(240, 33, 33);
-  background-color: whitesmoke;
-  overflow-y: auto;
-  z-index: 100;
-  position: fixed;
-  height: 500px;
-  width: 500px;
-  left: 35%;
-  top: 12%;
-  border: 5px double black;
-  text-align: center;
+	font-family: 'Marcellus SC', serif;
+	font-weight: bold;
+	font-size: 21px;
+	color: rgb(240, 33, 33);
+	background-color: whitesmoke;
+	overflow-y: auto;
+	z-index: 100;
+	position: fixed;
+	height: 500px;
+	width: 500px;
+	left: 35%;
+	top: 12%;
+	border: 5px double black;
+	text-align: center;
 }
 
 .circle {
-  border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  margin: 0 auto;
+	border-radius: 50%;
+	height: 25px;
+	width: 25px;
+	margin: 0 auto;
 }
 
 #green {
-  background-color: rgba(0, 128, 0, 0.856);
-  box-shadow: 2px 2px 12px rgba(4, 161, 4, 0.856);
+	background-color: rgba(0, 128, 0, 0.856);
+	box-shadow: 2px 2px 12px rgba(4, 161, 4, 0.856);
 }
 
 #red {
-  background-color: rgba(255, 0, 0, 0.856);
-  box-shadow: 2px 2px 12px rgb(224, 7, 7);
+	background-color: rgba(255, 0, 0, 0.856);
+	box-shadow: 2px 2px 12px rgb(224, 7, 7);
 }
 
 .name {
-  font-family: Nodestro, sans-serif;
-  font-size: 48px;
-  text-shadow: 2px 2px 8px whitesmoke;
-  color: black;
+	font-family: Nodestro, sans-serif;
+	font-size: 48px;
+	text-shadow: 2px 2px 8px whitesmoke;
+	color: black;
 }
 
 .characterDetails {
-  width: 1200px;
-  font-family: 'Marcellus SC', serif;
-  padding: 28px;
-  background-image: url('./assets/u0.jpg');
-  margin: 0 auto;
-  box-shadow: 2px 2px 8px black;
+	width: 1200px;
+	font-family: 'Marcellus SC', serif;
+	padding: 28px;
+	background-image: url('./assets/u0.jpg');
+	margin: 0 auto;
+	box-shadow: 2px 2px 8px black;
 }
 
 .header {
-  font-family: Nodestro, sans-serif;
-  font-size: 72px;
-  background-color: rgb(240, 33, 33);
-  color: rgb(255, 255, 255);
-  margin: 0;
-  padding: 0;
-  width: 92vw;
-  float: left;
-  transition: .5s;
-  text-align: left;
+	font-family: Nodestro, sans-serif;
+	font-size: 72px;
+	background-color: rgb(240, 33, 33);
+	color: rgb(255, 255, 255);
+	margin: 0;
+	padding: 0;
+	width: 92vw;
+	float: left;
+	transition: .5s;
+	text-align: left;
 }
 
 .loginForm {
-  font-family: 'Marcellus SC', serif;
-  font-size: 24px;
-  background-color: rgb(240, 33, 33);
-  color: white;
+	font-family: 'Marcellus SC', serif;
+	font-size: 24px;
+	background-color: rgb(240, 33, 33);
+	color: white;
 }
 
 .loginText {
-  display: inline-block;
-  width: 120px;
+	display: inline-block;
+	width: 120px;
 }
 
 .loginInput {
-  font-family: 'Marcellus SC', serif;
-  font-size: 24px;
-  text-align: left;
-  margin-top: 20px;
+	font-family: 'Marcellus SC', serif;
+	font-size: 24px;
+	text-align: left;
+	margin-top: 20px;
 }
 
 #loginBottomInput {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .hexagonButton {
-  width: 80px; 
-  height: 46.19px;
-  background-color: rgb(240, 33, 33);
-  margin: 23.09px 0;
-  margin-right: 15px;
-  border-left: solid 1px #ffffff;
-  border-right: solid 1px #ffffff;
-  float: left;
-  margin-left: 10px;
-  z-index: 1;
+	width: 80px;
+	height: 46.19px;
+	background-color: rgb(240, 33, 33);
+	margin: 23.09px 0;
+	margin-right: 15px;
+	border-left: solid 1px #ffffff;
+	border-right: solid 1px #ffffff;
+	float: left;
+	margin-left: 10px;
+	z-index: 1;
 }
 
 .hexagonButton:before,
 .hexagonButton:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 56.57px;
-  height: 56.57px;
-  -webkit-transform: scaleY(0.5774) rotate(-45deg);
-  -ms-transform: scaleY(0.5774) rotate(-45deg);
-  transform: scaleY(0.5774) rotate(-45deg);
-  background-color: inherit;
-  left: 10.7157px;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	width: 56.57px;
+	height: 56.57px;
+	-webkit-transform: scaleY(0.5774) rotate(-45deg);
+	-ms-transform: scaleY(0.5774) rotate(-45deg);
+	transform: scaleY(0.5774) rotate(-45deg);
+	background-color: inherit;
+	left: 10.7157px;
 }
 
 .hexagonButton:before {
-  top: -28.2843px;
-  border-top: solid 1.4142px #ffffff;
-  border-right: solid 1.4142px #ffffff;
+	top: -28.2843px;
+	border-top: solid 1.4142px #ffffff;
+	border-right: solid 1.4142px #ffffff;
 }
 
 .hexagonButton:after {
-  bottom: -28.2843px;
-  border-bottom: solid 1.4142px #ffffff;
-  border-left: solid 1.4142px #ffffff;
+	bottom: -28.2843px;
+	border-bottom: solid 1.4142px #ffffff;
+	border-left: solid 1.4142px #ffffff;
 }
 
 .hexagonButton-text {
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
-  color: white;
-  position: absolute;
-  z-index: 1000;
-  margin: 0 auto;
-  width: 100%;
-  top: 10px;
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
+	color: white;
+	position: absolute;
+	z-index: 1000;
+	margin: 0 auto;
+	width: 100%;
+	top: 10px;
 }
 
 .hexagonButton:hover {
-  background-color: black;
+	background-color: black;
 }
 
 .hexagonButton:hover > .hexagonButton-text {
-  color: rgb(240, 33, 33);
+	color: rgb(240, 33, 33);
 }
 
 #loginButton {
-  position: relative;
-  top: -40px;
-  left: 1080px;
+	position: relative;
+	top: -40px;
+	left: 1080px;
 }
 
 #registerButton {
-  position: absolute;
-  top: 280px;
-  left: 1050px;
+	position: absolute;
+	top: 280px;
+	left: 1050px;
 }
 
 .buttons {
-  padding-top: 5px;
-  width: 100px;
-  margin-bottom: 10px;
-  float: left;
-  transition: .5s;
+	padding-top: 5px;
+	width: 100px;
+	margin-bottom: 10px;
+	float: left;
+	transition: .5s;
 }
 
 .loot {
-  height: 50px;
-  width: 50px;
-  background-image: url('../src/assets/loot.png');
+	height: 50px;
+	width: 50px;
+	background-image: url('../src/assets/loot.png');
 }
 
 .npc {
-  background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
+	background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
 }
 
 .container {
-  padding: 10px;
+	padding: 10px;
 }
 
 .property {
-  font-family: 'Marcellus SC', serif;
-  background-image: url('./assets/u0.jpg');
-  font-size: 16px;
-  border-radius: 25px;
-  border-style: outset;
-  border-width: 2px;
-  border-color: rgb(235, 199, 199);
-  padding: 5px;
-  margin: 2px;
+	font-family: 'Marcellus SC', serif;
+	background-image: url('./assets/u0.jpg');
+	font-size: 16px;
+	border-radius: 25px;
+	border-style: outset;
+	border-width: 2px;
+	border-color: rgb(235, 199, 199);
+	padding: 5px;
+	margin: 2px;
 }
 
 .bigEvent {
-  background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
+	background-image: linear-gradient(rgb(150, 98, 31), rgb(172, 117, 46), rgb(187, 179, 137));
 }
 
 .generated {
-  /* background-image: url('./assets//u0.jpg'); */
-  background-color: rgba(236, 227, 227, 0.473);
-  width: 20vw;
-  margin: 10px;
-  float: left;
-  box-shadow: 2px 2px 4px black;
-  /* border-color: black;
+	/* background-image: url('./assets//u0.jpg'); */
+	background-color: rgba(236, 227, 227, 0.473);
+	width: 20vw;
+	margin: 10px;
+	float: left;
+	box-shadow: 2px 2px 4px black;
+	/* border-color: black;
   border-style: double; */
 }
 
 .items {
-  font-family: 'Cinzel Decorative', cursive;
-  font-weight: bold;
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: bold;
 }
 
 .magicItem:hover {
-  color: whitesmoke;
-  background-color: black;
+	color: whitesmoke;
+	background-color: black;
 }
 
 .displayItem {
-  font-family: 'Cinzel Decorative', cursive;
-  font-weight: bold;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  top: 0;
-  margin-top: 20vh;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-image: url('./assets/u0.jpg');
-  width: 50vw;
-  border-width: 8px;
-  border-style: ridge;
-  border-color: rgba(65, 36, 13, 0.61);
-  height: 400px;
-  overflow-y: scroll;
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: bold;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin-top: 20vh;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-image: url('./assets/u0.jpg');
+	width: 50vw;
+	border-width: 8px;
+	border-style: ridge;
+	border-color: rgba(65, 36, 13, 0.61);
+	height: 400px;
+	overflow-y: scroll;
 }
 
 .itemSection {
-  width: 80%;
-  margin-left: 9%;
-  margin-right: 9%;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 5px;
-  border-color: black;
-  border-style: double;
+	width: 80%;
+	margin-left: 9%;
+	margin-right: 9%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 5px;
+	border-color: black;
+	border-style: double;
 }
 
 .closeDisplayItem {
-  font-family: 'Cinzel Decorative', cursive;
-  font-weight: bold;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
-  margin-top: 10px;
-  background-color: rgba(65, 36, 13, 0.61);
-  border-radius: 50%;
-  height: 22px;
-  width: 22px;
-  text-align: center;
-  padding: auto;
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: bold;
+	position: absolute;
+	right: 0;
+	margin-right: 10px;
+	margin-top: 10px;
+	background-color: rgba(65, 36, 13, 0.61);
+	border-radius: 50%;
+	height: 22px;
+	width: 22px;
+	text-align: center;
+	padding: auto;
 }
 
 .closeDisplayItem:hover {
-  color: white;
+	color: white;
 }
 
 .treasureHordeContainer {
-  margin-top: 15px;
+	margin-top: 15px;
 }
 
 .Elvish {
-  font-size: 80px;
-  font-family: Elvish, sans-serif;
-  font-weight: bold;
-  background-image: url('../src/assets/wood.jpg');
-  background-size: cover;
-  border-style: double;
-  width: 30vw;
-  margin: auto;
-  padding: 10px;
-  color: rgba(3, 43, 3, 0.781);
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
+	font-size: 80px;
+	font-family: Elvish, sans-serif;
+	font-weight: bold;
+	background-image: url('../src/assets/wood.jpg');
+	background-size: cover;
+	border-style: double;
+	width: 30vw;
+	margin: auto;
+	padding: 10px;
+	color: rgba(3, 43, 3, 0.781);
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
 }
 
 .Dwarven {
-  font-size: 80px;
-  font-family: Dwarven, sans-serif;
-  background-image: url('../src/assets/coals.jpg');
-  background-size: cover;
-  border-style: double;
-  width: 30vw;
-  margin: auto;
-  padding: 10px;
-  text-shadow:
- 0px -2px 4px #fff,
- 0px -2px 10px #FF3,
- 0px -10px 20px #F90,
- 0px -20px 40px #C33;
-  color: 	#9C7C38;
+	font-size: 80px;
+	font-family: Dwarven, sans-serif;
+	background-image: url('../src/assets/coals.jpg');
+	background-size: cover;
+	border-style: double;
+	width: 30vw;
+	margin: auto;
+	padding: 10px;
+	text-shadow: 0px -2px 4px #fff, 0px -2px 10px #ff3, 0px -10px 20px #f90, 0px -20px 40px #c33;
+	color: #9c7c38;
 }
 
 .Draconic {
-  font-size: 80px;
-  font-family: Draconic, sans-serif;
-  font-weight: bold;
-  background-image: url('../src/assets/earth.jpg');
-  background-size: cover;
-  border-style: double;
-  width: 30vw;
-  margin: auto;
-  padding: 10px;
-  color: rgba(0, 0, 0, 0.486);
-  text-shadow: 2px 2px 3px rgba(73, 29, 3, 0.877);
+	font-size: 80px;
+	font-family: Draconic, sans-serif;
+	font-weight: bold;
+	background-image: url('../src/assets/earth.jpg');
+	background-size: cover;
+	border-style: double;
+	width: 30vw;
+	margin: auto;
+	padding: 10px;
+	color: rgba(0, 0, 0, 0.486);
+	text-shadow: 2px 2px 3px rgba(73, 29, 3, 0.877);
 }
 
 .Abyssal {
-  font-size: 80px;
-  font-family: Abyssal, sans-serif;
-  font-weight: bold;
-  background-image: url('../src/assets/black-stone.jpg');
-  background-size: cover;
-  border-style: double;
-  border-width: 4px;
-  width: 30vw;
-  margin: auto;
-  padding: 10px;
-  text-shadow:
-  0px -2px 4px #fff,
-  0px -2px 10px #FF3,
-  0px -10px 20px #F90,
-  0px -20px 40px #C33;
+	font-size: 80px;
+	font-family: Abyssal, sans-serif;
+	font-weight: bold;
+	background-image: url('../src/assets/black-stone.jpg');
+	background-size: cover;
+	border-style: double;
+	border-width: 4px;
+	width: 30vw;
+	margin: auto;
+	padding: 10px;
+	text-shadow: 0px -2px 4px #fff, 0px -2px 10px #ff3, 0px -10px 20px #f90, 0px -20px 40px #c33;
 }
 
 .customButton {
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
-  background-color: rgba(206, 193, 193, 0.288);
-  margin: 5px;
-  padding: 5px;
-  box-shadow: 2px 2px 4px black;
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
+	background-color: rgba(206, 193, 193, 0.288);
+	margin: 5px;
+	padding: 5px;
+	box-shadow: 2px 2px 4px black;
 }
 
-
 .customButton:hover {
-  box-shadow: 2px 2px 8px black;
-  font-weight: bold;
+	box-shadow: 2px 2px 8px black;
+	font-weight: bold;
 }
 
 .buttonSpacer {
-  height: 35px;
-  margin: 10px;
-  padding-bottom: 5px;
+	height: 35px;
+	margin: 10px;
+	padding-bottom: 5px;
 }
 
 .visible {
-  background-image: url('./assets//u0.jpg');
-  margin: 0 auto;
-  padding: 2px;
-  border-radius: 2px;
-  width: 92vw;
-  height: 84vh;
-  overflow-y: auto;
-  transition: 1s;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
-  animation: fadein 2s;
+	background-image: url('./assets//u0.jpg');
+	margin: 0 auto;
+	padding: 2px;
+	border-radius: 2px;
+	width: 92vw;
+	height: 84vh;
+	overflow-y: auto;
+	transition: 1s;
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 2s; /* Firefox < 16 */
+	-ms-animation: fadein 2s; /* Internet Explorer */
+	-o-animation: fadein 2s; /* Opera < 12.1 */
+	animation: fadein 2s;
 }
 
 .invisible {
-  background-image: url('./assets//u0.jpg');
-  margin: 0 auto;
-  padding: 0px;
-  border-radius: 2px;
-  width: 0;
-  height: 0;
-  overflow-y: auto;
-  transition: 1s;
+	background-image: url('./assets//u0.jpg');
+	margin: 0 auto;
+	padding: 0px;
+	border-radius: 2px;
+	width: 0;
+	height: 0;
+	overflow-y: auto;
+	transition: 1s;
 }
 
 #individualLoot {
-  width: 345px;
+	width: 345px;
 }
 
 #translation {
-  width: 36vw;
+	width: 36vw;
 }
 
 #treasureLoot {
-  width: 43.4vw;
+	width: 43.4vw;
 }
 
 #npc {
-  width: 30vw;
+	width: 30vw;
 }
 
 #worldShakingEvent {
-  width: 30vw;
+	width: 30vw;
 }
 
 /* #monster {
@@ -703,846 +738,929 @@ div {
 } */
 
 #worldMap {
-  height: 600px;
-  width: 1200px;
+	height: 600px;
+	width: 1200px;
 }
 
 .mapImage {
-  height: 570px;
-  width: 1100px
+	height: 570px;
+	width: 1100px;
 }
 
 #gridMap {
-  height: 1080px;
-  width: 1080px;
-  float: left;
+	height: 1080px;
+	width: 1080px;
+	float: left;
 }
 
 #gridControls {
-  float: left;
-  width: 260px;
-  margin-left: 10px;
-  border: 2px solid black;
+	float: left;
+	width: 260px;
+	margin-left: 10px;
+	border: 2px solid black;
 }
 
 #equipmentDiv {
-  width: 550px;
+	width: 550px;
 }
 
 #merchantDiv {
-  width: 1425px;
+	width: 1425px;
 }
 
 #soundDiv {
-  width: 800px;
+	width: 800px;
 }
 
 #settlementGeneratorDiv {
-  padding-left: 10px;
-  padding-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .squareModal {
-  height: 55px;
-  width: 250px;
-  background-image: url('./assets/u0.jpg');
-  border-style: ridge;
-  border-width: 8px;
-  border-color: rgba(65, 36, 13, 0.61);
-  position: absolute;
-  margin-top: 300px;
-  margin-left: 450px;
+	height: 55px;
+	width: 250px;
+	background-image: url('./assets/u0.jpg');
+	border-style: ridge;
+	border-width: 8px;
+	border-color: rgba(65, 36, 13, 0.61);
+	position: absolute;
+	margin-top: 300px;
+	margin-left: 450px;
 }
 
 .draggable {
-  height: 42px;
-  width: 42px;
-  border-style: solid;
-  background-color: black;
-  border-color: black;
-  border-top-color: grey;
-  border-width: 4px;
-  border-radius: 50%;
-  position: absolute;
-  font-size: 32px;
-  color: white;
+	height: 42px;
+	width: 42px;
+	border-style: solid;
+	background-color: black;
+	border-color: black;
+	border-top-color: grey;
+	border-width: 4px;
+	border-radius: 50%;
+	position: absolute;
+	font-size: 32px;
+	color: white;
 }
 
 #tiny {
-  height: 25px;
-  width: 25px;
-  font-size: 24px;
+	height: 25px;
+	width: 25px;
+	font-size: 24px;
 }
 
 #large {
-  height: 100px;
-  width: 100px;
-  font-size: 78px;
+	height: 100px;
+	width: 100px;
+	font-size: 78px;
 }
 
 #huge {
-  height: 150px;
-  width: 150px;
-  font-size: 130px;
+	height: 150px;
+	width: 150px;
+	font-size: 130px;
 }
 
 #gargantuan {
-  height: 200px;
-  width: 200px;
-  font-size: 180px;
+	height: 200px;
+	width: 200px;
+	font-size: 180px;
 }
 
 #gridIcons {
-  width: 400px;
+	width: 400px;
 }
 
 .square {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
 }
 
 .terrainWallH {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/container-storage.svg');
-  background-color: grey;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/container-storage.svg');
+	background-color: grey;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainWallV {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/container-storage.svg');
-  background-color: grey;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  transform: rotate(90deg);
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/container-storage.svg');
+	background-color: grey;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	transform: rotate(90deg);
 }
 
 .terrainWater {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/water.svg');
-  background-color: rgb(137, 137, 231);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/water.svg');
+	background-color: rgb(137, 137, 231);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainDoorH {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/dungeon.svg');
-  background-color: grey;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/dungeon.svg');
+	background-color: grey;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainDoorV {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/dungeon.svg');
-  background-color: grey;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  transform: rotate(90deg);
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/dungeon.svg');
+	background-color: grey;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	transform: rotate(90deg);
 }
 
 .terrainTrap {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/times-circle.svg');
-  background-color: rgb(212, 20, 20);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/times-circle.svg');
+	background-color: rgb(212, 20, 20);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainTreasure {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/treasure-chest.svg');
-  background-color: rgb(139,69,19);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/treasure-chest.svg');
+	background-color: rgb(139, 69, 19);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainLava {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/water.svg');
-  background-color: rgb(243, 17, 17);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/water.svg');
+	background-color: rgb(243, 17, 17);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainForest {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/trees.svg');
-  background-color: green;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/trees.svg');
+	background-color: green;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainSwamp {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/tree-alt.svg');
-  background-color: rgb(83, 80, 80);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/light/tree-alt.svg');
+	background-color: rgb(83, 80, 80);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainGrass {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/leaf.svg');
-  background-color: green;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/leaf.svg');
+	background-color: green;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainSnow {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/snowflakes.svg');
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/regular/snowflakes.svg');
+	background-color: white;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 .terrainMountain {
-  height: 50px;
-  width: 50px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  float: left;
-  background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/mountains.svg');
-  background-color: lightgray;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+	height: 50px;
+	width: 50px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	float: left;
+	background-image: url('./assets/fontawesome-pro-5.6.3-web/svgs/solid/mountains.svg');
+	background-color: lightgray;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 #terrainButtons {
-  background-color: unset;
-  float: unset;
-  display: inline-block;
-  margin: 2px;
+	background-color: unset;
+	float: unset;
+	display: inline-block;
+	margin: 2px;
 }
 
 #terrainSelected {
-  float: unset;
-  display: inline-block;
-  margin: 2px;
-  background-color: grey;
+	float: unset;
+	display: inline-block;
+	margin: 2px;
+	background-color: grey;
 }
 
 .gridButtons {
-  float: unset;
-  margin: 0 auto;
+	float: unset;
+	margin: 0 auto;
 }
 
 .save {
-  width: 34px;
-  margin: 0 auto;
-  background-color: rgb(240, 33, 33);
-  border-radius: 10px;
+	width: 34px;
+	margin: 0 auto;
+	background-color: rgb(240, 33, 33);
+	border-radius: 10px;
 }
 
 .save:hover {
-  background-color: whitesmoke;
+	background-color: whitesmoke;
 }
 
 .off {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  background-color: red;
-  border-radius: 50%;
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+	border-radius: 50%;
 }
 
 .on {
-  position: absolute;
-  height: 500px;
-  width: 500px;
-  background-image: radial-gradient(rgba(255, 0, 0, 0.562), rgba(255, 166, 0, 0.534), rgba(255, 255, 0, 0.534));
-  border-radius: 50%;
+	position: absolute;
+	height: 500px;
+	width: 500px;
+	background-image: radial-gradient(rgba(255, 0, 0, 0.562), rgba(255, 166, 0, 0.534), rgba(255, 255, 0, 0.534));
+	border-radius: 50%;
 }
 
 .monsterDetails {
-  font-family: 'Cinzel Decorative', cursive;
-  font-weight: bold;
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: bold;
 }
 
 .plaque {
-  background-image: url('./assets/brass.jpg');
-  font-size: 28px;
-  margin: 10px;
-  border-color: black;
-  border-style: double;
+	background-image: url('./assets/brass.jpg');
+	font-size: 28px;
+	margin: 10px;
+	border-color: black;
+	border-style: double;
 }
 
 .icon {
-  height: 25px;
-  width: 25px;
+	height: 25px;
+	width: 25px;
 }
 
 .iconInfo {
-  border-style: double;
-  border-color: black;
-  margin: 10px;
-  height: 50px;
+	border-style: double;
+	border-color: black;
+	margin: 10px;
+	height: 50px;
 }
 
 #iconInfoLarge {
-  height: 108px;
+	height: 108px;
 }
 
 #iconInfoHuge {
-  height: 158px;
+	height: 158px;
 }
 
 #iconInfoGargantuan {
-  height: 208px;
+	height: 208px;
 }
 
 .removeIcon {
-  margin-top: 14px;
+	margin-top: 14px;
 }
 
 #attack {
-  position: relative;
-  left: 0;
+	position: relative;
+	left: 0;
 }
 
 .monsterGrouping {
-  font-family: 'Marcellus SC', serif;
-  background-image: url('./assets/u0.jpg');
-  border-color: black;
-  border-style: double;
-  margin: 10px;
+	font-family: 'Marcellus SC', serif;
+	background-image: url('./assets/u0.jpg');
+	border-color: black;
+	border-style: double;
+	margin: 10px;
 }
 
 .scrollDiv {
-  padding: 5px;
-  border-color: black;
-  border-style: double;
-  margin: 10px;
-  overflow-y: auto;
-  height: 255px;
+	padding: 5px;
+	border-color: black;
+	border-style: double;
+	margin: 10px;
+	overflow-y: auto;
+	height: 255px;
 }
 
 .merchantOptions {
-  float: left;
-  width: 475px;
+	float: left;
+	width: 475px;
 }
 
 .merchantPending {
-  float: left;
-  width: 450px;
+	float: left;
+	width: 450px;
 }
 
 .merchantItem {
-  background-color: rgba(168, 161, 161, 0.479);
-  margin-top: 2px;
-  border-style: outset;
-  height: 30px;
-  margin: 2px;
-  margin-left: 5px;
-  margin-right: 5px;
-
+	background-color: rgba(168, 161, 161, 0.479);
+	margin-top: 2px;
+	border-style: outset;
+	height: 30px;
+	margin: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .merchantItem:hover {
-  border-style: inset;
+	border-style: inset;
+}
+
+.conversion {
+	border: 2px solid black;
+	margin: 5px;
+	padding: 2px;
 }
 
 .woodSign {
-  background-image: url('./assets/sign.jpg');
-  border: 2px solid black;
-  margin: 2px;
-  margin-left: 5px;
-  margin-right: 5px;
-  height: 30px;
+	background-image: url('./assets/sign.jpg');
+	border: 2px solid black;
+	margin: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 30px;
 }
 
 .red {
-  color: red;
+	color: red;
 }
 
 .soundSection {
-  border-style: double;
-  border-color: black;
-  margin: 2px;
-  padding: 8px;
+	border-style: double;
+	border-color: black;
+	margin: 2px;
+	padding: 8px;
 }
 
 .soundTitle {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
 
 .soundButton {
-  border-style: outset;
-  padding: 2px;
+	border-style: outset;
+	padding: 2px;
 }
 
 .soundButton:hover {
-  border-style: inset;
+	border-style: inset;
 }
 
 .checkboxDiv {
-  text-align: left;
-  margin-left: 43vw;
+	text-align: left;
+	margin-left: 43vw;
 }
 
 .customSelect {
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
-  background: tan url('../src/assets//u0.jpg') repeat-x 0 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-color: black;
-  border-style: double;
-  margin: 5px;
-  padding: 5px;
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
+	background: tan url('../src/assets//u0.jpg') repeat-x 0 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-color: black;
+	border-style: double;
+	margin: 5px;
+	padding: 5px;
 }
 
 #characterCreation {
-  background-image: url('./assets/u0.jpg');
-  width: 1200px;
-  margin: 0 auto;
-  margin-top: 10px;
-  padding: 10px;
+	background-image: url('./assets/u0.jpg');
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 10px;
 }
 
 #features {
-  width: 1120px;
+	width: 1120px;
 }
 
 .basicBorder {
-  border: 1px solid black;
-  margin: 0 auto;
-  width: 400px;
+	border: 1px solid black;
+	margin: 0 auto;
+	width: 400px;
 }
 
-table, th, td {
-  border-collapse: collapse;
+table,
+th,
+td {
+	border-collapse: collapse;
 }
 
 .tableHeader {
-  background-color: rgb(240, 33, 33);
-  color: white;
-  font-family: Dungeon, sans-serif;
-  font-size: 28px;
+	background-color: rgb(240, 33, 33);
+	color: white;
+	font-family: Dungeon, sans-serif;
+	font-size: 28px;
 }
 
 .proficiencyTable {
-  border: 1px black solid;
+	border: 1px black solid;
 }
 
 .profRow {
-  border: 1px black solid;
+	border: 1px black solid;
 }
 
 .monsterAction {
-  font-size: 10px;
+	font-size: 10px;
 }
 
 #descScroll {
-  font-size: 10px;
+	font-size: 10px;
 }
 
 table {
-  margin: 0 auto;
-  overflow-y: auto;
+	margin: 0 auto;
+	overflow-y: auto;
 }
 
-th, td {
-  padding: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
+th,
+td {
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
-.tableRow1, .tableRow3, .tableRow5, .tableRow7, .tableRow9, .tableRow11, .tableRow13, .tableRow15, .tableRow17, .tableRow19 {
-  background-color: rgb(190, 184, 184);
+.tableRow1,
+.tableRow3,
+.tableRow5,
+.tableRow7,
+.tableRow9,
+.tableRow11,
+.tableRow13,
+.tableRow15,
+.tableRow17,
+.tableRow19 {
+	background-color: rgb(190, 184, 184);
 }
 
-.tableRow2, .tableRow4, .tableRow6, .tableRow8, .tableRow10, .tableRow12, .tableRow14, .tableRow16, .tableRow18, .tableRow20 {
-  background-color: white;
+.tableRow2,
+.tableRow4,
+.tableRow6,
+.tableRow8,
+.tableRow10,
+.tableRow12,
+.tableRow14,
+.tableRow16,
+.tableRow18,
+.tableRow20 {
+	background-color: white;
 }
 
 #tableRow:hover {
-  background-color: black;
-  color: white;
-  font-weight: bold;
+	background-color: black;
+	color: white;
+	font-weight: bold;
 }
 
 .statContainer {
-  width: 100%;
+	width: 100%;
 }
 
 .statDiv {
-  display: inline-block;
+	display: inline-block;
 }
 
 .hexagon {
-  position: relative;
-  width: 80px; 
-  height: 46.19px;
-  background-color: rgb(240, 33, 33);
-  margin: 23.09px 0;
-  margin-right: 15px;
-  border-left: solid 1px #000000;
-  border-right: solid 1px #000000;
-  float: left;
-  transition: transform 1.5s;
+	position: relative;
+	width: 80px;
+	height: 46.19px;
+	background-color: rgb(240, 33, 33);
+	margin: 23.09px 0;
+	margin-right: 15px;
+	border-left: solid 1px #000000;
+	border-right: solid 1px #000000;
+	float: left;
+	transition: transform 1.5s;
 }
 
 .hexagon:before,
 .hexagon:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 56.57px;
-  height: 56.57px;
-  -webkit-transform: scaleY(0.5774) rotate(-45deg);
-  -ms-transform: scaleY(0.5774) rotate(-45deg);
-  transform: scaleY(0.5774) rotate(-45deg);
-  background-color: inherit;
-  left: 10.7157px;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	width: 56.57px;
+	height: 56.57px;
+	-webkit-transform: scaleY(0.5774) rotate(-45deg);
+	-ms-transform: scaleY(0.5774) rotate(-45deg);
+	transform: scaleY(0.5774) rotate(-45deg);
+	background-color: inherit;
+	left: 10.7157px;
 }
 
 .hexagon:before {
-  top: -28.2843px;
-  border-top: solid 1.4142px #000000;
-  border-right: solid 1.4142px #000000;
+	top: -28.2843px;
+	border-top: solid 1.4142px #000000;
+	border-right: solid 1.4142px #000000;
 }
 
 .hexagon:after {
-  bottom: -28.2843px;
-  border-bottom: solid 1.4142px #000000;
-  border-left: solid 1.4142px #000000;
+	bottom: -28.2843px;
+	border-bottom: solid 1.4142px #000000;
+	border-left: solid 1.4142px #000000;
 }
 
 .hexagon-text {
-  font-family: 'Marcellus SC', serif;
-  font-size: 12px;
-  color: white;
-  position: absolute;
-  z-index: 1000;
-  margin: 0 auto;
-  width: 100%;
-  top: 5px;
+	font-family: 'Marcellus SC', serif;
+	font-size: 12px;
+	color: white;
+	position: absolute;
+	z-index: 1000;
+	margin: 0 auto;
+	width: 100%;
+	top: 5px;
 }
 
 .hexagon:hover {
-  transform: rotate(360deg);
+	transform: rotate(360deg);
 }
 
 .hexagon:hover > .hexagon-text {
-  opacity:0;
-  z-index: -1000;
+	opacity: 0;
+	z-index: -1000;
 }
 
 #spin {
-  -webkit-animation:spin .8s linear forwards;
-  -moz-animation:spin .8s linear forwards;
-  animation:spin .8s linear forwards;
+	-webkit-animation: spin .8s linear forwards;
+	-moz-animation: spin .8s linear forwards;
+	animation: spin .8s linear forwards;
 }
 
 #spinRev {
-  -webkit-animation:spinRev .8s linear forwards;
-  -moz-animation:spinRev .8s linear forwards;
-  animation:spinRev .8s linear forwards;
+	-webkit-animation: spinRev .8s linear forwards;
+	-moz-animation: spinRev .8s linear forwards;
+	animation: spinRev .8s linear forwards;
 }
 
 .hexagonBlack {
-  position: relative;
-  width: 80px; 
-  height: 46.19px;
-  background-color: rgb(0, 0, 0);
-  margin: 23.09px 0;
-  margin-right: 15px;
-  border-left: solid 1px #ffffff;
-  border-right: solid 1px #ffffff;
-  float: left;
-  margin-left: 10px;
-  z-index: 1;
+	position: relative;
+	width: 80px;
+	height: 46.19px;
+	background-color: rgb(0, 0, 0);
+	margin: 23.09px 0;
+	margin-right: 15px;
+	border-left: solid 1px #ffffff;
+	border-right: solid 1px #ffffff;
+	float: left;
+	margin-left: 10px;
+	z-index: 1;
 }
 
 .hexagonBlack:before,
 .hexagonBlack:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 56.57px;
-  height: 56.57px;
-  -webkit-transform: scaleY(0.5774) rotate(-45deg);
-  -ms-transform: scaleY(0.5774) rotate(-45deg);
-  transform: scaleY(0.5774) rotate(-45deg);
-  background-color: inherit;
-  left: 10.7157px;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	width: 56.57px;
+	height: 56.57px;
+	-webkit-transform: scaleY(0.5774) rotate(-45deg);
+	-ms-transform: scaleY(0.5774) rotate(-45deg);
+	transform: scaleY(0.5774) rotate(-45deg);
+	background-color: inherit;
+	left: 10.7157px;
 }
 
 .hexagonBlack:before {
-  top: -28.2843px;
-  border-top: solid 1.4142px #ffffff;
-  border-right: solid 1.4142px #ffffff;
+	top: -28.2843px;
+	border-top: solid 1.4142px #ffffff;
+	border-right: solid 1.4142px #ffffff;
 }
 
 .hexagonBlack:after {
-  bottom: -28.2843px;
-  border-bottom: solid 1.4142px #ffffff;
-  border-left: solid 1.4142px #ffffff;
+	bottom: -28.2843px;
+	border-bottom: solid 1.4142px #ffffff;
+	border-left: solid 1.4142px #ffffff;
 }
 
 .hexagonBlack-text {
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
-  color: white;
-  position: absolute;
-  z-index: 1000;
-  margin: 0 auto;
-  width: 100%;
-  top: 10px;
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
+	color: white;
+	position: absolute;
+	z-index: 1000;
+	margin: 0 auto;
+	width: 100%;
+	top: 10px;
 }
 
 #fadeIn {
-  overflow-x: hidden;
-  overflow-y: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 .createQuest {
-  width: 350px;
-  border: 2px solid black;
-  margin-right: 20px;
+	width: 350px;
+	border: 2px solid black;
+	margin-right: 20px;
 }
 
 #questCreation {
-  width: 350px;
-  float: left;
+	width: 350px;
+	float: left;
 }
 
 .descriptionArea {
-  height: 120px;
-  width: 340px;
-  resize: none;
+	height: 120px;
+	width: 340px;
+	resize: none;
 }
 
 .questText {
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  display: inline-block;
-  margin-top: 2px;
-  margin-bottom: 15px;
-  margin-right: 10px;
-  width: 135px;
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	display: inline-block;
+	margin-top: 2px;
+	margin-bottom: 15px;
+	margin-right: 10px;
+	width: 135px;
 }
 
 .questDisplay {
-  width: 1000px;
-  border: 2px solid black;
-  height: 84vh;
-  overflow-y: auto;
+	width: 1000px;
+	border: 2px solid black;
+	height: 84vh;
+	overflow-y: auto;
 }
 
 .groupQuest {
-  border: 2px inset;
-  margin: 5px;
+	border: 2px inset;
+	margin: 5px;
 }
 
 #questTracker {
-  width: 97vw;
+	width: 97vw;
 }
 
 .questReward {
-  height: 350px;
-  width: 350px;
-  display: inline-block;
-  border: 2px solid black;
+	height: 350px;
+	width: 350px;
+	display: inline-block;
+	border: 2px solid black;
 }
 
 .questSection {
-  float: left;
-  width: 1200px;
+	float: left;
+	width: 1200px;
 }
 
 .questTables {
-  float: left;
-  width: 180px;
-  margin: 10px;
-  font-family: 'Marcellus SC', serif;
+	float: left;
+	width: 180px;
+	margin: 10px;
+	font-family: 'Marcellus SC', serif;
 }
 
 #questHeader {
-  background-color: rgb(240, 33, 33);
-  color: whitesmoke;
-  font-family: 'Marcellus SC', serif;
+	background-color: rgb(240, 33, 33);
+	color: whitesmoke;
+	font-family: 'Marcellus SC', serif;
 }
 
 .questSelected {
-  background-image: url('./assets/u0.jpg');
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
-  border-style: outset;
-  width: 500px;
-  height: 250px;
-  padding: 10px;
-  overflow-y: auto;
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  z-index: 1;
+	background-image: url('./assets/u0.jpg');
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
+	border-style: outset;
+	width: 500px;
+	height: 250px;
+	padding: 10px;
+	overflow-y: auto;
+	position: absolute;
+	top: 50%;
+	left: 35%;
+	z-index: 1;
 }
 
 #questSelect:hover {
-  background-color: black;
-  color: whitesmoke;
+	background-color: black;
+	color: whitesmoke;
 }
 
 .quest {
-  border: 2px solid black;
-  margin: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 5px;
+	border: 2px solid black;
+	margin: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 5px;
 }
 
 .questDesc {
-  height: 60px;
-  overflow-y: auto;
+	height: 60px;
+	overflow-y: auto;
 }
 
-.questRewardTable{
-  height: 60px;
-  overflow-y: auto;
+.questRewardTable {
+	height: 60px;
+	overflow-y: auto;
 }
 
 .rewardTable {
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Marcellus SC', serif;
-  font-size: 18px;
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Marcellus SC', serif;
+	font-size: 18px;
 }
 
 .numberInput {
-  width: 40px;
+	width: 40px;
 }
 
 @-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909, 0 0 60px #0f5f13, 0 0 70px #125017;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #136610, 0 0 40px #19860a, 0 0 50px #0b6b13, 0 0 60px #138018, 0 0 70px #137e05, 0 0 80px #0b9b12;
-  }
+	from {
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909,
+			0 0 60px #0f5f13, 0 0 70px #125017;
+	}
+	to {
+		text-shadow: 0 0 20px #fff, 0 0 30px #136610, 0 0 40px #19860a, 0 0 50px #0b6b13, 0 0 60px #138018,
+			0 0 70px #137e05, 0 0 80px #0b9b12;
+	}
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
 
 @keyframes spinRev {
-	0%  {transform: rotate(360deg);}
-  100% {transform: rotate(0deg);}	
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
 }
 
 @-webkit-keyframes GradientAnimation {
-  0%{background-position:51% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:51% 0%}
+	0% {
+		background-position: 51% 0%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 51% 0%;
+	}
 }
 @-moz-keyframes GradientAnimation {
-  0%{background-position:51% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:51% 0%}
+	0% {
+		background-position: 51% 0%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 51% 0%;
+	}
 }
-@keyframes GradientAnimation { 
-  0%{background-position:51% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:51% 0%}
+@keyframes GradientAnimation {
+	0% {
+		background-position: 51% 0%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 51% 0%;
+	}
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }

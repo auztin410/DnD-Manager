@@ -1085,11 +1085,21 @@ class Merchant extends Component {
 						<p>
 							Count: {this.state.item.Count} | Weight: {this.state.item.Weight}
 						</p>
-						{this.state.conversion.CP != null ? <span>{this.state.conversion.CP} CP</span> : null}
-						{this.state.conversion.SP != null ? <span>{this.state.conversion.SP} SP</span> : null}
-						{this.state.conversion.EP != null ? <span>{this.state.conversion.EP} EP</span> : null}
-						{this.state.conversion.GP != null ? <span>{this.state.conversion.GP} GP</span> : null}
-						{this.state.conversion.PP != null ? <span>{this.state.conversion.PP} PP</span> : null}
+						{this.state.conversion.CP != null ? (
+							<span className="conversion">{this.state.conversion.CP} CP</span>
+						) : null}
+						{this.state.conversion.SP != null ? (
+							<span className="conversion">{this.state.conversion.SP} SP</span>
+						) : null}
+						{this.state.conversion.EP != null ? (
+							<span className="conversion">{this.state.conversion.EP} EP</span>
+						) : null}
+						{this.state.conversion.GP != null ? (
+							<span className="conversion">{this.state.conversion.GP} GP</span>
+						) : null}
+						{this.state.conversion.PP != null ? (
+							<span className="conversion">{this.state.conversion.PP} PP</span>
+						) : null}
 					</div>
 				) : null}
 				{/* <div className="merchantPending">
