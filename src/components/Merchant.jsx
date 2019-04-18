@@ -21,6 +21,7 @@ class Merchant extends Component {
 			yourGP: 50,
 			yourPP: 1,
 			purchased: [],
+			quantity: 1,
 			vendorEquipment: Equipment,
 			vendorWeapons: WeaponsList,
 			vendorArmor: Armor,
@@ -45,12 +46,19 @@ class Merchant extends Component {
 			// vendorTackHarnessVehicle: [],
 			// vendorShips: [],
 		};
+		this.handleChange = this.handleChange.bind(this);
 		this.handleMerchantEquipment = this.handleMerchantEquipment.bind(this);
 		this.handleRemoveFromPending = this.handleRemoveFromPending.bind(this);
 		this.handleMerchantPurchase = this.handleMerchantPurchase.bind(this);
 		this.handleVendorSections = this.handleVendorSections.bind(this);
 		this.handleConversion = this.handleConversion.bind(this);
 		this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
 	}
 
 	getSum(total, num) {
@@ -1083,23 +1091,34 @@ class Merchant extends Component {
 						</span>
 						<h2>{this.state.item.Name}</h2>
 						<p>
-							Count: {this.state.item.Count} | Weight: {this.state.item.Weight}
+							Count: {this.state.item.Count * this.state.quantity} | Weight:{' '}
+							{this.state.item.Weight * this.state.quantity}
 						</p>
 						{this.state.conversion.CP != null ? (
-							<span className="conversion">{this.state.conversion.CP} CP</span>
+							<span className="conversion">{this.state.conversion.CP * this.state.quantity} CP</span>
 						) : null}
 						{this.state.conversion.SP != null ? (
-							<span className="conversion">{this.state.conversion.SP} SP</span>
+							<span className="conversion">{this.state.conversion.SP * this.state.quantity} SP</span>
 						) : null}
 						{this.state.conversion.EP != null ? (
-							<span className="conversion">{this.state.conversion.EP} EP</span>
+							<span className="conversion">{this.state.conversion.EP * this.state.quantity} EP</span>
 						) : null}
 						{this.state.conversion.GP != null ? (
-							<span className="conversion">{this.state.conversion.GP} GP</span>
+							<span className="conversion">{this.state.conversion.GP * this.state.quantity} GP</span>
 						) : null}
 						{this.state.conversion.PP != null ? (
-							<span className="conversion">{this.state.conversion.PP} PP</span>
+							<span className="conversion">{this.state.conversion.PP * this.state.quantity} PP</span>
 						) : null}
+						<br />
+						<div className="quantity">
+							<input
+								name="quantity"
+								onChange={this.handleChange}
+								className="quantityInput"
+								type="number"
+								value={this.state.quantity}
+							/>
+						</div>
 					</div>
 				) : null}
 				{/* <div className="merchantPending">

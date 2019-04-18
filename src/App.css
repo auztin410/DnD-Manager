@@ -1145,9 +1145,21 @@ div {
 }
 
 .conversion {
-	border: 2px solid black;
+	border: 2px outset;
 	margin: 5px;
-	padding: 2px;
+	padding: 5px;
+}
+
+.conversion:hover {
+	border: 2px inset;
+}
+
+.quantity {
+	margin-top: 25px;
+}
+
+.quantityInput {
+	width: 50px;
 }
 
 .woodSign {
