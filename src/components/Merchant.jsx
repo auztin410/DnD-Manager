@@ -53,12 +53,22 @@ class Merchant extends Component {
 		this.handleVendorSections = this.handleVendorSections.bind(this);
 		this.handleConversion = this.handleConversion.bind(this);
 		this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
+		this.showConversionCP = this.showConversionCP.bind(this);
+		this.showConversionSP = this.showConversionSP.bind(this);
+		this.showConversionEP = this.showConversionEP.bind(this);
+		this.showConversionGP = this.showConversionGP.bind(this);
+		this.showConversionPP = this.showConversionPP.bind(this);
 	}
 
 	handleChange(event) {
-		this.setState({
-			[event.target.name]: event.target.value
-		});
+		this.setState(
+			{
+				[event.target.name]: event.target.value
+			},
+			() => {
+				this.handleConversion(this.state.item);
+			}
+		);
 	}
 
 	getSum(total, num) {
@@ -434,21 +444,71 @@ class Merchant extends Component {
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
 			case 'GP':
-				copper = cost * 100;
-				silver = cost * 10;
-				electrum = cost * 2;
-				gold = cost;
-				platinum = cost / 10;
+				copper = cost * 100 * this.state.quantity;
+				silver = cost * 10 * this.state.quantity;
+				electrum = cost * 2 * this.state.quantity;
+				gold = cost * this.state.quantity;
+				platinum = cost / 10 * this.state.quantity;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
 			case 'PP':
-				copper = cost * 1000;
-				silver = cost * 100;
-				electrum = cost * 20;
-				gold = cost * 10;
-				platinum = cost;
+				copper = cost * 1000 * this.state.quantity;
+				silver = cost * 100 * this.state.quantity;
+				electrum = cost * 20 * this.state.quantity;
+				gold = cost * 10 * this.state.quantity;
+				platinum = cost * this.state.quantity;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
+		}
+	}
+
+	showConversionCP() {
+		if (this.state.conversion.CP != null && this.state.conversion.CP >= this.state.yourCP) {
+			return <span className="conversionRed">{this.state.conversion.CP} CP</span>;
+		} else if (this.state.conversion.CP != null) {
+			return <span className="conversion">{this.state.conversion.CP} CP</span>;
+		} else {
+			return null;
+		}
+	}
+
+	showConversionSP() {
+		if (this.state.conversion.SP != null && this.state.conversion.SP >= this.state.yourSP) {
+			return <span className="conversionRed">{this.state.conversion.SP} SP</span>;
+		} else if (this.state.conversion.SP != null) {
+			return <span className="conversion">{this.state.conversion.SP} SP</span>;
+		} else {
+			return null;
+		}
+	}
+
+	showConversionEP() {
+		if (this.state.conversion.EP != null && this.state.conversion.EP >= this.state.yourEP) {
+			return <span className="conversionRed">{this.state.conversion.EP} EP</span>;
+		} else if (this.state.conversion.EP != null) {
+			return <span className="conversion">{this.state.conversion.EP} EP</span>;
+		} else {
+			return null;
+		}
+	}
+
+	showConversionGP() {
+		if (this.state.conversion.GP != null && this.state.conversion.GP >= this.state.yourGP) {
+			return <span className="conversionRed">{this.state.conversion.GP} GP</span>;
+		} else if (this.state.conversion.GP != null) {
+			return <span className="conversion">{this.state.conversion.GP} GP</span>;
+		} else {
+			return null;
+		}
+	}
+
+	showConversionPP() {
+		if (this.state.conversion.PP != null && this.state.conversion.PP >= this.state.yourPP) {
+			return <span className="conversionRed">{this.state.conversion.PP} PP</span>;
+		} else if (this.state.conversion.PP != null) {
+			return <span className="conversion">{this.state.conversion.PP} PP</span>;
+		} else {
+			return null;
 		}
 	}
 
@@ -1094,7 +1154,12 @@ class Merchant extends Component {
 							Count: {this.state.item.Count * this.state.quantity} | Weight:{' '}
 							{this.state.item.Weight * this.state.quantity}
 						</p>
-						{this.state.conversion.CP != null ? (
+						{this.showConversionCP()}
+						{this.showConversionSP()}
+						{this.showConversionEP()}
+						{this.showConversionGP()}
+						{this.showConversionPP()}
+						{/* {this.state.conversion.CP != null ? (
 							<span className="conversion">{this.state.conversion.CP * this.state.quantity} CP</span>
 						) : null}
 						{this.state.conversion.SP != null ? (
@@ -1108,7 +1173,7 @@ class Merchant extends Component {
 						) : null}
 						{this.state.conversion.PP != null ? (
 							<span className="conversion">{this.state.conversion.PP * this.state.quantity} PP</span>
-						) : null}
+						) : null} */}
 						<br />
 						<div className="quantity">
 							<input

@@ -1150,6 +1150,13 @@ div {
 	padding: 5px;
 }
 
+.conversionRed {
+	border: 2px outset;
+	margin: 5px;
+	padding: 5px;
+	color: red;
+}
+
 .conversion:hover {
 	border: 2px inset;
 }
