@@ -1120,6 +1120,23 @@ div {
 	height: 255px;
 }
 
+#merchantGrid {
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+}
+
+.merchantLeft {
+	grid-area: 1 / 1 / span 1 / span 1;
+}
+
+.merchantMiddle {
+	grid-area: 1 / 2 / span 1 / span 1;
+}
+
+.merchantRight {
+	grid-area: 1 / 3 / span 1 / span 1;
+}
+
 .merchantOptions {
 	float: left;
 	width: 475px;
