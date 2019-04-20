@@ -76,8 +76,11 @@ class Merchant extends Component {
 	}
 
 	handleMerchantEquipment(item) {
+		let name = item.Name;
+		let found = Equipment.find((item) => (item.Name = name));
+		console.log(found);
 		this.setState({
-			item,
+			item: found,
 			merchantModal: true
 		});
 		console.log(item);
@@ -1184,6 +1187,7 @@ class Merchant extends Component {
 								value={this.state.quantity}
 							/>
 						</div>
+						<p>{this.state.item.Description}</p>
 					</div>
 				) : null}
 				{/* <div className="merchantPending">
