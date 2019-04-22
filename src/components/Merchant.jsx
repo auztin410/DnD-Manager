@@ -251,6 +251,7 @@ class Merchant extends Component {
 	}
 
 	handleConversion(item) {
+		console.log('Handle Conversion Triggered');
 		let cost = item.Cost;
 		let currency = item.Currency;
 
@@ -265,27 +266,27 @@ class Merchant extends Component {
 
 		switch (currency) {
 			case 'CP':
-				copper = cost;
-				silver = cost / 10;
-				electrum = cost / 50;
-				gold = cost / 100;
-				platinum = cost / 1000;
+				copper = cost * this.state.quantity;
+				silver = cost / 10 * this.state.quantity;
+				electrum = cost / 50 * this.state.quantity;
+				gold = cost / 100 * this.state.quantity;
+				platinum = cost / 1000 * this.state.quantity;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
 			case 'SP':
-				copper = cost * 10;
+				copper = cost * 10 * this.state.quantity;
 				silver = cost;
-				electrum = cost / 5;
-				gold = cost / 10;
-				platinum = cost / 100;
+				electrum = cost / 5 * this.state.quantity;
+				gold = cost / 10 * this.state.quantity;
+				platinum = cost / 100 * this.state.quantity;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
 			case 'EP':
-				copper = cost * 50;
-				silver = cost * 5;
-				electrum = cost;
-				gold = cost / 2;
-				platinum = cost / 20;
+				copper = cost * 50 * this.state.quantity;
+				silver = cost * 5 * this.state.quantity;
+				electrum = cost * this.state.quantity;
+				gold = cost / 2 * this.state.quantity;
+				platinum = cost / 20 * this.state.quantity;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
 				break;
 			case 'GP':
@@ -303,6 +304,9 @@ class Merchant extends Component {
 				gold = cost * 10 * this.state.quantity;
 				platinum = cost * this.state.quantity;
 				this.CheckIfEven(copper, silver, electrum, gold, platinum);
+				break;
+			default:
+				console.log('You done Broke it!');
 				break;
 		}
 	}
