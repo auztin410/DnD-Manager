@@ -56,6 +56,7 @@ class Merchant extends Component {
 		this.showConversionEP = this.showConversionEP.bind(this);
 		this.showConversionGP = this.showConversionGP.bind(this);
 		this.showConversionPP = this.showConversionPP.bind(this);
+		this.handlePurchase = this.handlePurchase.bind(this);
 	}
 
 	handleChange(event) {
@@ -315,7 +316,11 @@ class Merchant extends Component {
 		if (this.state.conversion.CP != null && this.state.conversion.CP >= this.state.yourCP) {
 			return <span className="conversionRed">{this.state.conversion.CP} CP</span>;
 		} else if (this.state.conversion.CP != null) {
-			return <span className="conversion">{this.state.conversion.CP} CP</span>;
+			return (
+				<span onClick={() => this.handlePurchase(this.state.conversion.CP, 'CP')} className="conversion">
+					{this.state.conversion.CP} CP
+				</span>
+			);
 		} else {
 			return null;
 		}
@@ -325,7 +330,11 @@ class Merchant extends Component {
 		if (this.state.conversion.SP != null && this.state.conversion.SP >= this.state.yourSP) {
 			return <span className="conversionRed">{this.state.conversion.SP} SP</span>;
 		} else if (this.state.conversion.SP != null) {
-			return <span className="conversion">{this.state.conversion.SP} SP</span>;
+			return (
+				<span onClick={() => this.handlePurchase(this.state.conversion.SP, 'SP')} className="conversion">
+					{this.state.conversion.SP} SP
+				</span>
+			);
 		} else {
 			return null;
 		}
@@ -335,7 +344,11 @@ class Merchant extends Component {
 		if (this.state.conversion.EP != null && this.state.conversion.EP >= this.state.yourEP) {
 			return <span className="conversionRed">{this.state.conversion.EP} EP</span>;
 		} else if (this.state.conversion.EP != null) {
-			return <span className="conversion">{this.state.conversion.EP} EP</span>;
+			return (
+				<span onClick={() => this.handlePurchase(this.state.conversion.EP, 'EP')} className="conversion">
+					{this.state.conversion.EP} EP
+				</span>
+			);
 		} else {
 			return null;
 		}
@@ -345,7 +358,11 @@ class Merchant extends Component {
 		if (this.state.conversion.GP != null && this.state.conversion.GP >= this.state.yourGP) {
 			return <span className="conversionRed">{this.state.conversion.GP} GP</span>;
 		} else if (this.state.conversion.GP != null) {
-			return <span className="conversion">{this.state.conversion.GP} GP</span>;
+			return (
+				<span onClick={() => this.handlePurchase(this.state.conversion.GP, 'GP')} className="conversion">
+					{this.state.conversion.GP} GP
+				</span>
+			);
 		} else {
 			return null;
 		}
@@ -355,10 +372,18 @@ class Merchant extends Component {
 		if (this.state.conversion.PP != null && this.state.conversion.PP >= this.state.yourPP) {
 			return <span className="conversionRed">{this.state.conversion.PP} PP</span>;
 		} else if (this.state.conversion.PP != null) {
-			return <span className="conversion">{this.state.conversion.PP} PP</span>;
+			return (
+				<span onClick={() => this.handlePurchase(this.state.conversion.PP, 'PP')} className="conversion">
+					{this.state.conversion.PP} PP
+				</span>
+			);
 		} else {
 			return null;
 		}
+	}
+
+	handlePurchase(Cost, Currency) {
+		console.log(Cost, Currency);
 	}
 
 	render() {
