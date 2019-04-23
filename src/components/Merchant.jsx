@@ -313,7 +313,7 @@ class Merchant extends Component {
 	}
 
 	showConversionCP() {
-		if (this.state.conversion.CP != null && this.state.conversion.CP >= this.state.yourCP) {
+		if (this.state.conversion.CP != null && this.state.conversion.CP > this.state.yourCP) {
 			return <span className="conversionRed">{this.state.conversion.CP} CP</span>;
 		} else if (this.state.conversion.CP != null) {
 			return (
@@ -327,7 +327,7 @@ class Merchant extends Component {
 	}
 
 	showConversionSP() {
-		if (this.state.conversion.SP != null && this.state.conversion.SP >= this.state.yourSP) {
+		if (this.state.conversion.SP != null && this.state.conversion.SP > this.state.yourSP) {
 			return <span className="conversionRed">{this.state.conversion.SP} SP</span>;
 		} else if (this.state.conversion.SP != null) {
 			return (
@@ -341,7 +341,7 @@ class Merchant extends Component {
 	}
 
 	showConversionEP() {
-		if (this.state.conversion.EP != null && this.state.conversion.EP >= this.state.yourEP) {
+		if (this.state.conversion.EP != null && this.state.conversion.EP > this.state.yourEP) {
 			return <span className="conversionRed">{this.state.conversion.EP} EP</span>;
 		} else if (this.state.conversion.EP != null) {
 			return (
@@ -355,7 +355,7 @@ class Merchant extends Component {
 	}
 
 	showConversionGP() {
-		if (this.state.conversion.GP != null && this.state.conversion.GP >= this.state.yourGP) {
+		if (this.state.conversion.GP != null && this.state.conversion.GP > this.state.yourGP) {
 			return <span className="conversionRed">{this.state.conversion.GP} GP</span>;
 		} else if (this.state.conversion.GP != null) {
 			return (
@@ -369,7 +369,7 @@ class Merchant extends Component {
 	}
 
 	showConversionPP() {
-		if (this.state.conversion.PP != null && this.state.conversion.PP >= this.state.yourPP) {
+		if (this.state.conversion.PP != null && this.state.conversion.PP > this.state.yourPP) {
 			return <span className="conversionRed">{this.state.conversion.PP} PP</span>;
 		} else if (this.state.conversion.PP != null) {
 			return (
@@ -384,6 +384,44 @@ class Merchant extends Component {
 
 	handlePurchase(Cost, Currency) {
 		console.log(Cost, Currency);
+		let youCP = this.state.yourCP;
+		let yourSP = this.state.yourSP;
+		let yourEP = this.state.yourEP;
+		let yourGP = this.state.yourGP;
+		let yourPP = this.state.yourPP;
+		let result;
+		switch (Currency) {
+			case 'CP':
+				result = youCP - Cost;
+				this.setState({
+					yourCP: result
+				});
+				break;
+			case 'SP':
+				result = yourSP - Cost;
+				this.setState({
+					yourSP: result
+				});
+				break;
+			case 'EP':
+				result = yourEP - Cost;
+				this.setState({
+					yourEP: result
+				});
+				break;
+			case 'GP':
+				result = yourGP - Cost;
+				this.setState({
+					yourGP: result
+				});
+				break;
+			case 'PP':
+				result = yourPP - Cost;
+				this.setState({
+					yourPP: result
+				});
+				break;
+		}
 	}
 
 	render() {
@@ -1051,6 +1089,14 @@ class Merchant extends Component {
 							/>
 						</div>
 						<p>{this.state.item.Description}</p>
+						<br />
+						<div>
+							<h4>Current Currency</h4>
+							<p>
+								{this.state.yourCP} CP | {this.state.yourSP} SP | {this.state.yourEP} EP |{' '}
+								{this.state.yourGP} GP | {this.state.yourPP} PP
+							</p>
+						</div>
 					</div>
 				) : null}
 			</div>
