@@ -422,6 +422,9 @@ class Merchant extends Component {
 				});
 				break;
 		}
+		this.setState({
+			merchantModal: false
+		});
 	}
 
 	render() {
