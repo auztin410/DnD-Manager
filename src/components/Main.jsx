@@ -110,14 +110,65 @@ class Main extends Component {
 		}
 	}
 
+	// ______                               _____                         _   _____  __  __                   _   _____            _ _
+	// | ___ \                             |  _  |                       | | |  _  |/ _|/ _|                 | | /  __ \          | (_)
+	// | |_/ / __ _ _ __  _ __   ___ _ __  | | | |_ __     __ _ _ __   __| | | | | | |_| |_    __ _ _ __   __| | | /  \/_   _  ___| |_ _ __   __ _
+	// | ___ \/ _` | '_ \| '_ \ / _ \ '__| | | | | '_ \   / _` | '_ \ / _` | | | | |  _|  _|  / _` | '_ \ / _` | | |   | | | |/ __| | | '_ \ / _` |
+	// | |_/ / (_| | | | | | | |  __/ |    \ \_/ / | | | | (_| | | | | (_| | \ \_/ / | | |   | (_| | | | | (_| | | \__/\ |_| | (__| | | | | | (_| |
+	// \____/ \__,_|_| |_|_| |_|\___|_|     \___/|_| |_|  \__,_|_| |_|\__,_|  \___/|_| |_|    \__,_|_| |_|\__,_|  \____/\__, |\___|_|_|_| |_|\__, |
+	//                                                                                                                   __/ |                __/ |
+	//                                                                                                                  |___/                |___/
+
 	handleOpenClose(div) {
 		switch (div) {
+			//  _____          _ _       _     _             _   _                 _     _____           _   _
+			//  |_   _|        | (_)     (_)   | |           | | | |               | |   /  ___|         | | (_)
+			//    | | _ __   __| |___   ___  __| |_   _  __ _| | | |     ___   ___ | |_  \ `--.  ___  ___| |_ _  ___  _ __
+			//    | || '_ \ / _` | \ \ / / |/ _` | | | |/ _` | | | |    / _ \ / _ \| __|  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//   _| || | | | (_| | |\ V /| | (_| | |_| | (_| | | | |___| (_) | (_) | |_  /\__/ /  __/ (__| |_| | (_) | | | |
+			//   \___/_| |_|\__,_|_| \_/ |_|\__,_|\__,_|\__,_|_| \_____/\___/ \___/ \__| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'loot':
-				if (this.state.individualLootDiv === false) {
+				if (this.state.individualLootDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							individualLootDiv: true,
+							selected: [ ...this.state.selected, 'loot' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.individualLootDiv === false) {
 					this.setState({
 						individualLootDiv: true,
 						selected: [ ...this.state.selected, 'loot' ]
 					});
+				} else if (this.state.individualLootDiv === true && this.state.current === 'loot') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'loot');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								individualLootDiv: false,
+								selected: []
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								individualLootDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.individualLootDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'loot');
@@ -128,61 +179,175 @@ class Main extends Component {
 					});
 				}
 				break;
-				// case 'treasure':
-				// 	if (this.state.treasureLootDiv === false) {
-				// 		this.setState({
-				// 			treasureLootDiv: true,
-				// 			selected: [ ...this.state.selected, 'treasure' ]
-				// 		});
-				// 	} else if (this.state.treasureLootDiv === true) {
-				// 		let selected = this.state.selected;
-				// 		let index = selected.findIndex((item) => item === 'treasure');
-				// 		selected.splice(index, 1);
-				// 		this.setState({
-				// 			treasureLootDiv: false,
-				// 			selected: selected
-				// 		});
-				// 	}
-				break;
+
+			//  _   _ ______  _____   _____                _   _               _____           _   _
+			//  | \ | || ___ \/  __ \ /  __ \              | | (_)             /  ___|         | | (_)
+			//  |  \| || |_/ /| /  \/ | /  \/_ __ ___  __ _| |_ _  ___  _ __   \ `--.  ___  ___| |_ _  ___  _ __
+			//  | . ` ||  __/ | |     | |   | '__/ _ \/ _` | __| |/ _ \| '_ \   `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//  | |\  || |    | \__/\ | \__/\ | |  __/ (_| | |_| | (_) | | | | /\__/ /  __/ (__| |_| | (_) | | | |
+			//  \_| \_/\_|     \____/  \____/_|  \___|\__,_|\__|_|\___/|_| |_| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'npc':
-				if (this.state.npcDiv === false) {
+				if (this.state.npcDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							npcDiv: true,
+							selected: [ ...this.state.selected, 'npc' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.npcDiv === false) {
 					this.setState({
 						npcDiv: true,
 						selected: [ ...this.state.selected, 'npc' ]
 					});
+				} else if (this.state.npcDiv === true && this.state.current === 'npc') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'npc');
+					selected.splice(index, 1);
+					if (this.state.length === 1) {
+						this.setState(
+							{
+								npcDiv: false,
+								selected: []
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								npcDiv: false,
+								selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.npcDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'npc');
 					selected.splice(index, 1);
 					this.setState({
 						npcDiv: false,
-						selected,
 						selected
 					});
 				}
 				break;
+
+			// ______ _         _____                _     _____           _   _
+			// | ___ (_)       |  ___|              | |   /  ___|         | | (_)
+			// | |_/ /_  __ _  | |____   _____ _ __ | |_  \ `--.  ___  ___| |_ _  ___  _ __
+			// | ___ \ |/ _` | |  __\ \ / / _ \ '_ \| __|  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			// | |_/ / | (_| | | |___\ V /  __/ | | | |_  /\__/ /  __/ (__| |_| | (_) | | | |
+			// \____/|_|\__, | \____/ \_/ \___|_| |_|\__| \____/ \___|\___|\__|_|\___/|_| |_|
+			//           __/ |
+			//          |___/
+
 			case 'bigEvent':
-				if (this.state.bigEventDiv === false) {
+				if (this.state.bigEventDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							bigEventDiv: true,
+							selected: [ ...this.state.selected, 'bigEvent' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.bigEventDiv === false) {
 					this.setState({
 						bigEventDiv: true,
 						selected: [ ...this.state.selected, 'bigEvent' ]
 					});
+				} else if (this.state.bigEventDiv === true && this.state.current === 'bigEvent') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'bigEvent');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								bigEventDiv: false,
+								selected: []
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								bigEventDiv: false,
+								selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.bigEventDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'bigEvent');
 					selected.splice(index, 1);
 					this.setState({
 						bigEventDiv: false,
-						selected: selected
+						selected
 					});
 				}
 				break;
+
+			//  _____                _                    _____           _   _
+			//  /  __ \              | |                  /  ___|         | | (_)
+			//  | /  \/_ __ ___  __ _| |_ _   _ _ __ ___  \ `--.  ___  ___| |_ _  ___  _ __
+			//  | |   | '__/ _ \/ _` | __| | | | '__/ _ \  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//  | \__/\ | |  __/ (_| | |_| |_| | | |  __/ /\__/ /  __/ (__| |_| | (_) | | | |
+			//   \____/_|  \___|\__,_|\__|\__,_|_|  \___| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'enemy':
-				if (this.state.monsterDiv === false) {
+				if (this.state.monsterDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							monsterDiv: true,
+							selected: [ ...this.state.selected, 'enemy' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.monsterDiv === false) {
 					this.setState({
 						monsterDiv: true,
 						selected: [ ...this.state.selected, 'enemy' ]
 					});
+				} else if (this.state.monsterDiv === true && this.state.current === 'enemy') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'enemy');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								monsterDiv: false,
+								selected: []
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								monsterDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.monsterDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'enemy');
@@ -193,12 +358,55 @@ class Main extends Component {
 					});
 				}
 				break;
+
+			//  _____                   _       _   _               _____           _   _
+			//  |_   _|                 | |     | | (_)             /  ___|         | | (_)
+			//    | |_ __ __ _ _ __  ___| | __ _| |_ _  ___  _ __   \ `--.  ___  ___| |_ _  ___  _ __
+			//    | | '__/ _` | '_ \/ __| |/ _` | __| |/ _ \| '_ \   `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//    | | | | (_| | | | \__ \ | (_| | |_| | (_) | | | | /\__/ /  __/ (__| |_| | (_) | | | |
+			//    \_/_|  \__,_|_| |_|___/_|\__,_|\__|_|\___/|_| |_| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'translation':
-				if (this.state.translationDiv === false) {
+				if (this.state.translationDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							translationDiv: true,
+							selected: [ ...this.state.selected, 'translation' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.translationDiv === false) {
 					this.setState({
 						translationDiv: true,
 						selected: [ ...this.state.selected, 'translation' ]
 					});
+				} else if (this.state.translationDiv === true && this.state.current === 'translation') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'translation');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								translationDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								translationDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.translationDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'translation');
@@ -209,12 +417,55 @@ class Main extends Component {
 					});
 				}
 				break;
+
+			//  _____      _     _   _____           _   _
+			//  |  __ \    (_)   | | /  ___|         | | (_)
+			//  | |  \/_ __ _  __| | \ `--.  ___  ___| |_ _  ___  _ __
+			//  | | __| '__| |/ _` |  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//  | |_\ \ |  | | (_| | /\__/ /  __/ (__| |_| | (_) | | | |
+			//   \____/_|  |_|\__,_| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'gridMap':
-				if (this.state.gridDiv === false) {
+				if (this.state.gridDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							gridDiv: true,
+							selected: [ ...this.state.selected, 'gridMap' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.gridDiv === false) {
 					this.setState({
 						gridDiv: true,
 						selected: [ ...this.state.selected, 'gridMap' ]
 					});
+				} else if (this.state.gridDiv === true && this.state.current === 'gridMap') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'gridMap');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								gridDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								gridDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.gridDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'gridMap');
@@ -225,12 +476,55 @@ class Main extends Component {
 					});
 				}
 				break;
+
+			// ___  ___              _                 _     _____           _   _
+			// |  \/  |             | |               | |   /  ___|         | | (_)
+			// | .  . | ___ _ __ ___| |__   __ _ _ __ | |_  \ `--.  ___  ___| |_ _  ___  _ __
+			// | |\/| |/ _ \ '__/ __| '_ \ / _` | '_ \| __|  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			// | |  | |  __/ | | (__| | | | (_| | | | | |_  /\__/ /  __/ (__| |_| | (_) | | | |
+			// \_|  |_/\___|_|  \___|_| |_|\__,_|_| |_|\__| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'merchant':
-				if (this.state.merchantDiv === false) {
+				if (this.state.merchantDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							merchantDiv: true,
+							selected: [ ...this.state.selected, 'merchant' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.merchantDiv === false) {
 					this.setState({
 						merchantDiv: true,
 						selected: [ ...this.state.selected, 'merchant' ]
 					});
+				} else if (this.state.merchantDiv === true && this.state.current === 'merchant') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'merchant');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								merchantDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								merchantDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.merchantDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'merchant');
@@ -241,12 +535,55 @@ class Main extends Component {
 					});
 				}
 				break;
+
+			//   _____                       _   _____ __  __          _     _____           _   _
+			//  /  ___|                     | | |  ___/ _|/ _|        | |   /  ___|         | | (_)
+			//  \ `--.  ___  _   _ _ __   __| | | |__| |_| |_ ___  ___| |_  \ `--.  ___  ___| |_ _  ___  _ __
+			//   `--. \/ _ \| | | | '_ \ / _` | |  __|  _|  _/ _ \/ __| __|  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//  /\__/ / (_) | |_| | | | | (_| | | |__| | | ||  __/ (__| |_  /\__/ /  __/ (__| |_| | (_) | | | |
+			//  \____/ \___/ \__,_|_| |_|\__,_| \____/_| |_| \___|\___|\__| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'sound':
-				if (this.state.soundDiv === false) {
+				if (this.state.soundDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							soundDiv: true,
+							selected: [ ...this.state.selected, 'sound' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.soundDiv === false) {
 					this.setState({
 						soundDiv: true,
 						selected: [ ...this.state.selected, 'sound' ]
 					});
+				} else if (this.state.soundDiv === true && this.state.current === 'sound') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'sound');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								soundDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								soundDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.soundDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'sound');
@@ -257,12 +594,55 @@ class Main extends Component {
 					});
 				}
 				break;
+
+			//   _____      _   _   _                           _     _____           _   _
+			//  /  ___|    | | | | | |                         | |   /  ___|         | | (_)
+			//  \ `--.  ___| |_| |_| | ___ _ __ ___   ___ _ __ | |_  \ `--.  ___  ___| |_ _  ___  _ __
+			//   `--. \/ _ \ __| __| |/ _ \ '_ ` _ \ / _ \ '_ \| __|  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//  /\__/ /  __/ |_| |_| |  __/ | | | | |  __/ | | | |_  /\__/ /  __/ (__| |_| | (_) | | | |
+			//  \____/ \___|\__|\__|_|\___|_| |_| |_|\___|_| |_|\__| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'settlement':
-				if (this.state.settlementDiv === false) {
+				if (this.state.settlementDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							settlementDiv: true,
+							selected: [ ...this.state.selected, 'settlement' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.settlementDiv === false) {
 					this.setState({
 						settlementDiv: true,
 						selected: [ ...this.state.selected, 'settlement' ]
 					});
+				} else if (this.state.settlementDiv === true && this.state.current === 'settlement') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'settlement');
+					selected.splice(index, 1);
+					if (this.state.selected === 1) {
+						this.setState(
+							{
+								settlementDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								settlementDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.settlementDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'settlement');
@@ -273,12 +653,55 @@ class Main extends Component {
 					});
 				}
 				break;
+
+			//   _____                 _     _____           _   _
+			//  |  _  |               | |   /  ___|         | | (_)
+			//  | | | |_   _  ___  ___| |_  \ `--.  ___  ___| |_ _  ___  _ __
+			//  | | | | | | |/ _ \/ __| __|  `--. \/ _ \/ __| __| |/ _ \| '_ \
+			//  \ \/' / |_| |  __/\__ \ |_  /\__/ /  __/ (__| |_| | (_) | | | |
+			//   \_/\_\\__,_|\___||___/\__| \____/ \___|\___|\__|_|\___/|_| |_|
+
 			case 'quest':
-				if (this.state.questDiv === false) {
+				if (this.state.questDiv === false && this.state.selected.length === 0) {
+					this.setState(
+						{
+							questDiv: true,
+							selected: [ ...this.state.selected, 'quest' ]
+						},
+						() => {
+							this.handleNext();
+						}
+					);
+				} else if (this.state.questDiv === false) {
 					this.setState({
 						questDiv: true,
 						selected: [ ...this.state.selected, 'quest' ]
 					});
+				} else if (this.state.questDiv === true && this.state.current === 'quest') {
+					let selected = this.state.selected;
+					let index = selected.findIndex((item) => item === 'quest');
+					selected.splice(index, 1);
+					if (this.state.selected.length === 1) {
+						this.setState(
+							{
+								questDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					} else {
+						this.setState(
+							{
+								questDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleBack();
+							}
+						);
+					}
 				} else if (this.state.questDiv === true) {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'quest');
