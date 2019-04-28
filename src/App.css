@@ -1581,6 +1581,14 @@ td {
 	width: 40px;
 }
 
+.individualLootDiv {
+	height: 300px;
+}
+
+.treasureHordeDiv {
+	height: 650px;
+}
+
 @-webkit-keyframes glow {
 	from {
 		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909,
