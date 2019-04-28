@@ -7,7 +7,7 @@ import Sounds from './Sounds';
 import Grid from './Grid';
 import QuestTracker from './QuestTracker';
 import Loot from './Loot';
-import Treasure from './Treasure';
+// import Treasure from './Treasure';
 import NPCGenerator from './NPCGenerator';
 import BigEvent from './BigEvent';
 import Creature from './Creature';
@@ -28,7 +28,7 @@ class Main extends Component {
 			current: null,
 			worldShakingComponent: false,
 			individualLootDiv: false,
-			treasureLootDiv: false,
+			// treasureLootDiv: false,
 			npcDiv: false,
 			bigEventDiv: false,
 			monsterDiv: false,
@@ -41,7 +41,7 @@ class Main extends Component {
 			questDiv: false,
 			bigEvent: false,
 			loot: false,
-			treasure: false,
+			// treasure: false,
 			npc: false,
 			creature: false,
 			sound: false,
@@ -128,21 +128,21 @@ class Main extends Component {
 					});
 				}
 				break;
-			case 'treasure':
-				if (this.state.treasureLootDiv === false) {
-					this.setState({
-						treasureLootDiv: true,
-						selected: [ ...this.state.selected, 'treasure' ]
-					});
-				} else if (this.state.treasureLootDiv === true) {
-					let selected = this.state.selected;
-					let index = selected.findIndex((item) => item === 'treasure');
-					selected.splice(index, 1);
-					this.setState({
-						treasureLootDiv: false,
-						selected: selected
-					});
-				}
+				// case 'treasure':
+				// 	if (this.state.treasureLootDiv === false) {
+				// 		this.setState({
+				// 			treasureLootDiv: true,
+				// 			selected: [ ...this.state.selected, 'treasure' ]
+				// 		});
+				// 	} else if (this.state.treasureLootDiv === true) {
+				// 		let selected = this.state.selected;
+				// 		let index = selected.findIndex((item) => item === 'treasure');
+				// 		selected.splice(index, 1);
+				// 		this.setState({
+				// 			treasureLootDiv: false,
+				// 			selected: selected
+				// 		});
+				// 	}
 				break;
 			case 'npc':
 				if (this.state.npcDiv === false) {
@@ -429,11 +429,11 @@ class Main extends Component {
 				{/* Individual Loot Div */}
 				{this.state.current === 'loot' ? <Loot display={'visible'} /> : <Loot display={'invisible'} />}
 				{/* Treasure Loot Div */}
-				{this.state.current === 'treasure' ? (
+				{/* {this.state.current === 'treasure' ? (
 					<Treasure display={'visible'} />
 				) : (
 					<Treasure display={'invisible'} />
-				)}
+				)} */}
 				{/* NPC Div */}
 				{this.state.current === 'npc' ? (
 					<NPCGenerator display={'visible'} />
