@@ -2632,7 +2632,12 @@ class Loot extends Component {
 							<option value="Challenge11-16">Challenge 11-16</option>
 							<option value="Challenge17+">Challenge 17+</option>
 						</select>
-						<input onChange={this.handleChange} name="individualLootTimes" type="number" />
+						<input
+							onChange={this.handleChange}
+							name="individualLootTime"
+							type="number"
+							value={this.state.individualLootTime}
+						/>
 						<span className="customButton" onClick={this.handleRoll}>
 							Dice Roll!
 						</span>
@@ -2646,6 +2651,14 @@ class Loot extends Component {
 						))}
 					</div>
 				</div>
+
+				{/* _____                                   _   _               _        _                 _   
+|_   _|                                 | | | |             | |      | |               | |  
+  | |_ __ ___  __ _ ___ _   _ _ __ ___  | |_| | ___  _ __ __| | ___  | |     ___   ___ | |_ 
+  | | '__/ _ \/ _` / __| | | | '__/ _ \ |  _  |/ _ \| '__/ _` |/ _ \ | |    / _ \ / _ \| __|
+  | | | |  __/ (_| \__ \ |_| | | |  __/ | | | | (_) | | | (_| |  __/ | |___| (_) | (_) | |_ 
+  \_/_|  \___|\__,_|___/\__,_|_|  \___| \_| |_/\___/|_|  \__,_|\___| \_____/\___/ \___/ \__| */}
+
 				<div className="treasureHordeDiv">
 					<form>
 						<select className="customButton" name="treasureLoot" onChange={this.handleChange}>
