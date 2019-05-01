@@ -32,6 +32,7 @@ class Loot extends Component {
 		this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
 
 		this.handleTestWeapons = this.handleTestWeapons.bind(this);
+		this.handleTestRoll = this.handleTestRoll.bind(this);
 	}
 
 	handleChange(event) {
@@ -61,6 +62,138 @@ class Loot extends Component {
 	//    | || '_ \ / _` | \ \ / / |/ _` | | | |/ _` | | | |    / _ \ / _ \| __| | |    / _ \ / _` |/ _ \  `--. \/ _ \/ __| __| |/ _ \| '_ \
 	//   _| || | | | (_| | |\ V /| | (_| | |_| | (_| | | | |___| (_) | (_) | |_  | \__/\ (_) | (_| |  __/ /\__/ /  __/ (__| |_| | (_) | | | |
 	//   \___/_| |_|\__,_|_| \_/ |_|\__,_|\__,_|\__,_|_| \_____/\___/ \___/ \__|  \____/\___/ \__,_|\___| \____/ \___|\___|\__|_|\___/|_| |_|
+
+	handleTestRoll() {
+		// event.preventDefault();
+		let players = this.state.individualLootTime;
+		let individualLoot = [];
+		let results = [];
+		for (let i = 0; i < players; i++) {
+			let D100 = this.DiceRoll(1, 100);
+			individualLoot.push(D100);
+		}
+		console.log(`Individual loot ${individualLoot}`);
+		for (let i = 0; i < players; i++) {
+			let object = {
+				Player: i,
+				CP: 0,
+				SP: 0,
+				EP: 0,
+				GP: 0,
+				PP: 0
+			};
+			switch (this.state.individualLoot) {
+				case 'Challenge0-4':
+					if (individualLoot[i] <= 30) {
+						let roll = this.DiceRoll(5, 6);
+						object.CP = roll;
+						results.push(object);
+					} else if (individualLoot[i] <= 60) {
+						let roll = this.DiceRoll(4, 6);
+						object.SP = roll;
+						results.push(object);
+					} else if (individualLoot[i] <= 70) {
+						let roll = this.DiceRoll(3, 6);
+						object.EP = roll;
+						results.push(object);
+					} else if (individualLoot[i] <= 95) {
+						let roll = this.DiceRoll(3, 6);
+						object.GP = roll;
+						results.push(object);
+					} else if (individualLoot[i] >= 96) {
+						let roll = this.DiceRoll(1, 6);
+						object.PP = roll;
+						results.push(object);
+					}
+					break;
+				case 'Challenge5-10':
+					if (individualLoot[i] <= 30) {
+						let roll = this.DiceRoll(4, 6);
+						let roll2 = this.DiceRoll(1, 6);
+						object.CP = roll;
+						object.EP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] <= 60) {
+						let roll = this.DiceRoll(6, 6);
+						let roll2 = this.DiceRoll(2, 6);
+						object.SP = roll;
+						object.GP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] <= 70) {
+						let roll = this.DiceRoll(3, 6);
+						let roll2 = this.DiceRoll(2, 6);
+						object.EP = roll;
+						object.GP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] <= 95) {
+						let roll = this.DiceRoll(4, 6);
+						object.GP = roll;
+						results.push(object);
+					} else if (individualLoot[i] >= 96) {
+						let roll = this.DiceRoll(2, 6);
+						let roll2 = this.DiceRoll(3, 6);
+						object.GP = roll;
+						object.PP = roll2;
+						results.push(object);
+					}
+					break;
+				case 'Challenge11-16':
+					if (individualLoot[i] >= 20) {
+						let roll = this.DiceRoll(4, 6);
+						let roll2 = this.DiceRoll(1, 6);
+						object.SP = roll;
+						object.GP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] >= 35) {
+						let roll = this.DiceRoll(1, 6);
+						let roll2 = this.DiceRoll(1, 6);
+						object.EP = roll;
+						object.GP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] >= 75) {
+						let roll = this.DiceRoll(2, 6);
+						let roll2 = this.DiceRoll(1, 6);
+						object.GP = roll;
+						object.PP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] <= 76) {
+						let roll = this.DiceRoll(2, 6);
+						let roll2 = this.DiceRoll(2, 6);
+						object.GP = roll;
+						object.PP = roll2;
+						results.push(object);
+					}
+					break;
+				case 'Challenge17+':
+					if (individualLoot[i] >= 15) {
+						let roll = this.DiceRoll(2, 6);
+						let roll2 = this.DiceRoll(8, 6);
+						object.EP = roll;
+						object.GP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] >= 55) {
+						let roll = this.DiceRoll(1, 6);
+						let roll2 = this.DiceRoll(1, 6);
+						object.GP = roll;
+						object.PP = roll2;
+						results.push(object);
+					} else if (individualLoot[i] <= 56) {
+						let roll = this.DiceRoll(1, 6);
+						let roll2 = this.DiceRoll(2, 6);
+						object.GP = roll;
+						object.PP = roll2;
+						results.push(object);
+					}
+					break;
+				default:
+					console.log('Default was hit!');
+			}
+		}
+		console.log(results);
+		this.setState({
+			individualLootResult: results
+		});
+	}
 
 	handleRoll(event) {
 		event.preventDefault();
@@ -2641,15 +2774,20 @@ class Loot extends Component {
 						<span className="customButton" onClick={this.handleRoll}>
 							Dice Roll!
 						</span>
+						<span className="customButton" onClick={this.handleTestRoll}>
+							Test Roll
+						</span>
 					</form>
-					<div className="generated">
-						<h4>Individual Loot:</h4>
-						{this.state.individualLootResult.map((item) => (
-							<p key={item.Currency}>
-								{item.Value} {item.Currency}
-							</p>
-						))}
-					</div>
+					{this.state.individualLootResult.map((item) => (
+						<div key={item.Player} className="generated">
+							<h4>Player {item.Player}</h4>
+							<p>{item.CP} CP</p>
+							<p>{item.SP} SP</p>
+							<p>{item.EP} EP</p>
+							<p>{item.GP} GP</p>
+							<p>{item.PP} PP</p>
+						</div>
+					))}
 				</div>
 
 				{/* _____                                   _   _               _        _                 _   
