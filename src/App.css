@@ -1589,6 +1589,40 @@ td {
 	height: 650px;
 }
 
+.currencyDiv {
+	background-color: rgba(236, 227, 227, 0.473);
+	width: 200px;
+	margin: 10px;
+	float: left;
+	box-shadow: 2px 2px 4px black;
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.currencyHeader {
+	grid-area: 1 / 1 / span 1 / span 2;
+}
+
+.currency1 {
+	grid-area: 2 / 1 / span 1 / span 1;
+}
+
+.currency2 {
+	grid-area: 2 / 2 / span 1 / span 1;
+}
+
+.currency3 {
+	grid-area: 3 / 1 / span 1 / span 1;
+}
+
+.currency4 {
+	grid-area: 3 / 2 / span 1 / span 1;
+}
+
+.currency5 {
+	grid-area: 4 / 1 / span 1 / span 2;
+}
+
 @-webkit-keyframes glow {
 	from {
 		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1d970d, 0 0 40px #0d9113, 0 0 50px #0c6909,

@@ -32,7 +32,6 @@ class Loot extends Component {
 		this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
 
 		this.handleTestWeapons = this.handleTestWeapons.bind(this);
-		this.handleTestRoll = this.handleTestRoll.bind(this);
 	}
 
 	handleChange(event) {
@@ -63,7 +62,7 @@ class Loot extends Component {
 	//   _| || | | | (_| | |\ V /| | (_| | |_| | (_| | | | |___| (_) | (_) | |_  | \__/\ (_) | (_| |  __/ /\__/ /  __/ (__| |_| | (_) | | | |
 	//   \___/_| |_|\__,_|_| \_/ |_|\__,_|\__,_|\__,_|_| \_____/\___/ \___/ \__|  \____/\___/ \__,_|\___| \____/ \___|\___|\__|_|\___/|_| |_|
 
-	handleTestRoll() {
+	handleRoll() {
 		// event.preventDefault();
 		let players = this.state.individualLootTime;
 		let individualLoot = [];
@@ -193,481 +192,6 @@ class Loot extends Component {
 		this.setState({
 			individualLootResult: results
 		});
-	}
-
-	handleRoll(event) {
-		event.preventDefault();
-		let individualLoot = this.DiceRoll(1, 100);
-		console.log(`Individual loot ${individualLoot}`);
-		switch (this.state.individualLoot) {
-			case 'Challenge0-4':
-				if (individualLoot <= 30) {
-					let roll = this.DiceRoll(5, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: roll
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: 0
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot <= 60) {
-					let roll = this.DiceRoll(4, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: roll
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: 0
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot <= 70) {
-					let roll = this.DiceRoll(3, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: roll
-							},
-							{
-								Currency: 'GP',
-								Value: 0
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot <= 95) {
-					let roll = this.DiceRoll(3, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot >= 96) {
-					let roll = this.DiceRoll(1, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: 0
-							},
-							{
-								Currency: 'PP',
-								Value: roll
-							}
-						]
-					});
-				}
-				break;
-			case 'Challenge5-10':
-				if (individualLoot <= 30) {
-					let roll = this.DiceRoll(4, 6);
-					let roll2 = this.DiceRoll(1, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: roll
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: roll2
-							},
-							{
-								Currency: 'GP',
-								Value: 0
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot <= 60) {
-					let roll = this.DiceRoll(6, 6);
-					let roll2 = this.DiceRoll(2, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: roll
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll2
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot <= 70) {
-					let roll = this.DiceRoll(3, 6);
-					let roll2 = this.DiceRoll(2, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: roll
-							},
-							{
-								Currency: 'GP',
-								Value: roll2
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot <= 95) {
-					let roll = this.DiceRoll(4, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot >= 96) {
-					let roll = this.DiceRoll(2, 6);
-					let roll2 = this.DiceRoll(3, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll
-							},
-							{
-								Currency: 'PP',
-								Value: roll2
-							}
-						]
-					});
-				}
-				break;
-			case 'Challenge11-16':
-				if (individualLoot >= 20) {
-					let roll = this.DiceRoll(4, 6);
-					let roll2 = this.DiceRoll(1, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: roll
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll2
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot >= 35) {
-					let roll = this.DiceRoll(1, 6);
-					let roll2 = this.DiceRoll(1, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: roll
-							},
-							{
-								Currency: 'GP',
-								Value: roll2
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot >= 75) {
-					let roll = this.DiceRoll(2, 6);
-					let roll2 = this.DiceRoll(1, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll
-							},
-							{
-								Currency: 'PP',
-								Value: roll2
-							}
-						]
-					});
-				} else if (individualLoot <= 76) {
-					let roll = this.DiceRoll(2, 6);
-					let roll2 = this.DiceRoll(2, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll
-							},
-							{
-								Currency: 'PP',
-								Value: roll2
-							}
-						]
-					});
-				}
-				break;
-			case 'Challenge17+':
-				if (individualLoot >= 15) {
-					let roll = this.DiceRoll(2, 6);
-					let roll2 = this.DiceRoll(8, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: roll
-							},
-							{
-								Currency: 'GP',
-								Value: roll2
-							},
-							{
-								Currency: 'PP',
-								Value: 0
-							}
-						]
-					});
-				} else if (individualLoot >= 55) {
-					let roll = this.DiceRoll(1, 6);
-					let roll2 = this.DiceRoll(1, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll
-							},
-							{
-								Currency: 'PP',
-								Value: roll2
-							}
-						]
-					});
-				} else if (individualLoot <= 56) {
-					let roll = this.DiceRoll(1, 6);
-					let roll2 = this.DiceRoll(2, 6);
-					this.setState({
-						individualLootResult: [
-							{
-								Currency: 'CP',
-								Value: 0
-							},
-							{
-								Currency: 'SP',
-								Value: 0
-							},
-							{
-								Currency: 'EP',
-								Value: 0
-							},
-							{
-								Currency: 'GP',
-								Value: roll
-							},
-							{
-								Currency: 'PP',
-								Value: roll2
-							}
-						]
-					});
-				}
-				break;
-			default:
-				console.log('Default was hit!');
-		}
 	}
 
 	//  _____                                   _                 _     _____           _        _____           _   _
@@ -2774,18 +2298,43 @@ class Loot extends Component {
 						<span className="customButton" onClick={this.handleRoll}>
 							Dice Roll!
 						</span>
-						<span className="customButton" onClick={this.handleTestRoll}>
-							Test Roll
-						</span>
 					</form>
 					{this.state.individualLootResult.map((item) => (
-						<div key={item.Player} className="generated">
-							<h4>Player {item.Player}</h4>
-							<p>{item.CP} CP</p>
-							<p>{item.SP} SP</p>
-							<p>{item.EP} EP</p>
-							<p>{item.GP} GP</p>
-							<p>{item.PP} PP</p>
+						<div key={item.Player} className="currencyDiv">
+							<h4 className="currencyHeader">Player {item.Player}</h4>
+							<table>
+								<tbody>
+									<tr>
+										<th>Amount</th>
+										<th>Currency</th>
+									</tr>
+									<tr>
+										<td>{item.CP}</td>
+										<td>CP</td>
+									</tr>
+									<tr>
+										<td>{item.SP}</td>
+										<td>SP</td>
+									</tr>
+									<tr>
+										<td>{item.EP}</td>
+										<td>EP</td>
+									</tr>
+									<tr>
+										<td>{item.GP}</td>
+										<td>GP</td>
+									</tr>
+									<tr>
+										<td>{item.PP}</td>
+										<td>PP</td>
+									</tr>
+								</tbody>
+							</table>
+							{/* <div className="currency1">{item.CP} CP</div>
+							<div className="currency2">{item.SP} SP</div>
+							<div className="currency3">{item.EP} EP</div>
+							<div className="currency4">{item.GP} GP</div>
+							<div className="currency5">{item.PP} PP</div> */}
 						</div>
 					))}
 				</div>
