@@ -4,6 +4,7 @@ import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
 import MagicItemsList from '../assets/Json/MagicItemsList';
 import WeaponsList from '../assets/Json/WeaponsList';
+import Autocomplete from 'react-autocomplete';
 
 class Loot extends Component {
 	constructor(props) {
@@ -2281,6 +2282,27 @@ class Loot extends Component {
 	render() {
 		return (
 			<div className={this.props.display}>
+				<div>
+					<h2>Magic Item Search</h2>
+					<Autocomplete
+						items={MagicItemsList}
+						inputProps={{ style: { fontSize: '18px' } }}
+						shouldItemRender={(item, value) => item.Name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+						getItemValue={(item) => item.Name}
+						renderItem={(item, highlighted) => (
+							<div
+								className="customButton"
+								key={item.id}
+								style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
+							>
+								{item.Name}
+							</div>
+						)}
+						value={this.state.value}
+						onChange={(e) => this.setState({ value: e.target.value })}
+						onSelect={(value) => this.setState({ value })}
+					/>
+				</div>
 				<div className="individualLootDiv">
 					<form>
 						<select className="customButton" name="individualLoot" onChange={this.handleChange}>
