@@ -31,6 +31,7 @@ class Loot extends Component {
 		this.clearTreasureStates = this.clearTreasureStates.bind(this);
 		this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
 		this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
+		this.handleSearch = this.handleSearch.bind(this);
 
 		this.handleTestWeapons = this.handleTestWeapons.bind(this);
 	}
@@ -2270,6 +2271,15 @@ class Loot extends Component {
 		});
 	}
 
+	handleSearch() {
+		let value = this.state.value;
+		let result = MagicItemsList.find((item) => value === item.Name);
+		console.log(result);
+		this.setState({
+			displayItem: result
+		});
+	}
+
 	// ______                  _   _ _
 	// | ___ \                | | | (_)
 	// | |_/ /_ _  __ _  ___  | | | |_  _____      __
@@ -2302,6 +2312,9 @@ class Loot extends Component {
 						onChange={(e) => this.setState({ value: e.target.value })}
 						onSelect={(value) => this.setState({ value })}
 					/>
+					<span onClick={this.handleSearch} className="customButton">
+						Search
+					</span>
 				</div>
 				<div className="individualLootDiv">
 					<form>
@@ -2488,14 +2501,14 @@ class Loot extends Component {
 								</div>
 							) : null}
 							{this.state.displayItem.Description.map((item) => (
-								<div className="itemSection">
+								<div key={item} className="itemSection">
 									<p>{item}</p>
 								</div>
 							))}
 							{this.state.displayItem.Table.length > 0 ? (
 								<div className="itemSection">
 									{this.state.displayItem.Table.map((item) => (
-										<p>
+										<p key={item}>
 											{item.Roll} | {item.Effect}
 										</p>
 									))}
