@@ -2272,12 +2272,123 @@ class Loot extends Component {
 	}
 
 	handleSearch() {
-		let value = this.state.value;
-		let result = MagicItemsList.find((item) => value === item.Name);
-		console.log(result);
 		this.setState({
-			displayItem: result
+			displayItemWeaponChoices: []
 		});
+		let value = this.state.value;
+		let found = MagicItemsList.find((item) => value === item.Name);
+		console.log(found);
+		if (!found) {
+			this.setState({
+				displayItem: {
+					Name: 'Healing potion',
+					Description: "The potion's red liquid glimmers when agitated.",
+					Effect: 'Regain 2d4+2 hit points.',
+					Weight: 0.5,
+					Cost: 50,
+					Currency: 'GP'
+				}
+			});
+		} else if (found) {
+			if (found.Armor === true) {
+				let armorState = MagicItemsList[0].Data.find(function(el) {
+					return el.Type === found.ArmorDetails;
+				});
+				console.log('Armor details');
+				console.log(armorState);
+				this.setState({
+					displayItemArmorDetails: armorState
+				});
+			} else if (found.Weapon === true) {
+				let weaponState = found.Type.substring(found.Type.indexOf('(') + 1);
+				weaponState = weaponState.slice(0, -1);
+				console.log(found.Type);
+				console.log(`Test for weapon type: ${weaponState}`);
+				let any = [
+					'Any Weapon',
+					'Club',
+					'Dagger',
+					'Greatclub',
+					'Handaxe',
+					'Javelin',
+					'Light hammer',
+					'Mace',
+					'Quarterstaff',
+					'Sickle',
+					'Spear',
+					'Crossbow, light',
+					'Dart',
+					'Shortbow',
+					'Sling',
+					'Battleaxe',
+					'Flail',
+					'Glaive',
+					'Greataxe',
+					'Greatsword',
+					'Halberd',
+					'Lance',
+					'Longsword',
+					'Maul',
+					'Morningstar',
+					'Pike',
+					'Rapier',
+					'Scimitar',
+					'Shortsword',
+					'Trident',
+					'War pick',
+					'Warhammer',
+					'Whip',
+					'Blowgun',
+					'Crossbow, hand',
+					'Crossbow, heavy',
+					'Longbow',
+					'Net'
+				];
+				let swords = [ 'Any Sword', 'Greatsword', 'Longsword', 'Scimitar', 'Shortsword', 'Rapier' ];
+				let axes = [ 'Any Axe', 'Handaxe', 'Battleaxe', 'Greataxe' ];
+				let axeOrSword = [
+					'Any Axe or Sword',
+					'Greatsword',
+					'Longsword',
+					'Scimitar',
+					'Shortsword',
+					'Rapier',
+					'Handaxe',
+					'Battleaxe',
+					'Greataxe'
+				];
+				let swordSlashing = [ 'Any Slashing Sword', 'Greatsword', 'Longsword', 'Scimitar' ];
+				// IF statement for if any weapon list of weapons state is any, and so on and so forth.
+				if (weaponState === 'any') {
+					this.setState({
+						displayItemWeaponChoices: any
+					});
+				} else if (weaponState === 'any sword') {
+					this.setState({
+						displayItemWeaponChoices: swords
+					});
+				} else if (weaponState === 'any axe') {
+					this.setState({
+						displayItemWeaponChoices: axes
+					});
+				} else if (weaponState === 'any axe or sword') {
+					this.setState({
+						displayItemWeaponChoices: axeOrSword
+					});
+				} else if (weaponState === 'any sword that deals slashing damage') {
+					this.setState({
+						displayItemWeaponChoices: swordSlashing
+					});
+				} else {
+					this.setState({
+						displayItemWeaponChoices: []
+					});
+				}
+			}
+			this.setState({
+				displayItem: found
+			});
+		}
 	}
 
 	// ______                  _   _ _
@@ -2292,7 +2403,7 @@ class Loot extends Component {
 	render() {
 		return (
 			<div className={this.props.display}>
-				<div>
+				<div className="magicItemSearch">
 					<h2>Magic Item Search</h2>
 					<Autocomplete
 						items={MagicItemsList}
