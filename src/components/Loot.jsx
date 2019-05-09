@@ -23,7 +23,9 @@ class Loot extends Component {
 			displayItemArmorDetails: null,
 			displayItemWeaponChoices: [],
 			displayItemWeaponTypeSelected: null,
-			displayItemWeaponTypeDetails: null
+			displayItemWeaponTypeDetails: null,
+			itemSearchType: '',
+			selectedSearchType: null
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleRoll = this.handleRoll.bind(this);
@@ -2405,8 +2407,8 @@ class Loot extends Component {
 			<div className={this.props.display}>
 				<div className="magicItemSearch">
 					<h2>Magic Item Search</h2>
-					<Autocomplete
-						items={MagicItemsList}
+					{/* <Autocomplete
+						items={this.state.selectedSearchType}
 						inputProps={{ style: { fontSize: '18px' } }}
 						shouldItemRender={(item, value) => item.Name.toLowerCase().indexOf(value.toLowerCase()) > -1}
 						getItemValue={(item) => item.Name}
@@ -2422,7 +2424,40 @@ class Loot extends Component {
 						value={this.state.value}
 						onChange={(e) => this.setState({ value: e.target.value })}
 						onSelect={(value) => this.setState({ value })}
-					/>
+					/> */}
+					<select name="itemSearchType" onChange={this.handleChange}>
+						<option value="">None Selected</option>
+						<option value="General">General Goods</option>
+						<option value="Trade">Trade Goods</option>
+						<option value="Food">Food</option>
+						<option value="Mounts">Mounts</option>
+						<option value="Vehicles">Tack, Harness, and Vehicles</option>
+						<option value="Ships">Ships</option>
+						<option value="Weapon">Weapon</option>
+						<option value="Armor">Armor</option>
+						<option value="Magic">Magic Items</option>
+					</select>
+					{this.state.itemSearchType === '' ? null : (
+						<Autocomplete
+							items={this.state.selectedSearchType}
+							inputProps={{ style: { fontSize: '18px' } }}
+							shouldItemRender={(item, value) =>
+								item.Name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+							getItemValue={(item) => item.Name}
+							renderItem={(item, highlighted) => (
+								<div
+									className="customButton"
+									key={item.id}
+									style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
+								>
+									{item.Name}
+								</div>
+							)}
+							value={this.state.value}
+							onChange={(e) => this.setState({ value: e.target.value })}
+							onSelect={(value) => this.setState({ value })}
+						/>
+					)}
 					<span onClick={this.handleSearch} className="customButton">
 						Search
 					</span>
