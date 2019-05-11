@@ -4,6 +4,13 @@ import GemList from '../assets/Json/Gemstones';
 import ArtObjectList from '../assets/Json/ArtObject';
 import MagicItemsList from '../assets/Json/MagicItemsList';
 import WeaponsList from '../assets/Json/WeaponsList';
+import Equipment from '../assets/Json/Equipment';
+import TradeGoods from '../assets/Json/TradeGoods';
+import Mounts from '../assets/Json/Mounts';
+import TackHarnessVehicle from '../assets/Json/Tack-Harness-Vehicle';
+import Ships from '../assets/Json/Ships';
+import Armor from '../assets/Json/Armor';
+import Food from '../assets/Json/Food';
 import Autocomplete from 'react-autocomplete';
 
 class Loot extends Component {
@@ -2273,12 +2280,35 @@ class Loot extends Component {
 		});
 	}
 
+	//   _____ _                   _____                     _      ______                _   _
+	//  |_   _| |                 /  ___|                   | |     |  ___|              | | (_)
+	//    | | | |_ ___ _ __ ___   \ `--.  ___  __ _ _ __ ___| |__   | |_ _   _ _ __   ___| |_ _  ___  _ __
+	//    | | | __/ _ \ '_ ` _ \   `--. \/ _ \/ _` | '__/ __| '_ \  |  _| | | | '_ \ / __| __| |/ _ \| '_ \
+	//   _| |_| ||  __/ | | | | | /\__/ /  __/ (_| | | | (__| | | | | | | |_| | | | | (__| |_| | (_) | | | |
+	//   \___/ \__\___|_| |_| |_| \____/ \___|\__,_|_|  \___|_| |_| \_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|
+
 	handleSearch() {
 		this.setState({
 			displayItemWeaponChoices: []
 		});
+		let found;
 		let value = this.state.value;
-		let found = MagicItemsList.find((item) => value === item.Name);
+		switch (this.state.selectedSearchType) {
+			case 'General':
+				found = Equipment.find((item) => value === item.Name);
+				this.setState({
+					selectedSearchType: Equipment
+				});
+				break;
+			case 'Trade':
+				found = TradeGoods.find((item) => value === item.Name);
+				this.setState({
+					selectedSearchType: TradeGoods
+				});
+				break;
+		}
+
+		// let found = MagicItemsList.find((item) => value === item.Name);
 		console.log(found);
 		if (!found) {
 			this.setState({
