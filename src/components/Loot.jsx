@@ -31,8 +31,7 @@ class Loot extends Component {
 			displayItemWeaponChoices: [],
 			displayItemWeaponTypeSelected: null,
 			displayItemWeaponTypeDetails: null,
-			itemSearchType: '',
-			selectedSearchType: null
+			itemSearchType: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleRoll = this.handleRoll.bind(this);
@@ -41,6 +40,9 @@ class Loot extends Component {
 		this.handleCloseDisplayItem = this.handleCloseDisplayItem.bind(this);
 		this.handleSelectWeaponType = this.handleSelectWeaponType.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
+
+		this.suggestSearch = this.suggestSearch.bind(this);
+		this.switchTypeSearch = this.switchTypeSearch.bind(this);
 
 		this.handleTestWeapons = this.handleTestWeapons.bind(this);
 	}
@@ -2423,6 +2425,52 @@ class Loot extends Component {
 		}
 	}
 
+	suggestSearch(type) {
+		return (
+			<Autocomplete
+				items={type}
+				inputProps={{ style: { fontSize: '18px' } }}
+				shouldItemRender={(item, value) => item.Name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+				getItemValue={(item) => item.Name}
+				renderItem={(item, highlighted) => (
+					<div
+						className="customButton"
+						key={item.id}
+						style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
+					>
+						{item.Name}
+					</div>
+				)}
+				value={this.state.value}
+				onChange={(e) => this.setState({ value: e.target.value })}
+				onSelect={(value) => this.setState({ value })}
+			/>
+		);
+	}
+
+	switchTypeSearch() {
+		switch (this.state.itemSearchType) {
+			case 'General':
+				return this.suggestSearch(Equipment);
+			case 'Trade':
+				return this.suggestSearch(TradeGoods);
+			case 'Food':
+				return this.suggestSearch(Food);
+			case 'Mounts':
+				return this.suggestSearch(Mounts);
+			case 'Vehicles':
+				return this.suggestSearch(TackHarnessVehicle);
+			case 'Ships':
+				return this.suggestSearch(Ships);
+			case 'Weapon':
+				return this.suggestSearch(WeaponsList);
+			case 'Armor':
+				return this.suggestSearch(Armor);
+			case 'Magic':
+				return this.suggestSearch(MagicItemsList);
+		}
+	}
+
 	// ______                  _   _ _
 	// | ___ \                | | | (_)
 	// | |_/ /_ _  __ _  ___  | | | |_  _____      __
@@ -2467,26 +2515,10 @@ class Loot extends Component {
 						<option value="Armor">Armor</option>
 						<option value="Magic">Magic Items</option>
 					</select>
+
 					{this.state.itemSearchType === '' ? null : (
-						<Autocomplete
-							items={this.state.selectedSearchType}
-							inputProps={{ style: { fontSize: '18px' } }}
-							shouldItemRender={(item, value) =>
-								item.Name.toLowerCase().indexOf(value.toLowerCase()) > -1}
-							getItemValue={(item) => item.Name}
-							renderItem={(item, highlighted) => (
-								<div
-									className="customButton"
-									key={item.id}
-									style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
-								>
-									{item.Name}
-								</div>
-							)}
-							value={this.state.value}
-							onChange={(e) => this.setState({ value: e.target.value })}
-							onSelect={(value) => this.setState({ value })}
-						/>
+						// this.suggestSearch(Equipment)
+						this.switchTypeSearch()
 					)}
 					<span onClick={this.handleSearch} className="customButton">
 						Search
