@@ -43,6 +43,7 @@ class Loot extends Component {
 
 		this.suggestSearch = this.suggestSearch.bind(this);
 		this.switchTypeSearch = this.switchTypeSearch.bind(this);
+		this.handleItemDetails = this.handleItemDetails.bind(this);
 
 		this.handleTestWeapons = this.handleTestWeapons.bind(this);
 	}
@@ -2289,29 +2290,119 @@ class Loot extends Component {
 	//   _| |_| ||  __/ | | | | | /\__/ /  __/ (_| | | | (__| | | | | | | |_| | | | | (__| |_| | (_) | | | |
 	//   \___/ \__\___|_| |_| |_| \____/ \___|\__,_|_|  \___|_| |_| \_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|
 
-	handleSearch() {
-		this.setState({
-			displayItemWeaponChoices: []
-		});
-		let found;
-		let value = this.state.value;
-		switch (this.state.selectedSearchType) {
-			case 'General':
-				found = Equipment.find((item) => value === item.Name);
-				this.setState({
-					selectedSearchType: Equipment
+	handleItemDetails() {
+		let found = this.state.found;
+		if (!found) {
+			this.setState({
+				displayItem: {
+					Name: 'Healing potion',
+					Description: "The potion's red liquid glimmers when agitated.",
+					Effect: 'Regain 2d4+2 hit points.',
+					Weight: 0.5,
+					Cost: 50,
+					Currency: 'GP'
+				}
+			});
+		} else if (found) {
+			if (found.Armor === true) {
+				let armorState = MagicItemsList[0].Data.find(function(el) {
+					return el.Type === found.ArmorDetails;
 				});
-				break;
-			case 'Trade':
-				found = TradeGoods.find((item) => value === item.Name);
+				console.log('Armor details');
+				console.log(armorState);
 				this.setState({
-					selectedSearchType: TradeGoods
+					displayItemArmorDetails: armorState
 				});
-				break;
+			} else if (found.Weapon === true) {
+				let weaponState = found.Type.substring(found.Type.indexOf('(') + 1);
+				weaponState = weaponState.slice(0, -1);
+				console.log(found.Type);
+				console.log(`Test for weapon type: ${weaponState}`);
+				let any = [
+					'Any Weapon',
+					'Club',
+					'Dagger',
+					'Greatclub',
+					'Handaxe',
+					'Javelin',
+					'Light hammer',
+					'Mace',
+					'Quarterstaff',
+					'Sickle',
+					'Spear',
+					'Crossbow, light',
+					'Dart',
+					'Shortbow',
+					'Sling',
+					'Battleaxe',
+					'Flail',
+					'Glaive',
+					'Greataxe',
+					'Greatsword',
+					'Halberd',
+					'Lance',
+					'Longsword',
+					'Maul',
+					'Morningstar',
+					'Pike',
+					'Rapier',
+					'Scimitar',
+					'Shortsword',
+					'Trident',
+					'War pick',
+					'Warhammer',
+					'Whip',
+					'Blowgun',
+					'Crossbow, hand',
+					'Crossbow, heavy',
+					'Longbow',
+					'Net'
+				];
+				let swords = [ 'Any Sword', 'Greatsword', 'Longsword', 'Scimitar', 'Shortsword', 'Rapier' ];
+				let axes = [ 'Any Axe', 'Handaxe', 'Battleaxe', 'Greataxe' ];
+				let axeOrSword = [
+					'Any Axe or Sword',
+					'Greatsword',
+					'Longsword',
+					'Scimitar',
+					'Shortsword',
+					'Rapier',
+					'Handaxe',
+					'Battleaxe',
+					'Greataxe'
+				];
+				let swordSlashing = [ 'Any Slashing Sword', 'Greatsword', 'Longsword', 'Scimitar' ];
+				// IF statement for if any weapon list of weapons state is any, and so on and so forth.
+				if (weaponState === 'any') {
+					this.setState({
+						displayItemWeaponChoices: any
+					});
+				} else if (weaponState === 'any sword') {
+					this.setState({
+						displayItemWeaponChoices: swords
+					});
+				} else if (weaponState === 'any axe') {
+					this.setState({
+						displayItemWeaponChoices: axes
+					});
+				} else if (weaponState === 'any axe or sword') {
+					this.setState({
+						displayItemWeaponChoices: axeOrSword
+					});
+				} else if (weaponState === 'any sword that deals slashing damage') {
+					this.setState({
+						displayItemWeaponChoices: swordSlashing
+					});
+				} else {
+					this.setState({
+						displayItemWeaponChoices: []
+					});
+				}
+			}
+			this.setState({
+				displayItem: found
+			});
 		}
-
-		// let found = MagicItemsList.find((item) => value === item.Name);
-		console.log(found);
 		if (!found) {
 			this.setState({
 				displayItem: {
@@ -2425,6 +2516,39 @@ class Loot extends Component {
 		}
 	}
 
+	handleSearch() {
+		this.setState({
+			displayItemWeaponChoices: []
+		});
+		let found;
+		let value = this.state.value;
+		let type = this.state.itemSearchType;
+		switch (type) {
+			case 'General':
+				found = Equipment.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
+			case 'Trade':
+				found = TradeGoods.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
+		}
+	}
+
 	suggestSearch(type) {
 		return (
 			<Autocomplete
@@ -2485,24 +2609,6 @@ class Loot extends Component {
 			<div className={this.props.display}>
 				<div className="magicItemSearch">
 					<h2>Magic Item Search</h2>
-					{/* <Autocomplete
-						items={this.state.selectedSearchType}
-						inputProps={{ style: { fontSize: '18px' } }}
-						shouldItemRender={(item, value) => item.Name.toLowerCase().indexOf(value.toLowerCase()) > -1}
-						getItemValue={(item) => item.Name}
-						renderItem={(item, highlighted) => (
-							<div
-								className="customButton"
-								key={item.id}
-								style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
-							>
-								{item.Name}
-							</div>
-						)}
-						value={this.state.value}
-						onChange={(e) => this.setState({ value: e.target.value })}
-						onSelect={(value) => this.setState({ value })}
-					/> */}
 					<select name="itemSearchType" onChange={this.handleChange}>
 						<option value="">None Selected</option>
 						<option value="General">General Goods</option>
@@ -2713,7 +2819,7 @@ class Loot extends Component {
 									<p>{item}</p>
 								</div>
 							))}
-							{this.state.displayItem.Table.length > 0 ? (
+							{!this.state.displayItem.Table || this.state.displayItem.Table.length < 0 ? null : (
 								<div className="itemSection">
 									{this.state.displayItem.Table.map((item) => (
 										<p key={item}>
@@ -2721,7 +2827,7 @@ class Loot extends Component {
 										</p>
 									))}
 								</div>
-							) : null}
+							)}
 							{this.state.displayItemArmorDetails ? (
 								<div className="itemSection">
 									<p>Armor type: {this.state.displayItemArmorDetails.Type}</p>
