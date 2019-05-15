@@ -2546,6 +2546,84 @@ class Loot extends Component {
 					}
 				);
 				break;
+			case 'Food':
+				found = Food.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+
+				break;
+			case 'Mounts':
+				found = Mounts.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
+			case 'Vehicles':
+				found = TackHarnessVehicle.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
+			case 'Ships':
+				found = Ships.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
+			case 'Weapon':
+				found = WeaponsList.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
+			case 'Armor':
+				found = Armor.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
+			case 'Magic':
+				found = MagicItemsList.find((item) => value === item.Name);
+				this.setState(
+					{
+						found
+					},
+					() => {
+						this.handleItemDetails();
+					}
+				);
+				break;
 		}
 	}
 
