@@ -52,6 +52,11 @@ class Loot extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
+		if (event.target.name === 'itemSearchType') {
+			this.setState({
+				value: ''
+			});
+		}
 	}
 
 	DiceRoll(times, sides) {
