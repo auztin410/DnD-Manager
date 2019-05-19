@@ -143,6 +143,7 @@ class Main extends Component {
 
 			case 'loot':
 				if (this.state.individualLootDiv === false && this.state.selected.length === 0) {
+					console.log('Hitting If statement');
 					this.setState(
 						{
 							individualLootDiv: true,
@@ -153,26 +154,20 @@ class Main extends Component {
 						}
 					);
 				} else if (this.state.individualLootDiv === false) {
+					console.log('Hitting First Else if');
 					this.setState({
 						individualLootDiv: true,
 						selected: [ ...this.state.selected, 'loot' ]
 					});
 				} else if (this.state.individualLootDiv === true && this.state.current === 'loot') {
-					let selected = this.state.selected;
-					let index = selected.findIndex((item) => item === 'loot');
-					selected.splice(index, 1);
-					if (this.handleFindIndex('loot') === true) {
-						console.log('Hitting new else if statement');
-						this.setState(
-							{
-								individualLootDiv: false,
-								selected: selected
-							},
-							() => {
-								this.handleNext();
-							}
-						);
-					} else if (this.state.selected.length === 1) {
+					console.log('Hitting second Else if');
+					console.log(this.state.selected.length);
+					if (this.state.selected.length === 1) {
+						console.log('Hitting If statement inside of Else if');
+						console.log(`Selected length ${this.state.selected.length}`);
+						let selected = this.state.selected;
+						let index = selected.findIndex((item) => item === 'loot');
+						selected.splice(index, 1);
 						this.setState(
 							{
 								individualLootDiv: false,
@@ -182,8 +177,27 @@ class Main extends Component {
 								this.handleBack();
 							}
 						);
+
+						// Testing this else if to go to the next instead of the last
+					} else if (this.handleFindIndex('loot') === true) {
+						console.log('Hitting new else if statement');
+						let selected = this.state.selected;
+						let index = selected.findIndex((item) => item === 'loot');
+						selected.splice(index, 1);
+						this.setState(
+							{
+								individualLootDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleNext();
+							}
+						);
 					} else {
 						console.log('Hitting else statement');
+						let selected = this.state.selected;
+						let index = selected.findIndex((item) => item === 'loot');
+						selected.splice(index, 1);
 						this.setState(
 							{
 								individualLootDiv: false,
