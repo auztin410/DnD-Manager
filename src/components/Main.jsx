@@ -56,6 +56,7 @@ class Main extends Component {
 		this.handleOpenClose = this.handleOpenClose.bind(this);
 		this.handleNext = this.handleNext.bind(this);
 		this.handleBack = this.handleBack.bind(this);
+		this.handleFindIndex = this.handleFindIndex.bind(this);
 	}
 
 	componentDidMount() {
@@ -110,6 +111,18 @@ class Main extends Component {
 		}
 	}
 
+	handleFindIndex(section) {
+		let array = this.state.selected;
+		let i = array.indexOf(section);
+
+		let l = array.length - 1;
+		if (i === l) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	// ______                               _____                         _   _____  __  __                   _   _____            _ _
 	// | ___ \                             |  _  |                       | | |  _  |/ _|/ _|                 | | /  __ \          | (_)
 	// | |_/ / __ _ _ __  _ __   ___ _ __  | | | |_ __     __ _ _ __   __| | | | | | |_| |_    __ _ _ __   __| | | /  \/_   _  ___| |_ _ __   __ _
@@ -148,7 +161,18 @@ class Main extends Component {
 					let selected = this.state.selected;
 					let index = selected.findIndex((item) => item === 'loot');
 					selected.splice(index, 1);
-					if (this.state.selected.length === 1) {
+					if (this.handleFindIndex('loot') === true) {
+						console.log('Hitting new else if statement');
+						this.setState(
+							{
+								individualLootDiv: false,
+								selected: selected
+							},
+							() => {
+								this.handleNext();
+							}
+						);
+					} else if (this.state.selected.length === 1) {
 						this.setState(
 							{
 								individualLootDiv: false,
@@ -159,6 +183,7 @@ class Main extends Component {
 							}
 						);
 					} else {
+						console.log('Hitting else statement');
 						this.setState(
 							{
 								individualLootDiv: false,
