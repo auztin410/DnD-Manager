@@ -1242,6 +1242,25 @@ div {
 	margin: 0 auto;
 	margin-top: 10px;
 	padding: 10px;
+	display: grid;
+	grid-auto-columns: 20% 20% 20% 20% 20%;
+	grid-gap: 10px;
+}
+
+.formName {
+	grid-area: 1 / 2 / span 1 / span 3;
+}
+
+.formRaceClass {
+	grid-area: 2 / 1 / span 1 / span 2;
+}
+
+.formStats {
+	grid-area: 2 / 4 / span 1 / span 2;
+}
+
+.stats {
+	width: 35px;
 }
 
 #features {
