@@ -1243,12 +1243,18 @@ div {
 	margin-top: 10px;
 	padding: 10px;
 	display: grid;
-	grid-auto-columns: 20% 20% 20% 20% 20%;
+	grid-auto-columns: auto auto auto auto auto;
 	grid-gap: 10px;
 }
 
+.box {
+	border: black 1px solid;
+	background-color: rgba(240, 33, 33, 0.555);
+	padding: 5px;
+}
+
 .formName {
-	grid-area: 1 / 2 / span 1 / span 3;
+	grid-area: 1 / 1 / span 1 / span 5;
 }
 
 .formRaceClass {
@@ -1257,11 +1263,12 @@ div {
 
 .formStats {
 	grid-area: 2 / 4 / span 1 / span 2;
-	text-align: left;
 }
 
-.stats {
-	width: 35px;
+.stat {
+	width: 32px;
+	margin: 6px;
+	display: inline-block;
 }
 
 #features {

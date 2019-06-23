@@ -40,7 +40,7 @@ class CustomCharacter extends Component {
 	render() {
 		return (
 			<div id="characterCreation">
-				<div className="formName">
+				<div className="formName box">
 					<h2>Create Your Custom Character!</h2>
 					<br />
 					<span>
@@ -48,14 +48,14 @@ class CustomCharacter extends Component {
 					</span>
 				</div>
 
-				<div className="formRaceClass">
+				<div className="formRaceClass box">
 					Race: <input type="text" />
 					<br />
 					Class: <input type="text" />
 				</div>
 
-				<div className="formStats">
-					Str:{' '}
+				<div className="formStats box">
+					<span className="stat">Str:</span>
 					<select name="strength">
 						{' '}
 						{this.state.numbers.map((item) => (
@@ -64,7 +64,7 @@ class CustomCharacter extends Component {
 							</option>
 						))}{' '}
 					</select>{' '}
-					Dex:{' '}
+					<span className="stat">Dex:</span>
 					<select name="dexterity">
 						{' '}
 						{this.state.numbers.map((item) => (
@@ -74,7 +74,7 @@ class CustomCharacter extends Component {
 						))}{' '}
 					</select>
 					<br />
-					Con:{' '}
+					<span className="stat">Con:</span>
 					<select name="constitution">
 						{' '}
 						{this.state.numbers.map((item) => (
@@ -83,7 +83,7 @@ class CustomCharacter extends Component {
 							</option>
 						))}{' '}
 					</select>{' '}
-					Int:{' '}
+					<span className="stat">Int:</span>
 					<select name="intelligence">
 						{' '}
 						{this.state.numbers.map((item) => (
@@ -93,7 +93,7 @@ class CustomCharacter extends Component {
 						))}{' '}
 					</select>
 					<br />
-					Wis:{' '}
+					<span className="stat">Wis:</span>
 					<select name="wisdom">
 						{' '}
 						{this.state.numbers.map((item) => (
@@ -102,7 +102,7 @@ class CustomCharacter extends Component {
 							</option>
 						))}{' '}
 					</select>{' '}
-					Char:{' '}
+					<span className="stat">Cha:</span>
 					<select name="charisma">
 						{' '}
 						{this.state.numbers.map((item) => (
