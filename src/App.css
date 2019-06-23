@@ -1257,6 +1257,7 @@ div {
 
 .formStats {
 	grid-area: 2 / 4 / span 1 / span 2;
+	text-align: left;
 }
 
 .stats {

@@ -4,7 +4,9 @@ import axios from 'axios';
 class CustomCharacter extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			numbers: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ]
+		};
 	}
 
 	componentDidMount() {
@@ -53,11 +55,62 @@ class CustomCharacter extends Component {
 				</div>
 
 				<div className="formStats">
-					Str: <input className="stats" type="number" /> Dex: <input className="stats" type="number" />
+					Str:{' '}
+					<select name="strength">
+						{' '}
+						{this.state.numbers.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}{' '}
+					</select>{' '}
+					Dex:{' '}
+					<select name="dexterity">
+						{' '}
+						{this.state.numbers.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}{' '}
+					</select>
 					<br />
-					Const: <input className="stats" type="number" /> Int: <input className="stats" type="number" />
+					Con:{' '}
+					<select name="constitution">
+						{' '}
+						{this.state.numbers.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}{' '}
+					</select>{' '}
+					Int:{' '}
+					<select name="intelligence">
+						{' '}
+						{this.state.numbers.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}{' '}
+					</select>
 					<br />
-					Wis: <input className="stats" type="number" /> Char: <input className="stats" type="number" />
+					Wis:{' '}
+					<select name="wisdom">
+						{' '}
+						{this.state.numbers.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}{' '}
+					</select>{' '}
+					Char:{' '}
+					<select name="charisma">
+						{' '}
+						{this.state.numbers.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}{' '}
+					</select>
 				</div>
 			</div>
 		);
