@@ -1250,7 +1250,7 @@ div {
 .box {
 	border: black 1px solid;
 	background-color: rgba(240, 33, 33, 0.555);
-	padding: 5px;
+	padding: 15px;
 }
 
 .formName {

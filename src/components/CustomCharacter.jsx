@@ -5,7 +5,18 @@ class CustomCharacter extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			numbers: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ]
+			numbers: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ],
+			alignment: [
+				'lawful good',
+				'neutral good',
+				'chaotic good',
+				'lawful neutral',
+				'neutral',
+				'chaotic neutral',
+				'lawful evil',
+				'neutral evil',
+				'chaotic evil'
+			]
 		};
 	}
 
@@ -50,6 +61,7 @@ class CustomCharacter extends Component {
 
 				<div className="formRaceClass box">
 					Race: <input type="text" />
+					<br />
 					<br />
 					Class: <input type="text" />
 				</div>
@@ -110,6 +122,19 @@ class CustomCharacter extends Component {
 								{item}
 							</option>
 						))}{' '}
+					</select>
+				</div>
+
+				<div className="formBackground box">
+					<input type="text" />
+					<br />
+					<br />
+					<select name="alignment" id="">
+						{this.state.alignment.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}
 					</select>
 				</div>
 			</div>
