@@ -126,16 +126,37 @@ class CustomCharacter extends Component {
 				</div>
 
 				<div className="formBackground box">
-					<input type="text" />
+					Background<br />
+					Name: <input type="text" />
 					<br />
+					Description: <textarea name="" cols="30" rows="10" />
 					<br />
-					<select name="alignment" id="">
+					Personality Traits: <input type="text" /> <button>Add</button>
+					<br />
+					Ideals: <input type="text" /> <button>Add</button>
+					<br />
+					Bonds: <input type="text" /> <button>Add</button>
+					<br />
+					Flaw: <input type="text" /> <button>Add</button>
+					<br />
+					Alignment:{' '}
+					<select name="alignment">
 						{this.state.alignment.map((item) => (
 							<option key={item} value={item}>
 								{item}
 							</option>
 						))}
 					</select>
+				</div>
+
+				<div className="formItems box">
+					Items<br />
+					<input type="text" /> <select name="" /> <button>Add</button>
+				</div>
+
+				<div className="formSkills box">
+					Skills<br />
+					<select name="" /> <button>Add</button>
 				</div>
 			</div>
 		);
