@@ -1236,17 +1236,6 @@ div {
 	padding: 5px;
 }
 
-#characterCreation {
-	background-image: url('./assets/u0.jpg');
-	width: 1200px;
-	margin: 0 auto;
-	margin-top: 10px;
-	padding: 10px;
-	display: grid;
-	grid-auto-columns: auto auto auto auto auto;
-	grid-gap: 10px;
-}
-
 .box {
 	border: black 1px solid;
 	background-color: rgba(240, 33, 33, 0.377);
@@ -1254,33 +1243,60 @@ div {
 }
 
 .formName {
-	grid-area: 1 / 1 / span 1 / span 5;
+	grid-area: name;
 }
 
 .formRaceClass {
-	grid-area: 2 / 1 / span 1 / span 2;
+	grid-area: race;
 }
 
 .formStats {
-	grid-area: 2 / 4 / span 1 / span 2;
+	grid-area: stats;
 }
 
 .formBackground {
-	grid-area: 3 / 1 / span 1 / span 1;
+	grid-area: back-ground;
 }
 
 .formItems {
-	grid-area: 3 / 2 / span 1 / span 1;
+	grid-area: items;
 }
 
 .formSkills {
-	grid-area: 3 / 3 / span 1 / span 1;
+	grid-area: skills;
 }
 
 .stat {
 	width: 32px;
 	margin: 6px;
 	display: inline-block;
+}
+
+#characterCreation {
+	background-image: url('./assets/u0.jpg');
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 10px;
+	display: grid;
+	grid-template-areas: 'name name name name' 'race race stats stats' 'back-ground back-ground items skills';
+	grid-gap: 10px;
+}
+
+@media (max-width: 767px) {
+	#characterCreation {
+		width: 300px;
+		grid-template-areas: 'name' 'race' 'stats' 'back-ground' 'items' 'skills';
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 1024px) {
+	#characterCreation {
+		width: 700px;
+		grid-template-areas: 'name' 'race' 'stats' 'back-ground' 'items' 'skills';
+		margin: 0 auto;
+	}
 }
 
 #features {
