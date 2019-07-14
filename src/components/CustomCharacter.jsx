@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import skills from '../assets/Json/Skills';
 
 class CustomCharacter extends Component {
 	constructor(props) {
@@ -16,7 +17,8 @@ class CustomCharacter extends Component {
 				'lawful evil',
 				'neutral evil',
 				'chaotic evil'
-			]
+			],
+			skills
 		};
 	}
 
@@ -127,13 +129,20 @@ class CustomCharacter extends Component {
 
 				<div className="formBackground box">
 					Background<br />
-					Name: <input type="text" />
+					<span>
+						Name: <input type="text" />
+					</span>
 					<br />
-					Description: <textarea name="" cols="30" rows="10" />
+					<span>Description: </span> <br /> <br />
+					<textarea name="" cols="30" rows="10" />
 					<br />
-					Personality Traits: <input type="text" /> <button>Add</button>
+					<span>
+						Personality Traits: <input type="text" /> <button>Add</button>
+					</span>
 					<br />
-					Ideals: <input type="text" /> <button>Add</button>
+					<span>
+						Ideals: <input type="text" /> <button>Add</button>
+					</span>
 					<br />
 					Bonds: <input type="text" /> <button>Add</button>
 					<br />
@@ -156,7 +165,15 @@ class CustomCharacter extends Component {
 
 				<div className="formSkills box">
 					Skills<br />
-					<select name="" /> <button>Add</button>
+					<select name="skills">
+						<option value="">None Selected</option>
+						{this.state.skills.map((item) => (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						))}
+					</select>{' '}
+					<button>Add</button>
 				</div>
 			</div>
 		);
