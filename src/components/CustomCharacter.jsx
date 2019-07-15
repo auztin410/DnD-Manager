@@ -29,10 +29,12 @@ class CustomCharacter extends Component {
 			skills,
 			itemType: '',
 			rewardSelected: null,
-			rewardList: null
+			rewardList: null,
+			inventory: []
 		};
 
 		this.handleChange = this.handleChange.bind(this);
+		this.handleAddItem = this.handleAddItem.bind(this);
 	}
 
 	componentDidMount() {
@@ -65,11 +67,6 @@ class CustomCharacter extends Component {
 
 	handleChange(event) {
 		let value = event.target.value;
-		// this.setState(
-		// 	{
-		// 		[event.target.name]: event.target.value
-		// 	},
-		// 	() => {
 		if (value === '') {
 			this.setState({
 				rewardSelected: '',
@@ -116,8 +113,20 @@ class CustomCharacter extends Component {
 				rewardList: true
 			});
 		}
-		// }
-		// );
+	}
+
+	handleAddItem() {
+		let item = this.state.value;
+		this.setState(
+			{
+				inventory: item
+			},
+			() => {
+				this.setState({
+					value: ''
+				});
+			}
+		);
 	}
 
 	render() {
@@ -271,6 +280,9 @@ class CustomCharacter extends Component {
 							<button onClick={this.handleAddItem}>Add Item</button>
 							<br />
 						</div>
+					) : null}
+					{this.state.inventory.length > 0 ? (
+						<div> {this.state.inventory.map((item) => <span key={item}>{item}</span>)}</div>
 					) : null}
 				</div>
 
