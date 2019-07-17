@@ -117,9 +117,11 @@ class CustomCharacter extends Component {
 
 	handleAddItem() {
 		let item = this.state.value;
+		let inventory = this.state.inventory;
+		inventory.push(item);
 		this.setState(
 			{
-				inventory: item
+				inventory
 			},
 			() => {
 				this.setState({
@@ -282,7 +284,7 @@ class CustomCharacter extends Component {
 						</div>
 					) : null}
 					{this.state.inventory.length > 0 ? (
-						<div> {this.state.inventory.map((item) => <span key={item}>{item}</span>)}</div>
+						<div> {this.state.inventory.map((item) => <div key={item}>{item}</div>)}</div>
 					) : null}
 				</div>
 
