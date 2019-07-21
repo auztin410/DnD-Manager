@@ -30,9 +30,11 @@ class CustomCharacter extends Component {
 			itemType: '',
 			rewardSelected: null,
 			rewardList: null,
-			inventory: []
+			inventory: [],
+			itemQuantity: 0
 		};
 
+		this.handleChanges = this.handleChanges.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleAddItem = this.handleAddItem.bind(this);
 	}
@@ -62,6 +64,14 @@ class CustomCharacter extends Component {
 					user: null
 				});
 			}
+		});
+	}
+
+	handleChanges(event) {
+		let name = event.target.name;
+		let value = event.target.value;
+		this.setState({
+			[event.target.name]: event.target.value
 		});
 	}
 
@@ -116,7 +126,7 @@ class CustomCharacter extends Component {
 	}
 
 	handleAddItem() {
-		let item = this.state.value;
+		let item = { name: this.state.value, quantity: this.state.itemQuantity };
 		let inventory = this.state.inventory;
 		inventory.push(item);
 		this.setState(
@@ -125,7 +135,8 @@ class CustomCharacter extends Component {
 			},
 			() => {
 				this.setState({
-					value: ''
+					value: '',
+					itemQuantity: 0
 				});
 			}
 		);
@@ -273,18 +284,25 @@ class CustomCharacter extends Component {
 								onSelect={(value) => this.setState({ value })}
 							/>{' '}
 							<input
-								onChange={this.handleChange}
+								onChange={this.handleChanges}
 								ref={(el) => (this.inputQuantity = el)}
 								className="numberInput"
 								type="number"
-								name="rewardQuantity"
+								name="itemQuantity"
 							/>{' '}
 							<button onClick={this.handleAddItem}>Add Item</button>
 							<br />
 						</div>
 					) : null}
 					{this.state.inventory.length > 0 ? (
-						<div> {this.state.inventory.map((item) => <div key={item}>{item}</div>)}</div>
+						<div>
+							{' '}
+							{this.state.inventory.map((item) => (
+								<div key={item.name}>
+									{item.name} {item.quantity}
+								</div>
+							))}
+						</div>
 					) : null}
 				</div>
 
