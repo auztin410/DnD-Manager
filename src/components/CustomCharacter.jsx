@@ -27,6 +27,8 @@ class CustomCharacter extends Component {
 				'chaotic evil'
 			],
 			skills,
+			skillSelected: '',
+			addedSkills: [],
 			itemType: '',
 			rewardSelected: null,
 			rewardList: null,
@@ -37,6 +39,7 @@ class CustomCharacter extends Component {
 		this.handleChanges = this.handleChanges.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleAddItem = this.handleAddItem.bind(this);
+		this.handleAddSkill = this.handleAddSkill.bind(this);
 	}
 
 	componentDidMount() {
@@ -140,6 +143,19 @@ class CustomCharacter extends Component {
 				});
 			}
 		);
+	}
+
+	handleAddSkill() {
+		let selected = this.state.skillSelected;
+		let addedSkills = this.state.addedSkills;
+		let skills = this.state.skills;
+		addedSkills.push(selected);
+		let index = skills.indexOf(selected);
+		skills.splice(index, 1);
+		this.setState({
+			addedSkills,
+			skills
+		});
 	}
 
 	render() {
@@ -308,7 +324,7 @@ class CustomCharacter extends Component {
 
 				<div className="formSkills box">
 					Skills<br />
-					<select name="skills">
+					<select name="skillSelected" onChange={this.handleChanges}>
 						<option value="">None Selected</option>
 						{this.state.skills.map((item) => (
 							<option key={item} value={item}>
@@ -316,7 +332,10 @@ class CustomCharacter extends Component {
 							</option>
 						))}
 					</select>{' '}
-					<button>Add</button>
+					<button onClick={this.handleAddSkill}>Add</button>
+					{this.state.addedSkills.length > 0 ? (
+						<div>{this.state.addedSkills.map((item) => <div key={item}>{item}</div>)}</div>
+					) : null}
 				</div>
 			</div>
 		);
